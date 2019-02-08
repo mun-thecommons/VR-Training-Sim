@@ -41680,11 +41680,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.512
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
@@ -69862,7 +69862,7 @@ GameObject:
   - component: {fileID: 1471800045}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: PlayerUIScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101296,6 +101296,7 @@ MonoBehaviour:
   client_2Head: {fileID: 1264741253}
   client_3: {fileID: 190432417}
   client_3Head: {fileID: 488026892}
+  canvas: {fileID: 0}
   questions: []
   answers: []
   isScoreShowing: 0
