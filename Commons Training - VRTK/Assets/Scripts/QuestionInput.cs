@@ -140,8 +140,8 @@ IEnumerator mcText()
                 totalScore++;
                 isScoreShowing = true;
                 GameObject.Find("Canvas").GetComponent<PlayerUIScore>().TurnScoreOn();
-                GameObject.Find
-               // StartCoroutine(HidePlayerScore());
+                //GameObject.Find
+                //StartCoroutine(HidePlayerScore());
                
                 yield return new WaitUntil(() => !Client_2.askingQuestion);
                 yield return new WaitUntil(() => !Client_3.askingQuestion);
