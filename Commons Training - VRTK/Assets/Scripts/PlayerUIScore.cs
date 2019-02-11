@@ -21,9 +21,9 @@ public class PlayerUIScore : MonoBehaviour
        
         playerUIscore.SetText("Score:  "+ QuestionInput.totalScore.ToString());
         Debug.Log("being updated");
+       // mainCanvas.transform.GetChild(0).gameObject.SetActive(false);
 
-     
-        
+
 
         //
 
