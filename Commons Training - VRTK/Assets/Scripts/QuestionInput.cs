@@ -14,7 +14,8 @@ public class QuestionInput : MonoBehaviour {
     public TextMeshProUGUI client_3;
     public TextMeshProUGUI client_3Head;
     private PlayerUIScore playerScore;
-    
+    public GameObject canvas;  //works just fine
+
     public List<string> questions = new List<string> {};
     public List<string> answers = new List<string> {};
     public static List<string> mcQuestions= new List<string> { };
@@ -36,6 +37,8 @@ public class QuestionInput : MonoBehaviour {
         //GameObject myCanvas = GameObject.Find("Canvas");
         //playerScore = myCanvas.GetComponent<PlayerUIScore>();
         output = gameObject.GetComponent<TextMeshProUGUI>();
+        canvas = GameObject.FindWithTag("PlayerUIScore");  //works just fine
+
 
         fileParse("questions", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\questions.txt");
         fileParse("answers", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\answers.txt");
@@ -98,7 +101,8 @@ public class QuestionInput : MonoBehaviour {
     {
        
         yield return new WaitForSeconds(5f);
-        GameObject.Find("Canvas").GetComponent<PlayerUIScore>().TurnScoreOff();
+        // GameObject.Find("Canvas").GetComponent<PlayerUIScore>().TurnScoreOff();
+        canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOff();  //works just fine
         isScoreShowing = false;
 
     }
@@ -139,10 +143,11 @@ IEnumerator mcText()
                 correct++;
                 totalScore++;
                 isScoreShowing = true;
-                GameObject.Find("Canvas").GetComponent<PlayerUIScore>().TurnScoreOn();
-                GameObject.Find
-               // StartCoroutine(HidePlayerScore());
-               
+                canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOn();  //works just fine
+                //GameObject.Find
+                StartCoroutine(HidePlayerScore());
+
+
                 yield return new WaitUntil(() => !Client_2.askingQuestion);
                 yield return new WaitUntil(() => !Client_3.askingQuestion);
             }
@@ -157,6 +162,9 @@ IEnumerator mcText()
                 //playerScore.TurnScoreOn();
               // StartCoroutine(HidePlayerScore());
                 FindObjectOfType<Audio>().wrongSound();
+                canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOn();   //works just fine
+
+                StartCoroutine(HidePlayerScore());
                 yield return new WaitForSeconds(2);
             }
 
