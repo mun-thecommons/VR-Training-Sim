@@ -3,24 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 
-public class QuestionInput : MonoBehaviour {
+public class QuestionInput : MonoBehaviour
+{
 
-    private TextMeshProUGUI output;
-    public TextMeshProUGUI client_2;
-    public TextMeshProUGUI client_2Head;
-    public TextMeshProUGUI client_3;
-    public TextMeshProUGUI client_3Head;
-    private PlayerUIScore playerScore;
-    public GameObject canvas;  //works just fine
+    //private TextMeshProUGUI output;
+  
+    public static GameObject canvas;  //works just fine
 
-    public List<string> questions = new List<string> {};
-    public List<string> answers = new List<string> {};
-    public static List<string> mcQuestions= new List<string> { };
+    public static List<string> mcQuestions = new List<string> { };
     public static List<string> mcCorrectAnswers = new List<string> { };
     public static List<string[]> mcWrongAnswers = new List<string[]> { };
+    public List<string> questionsArray = new List<string> { };
+    public List<string> answersArray = new List<string> { };
 
     public static int correct = 0;
     public static int wrong = 0;
@@ -28,7 +26,7 @@ public class QuestionInput : MonoBehaviour {
     public static int scoreDetector = 0;
     public static bool answerCorrect;
     public static bool questionAnswered;
-    public bool isScoreShowing = false;
+    public static bool isScoreShowing = false;
 
     void Awake()
     {
@@ -36,27 +34,32 @@ public class QuestionInput : MonoBehaviour {
         //  playerScore = GameObject.Find("Canvas").gameObject.GetComponent<PlayerUIScore>();
         //GameObject myCanvas = GameObject.Find("Canvas");
         //playerScore = myCanvas.GetComponent<PlayerUIScore>();
-        output = gameObject.GetComponent<TextMeshProUGUI>();
+       // output = gameObject.GetComponent<TextMeshProUGUI>();
+
+
         canvas = GameObject.FindWithTag("PlayerUIScore");  //works just fine
 
 
-        fileParse("questions", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\questions.txt");
-        fileParse("answers", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\answers.txt");
-        fileParse("mc", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\multipleChoice.txt");
+        FileParse("questions", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\questions.txt");
+        FileParse("answers", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\answers.txt");
+        FileParse("mc", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\multipleChoice.txt");
 
-        StartCoroutine(clientQuiz());
-        StartCoroutine(mcText());
+       // StartCoroutine(clientQuiz());
+       // StartCoroutine(mcText());
     }
 
+
+    //CLIENT 1 - THE NON-MC
+    /*
     IEnumerator clientQuiz()
     {
-        while (questions.Count > 0)
+        while (questionsArray.Count > 0)
         {
-            int randomIndex = Random.Range(0, questions.Count);
-            output.text = questions[randomIndex];
+            int randomIndex = Random.Range(0, questionsArray.Count);
+            output.text = questionsArray[randomIndex];
 
             yield return new WaitUntil(() => TouchDetection.isGrabbingLabnet || TouchDetection.isGrabbingITS);
-            string answer = answers[randomIndex];
+            string answer = answersArray[randomIndex];
 
             if (evaluateAnswer(answer))
             {
@@ -75,11 +78,13 @@ public class QuestionInput : MonoBehaviour {
 
             yield return new WaitUntil(() => !TouchDetection.isGrabbingLabnet && !TouchDetection.isGrabbingITS);
             yield return new WaitForSeconds(1);
-            questions.RemoveAt(randomIndex);
-            answers.RemoveAt(randomIndex);
+           questionsArray.RemoveAt(randomIndex);
+            answersArray.RemoveAt(randomIndex);
         }
         output.text = "Have a nice day!";
     }
+   
+
 
     bool evaluateAnswer(string answer)
     {
@@ -97,25 +102,27 @@ public class QuestionInput : MonoBehaviour {
         }
     }
 
-    IEnumerator HidePlayerScore()
-    {
-       
-        yield return new WaitForSeconds(5f);
-        // GameObject.Find("Canvas").GetComponent<PlayerUIScore>().TurnScoreOff();
-        canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOff();  //works just fine
-        isScoreShowing = false;
 
-    }
 
-IEnumerator mcText()
+
+
+        */
+
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+ ///OLD MC QUESTIONS LOGIC/////////////////
+    /*
+    IEnumerator mcText()
     {
         while (mcQuestions.Count > 0)
         {
-            yield return new WaitUntil(() => Client_2.askingQuestion || Client_3.askingQuestion);
-            int randomIndex = Random.Range(0, mcCorrectAnswers.Count);
+            yield return new WaitUntil(() => Client_2.askingQuestion || Client_3.askingQuestion); //
+            int randomIndex = Random.Range(0, mcCorrectAnswers.Count); //
 
-            client_2Head.text = "Excuse me, " + mcQuestions[randomIndex];
-            client_3Head.text = "Excuse me, " + mcQuestions[randomIndex];
+            client_2Head.text = "Excuse me, " + mcQuestions[randomIndex]; // 
+            client_3Head.text = "Excuse me, " + mcQuestions[randomIndex]; //
 
             List<string> output = new List<string> { };
 
@@ -125,11 +132,19 @@ IEnumerator mcText()
             output.Add(mcWrongAnswers[randomIndex][2]);
 
             List<string> shuffledOutput = shuffle(output);
+            
+            TextMeshProUGUI ButtonA = client_2.transform.parent.gameObject.transform.Find("ButtonA").gameObject.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI ButtonB = client_2.transform.parent.gameObject.transform.Find("ButtonB").gameObject.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI ButtonC = client_2.transform.parent.gameObject.transform.Find("ButtonC").gameObject.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI ButtonD = client_2.transform.parent.gameObject.transform.Find("ButtonD").gameObject.GetComponent<TextMeshProUGUI>();
+            ButtonA.text = shuffledOutput[0];
+            ButtonB.text = shuffledOutput[1];
+            ButtonC.text = shuffledOutput[2];
+            ButtonD.text = shuffledOutput[3];
 
-            client_2.text = "A. " + shuffledOutput[0] + "\n" + "B. " + shuffledOutput[1] + "\n" + "X. " + shuffledOutput[2] + "\n" + "Y. " + shuffledOutput[3];
-            client_3.text = "A. " + shuffledOutput[0] + "\n" + "B. " + shuffledOutput[1] + "\n" + "X. " + shuffledOutput[2] + "\n" + "Y. " + shuffledOutput[3];
+           // button1 = gameObject.transform.Find("AnswersCanvas").gameObject.transform.Find("button1");
 
-            yield return new WaitUntil(() => (OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four)) && (Client_2.askingQuestion || Client_3.askingQuestion ));
+            yield return new WaitUntil(() => (OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four)) && (Client_2.askingQuestion || Client_3.askingQuestion));
 
             string answer = mcCorrectAnswers[randomIndex];
 
@@ -157,10 +172,10 @@ IEnumerator mcText()
                 client_3Head.text = "That doesn't really help.";
                 questionAnswered = false;
                 wrong++;
-               totalScore=totalScore-1;
+                totalScore = totalScore - 1;
                 isScoreShowing = true;
                 //playerScore.TurnScoreOn();
-              // StartCoroutine(HidePlayerScore());
+                // StartCoroutine(HidePlayerScore());
                 FindObjectOfType<Audio>().wrongSound();
                 canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOn();   //works just fine
 
@@ -173,8 +188,13 @@ IEnumerator mcText()
             mcWrongAnswers.RemoveAt(randomIndex);
         }
     }
+    */
 
-    void fileParse(string toParse, string filepath)
+
+
+
+    void FileParse(string toParse, string filepath)
+
     {
         StreamReader file = new StreamReader(@filepath);
         string line;
@@ -182,14 +202,14 @@ IEnumerator mcText()
         {
             while ((line = file.ReadLine()) != null)
             {
-                answers.Add(line);
+                answersArray.Add(line);
             }
         }
         else if (toParse.Equals("questions"))
         {
             while ((line = file.ReadLine()) != null)
             {
-                questions.Add(line);
+                questionsArray.Add(line);
             }
         }
         else if (toParse.Equals("mc"))
@@ -204,8 +224,8 @@ IEnumerator mcText()
         }
         file.Close();
     }
-
-    public List<string> shuffle(List<string> list)
+/*
+    public static List<string> shuffle(List<string> list)
     {
         List<string> shuffled = new List<string> { };
 
@@ -219,9 +239,9 @@ IEnumerator mcText()
 
         return shuffled;
     }
+*/
 
-   
 }
 
-  
+
 

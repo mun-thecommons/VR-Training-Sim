@@ -11,9 +11,14 @@ TagManager:
   - Station3
   - Station4
   - Hand
-  - Client_2
-  - Client_3
   - PlayerUIScore
+  - Client
+  - ButtonA
+  - ButtonB
+  - ButtonC
+  - ButtonD
+  - QuestionCanvas
+  - AnswersCanvas
   layers:
   - Default
   - TransparentFX

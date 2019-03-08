@@ -12,6 +12,16 @@ public class TouchDetection : MonoBehaviour
     static public bool isGrabbingLabnet = false;
 
     [HideInInspector]
+    static public bool isTouchingButtonA = false;
+    [HideInInspector]
+    static public bool isTouchingButtonB = false;
+    [HideInInspector]
+    static public bool isTouchingButtonC = false;
+    [HideInInspector]
+    static public bool isTouchingButtonD = false;
+
+
+    [HideInInspector]
     static public bool station1 = false;
     [HideInInspector]
     static public bool station2 = false;
@@ -37,7 +47,7 @@ public class TouchDetection : MonoBehaviour
             isTouchingLabNet = true;
         }
 
-        else if(other.CompareTag("Station1"))
+        else if (other.CompareTag("Station1"))
         {
             station1 = true;
         }
@@ -54,6 +64,28 @@ public class TouchDetection : MonoBehaviour
             station4 = true;
         }
 
+        else if (other.CompareTag("ButtonA"))
+        {
+
+            isTouchingButtonA = true;
+        }
+
+        else if (other.CompareTag("ButtonB"))
+        {
+
+            isTouchingButtonB = true;
+        }
+        else if (other.CompareTag("ButtonC"))
+        {
+
+            isTouchingButtonC = true;
+        }
+        else if (other.CompareTag("ButtonD"))
+        {
+
+            isTouchingButtonD = true;
+        }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -62,6 +94,8 @@ public class TouchDetection : MonoBehaviour
         {
             isTouchingITS = false;
         }
+
+
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = false;

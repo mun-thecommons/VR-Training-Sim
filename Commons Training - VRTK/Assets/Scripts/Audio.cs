@@ -6,6 +6,8 @@ public class Audio : MonoBehaviour {
 
     public AudioClip correct;
     public AudioClip wrong;
+    public AudioClip loginToLinux;
+    public AudioClip registerForMath1000;
 
     public float volume = .25f;
 
@@ -23,4 +25,17 @@ public class Audio : MonoBehaviour {
     {
         source.PlayOneShot(correct, volume);
     }
+
+
+    public void loginToLinuxSound()
+    {
+        source.PlayOneShot(loginToLinux, volume);
+    }
+
+    public void registerForMath1000Sound()
+    {
+        source.PlayOneShot(registerForMath1000, volume);
+    }
+
+
 }
