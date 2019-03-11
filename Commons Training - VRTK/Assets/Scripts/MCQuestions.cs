@@ -24,14 +24,18 @@ public class MCQuestions : MonoBehaviour {
     private bool done = false;
     public float questionDelay = 10f;
     private float timer = 0f;
+   // private PlayerUIScore uiScoreScript;
 
 
 
     // Use this for initialization
     void Start()
     {
+        
         client = GetComponent<Client>();
         player = client.player;
+       // uiScoreScript =(PlayerUIScore) GameObject.Find("Canvas").GetComponent(typeof(PlayerUIScore));
+       
         questions = gameObject.transform.Find("QuestionCanvas").gameObject; //questions.enabled(false doesnt work) doesnt work  ?????????????????????
         answers = gameObject.transform.Find("AnswersCanvas").gameObject;  //answers.enabled(false) works
         output = new List<string> { };
@@ -81,7 +85,8 @@ public class MCQuestions : MonoBehaviour {
                 QuestionInput.correct++;
                 QuestionInput.totalScore++;
                 QuestionInput.isScoreShowing = true;
-                QuestionInput.canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOn();  //works just fine  
+                StartCoroutine(QuestionInput.FlashPlayerScore());
+                //gameObject.SetActive(false);
 
             }
 
@@ -91,10 +96,8 @@ public class MCQuestions : MonoBehaviour {
                 QuestionInput.wrong++;
                 QuestionInput.totalScore = QuestionInput.totalScore - 1;
                 QuestionInput.isScoreShowing = true;
-                //playerScore.TurnScoreOn();
-                // StartCoroutine(HidePlayerScore());
+                StartCoroutine(QuestionInput.FlashPlayerScore());
                 FindObjectOfType<Audio>().wrongSound();
-                QuestionInput.canvas.gameObject.GetComponent<PlayerUIScore>().TurnScoreOn();   //works just fine // change so it accesses turnscoreon directly from MCQuestions intstead of QuestionInput
 
             }
 

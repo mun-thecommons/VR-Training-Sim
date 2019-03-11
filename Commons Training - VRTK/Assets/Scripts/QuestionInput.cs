@@ -19,7 +19,7 @@ public class QuestionInput : MonoBehaviour
     public static List<string[]> mcWrongAnswers = new List<string[]> { };
     public List<string> questionsArray = new List<string> { };
     public List<string> answersArray = new List<string> { };
-
+    static public PlayerUIScore canvasScript;
     public static int correct = 0;
     public static int wrong = 0;
     public static int totalScore = 0;
@@ -37,9 +37,6 @@ public class QuestionInput : MonoBehaviour
        // output = gameObject.GetComponent<TextMeshProUGUI>();
 
 
-        canvas = GameObject.FindWithTag("PlayerUIScore");  //works just fine
-
-
         FileParse("questions", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\questions.txt");
         FileParse("answers", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\answers.txt");
         FileParse("mc", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\multipleChoice.txt");
@@ -48,6 +45,15 @@ public class QuestionInput : MonoBehaviour
        // StartCoroutine(mcText());
     }
 
+
+    static public IEnumerator FlashPlayerScore()
+    {
+        PlayerUIScore.TurnScoreOn();
+        yield return new WaitForSeconds(5f);
+        PlayerUIScore.TurnScoreOff();
+        isScoreShowing = false;
+
+    }
 
     //CLIENT 1 - THE NON-MC
     /*
@@ -108,11 +114,11 @@ public class QuestionInput : MonoBehaviour
 
         */
 
-   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
- ///OLD MC QUESTIONS LOGIC/////////////////
+    ///OLD MC QUESTIONS LOGIC/////////////////
     /*
     IEnumerator mcText()
     {

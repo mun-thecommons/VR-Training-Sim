@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+
 
 
 public class PlayerUIScore : MonoBehaviour
 {
-    public TextMeshProUGUI playerUIscore;
-    public Canvas mainCanvas;
+     TextMeshProUGUI playerUIscore;
+     static Canvas mainCanvas;
+
 
     void Start()
     {
-        
+
+        playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
+        mainCanvas.enabled = false;
         
     }
 
@@ -19,16 +25,19 @@ public class PlayerUIScore : MonoBehaviour
     
         playerUIscore.SetText("Score:  "+ QuestionInput.totalScore.ToString());
        
-    
-    }
-    public void TurnScoreOff()
-    {
-        mainCanvas.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public void TurnScoreOn()
+    
+    static public void TurnScoreOff()
     {
-        mainCanvas.transform.GetChild(0).gameObject.SetActive(true);
+        mainCanvas.enabled = false;
+        
+    }
+
+    static public void TurnScoreOn()
+    {
+        mainCanvas.enabled = true;
+        Debug.Log("showing score");
     }
 }
 
