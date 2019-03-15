@@ -20,7 +20,7 @@ public class TouchDetection : MonoBehaviour
     [HideInInspector]
     static public bool isTouchingButtonD = false;
 
-
+    /*
     [HideInInspector]
     static public bool station1 = false;
     [HideInInspector]
@@ -29,7 +29,7 @@ public class TouchDetection : MonoBehaviour
     static public bool station3 = false;
     [HideInInspector]
     static public bool station4 = false;
-
+    */
     void Update()
     {
         ITSisGrabbed();
@@ -47,7 +47,7 @@ public class TouchDetection : MonoBehaviour
             isTouchingLabNet = true;
         }
 
-        else if (other.CompareTag("Station1"))
+      /*  else if (other.CompareTag("Station1"))
         {
             station1 = true;
         }
@@ -63,6 +63,7 @@ public class TouchDetection : MonoBehaviour
         {
             station4 = true;
         }
+        */
 
         else if (other.CompareTag("ButtonA"))
         {

@@ -6,7 +6,7 @@ public class Light3 : MonoBehaviour {
 
     void Update()
     {
-        if (TouchDetection.station3)
+        if (RoundsCard.isRound3Done)
             gameObject.GetComponent<Renderer>().material.color = Color.green;
         else
             gameObject.GetComponent<Renderer>().material.color = Color.red;

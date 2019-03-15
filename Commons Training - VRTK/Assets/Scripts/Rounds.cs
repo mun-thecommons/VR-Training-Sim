@@ -4,11 +4,12 @@ using TMPro;
 using UnityEngine;
 
 public class Rounds : MonoBehaviour {
+   
 
     private TextMeshProUGUI output;
-
     private int seconds = 0;
     public int minutes = 0;
+    private AudioSource roundsDoneSignal;
 
     private float waitTime = 1f;
 
@@ -19,26 +20,36 @@ public class Rounds : MonoBehaviour {
     void Start()
     {
         output = gameObject.GetComponent<TextMeshProUGUI>();
+        roundsDoneSignal = GetComponent<AudioSource>();
     }
 
     IEnumerator done()
     {
         if (roundsDone)
         {
+            roundsDoneSignal.Play();
             minutes = 0;
             seconds = 0;
             yield return new WaitForSeconds(5);
-            TouchDetection.station1 = false;
-            TouchDetection.station2 = false;
-            TouchDetection.station3 = false;
-            TouchDetection.station4 = false;
+            RoundsCard.isRound1Done = false;
+            RoundsCard.isRound2Done = false;
+            RoundsCard.isRound3Done = false;
+            RoundsCard.isRound4Done = false;
+
+            /* TouchDetection.station1 = false;
+             TouchDetection.station2 = false;
+             TouchDetection.station3 = false;
+             TouchDetection.station4 = false;
+             */
         }  
     }
 
     void Update()
     {
-        roundsDone = TouchDetection.station1 && TouchDetection.station2 && TouchDetection.station3 && TouchDetection.station4; 
+       
+       //  roundsDone = TouchDetection.station1 && TouchDetection.station2 && TouchDetection.station3 && TouchDetection.station4; 
 
+        roundsDone = RoundsCard.isRound1Done && RoundsCard.isRound2Done && RoundsCard.isRound3Done && RoundsCard.isRound4Done;
         timer += Time.deltaTime;
         if (timer > waitTime)
         {
@@ -63,4 +74,5 @@ public class Rounds : MonoBehaviour {
         else
             output.text = "Last Rounds " + minutes.ToString() + ":" + seconds.ToString();
     }
+   
 }

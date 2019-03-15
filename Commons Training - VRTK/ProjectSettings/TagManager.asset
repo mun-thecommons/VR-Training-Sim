@@ -19,6 +19,7 @@ TagManager:
   - ButtonD
   - QuestionCanvas
   - AnswersCanvas
+  - roundsCard
   layers:
   - Default
   - TransparentFX
