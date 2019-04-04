@@ -2,6 +2,7 @@
 
 public class TouchDetection : MonoBehaviour
 {
+   
     [HideInInspector]
     static public bool isTouchingITS = false;
     [HideInInspector]
@@ -30,6 +31,7 @@ public class TouchDetection : MonoBehaviour
     [HideInInspector]
     static public bool station4 = false;
     */
+  
     void Update()
     {
         ITSisGrabbed();
@@ -40,11 +42,14 @@ public class TouchDetection : MonoBehaviour
     {
         if (other.CompareTag("ITS"))
         {
+
             isTouchingITS = true;
+            
         }
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = true;
+            
         }
 
       /*  else if (other.CompareTag("Station1"))
@@ -94,12 +99,14 @@ public class TouchDetection : MonoBehaviour
         if (other.CompareTag("ITS"))
         {
             isTouchingITS = false;
+            
         }
 
 
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = false;
+           
         }
     }
 
@@ -107,7 +114,10 @@ public class TouchDetection : MonoBehaviour
     {
         if (isTouchingITS && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
         {
+            
             isGrabbingITS = true;
+            Debug.Log("its grabbed");
+          
         }
         else
             isGrabbingITS = false;
@@ -116,10 +126,15 @@ public class TouchDetection : MonoBehaviour
     public void LabNetisGrabbed()
     {
         if (isTouchingLabNet && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || OVRInput.Get(OVRInput.RawButton.LIndexTrigger)))
-        { 
+        {
+            
             isGrabbingLabnet = true;
+            Debug.Log("labnet grabbed");
+           
         }
         else
             isGrabbingLabnet = false;
+            
+
     }
 }

@@ -17,8 +17,8 @@ public class QuestionInput : MonoBehaviour
     public static List<string> mcQuestions = new List<string> { };
     public static List<string> mcCorrectAnswers = new List<string> { };
     public static List<string[]> mcWrongAnswers = new List<string[]> { };
-    public List<string> questionsArray = new List<string> { };
-    public List<string> answersArray = new List<string> { };
+    public static List<string> questionsArray = new List<string> { };
+    public static List<string> answersArray = new List<string> { };
     static public PlayerUIScore canvasScript;
     public static int correct = 0;
     public static int wrong = 0;
@@ -27,6 +27,7 @@ public class QuestionInput : MonoBehaviour
     public static bool answerCorrect;
     public static bool questionAnswered;
     public static bool isScoreShowing = false;
+   
 
     void Awake()
     {
@@ -34,8 +35,8 @@ public class QuestionInput : MonoBehaviour
         //  playerScore = GameObject.Find("Canvas").gameObject.GetComponent<PlayerUIScore>();
         //GameObject myCanvas = GameObject.Find("Canvas");
         //playerScore = myCanvas.GetComponent<PlayerUIScore>();
-       // output = gameObject.GetComponent<TextMeshProUGUI>();
-
+        // output = gameObject.GetComponent<TextMeshProUGUI>();
+        
 
         FileParse("questions", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\questions.txt");
         FileParse("answers", "C:\\Users\\iccom\\Documents\\Unity - Jordan\\answers.txt");
@@ -55,64 +56,7 @@ public class QuestionInput : MonoBehaviour
 
     }
 
-    //CLIENT 1 - THE NON-MC
-    /*
-    IEnumerator clientQuiz()
-    {
-        while (questionsArray.Count > 0)
-        {
-            int randomIndex = Random.Range(0, questionsArray.Count);
-            output.text = questionsArray[randomIndex];
-
-            yield return new WaitUntil(() => TouchDetection.isGrabbingLabnet || TouchDetection.isGrabbingITS);
-            string answer = answersArray[randomIndex];
-
-            if (evaluateAnswer(answer))
-            {
-                output.text = "Great, thanks!";
-                FindObjectOfType<Audio>().correctSound();
-                correct += 1;
-                totalScore++;
-            }
-            else
-            {
-                output.text = "That doesn't really help";
-                FindObjectOfType<Audio>().wrongSound();
-                wrong += 1;
-                totalScore = totalScore - 1;
-            }
-
-            yield return new WaitUntil(() => !TouchDetection.isGrabbingLabnet && !TouchDetection.isGrabbingITS);
-            yield return new WaitForSeconds(1);
-           questionsArray.RemoveAt(randomIndex);
-            answersArray.RemoveAt(randomIndex);
-        }
-        output.text = "Have a nice day!";
-    }
    
-
-
-    bool evaluateAnswer(string answer)
-    {
-        if (answer == "LabNet" && TouchDetection.isGrabbingLabnet)
-        {
-            return true;
-        }
-        else if (answer == "ITS" && TouchDetection.isGrabbingITS)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-
-
-
-
-        */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

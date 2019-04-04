@@ -36,8 +36,8 @@ public class MCQuestions : MonoBehaviour {
         player = client.player;
        // uiScoreScript =(PlayerUIScore) GameObject.Find("Canvas").GetComponent(typeof(PlayerUIScore));
        
-        questions = gameObject.transform.Find("QuestionCanvas").gameObject; //questions.enabled(false doesnt work) doesnt work  ?????????????????????
-        answers = gameObject.transform.Find("AnswersCanvas").gameObject;  //answers.enabled(false) works
+        questions = gameObject.transform.Find("QuestionCanvas").gameObject; 
+        answers = gameObject.transform.Find("AnswersCanvas").gameObject;  
         output = new List<string> { };
         questions.SetActive(false);
         answers.SetActive(false);
@@ -95,6 +95,7 @@ public class MCQuestions : MonoBehaviour {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
                 QuestionInput.wrong++;
                 QuestionInput.totalScore = QuestionInput.totalScore - 1;
+      
                 QuestionInput.isScoreShowing = true;
                 StartCoroutine(QuestionInput.FlashPlayerScore());
                 FindObjectOfType<Audio>().wrongSound();
@@ -113,6 +114,9 @@ public class MCQuestions : MonoBehaviour {
         timer -= Time.deltaTime;
 
 	}
+
+
+
     public static List<string> Shuffle(List<string> list)
     {
         List<string> shuffled = new List<string> { };
