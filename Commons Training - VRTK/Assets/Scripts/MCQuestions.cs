@@ -73,6 +73,13 @@ public class MCQuestions : MonoBehaviour {
             button3.GetComponentInChildren<TextMeshProUGUI>().text = output[2];
             button4.GetComponentInChildren<TextMeshProUGUI>().text = output[3];
             correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
+            if (QuestionInput.mcQuestions[randomIndex] == "I'm trying to use a computer but it is not displaying video!")
+                FindObjectOfType<Audio>().noVideoSound();
+            if (QuestionInput.mcQuestions[randomIndex] == "I'm trying to login to linux but keep getting an error. My login works for Windows.")
+                FindObjectOfType<Audio>().loginToLinuxSound();
+            if (QuestionInput.mcQuestions[randomIndex] == "I registered for Math 1000 online, but the course is not showing up in Brightspace?")
+                FindObjectOfType<Audio>().registerForMath1000Sound();
+
             questionAsked = true;
         }
         if (questionAnswered && questionAsked)

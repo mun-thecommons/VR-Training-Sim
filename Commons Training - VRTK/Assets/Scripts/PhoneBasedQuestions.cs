@@ -50,6 +50,14 @@ public class PhoneBasedQuestions : MonoBehaviour {
             randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
             questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
             answer = QuestionInput.answersArray[randomIndex];
+            if (QuestionInput.questionsArray[randomIndex] == "My files aren't showing up on my desktop when I login!")
+                FindObjectOfType<Audio>().noFilesSound();
+            if (QuestionInput.questionsArray[randomIndex] == "My balance is negative but I've never printed anything before?")
+                FindObjectOfType<Audio>().balanceNegativeSound();
+            if (QuestionInput.questionsArray[randomIndex] == "I cannot login into your computers or my.mun.ca. I tried reseting my password but that does not work.")
+                FindObjectOfType<Audio>().noLoginSound();
+            if (QuestionInput.questionsArray[randomIndex] == "None of my email is showing up in my inbox for MUNmail. I used to be staff.")
+                FindObjectOfType<Audio>().noEmailSound();
             questionAsked = true;
         }
 

@@ -17,10 +17,11 @@ public class RoundsCard : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Station1Light")
+        if (collision.gameObject.CompareTag("Station1"))
         {
            isRound1Done = true;
             singleRoundSignal.Play();
+            Debug.Log("station one has been swiped");
         }
         if (collision.gameObject.name == "Station2Light")
         {
