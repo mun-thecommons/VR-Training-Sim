@@ -6,14 +6,20 @@ TagManager:
   tags:
   - ITS
   - LabNet
-  - Station1
-  - Station2
-  - Station3
-  - Station4
   - Hand
-  - Client_2
-  - Client_3
   - PlayerUIScore
+  - Client
+  - ButtonA
+  - ButtonB
+  - ButtonC
+  - ButtonD
+  - QuestionCanvas
+  - AnswersCanvas
+  - roundsCard
+  - CampusCard
+  - USB
+  - USBox
+  - Station
   layers:
   - Default
   - TransparentFX

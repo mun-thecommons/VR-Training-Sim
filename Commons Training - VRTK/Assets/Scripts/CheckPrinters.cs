@@ -16,6 +16,7 @@ public class CheckPrinters : MonoBehaviour {
 
     void Update()
     {
+
         if (icomprt1Full || icomprt2Full || icomprt3Full)
         {
             time += Time.deltaTime;

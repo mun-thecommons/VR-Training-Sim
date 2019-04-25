@@ -1,65 +1,44 @@
 ﻿using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+
 
 
 public class PlayerUIScore : MonoBehaviour
 {
-    public TextMeshProUGUI playerUIscore;
-    public Canvas mainCanvas;
+     TextMeshProUGUI playerUIscore;
+     static Canvas mainCanvas;
+
 
     void Start()
     {
-        //playerUIscore = gameObject.GetComponent<TextMeshProUGUI>();
-        // TurnScoreOn();
+
+        playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
+        mainCanvas.enabled = false;
         
     }
 
     void Update()
     {
-
-       
+    
         playerUIscore.SetText("Score:  "+ QuestionInput.totalScore.ToString());
-        Debug.Log("being updated");
+       
+    }
 
-     
+    
+    static public void TurnScoreOff()
+    {
+        mainCanvas.enabled = false;
         
-
-        //
-
-
-    }
-    public void TurnScoreOff()
-    {
-        //GameObject.Find("totalScore").SetActive(false);
-        //gameObject.transform.FindChild("totalScore")().gameObject()
-        //  GameObject.FindGameObjectWithTag("PlayerUIScore").SetActive(false);
-        mainCanvas.transform.GetChild(0).gameObject.SetActive(false);
-
     }
 
-    public void TurnScoreOn()
+    static public void TurnScoreOn()
     {
-        // GameObject.Find("totalScore").SetActive(true);
-        // GameObject.Find("Canvas").transform.GetChild(1).gameObject.SetActive(false);
-        // GameObject.FindGameObjectWithTag("PlayerUIScore").SetActive(true);
-        Debug.Log("What up?");
-        mainCanvas.transform.GetChild(0).gameObject.SetActive(true);
+        mainCanvas.enabled = true;
+        Debug.Log("showing score");
     }
 }
 
-/**
- * 
- *  IEnumerator HidePlayerScore()
-    {
-        private PlayerUIScore playerUIScore;
-    playerUIScore = GameObject.Find("Canvas").GetComponent<PlayerUIScore>();
-        yield return new WaitForSeconds(3f);
-        playerUIScore.TurnScoreOff();
-        _isScoreShowing = false;
 
-    }
- * 
- * 
- * 
- * **/
