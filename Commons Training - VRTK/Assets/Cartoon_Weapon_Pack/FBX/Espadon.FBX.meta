@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e59ce271ab4a5c440b6e17adbcce6db5
+guid: 05d581c5c59e480488deff9c668e1460
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: Espadon
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: 5f2c48f950773db4880e575db2a076fc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

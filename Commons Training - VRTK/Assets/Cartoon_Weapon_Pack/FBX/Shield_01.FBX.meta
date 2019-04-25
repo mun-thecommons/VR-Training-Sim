@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3199537ef5f8cc944b8cae16c1727be2
+guid: defa25776e4f4ac438ac7dde942f8583
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -113,7 +113,12 @@ ModelImporter:
     4300038: Sword_02
     4300040: Sword_03
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: 5f2c48f950773db4880e575db2a076fc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
