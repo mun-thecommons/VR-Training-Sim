@@ -9,12 +9,12 @@ public class Client : MonoBehaviour
     void Start()
     {        
         askingQuestion = false;
-        //transform.rotation = player.rotation;
+        
     }
 
     private void Update()
     {
-        //transform.rotation = player.rotation;
+       // transform.rotation = player.rotation;
     }
     
 }

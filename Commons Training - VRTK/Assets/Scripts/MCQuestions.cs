@@ -119,8 +119,17 @@ public class MCQuestions : MonoBehaviour {
             timer = questionDelay;
         }
         timer -= Time.deltaTime;
+        checkButton();
 
 	}
+    private void checkButton()
+    {
+        if(button1.GetComponent<ButtonPress>().beingPressed || button2.GetComponent<ButtonPress>().beingPressed ||
+            button3.GetComponent<ButtonPress>().beingPressed || button4.GetComponent<ButtonPress>().beingPressed) 
+        {
+            questionAnswered = true;
+        }
+    }
 
 
 

@@ -3,40 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoundsCard : MonoBehaviour {
-    public static bool isRound1Done = false;
-    public static bool isRound2Done = false;
-    public static bool isRound3Done = false;
-    public static bool isRound4Done = false;
+
     private AudioSource singleRoundSignal;
     // Use this for initialization
-
-
+    
     private void Start()
     {
         singleRoundSignal = gameObject.GetComponent<AudioSource>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Station1"))
+        if (other.gameObject.CompareTag("Station"))
         {
-           isRound1Done = true;
-            singleRoundSignal.Play();
-            Debug.Log("station one has been swiped");
-        }
-        if (collision.gameObject.name == "Station2Light")
-        {
-           isRound2Done = true;
-            singleRoundSignal.Play();
-        }
-        if (collision.gameObject.name == "Station3Light")
-        {
-           isRound3Done = true;
-            singleRoundSignal.Play();
-        }
-        if (collision.gameObject.name == "Station4Light")
-        {
-           isRound4Done = true;
-            singleRoundSignal.Play();
-        }
+            RoundsLight station = other.gameObject.GetComponent<RoundsLight>();
+            if (!station.isDone)
+            {
+                singleRoundSignal.Play();
+                station.gameObject.GetComponent<Renderer>().material.color = Color.green;
+                station.isDone = true;
+                Rounds.checkRounds();
+            }
+        }        
     }
 }

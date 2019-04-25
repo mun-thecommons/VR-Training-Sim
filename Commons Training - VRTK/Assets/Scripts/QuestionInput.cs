@@ -23,7 +23,8 @@ public class QuestionInput : MonoBehaviour
     public static List<string> cashBoxQuestions = new List<string> { };
     public static List<string> cashBoxCorrectAnswers = new List<string> { };
     public static List<string[]> cashBoxWrongAnswers = new List<string[]> { };
-
+    static private float timer = 0f;
+    static private float scoreTimer = 5f;
 
     static public PlayerUIScore canvasScript;
     public static int correct = 0;
@@ -45,6 +46,15 @@ public class QuestionInput : MonoBehaviour
         FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\cashboxQuestions.txt");
     }
 
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if(timer <= 0 && isScoreShowing)
+        {
+            PlayerUIScore.TurnScoreOff();
+            isScoreShowing = false;
+        }
+    }
 
     static public IEnumerator FlashPlayerScore()
     {
@@ -52,10 +62,26 @@ public class QuestionInput : MonoBehaviour
         yield return new WaitForSeconds(5f);
         PlayerUIScore.TurnScoreOff();
         isScoreShowing = false;
-
     }
 
-   
+    static public void ScoreIncrement()
+    {
+        correct++;
+        totalScore++;
+        isScoreShowing = true;
+        PlayerUIScore.TurnScoreOn();
+        timer = scoreTimer;
+    }
+
+    static public void ScoreDecrement()
+    {
+        wrong++;
+        totalScore--;
+        isScoreShowing = true;
+        PlayerUIScore.TurnScoreOn();
+        timer = scoreTimer;
+    }
+
     void FileParse(string toParse, string filepath)
 
     {

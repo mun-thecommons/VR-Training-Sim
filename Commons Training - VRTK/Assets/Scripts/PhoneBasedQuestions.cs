@@ -38,10 +38,10 @@ public class PhoneBasedQuestions : MonoBehaviour {
     {
         
         //CLIENT 1 - THE NON-MC
-        if (done && timer <= 0f)
+        if (done && timer <= 0f && QuestionInput.questionsArray.Count == 0)
         {
-           // client.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            Debug.Log("client disappeared");
+            Destroy(gameObject);
+  
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
@@ -69,7 +69,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
                 if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
                 {
-                    Debug.Log("touch detection works on true");
+           
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
                     FindObjectOfType<Audio>().correctSound();
                     QuestionInput.correct++;

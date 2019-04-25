@@ -11,7 +11,6 @@ public class ButtonPress : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             beingPressed = true;
-            GetComponentInParent<MCQuestions>().questionAnswered = true;
         }
     }
 

@@ -4,52 +4,43 @@ using TMPro;
 using UnityEngine;
 
 public class Rounds : MonoBehaviour {
-   
 
     private TextMeshProUGUI output;
     private int seconds = 0;
     public int minutes = 0;
     private AudioSource roundsDoneSignal;
+    static private GameObject[] roundsStations;
 
     private float waitTime = 1f;
 
     private float timer;
 
-    public bool roundsDone;
+    static public bool roundsDone;
 
     void Start()
     {
+        roundsStations = GameObject.FindGameObjectsWithTag("Station");
         output = gameObject.GetComponent<TextMeshProUGUI>();
         roundsDoneSignal = GetComponent<AudioSource>();
     }
 
     IEnumerator done()
     {
-        if (roundsDone)
+        Debug.Log("Hello");
+        roundsDoneSignal.Play();
+        minutes = 0;
+        seconds = 0;
+        yield return new WaitForSeconds(5);
+        foreach(GameObject r in roundsStations)
         {
-            roundsDoneSignal.Play();
-            minutes = 0;
-            seconds = 0;
-            yield return new WaitForSeconds(5);
-            RoundsCard.isRound1Done = false;
-            RoundsCard.isRound2Done = false;
-            RoundsCard.isRound3Done = false;
-            RoundsCard.isRound4Done = false;
-
-            /* TouchDetection.station1 = false;
-             TouchDetection.station2 = false;
-             TouchDetection.station3 = false;
-             TouchDetection.station4 = false;
-             */
-        }  
+            r.GetComponent<RoundsLight>().isDone = false;
+            r.GetComponent<Renderer>().material.color = Color.red;
+        }
+ 
     }
 
     void Update()
-    {
-       
-       //  roundsDone = TouchDetection.station1 && TouchDetection.station2 && TouchDetection.station3 && TouchDetection.station4; 
-
-        roundsDone = RoundsCard.isRound1Done && RoundsCard.isRound2Done && RoundsCard.isRound3Done && RoundsCard.isRound4Done;
+    {       
         timer += Time.deltaTime;
         if (timer > waitTime)
         {
@@ -63,7 +54,12 @@ public class Rounds : MonoBehaviour {
             timer = 0f;
         }
 
-        StartCoroutine(done());
+        if (roundsDone)
+        {
+            StartCoroutine(done());
+            roundsDone = false;
+        }
+
 
         if (minutes > 4)
         {
@@ -75,4 +71,17 @@ public class Rounds : MonoBehaviour {
             output.text = "Last Rounds " + minutes.ToString() + ":" + seconds.ToString();
     }
    
+    public static void checkRounds()
+    {
+        foreach (GameObject r in roundsStations)
+        {
+            if (!r.GetComponent<RoundsLight>().isDone)
+            {
+                roundsDone = false;
+                return;
+            }
+        }
+        Debug.Log("All rounds done");
+        roundsDone = true;
+    }
 }

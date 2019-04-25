@@ -99,15 +99,16 @@ public class TouchDetection : MonoBehaviour
         if (other.CompareTag("ITS"))
         {
             isTouchingITS = false;
-            
+
         }
 
 
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = false;
-           
+
         }
+       
     }
 
     public void ITSisGrabbed()
