@@ -2,6 +2,7 @@
 
 public class TouchDetection : MonoBehaviour
 {
+   
     [HideInInspector]
     static public bool isTouchingITS = false;
     [HideInInspector]
@@ -12,6 +13,16 @@ public class TouchDetection : MonoBehaviour
     static public bool isGrabbingLabnet = false;
 
     [HideInInspector]
+    static public bool isTouchingButtonA = false;
+    [HideInInspector]
+    static public bool isTouchingButtonB = false;
+    [HideInInspector]
+    static public bool isTouchingButtonC = false;
+    [HideInInspector]
+    static public bool isTouchingButtonD = false;
+
+    /*
+    [HideInInspector]
     static public bool station1 = false;
     [HideInInspector]
     static public bool station2 = false;
@@ -19,7 +30,8 @@ public class TouchDetection : MonoBehaviour
     static public bool station3 = false;
     [HideInInspector]
     static public bool station4 = false;
-
+    */
+  
     void Update()
     {
         ITSisGrabbed();
@@ -30,14 +42,17 @@ public class TouchDetection : MonoBehaviour
     {
         if (other.CompareTag("ITS"))
         {
+
             isTouchingITS = true;
+            
         }
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = true;
+            
         }
 
-        else if(other.CompareTag("Station1"))
+      /*  else if (other.CompareTag("Station1"))
         {
             station1 = true;
         }
@@ -53,6 +68,29 @@ public class TouchDetection : MonoBehaviour
         {
             station4 = true;
         }
+        */
+
+        else if (other.CompareTag("ButtonA"))
+        {
+
+            isTouchingButtonA = true;
+        }
+
+        else if (other.CompareTag("ButtonB"))
+        {
+
+            isTouchingButtonB = true;
+        }
+        else if (other.CompareTag("ButtonC"))
+        {
+
+            isTouchingButtonC = true;
+        }
+        else if (other.CompareTag("ButtonD"))
+        {
+
+            isTouchingButtonD = true;
+        }
 
     }
 
@@ -61,18 +99,26 @@ public class TouchDetection : MonoBehaviour
         if (other.CompareTag("ITS"))
         {
             isTouchingITS = false;
+
         }
+
+
         else if (other.CompareTag("LabNet"))
         {
             isTouchingLabNet = false;
+
         }
+       
     }
 
     public void ITSisGrabbed()
     {
         if (isTouchingITS && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
         {
+            
             isGrabbingITS = true;
+            Debug.Log("its grabbed");
+          
         }
         else
             isGrabbingITS = false;
@@ -81,10 +127,15 @@ public class TouchDetection : MonoBehaviour
     public void LabNetisGrabbed()
     {
         if (isTouchingLabNet && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || OVRInput.Get(OVRInput.RawButton.LIndexTrigger)))
-        { 
+        {
+            
             isGrabbingLabnet = true;
+            Debug.Log("labnet grabbed");
+           
         }
         else
             isGrabbingLabnet = false;
+            
+
     }
 }
