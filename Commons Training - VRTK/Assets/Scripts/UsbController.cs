@@ -31,13 +31,4 @@ public class UsbController : MonoBehaviour {
     }
 
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-
-        QuestionInput.ScoreIncrement();
-        FindObjectOfType<Audio>().correctSound();
-        Destroy(gameObject);
-    }
-    */
 }
