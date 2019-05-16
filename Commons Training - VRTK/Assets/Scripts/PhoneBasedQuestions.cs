@@ -71,11 +71,9 @@ public class PhoneBasedQuestions : MonoBehaviour {
                 {
            
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
+                    QuestionInput.ScoreIncrement();
                     FindObjectOfType<Audio>().correctSound();
-                    QuestionInput.correct++;
-                    QuestionInput.totalScore++;
-                    QuestionInput.isScoreShowing = true;
-                    StartCoroutine(QuestionInput.FlashPlayerScore());
+                    
                     
                 }
 
@@ -83,10 +81,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
                 {
                     Debug.Log("toch detection works on false");
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    QuestionInput.wrong++;
-                    QuestionInput.totalScore = QuestionInput.totalScore - 1;
-                    QuestionInput.isScoreShowing = true;
-                    StartCoroutine(QuestionInput.FlashPlayerScore());
+                    QuestionInput.ScoreDecrement();
                     FindObjectOfType<Audio>().wrongSound();
 
                 }
@@ -95,16 +90,11 @@ public class PhoneBasedQuestions : MonoBehaviour {
                 QuestionInput.answersArray.RemoveAt(randomIndex);
                 questionAsked = false;
                 questionAnswered = false;
-                done = true;
-     
-            timer = questionDelay;
-
+                done = true;     
+                timer = questionDelay;
         }
             
-            timer -= Time.deltaTime;
-
-          //  questions.GetComponentInChildren<TextMeshProUGUI>().text = "Have a nice day!";
-  
+        timer -= Time.deltaTime;
 
     }
 

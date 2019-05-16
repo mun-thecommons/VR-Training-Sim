@@ -89,10 +89,12 @@ public class MCQuestions : MonoBehaviour {
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
                 FindObjectOfType<Audio>().correctSound();
-                QuestionInput.correct++;
+                QuestionInput.ScoreIncrement();
+                /*QuestionInput.correct++;
                 QuestionInput.totalScore++;
                 QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());
+                StartCoroutine(QuestionInput.FlashPlayerScore());*/
+                FindObjectOfType<Audio>().correctSound();
                 //gameObject.SetActive(false);
 
             }
@@ -100,11 +102,12 @@ public class MCQuestions : MonoBehaviour {
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                QuestionInput.wrong++;
+                QuestionInput.ScoreDecrement();
+                /*QuestionInput.wrong++;
                 QuestionInput.totalScore = QuestionInput.totalScore - 1;
       
                 QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());
+                StartCoroutine(QuestionInput.FlashPlayerScore());*/
                 FindObjectOfType<Audio>().wrongSound();
 
             }
