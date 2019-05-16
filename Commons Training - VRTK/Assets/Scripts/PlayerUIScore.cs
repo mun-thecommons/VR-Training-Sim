@@ -37,7 +37,6 @@ public class PlayerUIScore : MonoBehaviour
     static public void TurnScoreOn()
     {
         mainCanvas.enabled = true;
-        Debug.Log("showing score");
     }
 }
 

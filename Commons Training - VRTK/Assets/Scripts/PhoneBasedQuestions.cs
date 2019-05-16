@@ -45,7 +45,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
-            Debug.Log("passed second loop");
             client.gameObject.GetComponent<MeshRenderer>().enabled = true;
             randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
             questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
