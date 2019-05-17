@@ -70,7 +70,6 @@ public class TouchDetection : MonoBehaviour
         if (other.CompareTag("ITS"))
         {
             isTouchingITS = false;
-
         }
 
 

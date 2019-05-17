@@ -62,10 +62,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
         if (questionAnswered && questionAsked)
         {
-            Debug.Log("passed third loop");
-
-
-
                 if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
                 {
            
@@ -78,7 +74,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
                 else
                 {
-                    Debug.Log("toch detection works on false");
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
                     QuestionInput.ScoreDecrement();
                     FindObjectOfType<Audio>().wrongSound();
