@@ -9,10 +9,12 @@ public class MonitorController : MonoBehaviour
     private Material brokenScreenRef;
     private Material[] materialsArray;
 
+    
     Color original;
     // Start is called before the first frame update
     void Start()
     {
+        
         original = screenMaterial.color;
         brokenScreenMat = new Material(screenMaterial);
         brokenScreenMat.CopyPropertiesFromMaterial(screenMaterial);
