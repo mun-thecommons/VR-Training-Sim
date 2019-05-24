@@ -27,7 +27,6 @@ public class MonitorController : MonoBehaviour
         {
             materialsArray = new Material[GetComponent<Renderer>().materials.Length];
             materialsArray = GetComponent<Renderer>().materials;
-            Debug.Log(GetComponent<Renderer>().materials.Length);
             materialsArray[1] = brokenScreenMat;
             GetComponent<Renderer>().materials = materialsArray;
             brokenScreenRef = GetComponent<Renderer>().materials[1];
