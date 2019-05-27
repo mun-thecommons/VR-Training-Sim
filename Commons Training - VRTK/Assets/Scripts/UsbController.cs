@@ -20,7 +20,7 @@ public class UsbController : MonoBehaviour {
         if (collider.CompareTag("USBox"))
         {
             Debug.Log("collision worked");
-            player.GetComponent<Audio>().correctSound();//usbCollectedSound.Play();      //USB signal is played
+            FindObjectOfType<Audio>().correctSound();
             QuestionInput.ScoreIncrement();//played and the player gets a score point      
     
             Destroy(gameObject);
