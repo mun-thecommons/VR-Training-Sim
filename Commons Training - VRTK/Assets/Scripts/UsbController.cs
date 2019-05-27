@@ -20,15 +20,8 @@ public class UsbController : MonoBehaviour {
         if (collider.CompareTag("USBox"))
         {
             Debug.Log("collision worked");
-            FindObjectOfType<Audio>().correctSound();
-            QuestionInput.ScoreIncrement();//played and the player gets a score point      
-    
-            Destroy(gameObject);
-   
-   
+            QuestionInput.ScoreIncrement();//played and the player gets a score point  
+            Destroy(gameObject);  
         }
-
     }
-
-
 }

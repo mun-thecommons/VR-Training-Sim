@@ -64,19 +64,14 @@ public class PhoneBasedQuestions : MonoBehaviour {
         {
                 if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
                 {
-           
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    QuestionInput.ScoreIncrement();
-                    FindObjectOfType<Audio>().correctSound();
-                    
-                    
+                    QuestionInput.ScoreIncrement();         
                 }
 
                 else
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
                     QuestionInput.ScoreDecrement();
-                    FindObjectOfType<Audio>().wrongSound();
 
                 }
 

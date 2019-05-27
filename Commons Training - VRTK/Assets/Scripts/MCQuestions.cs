@@ -88,28 +88,13 @@ public class MCQuestions : MonoBehaviour {
                 (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                FindObjectOfType<Audio>().correctSound();
                 QuestionInput.ScoreIncrement();
-                /*QuestionInput.correct++;
-                QuestionInput.totalScore++;
-                QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());*/
-                FindObjectOfType<Audio>().correctSound();
-                //gameObject.SetActive(false);
-
             }
 
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
                 QuestionInput.ScoreDecrement();
-                /*QuestionInput.wrong++;
-                QuestionInput.totalScore = QuestionInput.totalScore - 1;
-      
-                QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());*/
-                FindObjectOfType<Audio>().wrongSound();
-
             }
 
             QuestionInput.mcQuestions.RemoveAt(randomIndex);
