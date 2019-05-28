@@ -88,13 +88,13 @@ public class MCQuestions : MonoBehaviour {
                 (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                QuestionInput.ScoreIncrement();
+                QuestionInput.ScoreIncrement(2);
             }
 
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                QuestionInput.ScoreDecrement();
+                QuestionInput.ScoreDecrement(2);
             }
 
             QuestionInput.mcQuestions.RemoveAt(randomIndex);

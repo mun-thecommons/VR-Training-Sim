@@ -66,20 +66,20 @@ public class QuestionInput : MonoBehaviour
         isScoreShowing = false;
     }
 
-    static public void ScoreIncrement()
+    static public void ScoreIncrement(int optionalVal = 1)
     {
-        correct++;
-        totalScore++;
+        correct ++;
+        totalScore += optionalVal;
         isScoreShowing = true;
         PlayerUIScore.TurnScoreOn();
         audio.correctSound();
         timer = scoreTimer;
     }
 
-    static public void ScoreDecrement()
+    static public void ScoreDecrement(int optionalVal = 1)
     {
         wrong++;
-        totalScore--;
+        totalScore -= optionalVal;
         isScoreShowing = true;
         PlayerUIScore.TurnScoreOn();
         audio.wrongSound();
