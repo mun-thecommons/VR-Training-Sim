@@ -34,7 +34,6 @@ public class MCQuestions : MonoBehaviour {
         
         client = GetComponent<Client>();
         player = client.player;
-       // uiScoreScript =(PlayerUIScore) GameObject.Find("Canvas").GetComponent(typeof(PlayerUIScore));
        
         questions = gameObject.transform.Find("QuestionCanvas").gameObject; 
         answers = gameObject.transform.Find("AnswersCanvas").gameObject;  
