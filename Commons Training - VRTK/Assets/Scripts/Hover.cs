@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChairGravity : MonoBehaviour
+public class Hover : MonoBehaviour
 {
 
     // User Inputs

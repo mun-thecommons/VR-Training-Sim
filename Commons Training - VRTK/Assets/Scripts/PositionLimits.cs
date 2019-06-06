@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopRotation : MonoBehaviour
+public class PositionLimits : MonoBehaviour
 {
     private Quaternion startRotation;
     private float startY;
