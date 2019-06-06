@@ -47,4 +47,13 @@ public class MonitorController : MonoBehaviour
         brokenScreenRef.color = original;
         flashing = false;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Hand"))
+        {
+            errorState = false;
+            QuestionInput.ScoreIncrement(2);
+        }
+    }
 }
