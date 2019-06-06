@@ -19,7 +19,6 @@ public class UsbController : MonoBehaviour {
     {
         if (collider.CompareTag("USBox"))
         {
-            Debug.Log("collision worked");
             QuestionInput.ScoreIncrement();//played and the player gets a score point  
             Destroy(gameObject);  
         }
