@@ -52,8 +52,11 @@ public class MonitorController : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
-            errorState = false;
-            QuestionInput.ScoreIncrement(2);
+            if (errorState)
+            {
+                errorState = false;
+                QuestionInput.ScoreIncrement();
+            }
         }
     }
 }
