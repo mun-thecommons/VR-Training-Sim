@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class RobbieFollow : MonoBehaviour
 {
-    public GameObject thePlayer;
+    public GameObject player;
     public float targetDistance;
     public float allowedDistance = 5;
-    public GameObject robbie;
-    public float speed;
+   
+    private float speed = 0.02f;
     public RaycastHit shot;
     
     void Update()
     {
-        transform.LookAt(thePlayer.transform);
-        if(Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out shot))
-        {
-            targetDistance = shot.distance;
-            if(targetDistance >= allowedDistance)
-            {
-                speed = 0.02f;
-                transform.position = Vector3.MoveTowards(transform.position, thePlayer.transform.position, speed);
-
-            }
-            else
-            {
-                speed = 0;
-            }
+        transform.LookAt(player.transform);
+        if(Vector3.Distance(transform.position, player.transform.position) > allowedDistance)    
+       {
+            PathFind();
+            transform.position += transform.forward * Time.deltaTime;
+                    //  transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
         }
-        
+    }
+    void PathFind()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot, 5))
+        {
+            transform.Rotate(0, 1, 0);
+            PathFind();
+        }
+        return;
     }
 }
