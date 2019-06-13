@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 11222003}
   - component: {fileID: 11222005}
   - component: {fileID: 11222004}
+  - component: {fileID: 11222006}
   m_Layer: 0
   m_Name: StaffComputer
   m_TagString: Untagged
@@ -732,6 +733,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11222002}
   m_Mesh: {fileID: 4300032, guid: 87cb58c9d73b74940af76283f8f3ec5a, type: 3}
+--- !u!65 &11222006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11222002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44450012, y: 0.34925, z: 0.03175003}
+  m_Center: {x: 0.22225054, y: 0.174625, z: 0.015874539}
 --- !u!1 &12835005
 GameObject:
   m_ObjectHideFlags: 0
@@ -78608,6 +78622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377871097}
+  - component: {fileID: 1377871098}
   m_Layer: 0
   m_Name: RoundsTimerMonitor
   m_TagString: Untagged
@@ -78631,6 +78646,19 @@ Transform:
   m_Father: {fileID: 858217254}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1377871098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377871096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21508144, y: 0.46237493, z: 0.5031268}
+  m_Center: {x: 0.07324594, y: 0.19621675, z: -0.0035205528}
 --- !u!1 &1379017138
 GameObject:
   m_ObjectHideFlags: 0
@@ -92787,6 +92815,7 @@ GameObject:
   - component: {fileID: 1635393669}
   - component: {fileID: 1635393671}
   - component: {fileID: 1635393670}
+  - component: {fileID: 1635393672}
   m_Layer: 0
   m_Name: WritingCentrePC
   m_TagString: Untagged
@@ -92861,6 +92890,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635393668}
   m_Mesh: {fileID: 4300032, guid: 87cb58c9d73b74940af76283f8f3ec5a, type: 3}
+--- !u!65 &1635393672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635393668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44450012, y: 0.34925, z: 0.03175003}
+  m_Center: {x: 0.22224768, y: 0.174625, z: 0.01587928}
 --- !u!1 &1635675795
 GameObject:
   m_ObjectHideFlags: 0
@@ -116857,6 +116899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066985396}
+  - component: {fileID: 2066985397}
   m_Layer: 0
   m_Name: ScoreMonitor(CS_Desk)
   m_TagString: Untagged
@@ -116880,6 +116923,19 @@ Transform:
   m_Father: {fileID: 858217254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2066985397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066985395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.45307422, z: 0.5}
+  m_Center: {x: 0, y: 0.2098027, z: 0}
 --- !u!1 &2067592304
 GameObject:
   m_ObjectHideFlags: 0
