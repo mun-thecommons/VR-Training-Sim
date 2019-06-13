@@ -6,8 +6,7 @@ public class RobbieFollow : MonoBehaviour
 {
     public GameObject player;
     public float targetDistance;
-    public float allowedDistance = 3;
-   
+    public float allowedDistance = 3;   
     private float speed = 0.02f;
     public RaycastHit shot;
     
@@ -15,20 +14,18 @@ public class RobbieFollow : MonoBehaviour
     {
         transform.LookAt(player.transform);
         if(Vector3.Distance(transform.position, player.transform.position) > allowedDistance)    
-       {
+        {
             PathFind();
             transform.position += transform.forward * Time.deltaTime;
-                    //  transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
         }
     }
     void PathFind()
     {
         if(GetComponent<Rigidbody>().SweepTest(transform.TransformDirection(Vector3.forward), out shot, 5))
-        //if (Physics.SphereCast(transform.position, 1 , transform.TransformDirection(Vector3.forward), out shot, 5))
         {
             transform.Rotate(0, 1, 0);
             PathFind();
         }
         return;
     }
-} //transform.TransformDirection(Vector3.forward)
+}
