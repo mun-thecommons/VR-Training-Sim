@@ -58,21 +58,12 @@ public class CashBoxClient : MonoBehaviour
 
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                FindObjectOfType<Audio>().correctSound();
-                QuestionInput.correct++;
-                QuestionInput.totalScore++;
-                QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());
+                QuestionInput.ScoreIncrement();
             }
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                QuestionInput.wrong++;
-                QuestionInput.totalScore = QuestionInput.totalScore - 1;
-
-                QuestionInput.isScoreShowing = true;
-                StartCoroutine(QuestionInput.FlashPlayerScore());
-                FindObjectOfType<Audio>().wrongSound();
+                QuestionInput.ScoreDecrement();
             }
 
             answers.SetActive(false);

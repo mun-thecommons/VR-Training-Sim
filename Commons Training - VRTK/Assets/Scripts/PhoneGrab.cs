@@ -22,7 +22,6 @@ public class PhoneGrab : MonoBehaviour {
     {
         if (other.CompareTag("Hand"))
         {
-            Debug.Log("hand touching phone");
             GameObject.Find("ClientDesk").GetComponent<PhoneBasedQuestions>().questionAnswered = true;
            
             isGrabbed = true;
@@ -34,7 +33,6 @@ public class PhoneGrab : MonoBehaviour {
         if (other.CompareTag("Hand"))
         {
             isGrabbed = false;
-            Debug.Log("Phone is released");
             GameObject.Find("ClientDesk").GetComponent<PhoneBasedQuestions>().questionAnswered = false;
 
             

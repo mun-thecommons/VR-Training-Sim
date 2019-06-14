@@ -45,7 +45,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
-            Debug.Log("passed second loop");
             client.gameObject.GetComponent<MeshRenderer>().enabled = true;
             randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
             questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
@@ -63,26 +62,16 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
         if (questionAnswered && questionAsked)
         {
-            Debug.Log("passed third loop");
-
-
-
                 if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
                 {
-           
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    QuestionInput.ScoreIncrement();
-                    FindObjectOfType<Audio>().correctSound();
-                    
-                    
+                    QuestionInput.ScoreIncrement();         
                 }
 
                 else
                 {
-                    Debug.Log("toch detection works on false");
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
                     QuestionInput.ScoreDecrement();
-                    FindObjectOfType<Audio>().wrongSound();
 
                 }
 

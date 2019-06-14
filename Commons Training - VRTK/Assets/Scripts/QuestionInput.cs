@@ -34,6 +34,7 @@ public class QuestionInput : MonoBehaviour
     public static bool answerCorrect;
     public static bool questionAnswered;
     public static bool isScoreShowing = false;
+    public static Audio audio;
    
 
     void Awake()
@@ -44,6 +45,7 @@ public class QuestionInput : MonoBehaviour
 
         //for a cashboxclient
         FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\cashboxQuestions.txt");
+        audio = FindObjectOfType<Audio>();
     }
 
     private void Update()
@@ -64,21 +66,23 @@ public class QuestionInput : MonoBehaviour
         isScoreShowing = false;
     }
 
-    static public void ScoreIncrement()
+    static public void ScoreIncrement(int optionalVal = 1)
     {
-        correct++;
-        totalScore++;
+        correct ++;
+        totalScore += optionalVal;
         isScoreShowing = true;
         PlayerUIScore.TurnScoreOn();
+        audio.correctSound();
         timer = scoreTimer;
     }
 
-    static public void ScoreDecrement()
+    static public void ScoreDecrement(int optionalVal = 1)
     {
         wrong++;
-        totalScore--;
+        totalScore -= optionalVal;
         isScoreShowing = true;
         PlayerUIScore.TurnScoreOn();
+        audio.wrongSound();
         timer = scoreTimer;
     }
 
