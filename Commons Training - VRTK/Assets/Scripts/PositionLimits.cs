@@ -35,12 +35,10 @@ public class PositionLimits : MonoBehaviour
 
         if (transform.localPosition.x > maxX)
         {
-            Debug.Log("max X");
             transform.localPosition = new Vector3(maxX, transform.localPosition.y, transform.localPosition.z);
         }
         if (transform.localPosition.z > maxZ)
         {
-            Debug.Log("max Z");
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, maxZ);
         }
     }
