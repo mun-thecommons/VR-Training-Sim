@@ -39,12 +39,12 @@ public class QuestionInput : MonoBehaviour
 
     void Awake()
     {  
-        FileParse("questions", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\questions.txt");
-        FileParse("answers", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\answers.txt");
-        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\multipleChoice.txt");
+        FileParse("questions", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\questions.txt");
+        FileParse("answers", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\answers.txt");
+        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\multipleChoice.txt");
 
         //for a cashboxclient
-        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-TrainingSim-Anush\\Commons Training - VRTK\\Assets\\questionanswers\\cashboxQuestions.txt");
+        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\cashboxQuestions.txt");
         audio = FindObjectOfType<Audio>();
     }
 
