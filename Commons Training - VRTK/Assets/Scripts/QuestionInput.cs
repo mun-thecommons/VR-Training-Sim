@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
-
+using System.Text.RegularExpressions;
 
 public class QuestionInput : MonoBehaviour
 {
+    public TextAsset questions;
+    public TextAsset answers;
+    public TextAsset mc;
+    public TextAsset cashbox;
 
-  
+
     public static GameObject canvas;  //works just fine
 
     public static List<string> mcQuestions = new List<string> { };
@@ -18,6 +21,7 @@ public class QuestionInput : MonoBehaviour
     public static List<string[]> mcWrongAnswers = new List<string[]> { };
     public static List<string> questionsArray = new List<string> { };
     public static List<string> answersArray = new List<string> { };
+    public static List<string> mcAudio = new List<string> { };
 
     //forcashBoxClient
     public static List<string> cashBoxQuestions = new List<string> { };
@@ -35,16 +39,13 @@ public class QuestionInput : MonoBehaviour
     public static bool questionAnswered;
     public static bool isScoreShowing = false;
     public static Audio audio;
-   
 
     void Awake()
     {  
-        FileParse("questions", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\questions.txt");
-        FileParse("answers", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\answers.txt");
-        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\multipleChoice.txt");
-
-        //for a cashboxclient
-        FileParse("mc", "C:\\Users\\iccom\\Documents\\GitHub\\VR-Training-Sim\\Commons Training - VRTK\\Assets\\questionanswers\\cashboxQuestions.txt");
+        FileParse("questions", questions);
+        FileParse("answers", answers);
+        FileParse("mc", mc);
+        FileParse("mc", cashbox);
         audio = FindObjectOfType<Audio>();
     }
 
@@ -86,52 +87,45 @@ public class QuestionInput : MonoBehaviour
         timer = scoreTimer;
     }
 
-    void FileParse(string toParse, string filepath)
-
+    void FileParse(string toParse, TextAsset textFile)
     {
-        StreamReader file = new StreamReader(@filepath);
-        string line;
+        string[] fLines = textFile.text.Split("\n"[0]);
         if (toParse.Equals("answers"))
         {
-            while ((line = file.ReadLine()) != null)
+            foreach(string line in fLines)
             {
                 answersArray.Add(line);
             }
         }
         else if (toParse.Equals("questions"))
         {
-            while ((line = file.ReadLine()) != null)
+            foreach (string line in fLines)
             {
                 questionsArray.Add(line);
             }
         }
         else if (toParse.Equals("mc"))
         {
-            while ((line = file.ReadLine()) != null)
+            for (int i = 0; i+5 < fLines.Length; i += 6)
             {
-                mcQuestions.Add(line);
-                mcCorrectAnswers.Add(file.ReadLine());
-                string[] inanswers = { file.ReadLine(), file.ReadLine(), file.ReadLine() };
+                mcQuestions.Add(fLines[i]);
+                mcCorrectAnswers.Add(fLines[i + 1]);
+                string[] inanswers = { fLines[i + 2], fLines[i + 3], fLines[i + 4] };
                 mcWrongAnswers.Add(inanswers);
+                mcAudio.Add(fLines[i + 5]);
             }
         }
-
-        //reading cashboxquestions
         else if (toParse.Equals("cashboxQuestions"))
         {
-            while ((line = file.ReadLine()) != null)
+            for(int i = 0; i+4 < fLines.Length; i+=5)
             {
-                cashBoxQuestions.Add(line);
-                cashBoxCorrectAnswers.Add(file.ReadLine());
-                string[] inCashBoxAnswers = { file.ReadLine(), file.ReadLine(), file.ReadLine() };
+                cashBoxQuestions.Add(fLines[i]);
+                cashBoxCorrectAnswers.Add(fLines[i+1]);
+                string[] inCashBoxAnswers = { fLines[i+2], fLines[i+3], fLines[i+4] };
                 cashBoxWrongAnswers.Add(inCashBoxAnswers);
             }
         }
-
-        file.Close();
     }
-
-
 }
 
 
