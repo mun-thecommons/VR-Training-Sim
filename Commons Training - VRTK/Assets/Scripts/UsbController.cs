@@ -20,7 +20,16 @@ public class UsbController : MonoBehaviour {
         if (collider.CompareTag("USBox"))
         {
             QuestionInput.ScoreIncrement();//played and the player gets a score point  
-            Destroy(gameObject);  
+            Destroy(gameObject);
+            RobotController.isInUsbBox = true;
+        }
+        if (collider.CompareTag("Hand"))
+        {
+            RobotController.isTouchingUSB = true;
+            Debug.Log("hand touch");
         }
     }
+
+    
+
 }
