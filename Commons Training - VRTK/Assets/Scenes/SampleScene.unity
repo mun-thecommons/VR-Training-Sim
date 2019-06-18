@@ -29477,6 +29477,7 @@ GameObject:
   - component: {fileID: 517647312}
   - component: {fileID: 517647311}
   - component: {fileID: 517647310}
+  - component: {fileID: 517647313}
   m_Layer: 0
   m_Name: Kumiko
   m_TagString: Client
@@ -29566,6 +29567,102 @@ CapsuleCollider:
   m_Height: 47.68259
   m_Direction: 1
   m_Center: {x: 50.99488, y: 2.173338, z: 12.675972}
+--- !u!82 &517647313
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517647307}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &521823970
 GameObject:
   m_ObjectHideFlags: 0
@@ -56949,6 +57046,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a600dd61599908439395caf6e6dfd23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questions: {fileID: 4900000, guid: 35bfa15fbd5ddb6488fa0f5545a0fcce, type: 3}
+  answers: {fileID: 4900000, guid: 6545b730c214a4b4b921d78f540a6d0a, type: 3}
+  mc: {fileID: 4900000, guid: e521b5be5c1a32f46af1fec4b109e47d, type: 3}
+  cashbox: {fileID: 4900000, guid: 20518bac2ce691b45b11b24a59fec48c, type: 3}
 --- !u!1 &1033196195
 GameObject:
   m_ObjectHideFlags: 0

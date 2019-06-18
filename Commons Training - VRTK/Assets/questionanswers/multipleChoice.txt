@@ -15,22 +15,22 @@ Call the CITL Support Centre.
 Call the Registrar’s Office.
 Let Meaghan know.
 Call the ITS Help Desk
-registerForMath1000
+none
 Can I book an appoitment for the Writing Centre? 
 First, ask a client if they are an undergraduate or gradute student
 First, show him the writing centre schedule
 First, ask for their student ID
 First, debit the client's account
-registerForMath1000
+none
 Someone forgot the USB in the computer I was using
 Take the USB and check it for a client information.
 Take the USB to the Lost and Found Desk.
 Ask the client to leave where it was.
 Claim the USB for yourself.
-registerForMath1000
+none
 where can I borrow the a voice recorder?
 Send client to the DMC
 Send client to the Makerspace
 Give them your own voice recorder
 Send client to Meaghan's office
-registerForMath1000
+none

@@ -25,7 +25,7 @@ public class MCQuestions : MonoBehaviour {
     public float questionDelay = 10f;
     private float timer = 0f;
     private AudioSource audioSource;
-    private string pathStart = "Assets/Audio/";
+    private string pathStart = "Audio/";
     private AudioClip questionAudio;
    // private PlayerUIScore uiScoreScript;
 
@@ -66,13 +66,17 @@ public class MCQuestions : MonoBehaviour {
             output.Add(QuestionInput.mcWrongAnswers[randomIndex][0]);
             output.Add(QuestionInput.mcWrongAnswers[randomIndex][1]);
             output.Add(QuestionInput.mcWrongAnswers[randomIndex][2]);
-            string path = (pathStart + QuestionInput.mcAudio[randomIndex]).TrimEnd('\n'); //+ ".mp3"
-            Debug.Log(path);
-            questionAudio = (AudioClip)UnityEditor.AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
-            //questionAudio = Resources.Load<AudioClip>("/Audio/" +(QuestionInput.mcAudio[randomIndex]).TrimEnd('\n'));
-            if (questionAudio == null)
+            string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
+            if (!audioName.Equals("none"))
             {
-                Debug.Log("Cannot find audio");
+                Debug.Log(audioName);
+                questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
+                audioSource.clip = questionAudio;
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.Log("No audio clip assigned for question");
             }
             output = Shuffle(output);
 
@@ -81,23 +85,7 @@ public class MCQuestions : MonoBehaviour {
             button2.GetComponentInChildren<TextMeshProUGUI>().text = output[1];
             button3.GetComponentInChildren<TextMeshProUGUI>().text = output[2];
             button4.GetComponentInChildren<TextMeshProUGUI>().text = output[3];
-            correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
-            audioSource.clip = questionAudio;
-            audioSource.Play();
-            /*
-            if (QuestionInput.mcQuestions[randomIndex].Equals("I'm trying to use a computer but it is not displaying video!"))
-            {
-                Debug.Log("1");
-            }                
-            if (QuestionInput.mcQuestions[randomIndex].Equals("I'm trying to login to linux but keep getting an error. My login works for Windows."))
-            {
-                Debug.Log("1");
-            }         
-            if (QuestionInput.mcQuestions[randomIndex].Equals("I registered for Math 1000 online, but the course is not showing up in Brightspace?"))
-            {
-                Debug.Log("1");
-            }*/               
-            Debug.Log(QuestionInput.mcQuestions[randomIndex] +"\n");
+            correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];        
             questionAsked = true;
         }
         if (questionAnswered && questionAsked)

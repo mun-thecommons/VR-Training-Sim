@@ -45,7 +45,7 @@ public class QuestionInput : MonoBehaviour
         FileParse("questions", questions);
         FileParse("answers", answers);
         FileParse("mc", mc);
-        FileParse("mc", cashbox);
+        FileParse("cashboxQuestions", cashbox);
         audio = FindObjectOfType<Audio>();
     }
 
