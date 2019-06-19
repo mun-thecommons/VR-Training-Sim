@@ -9,13 +9,13 @@ Get them to login to WinSCP and delete the .dmrc file in their directory
 Tell them to try another lab.
 Tell them to use windows instead
 Call the ITS Help Desk
-loginToLinux
+Error On Linux
 I registered for Math 1000 online, but the course is not showing up in Brightspace?
 Call the CITL Support Centre.
 Call the Registrar’s Office.
 Let Meaghan know.
 Call the ITS Help Desk
-none
+Course Is Not Showing Up
 Can I book an appoitment for the Writing Centre? 
 First, ask a client if they are an undergraduate or gradute student
 First, show him the writing centre schedule

@@ -24,7 +24,7 @@ public class PlayerUIScore : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.RawButton.B))
         {
-            mainCanvas.enabled = !PlayerUIScore.mainCanvas.enabled;
+            mainCanvas.enabled = !mainCanvas.enabled;
         }
     }
 }

@@ -69,7 +69,6 @@ public class MCQuestions : MonoBehaviour {
             string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
             if (!audioName.Equals("none"))
             {
-                Debug.Log(audioName);
                 questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
                 audioSource.clip = questionAudio;
                 audioSource.Play();
