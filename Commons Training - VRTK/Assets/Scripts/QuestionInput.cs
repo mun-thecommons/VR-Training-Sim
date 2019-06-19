@@ -37,7 +37,6 @@ public class QuestionInput : MonoBehaviour
     public static int scoreDetector = 0;
     public static bool answerCorrect;
     public static bool questionAnswered;
-    public static bool isScoreShowing = false;
     public static Audio audio;
 
     void Awake()
@@ -51,28 +50,13 @@ public class QuestionInput : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer <= 0 && isScoreShowing)
-        {
-            PlayerUIScore.TurnScoreOff();
-            isScoreShowing = false;
-        }
-    }
-
-    static public IEnumerator FlashPlayerScore()
-    {
-        PlayerUIScore.TurnScoreOn();
-        yield return new WaitForSeconds(5f);
-        PlayerUIScore.TurnScoreOff();
-        isScoreShowing = false;
+       //empty for now
     }
 
     static public void ScoreIncrement(int optionalVal = 1)
     {
         correct ++;
         totalScore += optionalVal;
-        isScoreShowing = true;
-        PlayerUIScore.TurnScoreOn();
         audio.correctSound();
         timer = scoreTimer;
     }
@@ -81,8 +65,6 @@ public class QuestionInput : MonoBehaviour
     {
         wrong++;
         totalScore -= optionalVal;
-        isScoreShowing = true;
-        PlayerUIScore.TurnScoreOn();
         audio.wrongSound();
         timer = scoreTimer;
     }

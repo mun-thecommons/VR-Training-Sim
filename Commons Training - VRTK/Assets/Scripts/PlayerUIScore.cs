@@ -2,42 +2,30 @@
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-
+using OVRTouchSample;
 
 
 public class PlayerUIScore : MonoBehaviour
 {
-     TextMeshProUGUI playerUIscore;
-     static Canvas mainCanvas;
+    TextMeshProUGUI playerUIscore;
+    public static Canvas mainCanvas;
 
 
     void Start()
     {
-
         playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
-        
     }
 
     void Update()
     {
-    
-        playerUIscore.SetText("Score:  "+ QuestionInput.totalScore.ToString());
-       
-    }
+        playerUIscore.SetText("Pro:0" + "\nTech:0" + "\nC-Srv:0" + "\ntotal:  " + QuestionInput.totalScore.ToString());
 
-    
-    static public void TurnScoreOff()
-    {
-        mainCanvas.enabled = false;
-        
-    }
-
-    static public void TurnScoreOn()
-    {
-        mainCanvas.enabled = true;
+        if (OVRInput.GetDown(OVRInput.RawButton.B))
+        {
+            mainCanvas.enabled = !PlayerUIScore.mainCanvas.enabled;
+        }
     }
 }
-
 
