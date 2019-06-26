@@ -55,7 +55,7 @@ public class MonitorController : MonoBehaviour
             if (errorState)
             {
                 errorState = false;
-                QuestionInput.ScoreIncrement();
+                QuestionInput.ScoreIncrement(2);
             }
         }
     }

@@ -9,6 +9,7 @@ public class PlayerUIScore : MonoBehaviour
 {
     TextMeshProUGUI playerUIscore;
     public static Canvas mainCanvas;
+    int totalScore;
 
 
     void Start()
@@ -16,16 +17,18 @@ public class PlayerUIScore : MonoBehaviour
         playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
+        
     }
 
     void Update()
     {
-        playerUIscore.SetText("Pro:0" + "\nTech:0" + "\nC-Srv:0" + "\ntotal:  " + QuestionInput.totalScore.ToString());
+        totalScore = QuestionInput.profScore + QuestionInput.profScore + QuestionInput.custServScore;
+        playerUIscore.SetText("Pro: " +QuestionInput.profScore.ToString()+ "\nTech: " +QuestionInput.techScore.ToString()+ "\nC-Srv: "+ QuestionInput.custServScore.ToString() + "\ntotal: " +totalScore.ToString() );
 
         if (OVRInput.GetDown(OVRInput.RawButton.B))
         {
             mainCanvas.enabled = !mainCanvas.enabled;
-        }
+        }        
     }
 }
 

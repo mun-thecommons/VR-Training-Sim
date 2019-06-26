@@ -21,6 +21,7 @@ TagManager:
   - USBox
   - Station
   - Paper
+  - StaplerThrow
   layers:
   - Default
   - TransparentFX

@@ -145,7 +145,7 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0.009433985, g: 0.009211485, b: 0.009211485, a: 0.5}
 --- !u!28 &2846298
 Texture2D:
   m_ObjectHideFlags: 1
@@ -155,7 +155,7 @@ Texture2D:
   m_Name: LiberationSans SDF Atlas
   m_ImageContentsHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 93865dee1d8282ba833365b97fcd9c18
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 2

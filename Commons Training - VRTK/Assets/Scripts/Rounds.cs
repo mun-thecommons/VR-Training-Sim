@@ -26,7 +26,7 @@ public class Rounds : MonoBehaviour {
 
     IEnumerator done()
     {
-        Debug.Log("Hello");
+       
         roundsDoneSignal.Play();
         minutes = 0;
         seconds = 0;
@@ -65,7 +65,9 @@ public class Rounds : MonoBehaviour {
         {
             output.text = "Rounds Needed Last Rounds  " + minutes.ToString() + ":" + seconds.ToString();
             output.fontSize = 27;
-            output.color = Color.red;
+            output.color = Color.red;                                  //if Rounds are not done in the next 5 minutes game over???
+           // QuestionInput.ScoreDecrement(2);  
+          
         }
         else
             output.text = "Last Rounds " + minutes.ToString() + ":" + seconds.ToString();
@@ -83,5 +85,6 @@ public class Rounds : MonoBehaviour {
         }
         Debug.Log("All rounds done");
         roundsDone = true;
+        QuestionInput.ScoreIncrement(2);
     }
 }

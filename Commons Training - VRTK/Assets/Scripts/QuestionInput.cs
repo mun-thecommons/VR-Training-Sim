@@ -33,14 +33,18 @@ public class QuestionInput : MonoBehaviour
     static public PlayerUIScore canvasScript;
     public static int correct = 0;
     public static int wrong = 0;
-    public static int totalScore = 0;
+    //public static int totalScore = 0;
+    public static int techScore = 0;
+    public static int custServScore = 0;
+    public static int profScore = 0;
     public static int scoreDetector = 0;
     public static bool answerCorrect;
     public static bool questionAnswered;
     public static Audio audio;
+    
 
     void Awake()
-    {  
+    {
         FileParse("questions", questions);
         FileParse("answers", answers);
         FileParse("mc", mc);
@@ -50,23 +54,61 @@ public class QuestionInput : MonoBehaviour
 
     private void Update()
     {
-       //empty for now
+        //empty for now
     }
 
-    static public void ScoreIncrement(int optionalVal = 1)
+
+    static public void ScoreIncrement(int optionVal)
     {
-        correct ++;
-        totalScore += optionalVal;
-        audio.correctSound();
-        timer = scoreTimer;
+        if (optionVal == 1)  //techscore
+        {
+            correct++;
+            techScore++;
+            audio.correctSound();
+            timer = scoreTimer;     
+        }
+        else if (optionVal == 2) //profScore
+        {
+            correct++;
+            profScore++;
+            audio.correctSound();
+            timer = scoreTimer;
+        }
+        else   //customer service score
+        {
+            correct++;
+            profScore++;
+            audio.correctSound();
+            timer = scoreTimer;
+        }
+
     }
 
-    static public void ScoreDecrement(int optionalVal = 1)
+
+    static public void ScoreDecrement(int optionVal)
     {
-        wrong++;
-        totalScore -= optionalVal;
-        audio.wrongSound();
-        timer = scoreTimer;
+        if (optionVal == 1)  //techscore
+        {
+            wrong++;
+            techScore--;
+            audio.wrongSound();
+            timer = scoreTimer;
+        }
+        else if (optionVal == 2) //profScore
+        {
+            wrong--;
+            profScore--;
+            audio.wrongSound();
+            timer = scoreTimer;
+        }
+        else   //customer service score
+        {
+            wrong--;
+            profScore--;
+            audio.wrongSound();
+            timer = scoreTimer;
+        }
+
     }
 
     void FileParse(string toParse, TextAsset textFile)
