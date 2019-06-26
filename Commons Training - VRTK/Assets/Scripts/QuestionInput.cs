@@ -27,8 +27,6 @@ public class QuestionInput : MonoBehaviour
     public static List<string> cashBoxQuestions = new List<string> { };
     public static List<string> cashBoxCorrectAnswers = new List<string> { };
     public static List<string[]> cashBoxWrongAnswers = new List<string[]> { };
-    static private float timer = 0f;
-    static private float scoreTimer = 5f;
 
     static public PlayerUIScore canvasScript;
     public static int correct = 0;
@@ -64,22 +62,19 @@ public class QuestionInput : MonoBehaviour
         {
             correct++;
             techScore++;
-            audio.correctSound();
-            timer = scoreTimer;     
+            audio.correctSound();   
         }
         else if (optionVal == 2) //profScore
         {
             correct++;
             profScore++;
             audio.correctSound();
-            timer = scoreTimer;
         }
         else   //customer service score
         {
             correct++;
             profScore++;
             audio.correctSound();
-            timer = scoreTimer;
         }
 
     }
@@ -92,21 +87,18 @@ public class QuestionInput : MonoBehaviour
             wrong++;
             techScore--;
             audio.wrongSound();
-            timer = scoreTimer;
         }
         else if (optionVal == 2) //profScore
         {
             wrong--;
             profScore--;
             audio.wrongSound();
-            timer = scoreTimer;
         }
         else   //customer service score
         {
             wrong--;
             profScore--;
             audio.wrongSound();
-            timer = scoreTimer;
         }
 
     }

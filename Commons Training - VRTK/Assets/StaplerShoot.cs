@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class StaplerShoot : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

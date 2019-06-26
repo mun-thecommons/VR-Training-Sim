@@ -5,12 +5,12 @@ using UnityEngine;
 public class StaplerManager : MonoBehaviour
 {
     public GameObject staplerPrefab;
-    public Transform staplerThrowParent;
+    public Transform staplerCollectParent;
 
     static private List<Vector3> spawnPositions = new List<Vector3> { };
     private float timer = 5f;
     private float resetTimer = 5f;
-    private GameObject stapler;
+    private GameObject staplerCollect;
     private int randInd;
     private const float yPos = 1f;
     private Vector3 spawnPosition;
@@ -39,15 +39,15 @@ public class StaplerManager : MonoBehaviour
                 randInd = Random.Range(0, spawnPositions.Count);
                 spawnPosition = spawnPositions[randInd];
                 spawnPositions.RemoveAt(randInd);
-                stapler = Instantiate(staplerPrefab, spawnPosition, staplerPrefab.transform.rotation) as GameObject;
-                stapler.transform.parent = staplerThrowParent;
+                staplerCollect = Instantiate(staplerPrefab, spawnPosition, staplerPrefab.transform.rotation) as GameObject;
+                staplerCollect.transform.parent = staplerCollectParent;
             }
         }        
     }
 
     public static void CollectStapler(Vector3 position)
     {
+        PlayerUIScore.staplers++;
         spawnPositions.Add(position);
     }
-
 }
