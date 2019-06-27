@@ -11,20 +11,20 @@ public class PlayerUIScore : MonoBehaviour
 
     public GameObject staplerPrefab;
     public Transform staplerShootParent;
-    public static int staplers = 0;
+
+    //Make sure to change the staplers back to 0 after testing
+    public static int staplers = 100;
     public static Canvas mainCanvas;
+    public GameObject rightHand;
 
     private int totalScore;
     private GameObject staplerShoot;
-    private GameObject rightHand;
 
     void Start()
     {
         playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
-
-        rightHand = GetRightHand();
     }
 
     void Update()
@@ -32,12 +32,12 @@ public class PlayerUIScore : MonoBehaviour
         totalScore = QuestionInput.profScore + QuestionInput.profScore + QuestionInput.custServScore;
         playerUIscore.SetText("Pro: " +QuestionInput.profScore.ToString()+ "\nTech: " +QuestionInput.techScore.ToString()+ "\nC-Srv: "+ QuestionInput.custServScore.ToString() + "\ntotal: " +totalScore.ToString() + "\nstaplers: " + staplers.ToString());
 
-        if (OVRInput.GetDown(OVRInput.RawButton.B))
+        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
         {
             mainCanvas.enabled = !mainCanvas.enabled;
         }
 
-        if (OVRInput.GetDown(OVRInput.RawButton.A))
+        if (OVRInput.GetDown(OVRInput.RawButton.B))
         {
             ShootStapler();
         }
@@ -49,24 +49,10 @@ public class PlayerUIScore : MonoBehaviour
         {
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerShootParent;
-            staplerShoot.GetComponent<Rigidbody>().AddForce(rightHand.transform.forward*100);
             staplers--;
         }
     }
 
-    GameObject GetRightHand()
-    {
-        GameObject rightHand = GameObject.Find("RightHandAnchor");
-        if (rightHand != null)
-        {
-            return rightHand;
-        }
-        else
-        {
-            Debug.Log("Can't find right hand");
-            return null;
-        }
-    }
 }
 
 

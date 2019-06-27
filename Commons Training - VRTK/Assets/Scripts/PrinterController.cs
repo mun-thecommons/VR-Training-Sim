@@ -33,7 +33,7 @@ public class PrinterController : MonoBehaviour
             full = true;
             Destroy(other.gameObject);
             timer = resetTimer;
-            QuestionInput.ScoreIncrement(2);
+            QuestionInput.ScoreModify(1, 0, 0, true, false);
         }
     }
 }

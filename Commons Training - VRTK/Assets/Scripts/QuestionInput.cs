@@ -50,57 +50,22 @@ public class QuestionInput : MonoBehaviour
         audio = FindObjectOfType<Audio>();
     }
 
-    private void Update()
+    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {
-        //empty for now
-    }
-
-
-    static public void ScoreIncrement(int optionVal)
-    {
-        if (optionVal == 1)  //techscore
+        profScore += prof;
+        custServScore += cs;
+        techScore += tech;
+        if(playSound)
         {
-            correct++;
-            techScore++;
-            audio.correctSound();   
+            if(correct)
+            {
+                audio.correctSound();
+            }
+            else
+            {
+                audio.wrongSound();
+            }
         }
-        else if (optionVal == 2) //profScore
-        {
-            correct++;
-            profScore++;
-            audio.correctSound();
-        }
-        else   //customer service score
-        {
-            correct++;
-            profScore++;
-            audio.correctSound();
-        }
-
-    }
-
-
-    static public void ScoreDecrement(int optionVal)
-    {
-        if (optionVal == 1)  //techscore
-        {
-            wrong++;
-            techScore--;
-            audio.wrongSound();
-        }
-        else if (optionVal == 2) //profScore
-        {
-            wrong--;
-            profScore--;
-            audio.wrongSound();
-        }
-        else   //customer service score
-        {
-            wrong--;
-            profScore--;
-            audio.wrongSound();
-        }
-
     }
 
     void FileParse(string toParse, TextAsset textFile)

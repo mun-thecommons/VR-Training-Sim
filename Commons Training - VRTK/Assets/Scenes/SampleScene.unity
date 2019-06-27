@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 11222006}
   m_Layer: 0
   m_Name: StaffComputer
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 27274596}
   m_Layer: 0
   m_Name: MapRoomMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2169,7 +2169,7 @@ GameObject:
   - component: {fileID: 36206626}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 8
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3738,7 +3738,7 @@ GameObject:
   - component: {fileID: 62463939}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4876,7 +4876,7 @@ GameObject:
   - component: {fileID: 84034042}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 18 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4993,7 +4993,7 @@ GameObject:
   - component: {fileID: 85259081}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 16
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8410,7 +8410,7 @@ GameObject:
   - component: {fileID: 141676443}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (17)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13498,7 +13498,7 @@ GameObject:
   - component: {fileID: 227907915}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 13
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14525,7 +14525,7 @@ GameObject:
   - component: {fileID: 253845489}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 20
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -20003,7 +20003,7 @@ GameObject:
   - component: {fileID: 336452570}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 22 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -20285,7 +20285,7 @@ GameObject:
   - component: {fileID: 342136683}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 18 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -22096,7 +22096,7 @@ GameObject:
   - component: {fileID: 371565887}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (4)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -22828,7 +22828,7 @@ GameObject:
   - component: {fileID: 383316350}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 8 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -26723,7 +26723,7 @@ GameObject:
   - component: {fileID: 464634187}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor 1
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -27763,7 +27763,7 @@ GameObject:
   - component: {fileID: 481734789}
   m_Layer: 0
   m_Name: Printer_1
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -28072,7 +28072,7 @@ GameObject:
   - component: {fileID: 486291403}
   m_Layer: 0
   m_Name: Dell Monitor 1
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30014,7 +30014,7 @@ GameObject:
   - component: {fileID: 526395073}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (22)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30372,7 +30372,7 @@ GameObject:
   - component: {fileID: 535211995}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (2)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30861,7 +30861,7 @@ GameObject:
   - component: {fileID: 551119963}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 18
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -31253,7 +31253,7 @@ GameObject:
   - component: {fileID: 564224946}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 8
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -31722,7 +31722,7 @@ GameObject:
   - component: {fileID: 573138836}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 22
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -32921,7 +32921,7 @@ GameObject:
   - component: {fileID: 602922014}
   m_Layer: 0
   m_Name: Clients
-  m_TagString: Untagged
+  m_TagString: Client
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33597,7 +33597,7 @@ GameObject:
   - component: {fileID: 613992621}
   m_Layer: 0
   m_Name: DMCPrinters&Plotter
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -33972,7 +33972,7 @@ GameObject:
   - component: {fileID: 619912166}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (10)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -34334,7 +34334,7 @@ GameObject:
   - component: {fileID: 625990024}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 22
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -36054,7 +36054,7 @@ GameObject:
   - component: {fileID: 651190133}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (16)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39134,7 +39134,7 @@ GameObject:
   - component: {fileID: 704514350}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (21)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -40252,7 +40252,7 @@ GameObject:
   - component: {fileID: 727529941}
   m_Layer: 0
   m_Name: 28" monitor
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40859,7 +40859,7 @@ GameObject:
   - component: {fileID: 736240060}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -42200,7 +42200,7 @@ GameObject:
   - component: {fileID: 754337613}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13 3
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -43433,7 +43433,7 @@ GameObject:
   - component: {fileID: 771445318}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (8)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -45045,7 +45045,7 @@ GameObject:
   - component: {fileID: 790870895}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 5
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -46194,7 +46194,7 @@ GameObject:
   - component: {fileID: 811156336}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 1
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -47593,7 +47593,7 @@ GameObject:
   - component: {fileID: 836857441}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 17
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -47706,7 +47706,7 @@ GameObject:
   - component: {fileID: 840769204}
   m_Layer: 0
   m_Name: LeftHallMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -48545,7 +48545,7 @@ GameObject:
   - component: {fileID: 858217254}
   m_Layer: 0
   m_Name: CSDeskMonitors
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -48941,7 +48941,7 @@ GameObject:
   - component: {fileID: 864622196}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 2
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -49134,7 +49134,7 @@ GameObject:
   - component: {fileID: 865213023}
   m_Layer: 0
   m_Name: DMCMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -49613,7 +49613,7 @@ GameObject:
   - component: {fileID: 871981441}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 22
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -50239,7 +50239,7 @@ GameObject:
   - component: {fileID: 880453119}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 16 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -51332,7 +51332,7 @@ GameObject:
   - component: {fileID: 906987061}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (14)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -53222,7 +53222,7 @@ GameObject:
   - component: {fileID: 950317884}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#11
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -57361,7 +57361,7 @@ GameObject:
   - component: {fileID: 1035310737}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 7
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -57640,7 +57640,7 @@ GameObject:
   - component: {fileID: 1042712799}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (12)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -58658,7 +58658,7 @@ GameObject:
   - component: {fileID: 1056472769}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (6)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -58856,7 +58856,7 @@ GameObject:
   - component: {fileID: 1057657988}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 3
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -59384,7 +59384,7 @@ GameObject:
   - component: {fileID: 1063084798}
   m_Layer: 0
   m_Name: DMCPlotter
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -59421,7 +59421,7 @@ GameObject:
   - component: {fileID: 1063479490}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13 2
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -60199,7 +60199,7 @@ GameObject:
   - component: {fileID: 1071550721}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (3)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -62695,7 +62695,7 @@ GameObject:
   - component: {fileID: 1107927578}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 18
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -64620,7 +64620,7 @@ GameObject:
   - component: {fileID: 1141101648}
   m_Layer: 0
   m_Name: hp Printer 1
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -67411,7 +67411,7 @@ GameObject:
   - component: {fileID: 1190896789}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (9)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -68243,7 +68243,7 @@ GameObject:
   - component: {fileID: 1206701672}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 16
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -69420,7 +69420,7 @@ GameObject:
   - component: {fileID: 1221411634}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -70060,18 +70060,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1230675379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230675372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa5f7689cdddab4484251c5ef64e527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1231033845
 GameObject:
   m_ObjectHideFlags: 0
@@ -71071,7 +71059,7 @@ GameObject:
   - component: {fileID: 1250808219}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 12
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -71894,7 +71882,7 @@ GameObject:
   - component: {fileID: 1265886992}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (15)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -73396,7 +73384,7 @@ GameObject:
   - component: {fileID: 1283775547}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (11)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -73865,7 +73853,7 @@ GameObject:
   - component: {fileID: 1291425142}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (7)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -74544,7 +74532,7 @@ GameObject:
   - component: {fileID: 1304309726}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 21
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -75104,7 +75092,7 @@ GameObject:
   - component: {fileID: 1314132574}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 16 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -77119,7 +77107,7 @@ GameObject:
   - component: {fileID: 1351017948}
   m_Layer: 0
   m_Name: hp Printer
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -77318,7 +77306,7 @@ GameObject:
   - component: {fileID: 1355998977}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 23
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -78996,7 +78984,7 @@ GameObject:
   - component: {fileID: 1377871098}
   m_Layer: 0
   m_Name: RoundsTimerMonitor
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -79520,7 +79508,7 @@ GameObject:
   - component: {fileID: 1391118275}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (18)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -82077,7 +82065,7 @@ GameObject:
   - component: {fileID: 1442028173}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 22 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -82226,7 +82214,7 @@ GameObject:
   - component: {fileID: 1447296477}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -83016,7 +83004,7 @@ GameObject:
   - component: {fileID: 1461808429}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (19)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -84047,6 +84035,7 @@ MonoBehaviour:
   staplerPrefab: {fileID: 8172754604093288383, guid: 22539f6e41ae2a44da4a5cfe215f5e02,
     type: 3}
   staplerShootParent: {fileID: 47585943}
+  rightHand: {fileID: 378537791}
 --- !u!1001 &1472586982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85155,7 +85144,7 @@ GameObject:
   - component: {fileID: 1493543744}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 8 (1)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87079,7 +87068,7 @@ GameObject:
   - component: {fileID: 1531713875}
   m_Layer: 0
   m_Name: MainAreaPrinters
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87231,7 +87220,7 @@ GameObject:
   - component: {fileID: 1536347895}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (23)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87425,7 +87414,7 @@ GameObject:
   - component: {fileID: 1539818348}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13 1
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87930,7 +87919,7 @@ GameObject:
   - component: {fileID: 1545846024}
   m_Layer: 0
   m_Name: Printer_3
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -88151,7 +88140,7 @@ GameObject:
   - component: {fileID: 1551469570}
   m_Layer: 0
   m_Name: Printer_2
-  m_TagString: Untagged
+  m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -89596,7 +89585,7 @@ GameObject:
   - component: {fileID: 1580061418}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 16
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -91607,7 +91596,7 @@ GameObject:
   - component: {fileID: 1611039550}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (20)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -93300,7 +93289,7 @@ GameObject:
   - component: {fileID: 1635393672}
   m_Layer: 0
   m_Name: WritingCentrePC
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -94016,7 +94005,7 @@ GameObject:
   - component: {fileID: 1642247936}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -94246,7 +94235,7 @@ GameObject:
   - component: {fileID: 1645778313}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 14
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -95893,7 +95882,7 @@ GameObject:
   - component: {fileID: 1667449781}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 18
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -96871,7 +96860,7 @@ GameObject:
   - component: {fileID: 1693230869}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#11 1
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -99387,7 +99376,7 @@ GameObject:
   - component: {fileID: 1740456590}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 10
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -102997,6 +102986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384b7fdb11d619c4b8d1dfda027c8f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1787034722
 GameObject:
   m_ObjectHideFlags: 0
@@ -106210,7 +106200,7 @@ GameObject:
   - component: {fileID: 1848196692}
   m_Layer: 0
   m_Name: ClassroomMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -106767,7 +106757,7 @@ GameObject:
   - component: {fileID: 1860509567}
   m_Layer: 0
   m_Name: RightHallMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108049,7 +108039,7 @@ GameObject:
   - component: {fileID: 1881697425}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#11 2
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108382,7 +108372,7 @@ GameObject:
   - component: {fileID: 1889701236}
   m_Layer: 0
   m_Name: MainAreaMonitorGroup
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108477,7 +108467,7 @@ GameObject:
   - component: {fileID: 1891054461}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13 4
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108837,7 +108827,7 @@ GameObject:
   - component: {fileID: 1895638048}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (5)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -109934,7 +109924,7 @@ GameObject:
   - component: {fileID: 1915598900}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 6
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -110653,7 +110643,7 @@ GameObject:
   - component: {fileID: 1930361941}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#13 5
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -112424,7 +112414,7 @@ GameObject:
   - component: {fileID: 1971008475}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 15
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -117443,7 +117433,7 @@ GameObject:
   - component: {fileID: 2066985397}
   m_Layer: 0
   m_Name: ScoreMonitor(CS_Desk)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -118050,7 +118040,7 @@ GameObject:
   - component: {fileID: 2073841490}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 8
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -118474,7 +118464,7 @@ GameObject:
   - component: {fileID: 2077757772}
   m_Layer: 0
   m_Name: Flashing Monitor Test
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -119496,7 +119486,7 @@ GameObject:
   - component: {fileID: 2103006618}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 9 (13)
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -121810,7 +121800,7 @@ GameObject:
   - component: {fileID: 2133347475}
   m_Layer: 0
   m_Name: 17 Inch LCD Monitor#1 4
-  m_TagString: Untagged
+  m_TagString: Monitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

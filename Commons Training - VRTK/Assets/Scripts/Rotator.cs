@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
+    public float speed = 1f;
     private Vector3 rotationVec;
-
 
     void Start()
     {
@@ -15,6 +15,6 @@ public class Rotator : MonoBehaviour {
     // Use this for initialization
     void Update()
     {
-        transform.Rotate(rotationVec * Time.deltaTime);
+        transform.Rotate(rotationVec * Time.deltaTime * speed);
     }
 }

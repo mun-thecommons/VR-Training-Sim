@@ -61,18 +61,16 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
         if (questionAnswered && questionAsked)
         {
-                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
+                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && ITS.GetComponent<PhoneGrab>().isGrabbed))
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    QuestionInput.ScoreIncrement(1);
-                    QuestionInput.ScoreIncrement(1);
+                    QuestionInput.ScoreModify(1, 1, 0, true, true);
             }
 
                 else
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    QuestionInput.ScoreDecrement(1);
-                    QuestionInput.ScoreIncrement(1);    
+                    QuestionInput.ScoreModify(1, -1, 0, false, true);
 
             }
 

@@ -58,14 +58,12 @@ public class CashBoxClient : MonoBehaviour
 
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                QuestionInput.ScoreIncrement(1);
-                QuestionInput.ScoreIncrement(3);
+                QuestionInput.ScoreModify(1, 1, 0, true, true);
             }
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                QuestionInput.ScoreDecrement(1);
-                QuestionInput.ScoreIncrement(3);
+                QuestionInput.ScoreModify(1, -1, 0, false, true);
             }
 
             answers.SetActive(false);

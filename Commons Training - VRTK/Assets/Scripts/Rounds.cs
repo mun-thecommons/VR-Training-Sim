@@ -85,6 +85,6 @@ public class Rounds : MonoBehaviour {
         }
         Debug.Log("All rounds done");
         roundsDone = true;
-        QuestionInput.ScoreIncrement(2);
+        QuestionInput.ScoreModify(1, 0, 0, true, false);
     }
 }

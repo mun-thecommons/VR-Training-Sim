@@ -22,6 +22,8 @@ TagManager:
   - Station
   - Paper
   - StaplerThrow
+  - Monitor
+  - Printer
   layers:
   - Default
   - TransparentFX
