@@ -22,13 +22,18 @@ public class StaplerShoot : MonoBehaviour
     {
         if (other.CompareTag("Monitor") || other.CompareTag("Printer"))
         {
-            QuestionInput.ScoreModify(0,0,-1,false,false);
+            PlayerUIScore.ScoreModify(0,0,-1,false,false);
             Destroy(gameObject);
         }
-
         else if (other.CompareTag("Client"))
         {
-            QuestionInput.ScoreModify(-1,0,0,false,false);
+            PlayerUIScore.ScoreModify(-1,0,0,false,false);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            PlayerUIScore.ScoreModify(1, 0, 0, true, false);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

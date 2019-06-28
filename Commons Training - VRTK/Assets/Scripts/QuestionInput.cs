@@ -13,59 +13,22 @@ public class QuestionInput : MonoBehaviour
     public TextAsset mc;
     public TextAsset cashbox;
 
-
-    public static GameObject canvas;  //works just fine
-
     public static List<string> mcQuestions = new List<string> { };
     public static List<string> mcCorrectAnswers = new List<string> { };
     public static List<string[]> mcWrongAnswers = new List<string[]> { };
     public static List<string> questionsArray = new List<string> { };
     public static List<string> answersArray = new List<string> { };
     public static List<string> mcAudio = new List<string> { };
-
-    //forcashBoxClient
     public static List<string> cashBoxQuestions = new List<string> { };
     public static List<string> cashBoxCorrectAnswers = new List<string> { };
     public static List<string[]> cashBoxWrongAnswers = new List<string[]> { };
-
-    static public PlayerUIScore canvasScript;
-    public static int correct = 0;
-    public static int wrong = 0;
-    //public static int totalScore = 0;
-    public static int techScore = 0;
-    public static int custServScore = 0;
-    public static int profScore = 0;
-    public static int scoreDetector = 0;
-    public static bool answerCorrect;
-    public static bool questionAnswered;
-    public static Audio audio;
-    
-
+  
     void Awake()
     {
         FileParse("questions", questions);
         FileParse("answers", answers);
         FileParse("mc", mc);
         FileParse("cashboxQuestions", cashbox);
-        audio = FindObjectOfType<Audio>();
-    }
-
-    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
-    {
-        profScore += prof;
-        custServScore += cs;
-        techScore += tech;
-        if(playSound)
-        {
-            if(correct)
-            {
-                audio.correctSound();
-            }
-            else
-            {
-                audio.wrongSound();
-            }
-        }
     }
 
     void FileParse(string toParse, TextAsset textFile)

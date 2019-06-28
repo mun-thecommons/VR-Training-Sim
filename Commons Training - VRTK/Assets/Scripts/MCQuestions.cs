@@ -93,13 +93,13 @@ public class MCQuestions : MonoBehaviour {
                 (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                QuestionInput.ScoreModify(1,1,0,true,true);
+                PlayerUIScore.ScoreModify(1,1,0,true,true);
             }
 
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                QuestionInput.ScoreModify(1, -1, 0, false, true);
+                PlayerUIScore.ScoreModify(1, -1, 0, false, true);
             }
 
             QuestionInput.mcQuestions.RemoveAt(randomIndex);
@@ -159,11 +159,11 @@ public class MCQuestions : MonoBehaviour {
             answers.SetActive(false);
             client.askingQuestion = false;
 
-            if (QuestionInput.questionAnswered)
+            if (questionAnswered)
             {
                 Vector3 move = new Vector3(100.0f, 0, 0);
                 transform.position += move;
-                QuestionInput.questionAnswered = false;
+                questionAnswered = false;
             }
         }
     }

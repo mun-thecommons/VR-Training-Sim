@@ -85,6 +85,6 @@ public class Rounds : MonoBehaviour {
         }
         Debug.Log("All rounds done");
         roundsDone = true;
-        QuestionInput.ScoreModify(1, 0, 0, true, false);
+        PlayerUIScore.ScoreModify(1, 0, 0, true, false);
     }
 }

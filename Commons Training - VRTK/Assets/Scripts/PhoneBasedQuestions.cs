@@ -64,13 +64,13 @@ public class PhoneBasedQuestions : MonoBehaviour {
                 if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && ITS.GetComponent<PhoneGrab>().isGrabbed))
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    QuestionInput.ScoreModify(1, 1, 0, true, true);
+                    PlayerUIScore.ScoreModify(1, 1, 0, true, true);
             }
 
                 else
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    QuestionInput.ScoreModify(1, -1, 0, false, true);
+                    PlayerUIScore.ScoreModify(1, -1, 0, false, true);
 
             }
 
@@ -104,11 +104,11 @@ public class PhoneBasedQuestions : MonoBehaviour {
             questions.SetActive(false);
             client.askingQuestion = false;
 
-            if (QuestionInput.questionAnswered)
+            if (questionAnswered)
             {
                 Vector3 move = new Vector3(100.0f, 0, 0);
                 transform.position += move;
-                QuestionInput.questionAnswered = false;
+                questionAnswered = false;
             }
         }
     }

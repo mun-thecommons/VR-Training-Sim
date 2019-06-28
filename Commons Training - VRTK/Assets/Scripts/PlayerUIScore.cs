@@ -7,7 +7,7 @@ using OVRTouchSample;
 
 public class PlayerUIScore : MonoBehaviour
 {
-    TextMeshProUGUI playerUIscore;
+    public static TextMeshProUGUI playerUIscore;
 
     public GameObject staplerPrefab;
     public Transform staplerShootParent;
@@ -16,8 +16,11 @@ public class PlayerUIScore : MonoBehaviour
     public static int staplers = 100;
     public static Canvas mainCanvas;
     public GameObject rightHand;
-
-    private int totalScore;
+    public static Audio audio;
+    private static int techScore = 0;
+    private static int custServScore = 0;
+    private static int profScore = 0;
+    private static int totalScore = 0;
     private GameObject staplerShoot;
 
     void Start()
@@ -25,13 +28,12 @@ public class PlayerUIScore : MonoBehaviour
         playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
+        audio = FindObjectOfType<Audio>();
+        playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
     }
 
     void Update()
-    {
-        totalScore = QuestionInput.profScore + QuestionInput.profScore + QuestionInput.custServScore;
-        playerUIscore.SetText("Pro: " +QuestionInput.profScore.ToString()+ "\nTech: " +QuestionInput.techScore.ToString()+ "\nC-Srv: "+ QuestionInput.custServScore.ToString() + "\ntotal: " +totalScore.ToString() + "\nstaplers: " + staplers.ToString());
-
+    {     
         if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
         {
             mainCanvas.enabled = !mainCanvas.enabled;
@@ -50,9 +52,29 @@ public class PlayerUIScore : MonoBehaviour
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerShootParent;
             staplers--;
+            playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         }
     }
 
+
+    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
+    {
+        profScore += prof;
+        custServScore += cs;
+        techScore += tech;
+        if (playSound)
+        {
+            if (correct)
+            {
+                audio.correctSound();
+            }
+            else
+            {
+                audio.wrongSound();
+            }
+        }
+        playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+    }
 }
 
 

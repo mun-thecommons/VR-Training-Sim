@@ -28,7 +28,7 @@ public class UsbController : MonoBehaviour {
     {
         if (collider.CompareTag("USBox"))
         {
-            QuestionInput.ScoreModify(0,0,1,true,true);//played and the player gets a score point  
+            PlayerUIScore.ScoreModify(0,0,1,true,true);//played and the player gets a score point  
             Destroy(gameObject);
             RobotController.isInUsbBox = true;
         }
