@@ -55,7 +55,7 @@ public class MonitorController : MonoBehaviour
             if (errorState)
             {
                 errorState = false;
-                PlayerUIScore.ScoreModify(0, 1, 0, true, false);
+                MasterController.ScoreModify(0, 1, 0, true, false);
             }
         }
     }

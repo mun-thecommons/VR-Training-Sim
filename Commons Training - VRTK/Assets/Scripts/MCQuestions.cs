@@ -93,13 +93,13 @@ public class MCQuestions : MonoBehaviour {
                 (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                PlayerUIScore.ScoreModify(1,1,0,true,true);
+                MasterController.ScoreModify(1,1,0,true,true);
             }
 
             else
             {
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                PlayerUIScore.ScoreModify(1, -1, 0, false, true);
+                MasterController.ScoreModify(1, -1, 0, false, true);
             }
 
             QuestionInput.mcQuestions.RemoveAt(randomIndex);

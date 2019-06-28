@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UsbController : MonoBehaviour {
+
     private GameObject player;
     private bool isUSBTouched= false;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     // Update is called once per frame
-    void Update () {
-        // transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+    void Update ()
+    {
         if (isUSBTouched == false)
         {
             EnableRotation();
@@ -24,11 +26,30 @@ public class UsbController : MonoBehaviour {
     }
 
     //USB and USB box collision logic
+
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("USBox"))
+        if(MasterController.vestCollected)                           // Lets USB continue to rotate while hand collides with USB   
         {
-            PlayerUIScore.ScoreModify(0,0,1,true,true);//played and the player gets a score point  
+            if (collider.CompareTag("USBox"))
+            {
+                MasterController.ScoreModify(0, 0, 1, true, true);  //played and the player gets a score point  
+                Destroy(gameObject);
+                RobotController.isInUsbBox = true;
+            }
+            if (collider.CompareTag("Hand"))
+            {
+                RobotController.isTouchingUSB = true;
+                isUSBTouched = true;
+            }
+            if (!collider.CompareTag("Hand"))
+            {
+                RobotController.isTouchingUSB = false;
+            }
+        }
+       /* if (collider.CompareTag("USBox"))
+        {
+            MasterController.ScoreModify(0,0,1,true,true);//played and the player gets a score point  
             Destroy(gameObject);
             RobotController.isInUsbBox = true;
         }
@@ -40,9 +61,6 @@ public class UsbController : MonoBehaviour {
         if (!collider.CompareTag("Hand"))
         {
             RobotController.isTouchingUSB = false;
-        }
+        }*/
     }
-
-    
-
 }

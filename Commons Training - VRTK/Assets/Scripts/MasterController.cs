@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using OVRTouchSample;
 
 
-public class PlayerUIScore : MonoBehaviour
+public class MasterController : MonoBehaviour
 {
-    public static TextMeshProUGUI playerUIscore;
-
     public GameObject staplerPrefab;
-    public Transform staplerShootParent;
-
-    //Make sure to change the staplers back to 0 after testing
-    public static int staplers = 100;
-    public static Canvas mainCanvas;
+    public Transform staplerParent;
     public GameObject rightHand;
+
+    public static TextMeshProUGUI playerUIscore;
+    public static bool vestCollected = false;
+    public static int staplers = 100;
+    public static Canvas mainCanvas;    
     public static Audio audio;
+
     private static int techScore = 0;
     private static int custServScore = 0;
     private static int profScore = 0;
@@ -50,12 +50,11 @@ public class PlayerUIScore : MonoBehaviour
         if(staplers > 0)
         {
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
-            staplerShoot.transform.parent = staplerShootParent;
+            staplerShoot.transform.parent = staplerParent;
             staplers--;
             playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         }
     }
-
 
     public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {

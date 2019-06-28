@@ -22,18 +22,18 @@ public class StaplerShoot : MonoBehaviour
     {
         if (other.CompareTag("Monitor") || other.CompareTag("Printer"))
         {
-            PlayerUIScore.ScoreModify(0,0,-1,false,false);
+            MasterController.ScoreModify(0,0,-1,false,false);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Client"))
         {
-            PlayerUIScore.ScoreModify(-1,0,0,false,false);
+            MasterController.ScoreModify(-1,0,0,false,false);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Enemy"))
         {
-            PlayerUIScore.ScoreModify(1, 0, 0, true, false);
-            Destroy(other.gameObject);
+            MasterController.ScoreModify(1, 0, 0, true, false);
+            other.GetComponent<EnemyController>().TakeDamage();
             Destroy(gameObject);
         }
     }
