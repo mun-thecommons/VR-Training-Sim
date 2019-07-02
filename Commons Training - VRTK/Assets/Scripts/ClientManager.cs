@@ -9,6 +9,7 @@ public class ClientManager : MonoBehaviour {
     public GameObject mcClient;
     static private List<Vector3> spawnPositions = new List<Vector3> { };
     private Vector3 spawnPosition;
+    private Vector3 destinationPosition;
     private GameObject client;
     private float timer = 5f;
     private float resetTimer = 5f;
@@ -18,6 +19,10 @@ public class ClientManager : MonoBehaviour {
     private void Start()
     {
         spawnPositions.Add(new Vector3(5.25f, yPos, -13.186f));
+        spawnPositions.Add(new Vector3(-4.48f, yPos, -20.48f));
+        spawnPositions.Add(new Vector3(3.78f, yPos, -11.73f));
+        destinationPosition =new Vector3(-26.8f,1.26f, -31.4f);
+
 
     }
 
@@ -46,7 +51,7 @@ public class ClientManager : MonoBehaviour {
                     client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
                 }
                 client.transform.parent = transform;
-
+                client.AddComponent<ClientMovement>();
 
             }
         }
