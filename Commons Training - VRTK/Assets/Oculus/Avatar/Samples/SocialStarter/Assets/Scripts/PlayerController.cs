@@ -33,11 +33,11 @@ public class PlayerController : SocialPlatformManager
     public override void Update()
     {
         base.Update();
-        checkInput();
+        CheckInput();
     }
 
     // Check for input from the touch controllers
-    void checkInput()
+    void CheckInput()
     {
         if (UnityEngine.Application.platform == RuntimePlatform.Android)
         {

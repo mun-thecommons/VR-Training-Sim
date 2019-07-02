@@ -74,7 +74,7 @@ public class CashBoxClient : MonoBehaviour
         }
         if (timer <= 0 && done)
         {
-            ClientManager.cashBoxReset();
+           
             Destroy(gameObject);
         }
 

@@ -12,6 +12,10 @@ public class MasterController : MonoBehaviour
     public GameObject rightHand;
 
     public static TextMeshProUGUI playerUIscore;
+    public static TextMeshProUGUI scoreBreakDownText;
+    public static TextMeshProUGUI totalScoreText;
+    public static TextMeshProUGUI staplerCountText;
+    public static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static int staplers = 100;
     public static Canvas mainCanvas;    
@@ -25,11 +29,16 @@ public class MasterController : MonoBehaviour
 
     void Start()
     {
-        playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        //playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
+        totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
+        staplerCountText = GameObject.Find("StaplerBox").GetComponentInChildren<TextMeshProUGUI>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = FindObjectOfType<Audio>();
-        playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+       
+
     }
 
     void Update()
@@ -43,6 +52,9 @@ public class MasterController : MonoBehaviour
         {
             ShootStapler();
         }
+    
+        
+
     }
     
     void ShootStapler()
@@ -52,7 +64,8 @@ public class MasterController : MonoBehaviour
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerParent;
             staplers--;
-            playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+            // playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+            staplerCountText.SetText(staplers.ToString());
         }
     }
 
@@ -72,7 +85,9 @@ public class MasterController : MonoBehaviour
                 audio.wrongSound();
             }
         }
-        playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+        scoreBreakDownText.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString());
+        totalScoreText.SetText(totalScore.ToString());
+        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
     }
 }
 
