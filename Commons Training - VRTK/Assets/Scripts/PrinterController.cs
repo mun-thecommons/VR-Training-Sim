@@ -7,7 +7,7 @@ public class PrinterController : MonoBehaviour
 {
     private bool full = false;
     public TextMeshProUGUI output;
-    private const float resetTimer = 20f;
+    private const float resetTimer = 30f;
     private float timer = 0;
 
     private void Start()
@@ -33,6 +33,7 @@ public class PrinterController : MonoBehaviour
             full = true;
             Destroy(other.gameObject);
             timer = resetTimer;
+            MasterController.ScoreModify(1, 0, 0, true, false);
         }
     }
 }

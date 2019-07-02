@@ -627,7 +627,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -648,10 +648,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 830e108a-f81c-42f5-bb1a-e58b95a1992c
+  cloudProjectId: be6287c6-9079-470a-b3d2-f0fa1d6ae281
   framebufferDepthMemorylessMode: 0
   projectName: Commons Training - VRTK
-  organizationId: jfroche
+  organizationId: thecommonsmun
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

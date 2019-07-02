@@ -20,17 +20,16 @@ public class PhoneBasedQuestions : MonoBehaviour {
     public GameObject ITS;
     public GameObject Labnet;
     private float newQTimer = 0f;
-    
+    private Audio audio;
     
 
     // Use this for initialization
     void Start () {
         questions = gameObject.transform.Find("QuestionCanvas").gameObject;
         client = GetComponent<Client>();
-     //   int randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
-     //  questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
         questions.SetActive(false);
-       
+        audio = FindObjectOfType<Audio>();
+
     }
 
     // Update is called once per frame
@@ -45,35 +44,43 @@ public class PhoneBasedQuestions : MonoBehaviour {
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
-            client.gameObject.GetComponent<MeshRenderer>().enabled = true;
-            randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
-            questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
-            answer = QuestionInput.answersArray[randomIndex];
-            if (QuestionInput.questionsArray[randomIndex] == "My files aren't showing up on my desktop when I login!")
-                FindObjectOfType<Audio>().noFilesSound();
-            if (QuestionInput.questionsArray[randomIndex] == "My balance is negative but I've never printed anything before?")
-                FindObjectOfType<Audio>().balanceNegativeSound();
-            if (QuestionInput.questionsArray[randomIndex] == "I cannot login into your computers or my.mun.ca. I tried reseting my password but that does not work.")
-                FindObjectOfType<Audio>().noLoginSound();
-            if (QuestionInput.questionsArray[randomIndex] == "None of my email is showing up in my inbox for MUNmail. I used to be staff.")
-                FindObjectOfType<Audio>().noEmailSound();
-            questionAsked = true;
+            if (MasterController.vestCollected)
+            {
+                client.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
+                answer = QuestionInput.answersArray[randomIndex];
+                if (QuestionInput.questionsArray[randomIndex] == "My files aren't showing up on my desktop when I login!")
+                    audio.noFilesSound();
+                if (QuestionInput.questionsArray[randomIndex] == "My balance is negative but I've never printed anything before?")
+                    audio.balanceNegativeSound();
+                if (QuestionInput.questionsArray[randomIndex] == "I cannot login into your computers or my.mun.ca. I tried reseting my password but that does not work.")
+                    audio.noLoginSound();
+                if (QuestionInput.questionsArray[randomIndex] == "None of my email is showing up in my inbox for MUNmail. I used to be staff.")
+                    audio.noEmailSound();
+                questionAsked = true;
+            }
+            else
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "I'm looking for an employee for some assistance";
+            }
+            
         }
 
         if (questionAnswered && questionAsked)
         {
-                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && Labnet.GetComponent<PhoneGrab>().isGrabbed))
+                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && ITS.GetComponent<PhoneGrab>().isGrabbed))
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    QuestionInput.ScoreIncrement();         
-                }
+                    MasterController.ScoreModify(1, 1, 0, true, true);
+            }
 
                 else
                 {
                     questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    QuestionInput.ScoreDecrement();
+                    MasterController.ScoreModify(1, -1, 0, false, true);
 
-                }
+            }
 
                 QuestionInput.questionsArray.RemoveAt(randomIndex);
                 QuestionInput.answersArray.RemoveAt(randomIndex);
@@ -105,11 +112,11 @@ public class PhoneBasedQuestions : MonoBehaviour {
             questions.SetActive(false);
             client.askingQuestion = false;
 
-            if (QuestionInput.questionAnswered)
+            if (questionAnswered)
             {
                 Vector3 move = new Vector3(100.0f, 0, 0);
                 transform.position += move;
-                QuestionInput.questionAnswered = false;
+                questionAnswered = false;
             }
         }
     }

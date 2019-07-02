@@ -7,7 +7,7 @@ public class RobbieFollow : MonoBehaviour
     public GameObject player;
     public float targetDistance;
     public float allowedDistance = 3;   
-    private float speed = 0.02f;
+    private float speed = 0.1f;
     public RaycastHit shot;
     
     void Update()

@@ -21,6 +21,10 @@ TagManager:
   - USBox
   - Station
   - Paper
+  - StaplerThrow
+  - Monitor
+  - Printer
+  - Enemy
   layers:
   - Default
   - TransparentFX
