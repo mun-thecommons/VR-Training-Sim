@@ -2,19 +2,16 @@
 
 public class Client : MonoBehaviour
 {
-
     public Transform player;
     public bool askingQuestion;
 
     void Start()
     {        
-        askingQuestion = false;
-        
+        askingQuestion = false;        
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-       // transform.rotation = player.rotation;
+        ClientManager.RemoveClient(transform.position);
     }
-    
 }

@@ -7,48 +7,56 @@ public class ClientManager : MonoBehaviour {
     static private float cashBoxTimerReset = 15f;
     public GameObject cashBoxClient;
     public GameObject mcClient;
-    static private List<Vector3> spawnPositions = new List<Vector3> { };
+    static private List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
+    private Vector3 destinationPosition;
     private GameObject client;
-    private float timer = 5f;
-    private float resetTimer = 5f;
+    static private float timer = 5f;
+    static private float resetTimer = 5f;
     private int randInd;
-    private float yPos = 1.26f;
+    private float yPos = 0.08f;
+    static public int clientsSpawned = 0;
 
     private void Start()
     {
         spawnPositions.Add(new Vector3(5.25f, yPos, -13.186f));
-
+        spawnPositions.Add(new Vector3(-4.48f, yPos, -20.48f));
+        spawnPositions.Add(new Vector3(3.78f, yPos, -11.73f));
+        destinationPosition = new Vector3(-26.8f,yPos, -31.4f);
     }
 
     void Update ()
     {
         timer -= Time.deltaTime;
-        SpawnClient();       
+        SpawnClient();
 	}
 
     void SpawnClient()
     {
-        if (timer <= 0)
+        if (timer <= 0 && clientsSpawned == 0 && spawnPositions.Count > 0)
         {
-            timer = resetTimer;
-            if (spawnPositions.Count > 0)
+            randInd = Random.Range(0, spawnPositions.Count);
+            spawnPosition = spawnPositions[randInd];
+            spawnPositions.RemoveAt(randInd);
+            if (Random.Range(0, 2) == 0)
             {
-                randInd = Random.Range(0, spawnPositions.Count);
-                spawnPosition = spawnPositions[randInd];
-                spawnPositions.RemoveAt(randInd);
-                if (Random.Range(0, 2) == 0)
-                {
-                    client = Instantiate(cashBoxClient, spawnPosition, cashBoxClient.transform.rotation) as GameObject;
-                }
-                else
-                {
-                    client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
-                }
-                client.transform.parent = transform;
-
-
+                client = Instantiate(cashBoxClient, spawnPosition, cashBoxClient.transform.rotation) as GameObject;
             }
+            else
+            {
+                client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
+            }
+            client.transform.parent = transform;
+            clientsSpawned++;
+            //client.AddComponent<ClientMovement>();
+            timer = resetTimer;
         }
+    }
+
+    static public void RemoveClient(Vector3 client)
+    {
+        spawnPositions.Add(client);
+        timer = resetTimer;
+        clientsSpawned--;
     }
 }

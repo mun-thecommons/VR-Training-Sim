@@ -37,7 +37,7 @@ public class MasterController : MonoBehaviour
         mainCanvas.enabled = false;
         audio = FindObjectOfType<Audio>();
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
-       
+
 
     }
 

@@ -21,5 +21,4 @@ public class ButtonPress : MonoBehaviour
             beingPressed = false;
         }
     }
-
 }
