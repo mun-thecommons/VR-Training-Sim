@@ -74,6 +74,7 @@ public class MasterController : MonoBehaviour
         profScore += prof;
         custServScore += cs;
         techScore += tech;
+        totalScore = profScore + custServScore + techScore;
         if (playSound)
         {
             if (correct)
