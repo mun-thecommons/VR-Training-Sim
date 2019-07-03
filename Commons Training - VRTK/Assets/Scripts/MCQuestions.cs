@@ -7,16 +7,14 @@ using UnityEngine.UI;
 
 public class MCQuestions : MonoBehaviour {
     private Client client;
-    [HideInInspector]
     public GameObject questions;
-    [HideInInspector]
     public GameObject answers;
-    private GameObject button1;
-    private GameObject button2;
-    private GameObject button3;
-    private GameObject button4;
-    private List<string> output;
-    private Transform player;
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+    public GameObject button4;
+    private List<string> output = new List<string> { };
+    private GameObject player;
     private string correctAnswer;
     private int randomIndex;
     private bool questionAsked = false;
@@ -27,37 +25,21 @@ public class MCQuestions : MonoBehaviour {
     private AudioSource audioSource;
     private string pathStart = "Audio/";
     private AudioClip questionAudio;
-   // private PlayerUIScore uiScoreScript;
-
-
 
     // Use this for initialization
     void Start()
     {        
         client = GetComponent<Client>();
-        player = client.player;
+        player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-       
-        questions = gameObject.transform.Find("QuestionCanvas").gameObject; 
-        answers = gameObject.transform.Find("AnswersCanvas").gameObject;  
-        output = new List<string> { };
         questions.SetActive(false);
         answers.SetActive(false);
-        button1 = answers.transform.Find("Button1").gameObject;
-        button2 = answers.transform.Find("Button2").gameObject;
-        button3 = answers.transform.Find("Button3").gameObject;
-        button4 = answers.transform.Find("Button4").gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(done && timer <= 0f)
-        {
-            client.gameObject.SetActive(false);
-        }
         if (client.askingQuestion && !questionAsked && timer <= 0)
         {
-            //answers.SetActive(true);
             randomIndex = Random.Range(0, QuestionInput.mcCorrectAnswers.Count);
             questions.GetComponentInChildren<TextMeshProUGUI>().text = "Excuse me, " + QuestionInput.mcQuestions[randomIndex];
             output = new List<string> { };
@@ -110,12 +92,13 @@ public class MCQuestions : MonoBehaviour {
             questionAnswered = false;
             done = true;
             timer = questionDelay;
+            Destroy(gameObject, 10f);
         }
         timer -= Time.deltaTime;
-        checkButton();
-
+        CheckButton();
+        CheckRange();
 	}
-    private void checkButton()
+    private void CheckButton()
     {
         if(button1.GetComponent<ButtonPress>().beingPressed || button2.GetComponent<ButtonPress>().beingPressed ||
             button3.GetComponent<ButtonPress>().beingPressed || button4.GetComponent<ButtonPress>().beingPressed) 
@@ -123,9 +106,7 @@ public class MCQuestions : MonoBehaviour {
             questionAnswered = true;
         }
     }
-
-
-
+    
     public static List<string> Shuffle(List<string> list)
     {
         List<string> shuffled = new List<string> { };
@@ -140,31 +121,20 @@ public class MCQuestions : MonoBehaviour {
 
         return shuffled;
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void CheckRange()
     {
-        if (other.CompareTag("Player"))
+        if (Vector3.Distance(transform.position, player.transform.position) <= 5f)
         {
-            //transform.rotation = transform.
             questions.SetActive(true);
             answers.SetActive(true);
             client.askingQuestion = true;
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        else
         {
             questions.SetActive(false);
             answers.SetActive(false);
             client.askingQuestion = false;
-
-            if (questionAnswered)
-            {
-                Vector3 move = new Vector3(100.0f, 0, 0);
-                transform.position += move;
-                questionAnswered = false;
-            }
         }
     }
 }

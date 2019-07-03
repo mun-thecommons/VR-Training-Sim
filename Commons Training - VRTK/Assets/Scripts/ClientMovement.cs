@@ -11,7 +11,7 @@ public class ClientMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        destinationPosition = new Vector3(-26.8f, 1.26f, -31.4f);
+        destinationPosition = new Vector3(-12.8f, transform.position.y, -3.4f);
     }
 
     // Update is called once per frame

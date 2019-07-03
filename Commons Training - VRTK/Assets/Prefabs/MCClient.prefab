@@ -185,7 +185,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996557207017644699}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1889,8 +1889,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed08ea426786e0c4ea6d2ccca70edd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions: {fileID: 0}
-  answers: {fileID: 0}
+  questions: {fileID: 7996557207608651115}
+  answers: {fileID: 7996557208940336667}
+  button1: {fileID: 7996557208847823112}
+  button2: {fileID: 7996557208421887558}
+  button3: {fileID: 7996557207017644699}
+  button4: {fileID: 7996557208304615876}
   questionAnswered: 0
   questionDelay: 10
 --- !u!114 &7996557207659955156
@@ -3785,7 +3789,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996557208304615876}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4248,7 +4252,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996557208421887558}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5530,7 +5534,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996557208847823112}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

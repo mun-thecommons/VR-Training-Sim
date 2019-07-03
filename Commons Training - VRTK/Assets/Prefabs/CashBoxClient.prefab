@@ -2893,8 +2893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05bc9381485b1d4d82e359be3e714a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers: {fileID: 0}
-  questions: {fileID: 0}
+  answers: {fileID: 1345969452723836}
+  questions: {fileID: 1049397235059518}
+  button1: {fileID: 1613011553162660}
+  button2: {fileID: 1968455176505280}
+  player: {fileID: 0}
   questionAnswered: 0
 --- !u!54 &-4789843764301802667
 Rigidbody:
@@ -3757,7 +3760,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613011553162660}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5547,7 +5550,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968455176505280}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
