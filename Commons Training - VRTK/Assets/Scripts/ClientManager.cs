@@ -29,7 +29,6 @@ public class ClientManager : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         SpawnClient();
-        Debug.Log(clientsSpawned);
 	}
 
     void SpawnClient()
