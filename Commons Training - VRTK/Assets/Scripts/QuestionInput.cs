@@ -28,7 +28,7 @@ public class QuestionInput : MonoBehaviour
         FileParse("questions", questions);
         FileParse("answers", answers);
         FileParse("mc", mc);
-        FileParse("cashboxQuestions", cashbox);
+        FileParse("cashboxQuestions", cashbox); 
     }
 
     void FileParse(string toParse, TextAsset textFile)

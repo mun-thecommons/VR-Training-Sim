@@ -21,7 +21,7 @@ public class RobbieFollow : MonoBehaviour
     }
     void PathFind()
     {
-        if(GetComponent<Rigidbody>().SweepTest(transform.TransformDirection(Vector3.forward), out shot, 2))
+        if(GetComponent<Rigidbody>().SweepTest(transform.forward, out shot, 2))
         {
             transform.Rotate(0, 1, 0);
             PathFind();
