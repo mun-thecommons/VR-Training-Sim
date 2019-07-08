@@ -20,9 +20,11 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI scoreBreakDownText;
     public static TextMeshProUGUI totalScoreText;
     public static TextMeshProUGUI staplerCountText;
+    public static TextMeshProUGUI coinCountText;
     public static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static int staplers = 100;
+    public static int coins = 0;
     public static Canvas mainCanvas;    
     public static Audio audio;
 
@@ -34,6 +36,8 @@ public class MasterController : MonoBehaviour
     public TextAsset instructions;
     public static List<string> instructionsArray = new List<string> { };
     private int instrArrayCounter = 0;
+    public Button exitGameButton;
+    public Button operationButton;
 
     void Start()
     {
@@ -47,7 +51,8 @@ public class MasterController : MonoBehaviour
         audio = FindObjectOfType<Audio>();
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         FileParse("instructions", instructions);
-  
+        exitGameButton = GameObject.FindGameObjectWithTag("ExitButton").GetComponent<Button>() as Button;
+        operationButton = GameObject.FindGameObjectWithTag("OperationsButton").GetComponent<Button>() as Button;
     }
 
     void Update()
@@ -63,6 +68,11 @@ public class MasterController : MonoBehaviour
         if (mainCanvas.isActiveAndEnabled == true)
         {
             GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = false;
+
+            if (OVRInput.GetDown(OVRInput.RawButton.Y))      
+            {
+                
+            }
             if (OVRInput.GetDown(OVRInput.RawButton.X))
 
             {
@@ -94,6 +104,7 @@ public class MasterController : MonoBehaviour
         
 
     }
+    
     //reading instr from the file
     void FileParse(string toParse, TextAsset textFile)
     {
@@ -141,8 +152,11 @@ public class MasterController : MonoBehaviour
                 audio.wrongSound();
             }
         }
+
+        coinCountText.SetText(coins.ToString());
         scoreBreakDownText.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString());
         totalScoreText.SetText(totalScore.ToString());
+
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
     }
 }
