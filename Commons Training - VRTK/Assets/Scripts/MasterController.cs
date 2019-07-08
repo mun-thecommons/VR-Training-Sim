@@ -153,7 +153,7 @@ public class MasterController : MonoBehaviour
             }
         }
 
-        coinCountText.SetText(coins.ToString());
+        //coinCountText.SetText(coins.ToString());
         scoreBreakDownText.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString());
         totalScoreText.SetText(totalScore.ToString());
 

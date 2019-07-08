@@ -20,11 +20,11 @@ public class CoinManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPositions.Add(new Vector3(-1.16f, 0.0f, 1.18f));
-        spawnPositions.Add(new Vector3(-0.2f, 0.0f, 3.16f));
-        spawnPositions.Add(new Vector3(-2.24f, 0.0f, 1.06f));
-        spawnPositions.Add(new Vector3(-3.08f, 0.0f, -0.62f));
-        spawnPositions.Add(new Vector3(-2f, 0.0f, -1.87f));
+        spawnPositions.Add(new Vector3(-1.16f, 1.25f, 1.18f));
+        spawnPositions.Add(new Vector3(-0.2f, 1.25f, 3.16f));
+        spawnPositions.Add(new Vector3(-2.24f, 1.25f, 1.06f));
+        spawnPositions.Add(new Vector3(-3.08f, 1.25f, -0.62f));
+        spawnPositions.Add(new Vector3(-2f, 1.25f, -1.87f));
     }
 
     // Update is called once per frame
