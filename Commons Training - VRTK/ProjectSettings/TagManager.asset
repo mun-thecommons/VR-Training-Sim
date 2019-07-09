@@ -25,6 +25,9 @@ TagManager:
   - Monitor
   - Printer
   - Enemy
+  - ExitButton
+  - OperationsButton
+  - Coin
   layers:
   - Default
   - TransparentFX

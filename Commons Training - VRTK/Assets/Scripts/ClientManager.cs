@@ -46,7 +46,7 @@ public class ClientManager : MonoBehaviour {
             {
                 client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
             }
-            client.transform.parent = transform;
+            client.transform.parent = gameObject.transform;
             clientsSpawned++;
             //client.AddComponent<ClientMovement>();
             timer = resetTimer;
