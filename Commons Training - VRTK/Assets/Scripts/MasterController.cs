@@ -36,8 +36,8 @@ public class MasterController : MonoBehaviour
     public TextAsset instructions;
     public static List<string> instructionsArray = new List<string> { };
     private int instrArrayCounter = 0;
-    public Button exitGameButton;
-    public Button operationButton;
+    public GameObject exitGameButton;
+    public GameObject operationButton;
 
     void Start()
     {
@@ -51,8 +51,8 @@ public class MasterController : MonoBehaviour
         audio = FindObjectOfType<Audio>();
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         FileParse("instructions", instructions);
-        exitGameButton = GameObject.FindGameObjectWithTag("ExitButton").GetComponent<Button>() as Button;
-        operationButton = GameObject.FindGameObjectWithTag("OperationsButton").GetComponent<Button>() as Button;
+        exitGameButton = GameObject.Find("ExitButton");
+        operationButton = GameObject.Find("OperationsManualButton");
     }
 
     void Update()
@@ -68,12 +68,12 @@ public class MasterController : MonoBehaviour
         if (mainCanvas.isActiveAndEnabled == true)
         {
             GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = false;
-
-            if (OVRInput.GetDown(OVRInput.RawButton.Y))      
+            if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
-                
+                exitGameButton.GetComponent<Image>().color = Color.red;
             }
-            if (OVRInput.GetDown(OVRInput.RawButton.X))
+
+                if (OVRInput.GetDown(OVRInput.RawButton.X))
 
             {
                 mainFrameText.SetText(instructionsArray[instrArrayCounter]);
@@ -104,7 +104,7 @@ public class MasterController : MonoBehaviour
         
 
     }
-    
+ 
     //reading instr from the file
     void FileParse(string toParse, TextAsset textFile)
     {
@@ -133,9 +133,18 @@ public class MasterController : MonoBehaviour
             staplerCountText.SetText(staplers.ToString());
         }
     }
+    /** toggle thingy idea
+    foreach(GameObject fooObj in GameObject.FindGameObjectsWithTag("foo"))
+{
+    if(fooObj.name == "bar")
+    {
+        //Do Something
+    }
+}
+    **/
 
-    //score modifier fxn
-    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
+//score modifier fxn
+public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {
         profScore += prof;
         custServScore += cs;
