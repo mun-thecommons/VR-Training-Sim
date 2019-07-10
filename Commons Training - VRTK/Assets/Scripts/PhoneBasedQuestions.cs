@@ -19,7 +19,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
     private string answer;
     public GameObject ITS;
     public GameObject Labnet;
-    private float newQTimer = 0f;
     private Audio audio;
     
 
@@ -29,7 +28,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
         client = GetComponent<Client>();
         questions.SetActive(false);
         audio = FindObjectOfType<Audio>();
-
     }
 
     // Update is called once per frame

@@ -31,7 +31,6 @@ public class RobbieTeleporting : MonoBehaviour
     {
         if (rb.SweepTest(transform.forward, out shot, 1f))
         {
-            Debug.Log("rotating");
             transform.RotateAround(player.transform.position, player.transform.up, 1);
             RobbieTeleport();
         }
