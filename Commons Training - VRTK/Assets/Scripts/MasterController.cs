@@ -40,6 +40,7 @@ public class MasterController : MonoBehaviour
     public GameObject exitGameButton;
     public GameObject operationButton;
     static private GameObject[] uiMenuOptionsArray;
+    private GameObject player;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class MasterController : MonoBehaviour
         operationButton = GameObject.Find("OperationsManualButton");
         uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
         //Debug.Log(uiMenuOptionsArray.Length);
+        player = GameObject.Find("OVRPlayerController");
     }
 
     void Update()
@@ -71,7 +73,7 @@ public class MasterController : MonoBehaviour
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
         if (mainCanvas.isActiveAndEnabled)
         {
-            GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = false;
+            player.GetComponent<OVRPlayerController>().enabled = false;
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
             {
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
@@ -105,8 +107,10 @@ public class MasterController : MonoBehaviour
                 }
                 else
                 {
+                    mainFrameText.SetText("Exiting system...");                
                     Debug.Log("Exiting game!!");
                     Application.Quit();
+
                 }
 
             }
@@ -114,7 +118,7 @@ public class MasterController : MonoBehaviour
 
         }
         else {
-            GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = true;
+            player.GetComponent<OVRPlayerController>().enabled = true;
         }
        
 
