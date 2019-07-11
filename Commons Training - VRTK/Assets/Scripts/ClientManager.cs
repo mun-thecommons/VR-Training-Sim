@@ -11,7 +11,7 @@ public class ClientManager : MonoBehaviour {
     private Vector3 spawnPosition;
     private Vector3 destinationPosition;
     private GameObject client;
-    static private float timer = 5f;
+    static private float timer = 2.5f;
     static private float resetTimer = 5f;
     private int randInd;
     private float yPos = 0.08f;
@@ -38,7 +38,7 @@ public class ClientManager : MonoBehaviour {
             randInd = Random.Range(0, spawnPositions.Count);
             spawnPosition = spawnPositions[randInd];
             spawnPositions.RemoveAt(randInd);
-            if (Random.Range(0, 2) == 0)
+            if (false)
             {
                 client = Instantiate(cashBoxClient, spawnPosition, cashBoxClient.transform.rotation) as GameObject;
             }
@@ -53,9 +53,9 @@ public class ClientManager : MonoBehaviour {
         }
     }
 
-    static public void RemoveClient(Vector3 client)
+    static public void RemoveClient(Vector3 clientPosition)
     {
-        spawnPositions.Add(client);
+        spawnPositions.Add(clientPosition);
         timer = resetTimer;
         clientsSpawned--;
     }

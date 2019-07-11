@@ -7,7 +7,6 @@ public class MonitorError : MonoBehaviour
     
     public GameObject[] childMonitors;
 
-    private int i = 0;
     private int index;
 
     void Start()
