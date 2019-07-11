@@ -38,7 +38,7 @@ public class ClientManager : MonoBehaviour {
             randInd = Random.Range(0, spawnPositions.Count);
             spawnPosition = spawnPositions[randInd];
             spawnPositions.RemoveAt(randInd);
-            if (Random.Range(0, 2) == 0)
+            if (false)
             {
                 client = Instantiate(cashBoxClient, spawnPosition, cashBoxClient.transform.rotation) as GameObject;
             }

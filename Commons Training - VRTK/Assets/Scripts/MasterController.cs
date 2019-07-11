@@ -36,8 +36,10 @@ public class MasterController : MonoBehaviour
     public TextAsset instructions;
     public static List<string> instructionsArray = new List<string> { };
     private int instrArrayCounter = 0;
+    private int uiMenuCounter = 0;
     public GameObject exitGameButton;
     public GameObject operationButton;
+    static private GameObject[] uiMenuOptionsArray;
 
     void Start()
     {
@@ -53,6 +55,8 @@ public class MasterController : MonoBehaviour
         FileParse("instructions", instructions);
         exitGameButton = GameObject.Find("ExitButton");
         operationButton = GameObject.Find("OperationsManualButton");
+        uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
+        //Debug.Log(uiMenuOptionsArray.Length);
     }
 
     void Update()
@@ -65,29 +69,49 @@ public class MasterController : MonoBehaviour
             
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
-        if (mainCanvas.isActiveAndEnabled == true)
+        if (mainCanvas.isActiveAndEnabled)
         {
             GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = false;
-            if (OVRInput.GetDown(OVRInput.RawButton.Y))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
             {
-                exitGameButton.GetComponent<Image>().color = Color.red;
-            }
-
-                if (OVRInput.GetDown(OVRInput.RawButton.X))
-
-            {
-                mainFrameText.SetText(instructionsArray[instrArrayCounter]);
-
-                if (instrArrayCounter < instructionsArray.Count - 1)
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
+                if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
                 {
-                    instrArrayCounter++;
-
+                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter+1 : 0;
                 }
                 else
                 {
-                    instrArrayCounter = 0;
+                    uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter-1 : uiMenuOptionsArray.Length - 1;
                 }
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
+                
+                
             }
+            if (OVRInput.GetDown(OVRInput.RawButton.X))
+            {
+                if (uiMenuCounter == 0)
+                {
+                    mainFrameText.SetText(instructionsArray[instrArrayCounter]);
+
+                    if (instrArrayCounter < instructionsArray.Count - 1)
+                    {
+                        instrArrayCounter++;
+
+                    }
+                    else
+                    {
+                        instrArrayCounter = 0;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Exiting game!!");
+                    Application.Quit();
+                }
+
+            }
+
+
         }
         else {
             GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = true;
@@ -133,15 +157,19 @@ public class MasterController : MonoBehaviour
             staplerCountText.SetText(staplers.ToString());
         }
     }
-    /** toggle thingy idea
-    foreach(GameObject fooObj in GameObject.FindGameObjectsWithTag("foo"))
-{
-    if(fooObj.name == "bar")
+    /**
+    void MenuOptions()
     {
-        //Do Something
+        foreach (GameObject menuObj in GameObject.FindGameObjectsWithTag("UIMenuOption"))
+        {
+            if (menuObj.name == "bar")
+            {
+                //Do Something
+            }
+        }
     }
-}
     **/
+    
 
 //score modifier fxn
 public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
