@@ -15,6 +15,7 @@ public class MasterController : MonoBehaviour
     public GameObject staplerPrefab;
     public Transform staplerParent;
     public GameObject rightHand;
+    public OVRPlayerController playerController;
 
     public static TextMeshProUGUI playerUIscore;
     public static TextMeshProUGUI scoreBreakDownText;
@@ -48,6 +49,7 @@ public class MasterController : MonoBehaviour
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
         staplerCountText = GameObject.Find("StaplerBox").GetComponentInChildren<TextMeshProUGUI>();
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
+        playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = FindObjectOfType<Audio>();
@@ -65,13 +67,13 @@ public class MasterController : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
         {
             mainCanvas.enabled = !mainCanvas.enabled;
+            playerController.enabled = !playerController.enabled;
             mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
             
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
         if (mainCanvas.isActiveAndEnabled)
         {
-            GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = false;
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
             {
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
@@ -112,11 +114,7 @@ public class MasterController : MonoBehaviour
             }
 
 
-        }
-        else {
-            GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>().enabled = true;
-        }
-       
+        }     
 
        
         if (OVRInput.GetDown(OVRInput.RawButton.B))
