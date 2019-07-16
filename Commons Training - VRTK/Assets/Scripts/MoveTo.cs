@@ -5,10 +5,11 @@ using UnityEngine;
 public class MoveTo : MonoBehaviour
 {
 
-    public Transform goal;
+    private Transform goal;
 
     void Start()
     {
+        goal = GameObject.Find("DestinationObject").gameObject.transform;
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
     }
