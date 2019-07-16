@@ -9,7 +9,8 @@ public class MoveTo : MonoBehaviour
 
     void Start()
     {
-        goal = GameObject.Find("DestinationObject").gameObject.transform;
+        goal = ClientManager.destinationPositions[0].transform;
+       
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
     }
