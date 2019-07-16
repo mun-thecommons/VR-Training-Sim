@@ -19,10 +19,13 @@ public class ClientManager : MonoBehaviour {
 
     private void Start()
     {
-        spawnPositions.Add(new Vector3(5.25f, yPos, -13.186f));
-        spawnPositions.Add(new Vector3(-4.48f, yPos, -20.48f));
-        spawnPositions.Add(new Vector3(3.78f, yPos, -11.73f));
-        destinationPosition = new Vector3(-26.8f,yPos, -31.4f);
+        //spawnPositions.Add(new Vector3(5.25f, yPos, -13.186f));
+        // spawnPositions.Add(new Vector3(-4.48f, yPos, -20.48f));
+        // spawnPositions.Add(new Vector3(3.78f, yPos, -11.73f));
+        spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
+        spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
+        spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));
+        destinationPosition = new Vector3(-26.8f,yPos, -31.4f); 
     }
 
     void Update ()

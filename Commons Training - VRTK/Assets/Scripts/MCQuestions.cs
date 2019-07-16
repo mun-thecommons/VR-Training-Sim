@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.IO;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using OVRTouchSample;
+using System.Text.RegularExpressions;
 
 
 public class MCQuestions : MonoBehaviour {
@@ -17,6 +20,7 @@ public class MCQuestions : MonoBehaviour {
     private GameObject player;
     private string correctAnswer;
     private int randomIndex;
+    private int currentlySelected;
     private bool questionAsked = false;
     public bool questionAnswered = false;
     private bool done = false;
@@ -26,88 +30,64 @@ public class MCQuestions : MonoBehaviour {
     private AudioSource audioSource;
     private string pathStart = "Audio/";
     private AudioClip questionAudio;
+    static private GameObject[] buttonArray;
+    private Canvas mcQuestionsCanvas;
     
-
     void Start()
-    {        
+    {
+        buttonArray = GameObject.FindGameObjectsWithTag("MCButtons");
         client = GetComponent<Client>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         questions.SetActive(true);
         answers.SetActive(false);
         questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hey dude I need help, Press A come on";
+
+        //MC questions canvas
+        mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
+        mcQuestionsCanvas.enabled = false;
+        
+        buttonArray[0].GetComponent<Image>().color = Color.red;
     }
 	
 	void Update () {
 
-        if (OVRInput.GetDown(OVRInput.RawButton.A))
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && !client.askingQuestion && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
-            //player.GetComponent<OVRPlayerController>().enabled = !player.GetComponent<OVRPlayerController>().enabled;
-            
-            if (client.askingQuestion && !questionAsked)
-            {
-                
-
-                randomIndex = Random.Range(0, QuestionInput.mcCorrectAnswers.Count);
-                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Excuse me, " + QuestionInput.mcQuestions[randomIndex];
-                output = new List<string> { };
-
-                output.Add(QuestionInput.mcCorrectAnswers[randomIndex]);
-                output.Add(QuestionInput.mcWrongAnswers[randomIndex][0]);
-                output.Add(QuestionInput.mcWrongAnswers[randomIndex][1]);
-                output.Add(QuestionInput.mcWrongAnswers[randomIndex][2]);
-                string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
-                if (!audioName.Equals("none"))
-                {
-                    questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
-                    audioSource.clip = questionAudio;
-                    audioSource.Play();
-                }
-                else
-                {
-                    Debug.Log("No audio clip assigned for question");
-                }
-                output = Shuffle(output);
-
-
-                button1.GetComponentInChildren<TextMeshProUGUI>().text = output[0];
-                button2.GetComponentInChildren<TextMeshProUGUI>().text = output[1];
-                button3.GetComponentInChildren<TextMeshProUGUI>().text = output[2];
-                button4.GetComponentInChildren<TextMeshProUGUI>().text = output[3];
-                correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
-                questionAsked = true;
-            }
-            if (questionAnswered && questionAsked)
-            {
-                if ((output[0] == correctAnswer && button1.GetComponent<ButtonPress>().beingPressed) || (output[1] == correctAnswer && button2.GetComponent<ButtonPress>().beingPressed) ||
-                    (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    MasterController.ScoreModify(1, 1, 0, true, true);
-                }
-
-                else
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    MasterController.ScoreModify(1, -1, 0, false, true);
-                }
-
-                QuestionInput.mcQuestions.RemoveAt(randomIndex);
-                QuestionInput.mcCorrectAnswers.RemoveAt(randomIndex);
-                QuestionInput.mcWrongAnswers.RemoveAt(randomIndex);
-                answers.SetActive(false);
-                questionAsked = false;
-                questionAnswered = false;
-                done = true;
-                timer = questionDelay;
-                Destroy(gameObject, 10f);
-            }
-            CheckButton();
-            CheckRange();
+            SetUpQuestion();                   
         }
-       
-     
-	}
+        
+
+        
+
+        /*
+        if (questionAnswered && questionAsked)
+        {
+            if ((output[0] == correctAnswer && button1.GetComponent<ButtonPress>().beingPressed) || (output[1] == correctAnswer && button2.GetComponent<ButtonPress>().beingPressed) ||
+                (output[2] == correctAnswer && button3.GetComponent<ButtonPress>().beingPressed) || (output[3] == correctAnswer && button4.GetComponent<ButtonPress>().beingPressed))
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
+                MasterController.ScoreModify(1, 1, 0, true, true);
+            }
+
+            else
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
+                MasterController.ScoreModify(1, -1, 0, false, true);
+            }
+
+            QuestionInput.mcQuestions.RemoveAt(randomIndex);
+            QuestionInput.mcCorrectAnswers.RemoveAt(randomIndex);
+            QuestionInput.mcWrongAnswers.RemoveAt(randomIndex);
+            answers.SetActive(false);
+            questionAsked = false;
+            questionAnswered = false;
+            done = true;
+
+            Destroy(gameObject, 10f);
+        }
+        */
+    }
 
     private void CheckButton()
     {
@@ -133,19 +113,50 @@ public class MCQuestions : MonoBehaviour {
         return shuffled;
     }
 
-    private void CheckRange()
+    private void SetUpQuestion()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) <= 5f)
+        //Deactive LocalAvatar
+        player.GetComponent<OVRPlayerController>().enabled = false;
+        //Client is asking question
+        client.askingQuestion = true;
+        //Active questions and answers Canvas
+        questions.SetActive(false);
+        answers.SetActive(false);
+        mcQuestionsCanvas.enabled = true;
+
+       
+        
+
+        /*
+        randomIndex = Random.Range(0, QuestionInput.mcCorrectAnswers.Count);
+        questions.GetComponentInChildren<TextMeshProUGUI>().text = "Excuse me, " + QuestionInput.mcQuestions[randomIndex];
+        output = new List<string> { };
+
+        output.Add(QuestionInput.mcCorrectAnswers[randomIndex]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][0]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][1]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][2]);
+        string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
+        if (!audioName.Equals("none"))
         {
-            questions.SetActive(true);
-            answers.SetActive(true);
-            client.askingQuestion = true;
+            questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
+            audioSource.clip = questionAudio;
+            audioSource.Play();
         }
         else
         {
-            questions.SetActive(false);
-            answers.SetActive(false);
-            client.askingQuestion = false;
+            Debug.Log("No audio clip assigned for question");
         }
+        output = Shuffle(output);
+
+
+        button1.GetComponentInChildren<TextMeshProUGUI>().text = output[0];
+        button2.GetComponentInChildren<TextMeshProUGUI>().text = output[1];
+        button3.GetComponentInChildren<TextMeshProUGUI>().text = output[2];
+        button4.GetComponentInChildren<TextMeshProUGUI>().text = output[3];
+        correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
+        questionAsked = true;
+        */
     }
+
 }
