@@ -19,9 +19,13 @@ public class ClientManager : MonoBehaviour {
     static public int clientsSpawned = 0;
     private Transform goal;
     UnityEngine.AI.NavMeshAgent agent;
+
+    Animator animator;
+
     private void Start()
     {
-      
+        
+
         spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));
@@ -56,10 +60,18 @@ public class ClientManager : MonoBehaviour {
             }
             else
             {
-                client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
-
+                client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;    
                 UnityEngine.AI.NavMeshAgent agent = client.GetComponent<UnityEngine.AI.NavMeshAgent>();
                 agent.destination = goal.position;
+
+                animator = client.GetComponent<Animator>();                                     // Animator Controller lines
+                if (Vector3.Distance(client.transform.position, goal.position) <= 30)
+                {
+                    Debug.Log("here");
+                    agent.;
+                    animator.SetBool("Stop", true);                                             // Supposed to toggle the Stop variable and make the soldiers idle
+                }
+
             }
             client.transform.parent = gameObject.transform;
             clientsSpawned++;
