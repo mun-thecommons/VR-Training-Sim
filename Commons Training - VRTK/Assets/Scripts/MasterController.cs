@@ -15,6 +15,7 @@ public class MasterController : MonoBehaviour
     public GameObject staplerPrefab;
     public Transform staplerParent;
     public GameObject rightHand;
+    public OVRPlayerController playerController;
 
     public static TextMeshProUGUI playerUIscore;
     public static TextMeshProUGUI scoreBreakDownText;
@@ -49,6 +50,7 @@ public class MasterController : MonoBehaviour
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
         staplerCountText = GameObject.Find("StaplerBox").GetComponentInChildren<TextMeshProUGUI>();
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
+        playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = FindObjectOfType<Audio>();
@@ -67,6 +69,7 @@ public class MasterController : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
         {
             mainCanvas.enabled = !mainCanvas.enabled;
+            playerController.enabled = !playerController.enabled;
             mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
             
         }
@@ -116,7 +119,9 @@ public class MasterController : MonoBehaviour
             }
 
 
-        }
+
+        }     
+
         else {
             player.GetComponent<OVRPlayerController>().enabled = true;
         }
