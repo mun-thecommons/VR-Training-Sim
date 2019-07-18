@@ -68,7 +68,7 @@ public class ClientManager : MonoBehaviour {
                 if (Vector3.Distance(client.transform.position, goal.position) <= 30)
                 {
                     Debug.Log("here");
-                    agent.;
+                    //agent.autoRepath;
                     animator.SetBool("Stop", true);                                             // Supposed to toggle the Stop variable and make the soldiers idle
                 }
 

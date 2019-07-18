@@ -33,32 +33,90 @@ public class MCQuestions : MonoBehaviour {
     static private GameObject[] buttonArray;
     private Canvas mcQuestionsCanvas;
     
+
     void Start()
     {
         buttonArray = GameObject.FindGameObjectsWithTag("MCButtons");
         client = GetComponent<Client>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        questions.SetActive(true);
-        answers.SetActive(false);
+        questions.SetActive(true); // activate the question Canvas
+        answers.SetActive(false); //deactive answer Canvas permanently
         questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hey dude I need help, Press A come on";
 
         //MC questions canvas
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcQuestionsCanvas.enabled = false;
-        
+
         buttonArray[0].GetComponent<Image>().color = Color.red;
     }
-	
-	void Update () {
 
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && !client.askingQuestion && Vector3.Distance(transform.position, player.transform.position) < 5f)
+    void Update() {
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
-            SetUpQuestion();                   
+            client.askingQuestion = !client.askingQuestion;
         }
-        
 
-        
+        if (client.askingQuestion)
+        {
+            //GameObject.Find("OVRPlayerController").SetActive(false); //try this out later
+            player.GetComponent<OVRPlayerController>().enabled = false;
+            questions.SetActive(false);
+            mcQuestionsCanvas.enabled = true;
+            if (buttonArray[0].GetComponent<Image>().color == Color.red)
+            {
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickRight))
+                {
+                    buttonArray[0].GetComponent<Image>().color = Color.white;
+                    buttonArray[1].GetComponent<Image>().color = Color.red;
+                }
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickDown))
+                {
+                    buttonArray[0].GetComponent<Image>().color = Color.white;
+                    buttonArray[2].GetComponent<Image>().color = Color.red;
+                }
+            }
+            if (buttonArray[1].GetComponent<Image>().color == Color.red)
+            {
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickLeft))
+                {
+                    buttonArray[1].GetComponent<Image>().color = Color.white;
+                    buttonArray[0].GetComponent<Image>().color = Color.red;
+                }
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickDown))
+                {
+                    buttonArray[1].GetComponent<Image>().color = Color.white;
+                    buttonArray[3].GetComponent<Image>().color = Color.red;
+                }
+            }
+            if (buttonArray[2].GetComponent<Image>().color == Color.red)
+            {
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickUp))
+                {
+                    buttonArray[2].GetComponent<Image>().color = Color.white;
+                    buttonArray[0].GetComponent<Image>().color = Color.red;
+                }
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickRight))
+                {
+                    buttonArray[2].GetComponent<Image>().color = Color.white;
+                    buttonArray[3].GetComponent<Image>().color = Color.red;
+                }
+            }
+            if (buttonArray[3].GetComponent<Image>().color == Color.red)
+            {
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickUp))
+                {
+                    buttonArray[3].GetComponent<Image>().color = Color.white;
+                    buttonArray[1].GetComponent<Image>().color = Color.red;
+                }
+                if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickLeft))
+                {
+                    buttonArray[3].GetComponent<Image>().color = Color.white;
+                    buttonArray[2].GetComponent<Image>().color = Color.red;
+                }
+            }
+        }
+
 
         /*
         if (questionAnswered && questionAsked)
@@ -87,7 +145,7 @@ public class MCQuestions : MonoBehaviour {
             Destroy(gameObject, 10f);
         }
         */
-    }
+    } 
 
     private void CheckButton()
     {
