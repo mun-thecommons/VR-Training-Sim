@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class TestAnimatorController : MonoBehaviour
 {
     Animator animator;
-    bool startWalk;
-    bool turn;
 
     // Use this for initialization
     void Start()
@@ -25,5 +25,9 @@ public class TestAnimatorController : MonoBehaviour
         {
             animator.SetBool("Turn Right", true);
         }
+        /* if(Vector3.Distance(transform.position, ClientManager.destinationPositions[0].transform.position) <= 0)
+        {
+            animator.SetBool("Stop", true);
+        } */
     }
 }

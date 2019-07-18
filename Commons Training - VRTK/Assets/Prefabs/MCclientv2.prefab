@@ -2655,6 +2655,7 @@ GameObject:
   - component: {fileID: 195693071380884647}
   - component: {fileID: 4734465775241531791}
   - component: {fileID: 8495500654232687194}
+  - component: {fileID: 6683113041976819702}
   m_Layer: 0
   m_Name: MCclientv2
   m_TagString: Untagged
@@ -2690,7 +2691,7 @@ Animator:
   m_GameObject: {fileID: 9146287095119298034}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cf3910b7639e12447827e45f63f60201, type: 3}
-  m_Controller: {fileID: 9100000, guid: 81c3c05e599f70f449fb93a0166e8058, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8fd05f9804812045a89f2c2e449015a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2709,7 +2710,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2851,6 +2852,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6683113041976819702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146287095119298034}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c68d057ca81de548bf509a897cc87ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9146287095119298036
 GameObject:
   m_ObjectHideFlags: 0

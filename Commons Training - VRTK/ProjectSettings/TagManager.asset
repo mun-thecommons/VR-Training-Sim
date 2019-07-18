@@ -28,6 +28,7 @@ TagManager:
   - Coin
   - UIMenuOption
   - MCButtons
+  - Destination
   layers:
   - Default
   - TransparentFX
