@@ -53,7 +53,7 @@ public class MCQuestions : MonoBehaviour {
     void Update() {
 
         //If near client, press A, the client starts asking questions
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion)
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion )
         {
             client.askingQuestion = true;
         }
@@ -110,17 +110,23 @@ public class MCQuestions : MonoBehaviour {
             buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
         }
         
-        if(OVRInput.GetDown(OVRInput.RawButton.A) && questionAsked && !questionAnswered)
+        if(OVRInput.GetDown(OVRInput.RawButton.X) && questionAsked && !questionAnswered)
         {
             questionAnswered = true;
             player.GetComponent<OVRPlayerController>().enabled = true;
             mcQuestionsCanvas.enabled = false;
             greetings.SetActive(true);
 
-            if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text == correctAnswer)
+            if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
             {
-
+                greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
             }
+            else
+            {
+                greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
+            }
+
+            Destroy(this.gameObject);
         }
 
     } 
