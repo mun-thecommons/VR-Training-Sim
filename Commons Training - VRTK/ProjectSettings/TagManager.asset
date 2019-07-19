@@ -29,6 +29,7 @@ TagManager:
   - UIMenuOption
   - MCButtons
   - Destination
+  - MCQuestion
   layers:
   - Default
   - TransparentFX
