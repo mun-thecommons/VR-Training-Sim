@@ -90,8 +90,12 @@ public class MCQuestions : MonoBehaviour {
             buttonArray[2].GetComponentInChildren<TextMeshProUGUI>().text = output[2];
             buttonArray[3].GetComponentInChildren<TextMeshProUGUI>().text = output[3];
             correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
+
+            //question has been asked
             questionAsked = true;
         }
+
+        //Now select the answer
         if (questionAsked)
         {
             buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
@@ -105,12 +109,13 @@ public class MCQuestions : MonoBehaviour {
             }
             buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
         }
-        /*
-        if(client.askingQuestion && OVRInput.GetDown(OVRInput.RawButton.A))
+        
+        if(OVRInput.GetDown(OVRInput.RawButton.A) && questionAsked && !questionAnswered)
         {
+            questionAnswered = true;
             player.GetComponent<OVRPlayerController>().enabled = true;
             mcQuestionsCanvas.enabled = false;
-        }*/
+        }
 
     } 
 
