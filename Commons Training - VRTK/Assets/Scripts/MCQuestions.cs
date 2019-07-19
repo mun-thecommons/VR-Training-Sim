@@ -115,6 +115,12 @@ public class MCQuestions : MonoBehaviour {
             questionAnswered = true;
             player.GetComponent<OVRPlayerController>().enabled = true;
             mcQuestionsCanvas.enabled = false;
+            greetings.SetActive(true);
+
+            if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text == correctAnswer)
+            {
+
+            }
         }
 
     } 
