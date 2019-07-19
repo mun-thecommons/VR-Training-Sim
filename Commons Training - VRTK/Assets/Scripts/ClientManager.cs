@@ -26,6 +26,9 @@ public class ClientManager : MonoBehaviour {
         spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));
         spawnPositions.Add(new Vector3(-28.957f, yPos, -35.9f));
         destinationPositions.Add(new Vector3(2.5f, yPos, -13.68f));
+        destinationPositions.Add(new Vector3(-7.84f, yPos, -22.32f));
+        destinationPositions.Add(new Vector3(-21.5f, yPos, -12.5f));
+        destinationPositions.Add(new Vector3(11.7f, yPos, -22.32f));
         //destinationPositions.AddRange(GameObject.FindGameObjectsWithTag("Destination"));
         Debug.Log("number of destination points is "+destinationPositions.Count);
     }
