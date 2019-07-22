@@ -17,9 +17,11 @@ public class MCQuestions : MonoBehaviour {
     private string correctAnswer;
     private int randomIndex;
     private int currentlySelected;
+    //3 boolean variables
     private bool questionAsked = false;
     private bool questionAnswered = false;
     private bool done = false;
+    //3 booleans
     public float questionDelay = 10f;
     private float timer = 5f;
     private float resetTimer = 5f;
@@ -51,15 +53,14 @@ public class MCQuestions : MonoBehaviour {
     }
 
     void Update() {
-
-        //If near client, press A, the client starts asking questions
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion )
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion && !questionAsked &&!questionAnswered)
         {
+            //set asking Question to true, beginning of the asking question function
             client.askingQuestion = true;
         }
 
-        //Toggling between answer
-        if (client.askingQuestion && !questionAsked)
+        //Display the MC Question and Answers
+        if (client.askingQuestion && !questionAsked && !questionAnswered)
         {
             player.GetComponent<OVRPlayerController>().enabled = false;
             greetings.SetActive(false);
@@ -94,9 +95,9 @@ public class MCQuestions : MonoBehaviour {
             //question has been asked
             questionAsked = true;
         }
-
+        
         //Now select the answer
-        if (questionAsked)
+        if (client.askingQuestion && questionAsked && !questionAnswered)
         {
             buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
             if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickRight) || OVRInput.GetDown(OVRInput.RawButton.LThumbstickLeft))
@@ -110,7 +111,7 @@ public class MCQuestions : MonoBehaviour {
             buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
         }
         
-        if(OVRInput.GetDown(OVRInput.RawButton.X) && questionAsked && !questionAnswered)
+        if(OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) && client.askingQuestion && questionAsked && !questionAnswered)
         {
             questionAnswered = true;
             player.GetComponent<OVRPlayerController>().enabled = true;
@@ -120,13 +121,21 @@ public class MCQuestions : MonoBehaviour {
             if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
             {
                 greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
+                MasterController.ScoreModify(1, 0, 0, true, true);
             }
             else
             {
                 greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
+                MasterController.ScoreModify(-1, 0, 0, false, true);
             }
 
-            Destroy(this.gameObject);
+            questionAnswered = true;
+            done = true;
+        }
+
+        if (client.askingQuestion && questionAsked && questionAnswered && done)
+        {
+            Destroy(this.gameObject, 5f);
         }
 
     } 
