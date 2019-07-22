@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using OVRTouchSample;
 using System.Text.RegularExpressions;
 
-
-
-
 public class MasterController : MonoBehaviour
 {
     public GameObject staplerPrefab;
@@ -24,6 +21,7 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI coinCountText;
     public static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
+    public static bool inMenu = false;
     public static int staplers = 100;
     public static int coins = 0;
     public static Canvas mainCanvas;    
@@ -53,7 +51,7 @@ public class MasterController : MonoBehaviour
         playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
-        audio = FindObjectOfType<Audio>();
+        audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         FileParse("instructions", instructions);
         exitGameButton = GameObject.Find("ExitButton");
@@ -65,77 +63,7 @@ public class MasterController : MonoBehaviour
 
     void Update()
     {
-        //view/hide UI canvas
-        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
-        {
-            mainCanvas.enabled = !mainCanvas.enabled;
-            playerController.enabled = !playerController.enabled;
-            mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
-            
-        }
-        //disables player's movements and allows to scroll through instrxns in the mainframe canvas
-        if (mainCanvas.isActiveAndEnabled)
-        {
-            player.GetComponent<OVRPlayerController>().enabled = false;
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
-            {
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
-                if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
-                {
-                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter+1 : 0;
-                }
-                else
-                {
-                    uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter-1 : uiMenuOptionsArray.Length - 1;
-                }
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
-                
-                
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.X))
-            {
-                if (uiMenuCounter == 0)
-                {
-                    mainFrameText.SetText(instructionsArray[instrArrayCounter]);
-
-                    if (instrArrayCounter < instructionsArray.Count - 1)
-                    {
-                        instrArrayCounter++;
-
-                    }
-                    else
-                    {
-                        instrArrayCounter = 0;
-                    }
-                }
-                else
-                {
-                    mainFrameText.SetText("Exiting system...");                
-                    Debug.Log("Exiting game!!");
-                    Application.Quit();
-
-                }
-
-            }
-
-
-
-        }     
-
-        else {
-            player.GetComponent<OVRPlayerController>().enabled = true;
-        }
-       
-
-       
-        if (OVRInput.GetDown(OVRInput.RawButton.B))
-        {
-            ShootStapler();
-        }
-        
-    
-        
-
+        TakeInput();
     }
  
     //reading instr from the file
@@ -147,11 +75,65 @@ public class MasterController : MonoBehaviour
             foreach (string line in fLines)
             {
                 instructionsArray.Add(line);
-                
+
             }
-           
         }
-       
+    }
+
+    void TakeInput()
+    {
+        //view/hide UI canvas
+        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
+        {
+            if (!inMenu)
+            {
+                mainCanvas.enabled = true;
+                playerController.enabled = false;
+                inMenu = true;
+                mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
+            }
+            else if (mainCanvas.isActiveAndEnabled)
+            {
+                mainCanvas.enabled = false;
+                playerController.enabled = true;
+                inMenu = false;
+            }
+        }
+        //disables player's movements and allows to scroll through instrxns in the mainframe canvas
+        if (mainCanvas.isActiveAndEnabled)
+        {
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+            {
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+                {
+                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter + 1 : 0;
+                }
+                else
+                {
+                    uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter - 1 : uiMenuOptionsArray.Length - 1;
+                }
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
+            }
+            else if (OVRInput.GetDown(OVRInput.RawButton.X))
+            {
+                if (uiMenuCounter == 0)
+                {
+                    mainFrameText.SetText(instructionsArray[instrArrayCounter]);
+                    instrArrayCounter = instrArrayCounter < instructionsArray.Count - 1 ? instrArrayCounter + 1 : 0;
+                }
+                else
+                {
+                    mainFrameText.SetText("Exiting system...");
+                    Debug.Log("Exiting game!!");
+                    Application.Quit();
+                }
+            }
+        }
+        else if (OVRInput.GetDown(OVRInput.RawButton.B) && !inMenu)
+        {
+            ShootStapler();
+        }
     }
 
     //shooting fxn
@@ -162,7 +144,6 @@ public class MasterController : MonoBehaviour
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerParent;
             staplers--;
-            // playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
             staplerCountText.SetText(staplers.ToString());
         }
     }
@@ -180,8 +161,8 @@ public class MasterController : MonoBehaviour
     **/
     
 
-//score modifier fxn
-public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
+    //score modifier fxn
+    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {
         profScore += prof;
         custServScore += cs;

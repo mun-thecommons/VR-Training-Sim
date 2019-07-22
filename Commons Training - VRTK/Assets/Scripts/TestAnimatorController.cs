@@ -20,9 +20,7 @@ public class TestAnimatorController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !animator.GetBool("Stop"))
         {
-            Debug.Log("here");
-            //agent.autoRepath;
-            animator.SetBool("Stop", true);                                             // Supposed to toggle the Stop variable and make the soldiers idle
+            animator.SetBool("Stop", true);
             GetComponent<NavMeshAgent>().enabled = false;
         }
     }
