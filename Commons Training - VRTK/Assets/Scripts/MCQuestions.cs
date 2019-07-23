@@ -17,10 +17,7 @@ public class MCQuestions : MonoBehaviour {
     private string correctAnswer;
     private int randomIndex;
     private int currentlySelected;
-    //3 boolean variables
-    private bool questionAsked = false;
     private bool questionAnswered = false;
-    //3 booleans
     public float questionDelay = 10f;
     private float timer = 5f;
     private float resetTimer = 5f;
@@ -32,7 +29,6 @@ public class MCQuestions : MonoBehaviour {
     private Canvas mcQuestionsCanvas;
     private int currentAnswerIndex = 0;
     
-
     void Start()
     {
         buttonArray = GameObject.FindGameObjectsWithTag("MCButtons");
@@ -41,99 +37,106 @@ public class MCQuestions : MonoBehaviour {
         client = GetComponent<Client>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        greetings.SetActive(true); // activate the question Canvas
+        greetings.SetActive(true);
 
         greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Hey dude I need help, Press A come on";
 
-        //MC questions canvas
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcQuestionsCanvas.enabled = false;
     }
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion && !questionAsked &&!questionAnswered && !MasterController.inMenu)
+        if (client.askingQuestion)
         {
-            //set asking Question to true, beginning of the asking question function
-            client.askingQuestion = true;
+            ChangeAnswer();
         }
-
-        //Display the MC Question and Answers
-        if (client.askingQuestion && !questionAsked && !questionAnswered)
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !questionAnswered)
         {
-            player.GetComponent<OVRPlayerController>().enabled = false;
-            MasterController.inMenu = true;
-            greetings.SetActive(false);
-            mcQuestionsCanvas.enabled = true;           
-            
-            randomIndex = Random.Range(0, QuestionInput.mcCorrectAnswers.Count);
-            questions.GetComponent<TextMeshProUGUI>().text = "Excuse me, " + QuestionInput.mcQuestions[randomIndex];
-
-            output.Add(QuestionInput.mcCorrectAnswers[randomIndex]);
-            output.Add(QuestionInput.mcWrongAnswers[randomIndex][0]);
-            output.Add(QuestionInput.mcWrongAnswers[randomIndex][1]);
-            output.Add(QuestionInput.mcWrongAnswers[randomIndex][2]);
-            string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
-            if (!audioName.Equals("none"))
+            if (!client.askingQuestion && !MasterController.inMenu)
             {
-                questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
-                audioSource.clip = questionAudio;
-                audioSource.Play();
+                AskQuestion();
             }
             else
             {
-                Debug.Log("No audio clip assigned for question");
+                SelectAnswer();
             }
-            output = Shuffle(output);
-
-            buttonArray[0].GetComponentInChildren<TextMeshProUGUI>().text = output[0];
-            buttonArray[1].GetComponentInChildren<TextMeshProUGUI>().text = output[1];
-            buttonArray[2].GetComponentInChildren<TextMeshProUGUI>().text = output[2];
-            buttonArray[3].GetComponentInChildren<TextMeshProUGUI>().text = output[3];
-            correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
-
-            //question has been asked
-            questionAsked = true;
-        }
-        
-        //Now select the answer
-        if (client.askingQuestion && questionAsked && !questionAnswered)
-        {
-            buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
-            if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickRight) || OVRInput.GetDown(OVRInput.RawButton.LThumbstickLeft))
-            {
-                currentAnswerIndex = currentAnswerIndex == 0 || currentAnswerIndex == 2 ? currentAnswerIndex + 1 : currentAnswerIndex - 1;
-            }
-            else if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickUp) || OVRInput.GetDown(OVRInput.RawButton.LThumbstickDown))
-            {
-                currentAnswerIndex = currentAnswerIndex == 0 || currentAnswerIndex == 1 ? currentAnswerIndex + 2 : currentAnswerIndex - 2;
-            }
-            buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
-        }
-        
-        if(OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) && client.askingQuestion && questionAsked && !questionAnswered)
-        {
-            questionAnswered = true;
-            player.GetComponent<OVRPlayerController>().enabled = true;
-            mcQuestionsCanvas.enabled = false;
-            greetings.SetActive(true);
-
-            if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
-            {
-                greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
-                MasterController.ScoreModify(1, 0, 0, true, false);
-            }
-            else
-            {
-                greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
-                MasterController.ScoreModify(-1, 0, 0, false, false);
-            }
-
-            MasterController.inMenu = false;
-            Destroy(gameObject, 5f);
-        }
+        }        
     } 
+    
+    private void ChangeAnswer()
+    {
+        buttonArray [currentAnswerIndex].GetComponent<Image>().color = Color.white;
+        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickRight) || OVRInput.GetDown(OVRInput.RawButton.LThumbstickLeft))
+        {
+            currentAnswerIndex = currentAnswerIndex == 0 || currentAnswerIndex == 2 ? currentAnswerIndex + 1 : currentAnswerIndex - 1;
+        }
+        else if (OVRInput.GetDown(OVRInput.RawButton.LThumbstickUp) || OVRInput.GetDown(OVRInput.RawButton.LThumbstickDown))
+        {
+            currentAnswerIndex = currentAnswerIndex == 0 || currentAnswerIndex == 1 ? currentAnswerIndex + 2 : currentAnswerIndex - 2;
+        }
+        buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
+    }
 
+    //Set up the question to be asked and activate canvas
+    private void AskQuestion()
+    {
+        client.askingQuestion = true;
+        player.GetComponent<OVRPlayerController>().enabled = false;
+        MasterController.inMenu = true;
+        greetings.SetActive(false);
+        mcQuestionsCanvas.enabled = true;
+
+        randomIndex = Random.Range(0, QuestionInput.mcCorrectAnswers.Count);
+        questions.GetComponent<TextMeshProUGUI>().text = "Excuse me, " + QuestionInput.mcQuestions[randomIndex];
+
+        output.Add(QuestionInput.mcCorrectAnswers[randomIndex]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][0]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][1]);
+        output.Add(QuestionInput.mcWrongAnswers[randomIndex][2]);
+        string audioName = QuestionInput.mcAudio[randomIndex].TrimEnd('\n', '\r');
+        if (!audioName.Equals("none"))
+        {
+            questionAudio = Resources.Load(pathStart + audioName) as AudioClip;
+            audioSource.clip = questionAudio;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.Log("No audio clip assigned for question");
+        }
+        output = Shuffle(output);
+
+        buttonArray[0].GetComponentInChildren<TextMeshProUGUI>().text = output[0];
+        buttonArray[1].GetComponentInChildren<TextMeshProUGUI>().text = output[1];
+        buttonArray[2].GetComponentInChildren<TextMeshProUGUI>().text = output[2];
+        buttonArray[3].GetComponentInChildren<TextMeshProUGUI>().text = output[3];
+        correctAnswer = QuestionInput.mcCorrectAnswers[randomIndex];
+        buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
+    }
+
+    private void SelectAnswer()
+    {
+        questionAnswered = true;
+        client.askingQuestion = false;
+        player.GetComponent<OVRPlayerController>().enabled = true;
+        mcQuestionsCanvas.enabled = false;
+        greetings.SetActive(true);
+
+        if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
+        {
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
+            MasterController.ScoreModify(1, 0, 0, true, false);
+        }
+        else
+        {
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
+            MasterController.ScoreModify(-1, 0, 0, false, false);
+        }
+        buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
+        MasterController.inMenu = false;
+        Destroy(gameObject, 5f);
+    }
     
     //Shuffle function
     public static List<string> Shuffle(List<string> list)
