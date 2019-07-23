@@ -20,7 +20,6 @@ public class MCQuestions : MonoBehaviour {
     //3 boolean variables
     private bool questionAsked = false;
     private bool questionAnswered = false;
-    private bool done = false;
     //3 booleans
     public float questionDelay = 10f;
     private float timer = 5f;
@@ -36,7 +35,6 @@ public class MCQuestions : MonoBehaviour {
 
     void Start()
     {
-
         buttonArray = GameObject.FindGameObjectsWithTag("MCButtons");
         questions = GameObject.FindGameObjectWithTag("MCQuestion");
 
@@ -52,8 +50,9 @@ public class MCQuestions : MonoBehaviour {
         mcQuestionsCanvas.enabled = false;
     }
 
-    void Update() {
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion && !questionAsked &&!questionAnswered)
+    void Update()
+    {
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !client.askingQuestion && !questionAsked &&!questionAnswered && !MasterController.inMenu)
         {
             //set asking Question to true, beginning of the asking question function
             client.askingQuestion = true;
@@ -63,6 +62,7 @@ public class MCQuestions : MonoBehaviour {
         if (client.askingQuestion && !questionAsked && !questionAnswered)
         {
             player.GetComponent<OVRPlayerController>().enabled = false;
+            MasterController.inMenu = true;
             greetings.SetActive(false);
             mcQuestionsCanvas.enabled = true;           
             
@@ -121,23 +121,17 @@ public class MCQuestions : MonoBehaviour {
             if(buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
             {
                 greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
-                MasterController.ScoreModify(1, 0, 0, true, true);
+                MasterController.ScoreModify(1, 0, 0, true, false);
             }
             else
             {
                 greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
-                MasterController.ScoreModify(-1, 0, 0, false, true);
+                MasterController.ScoreModify(-1, 0, 0, false, false);
             }
 
-            questionAnswered = true;
-            done = true;
+            MasterController.inMenu = false;
+            Destroy(gameObject, 5f);
         }
-
-        if (client.askingQuestion && questionAsked && questionAnswered && done)
-        {
-            Destroy(this.gameObject, 5f);
-        }
-
     } 
 
     
