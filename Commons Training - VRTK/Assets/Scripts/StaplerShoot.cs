@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StaplerShoot : MonoBehaviour
 {
+    public GameObject whiteSmokePrefab;
+    private GameObject whiteSmoke;
     public float timeDestroy = 2.0f;
     public float speed = 2f;
     private Vector3 forward;
@@ -23,6 +25,8 @@ public class StaplerShoot : MonoBehaviour
         if (other.CompareTag("Monitor") || other.CompareTag("Printer"))
         {
             MasterController.ScoreModify(0,0,-1,false,false);
+            whiteSmoke = Instantiate(whiteSmokePrefab, other.transform.position, Quaternion.identity) as GameObject;
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Client"))

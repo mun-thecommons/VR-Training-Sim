@@ -98094,6 +98094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889701235}
   - component: {fileID: 1889701236}
+  - component: {fileID: 1889701238}
   m_Layer: 0
   m_Name: MainAreaMonitorGroup
   m_TagString: Monitor
@@ -98176,6 +98177,19 @@ MonoBehaviour:
   - {fileID: 1206701667}
   - {fileID: 1107927573}
   - {fileID: 573138831}
+--- !u!114 &1889701238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889701234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f89dd46a157d44aa65de5d49b688e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteSmokePrefab: {fileID: 0}
 --- !u!1 &1891054457
 GameObject:
   m_ObjectHideFlags: 0

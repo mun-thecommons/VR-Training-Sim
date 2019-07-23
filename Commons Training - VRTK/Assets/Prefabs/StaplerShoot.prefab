@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23c12ae227cf304b8b178c1cdfdd2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteSmokePrefab: {fileID: 100000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 3}
   timeDestroy: 2
   speed: 4
 --- !u!114 &-4574785895526208948
