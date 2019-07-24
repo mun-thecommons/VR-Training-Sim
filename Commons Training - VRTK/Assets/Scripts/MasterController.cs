@@ -44,10 +44,13 @@ public class MasterController : MonoBehaviour
 
     private void Start()
     {
+        staplerCountText = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
+        coinCountText = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
+
         //playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
-        staplerCountText = GameObject.Find("StaplerBox").GetComponentInChildren<TextMeshProUGUI>();
+        
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
         playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
@@ -64,6 +67,7 @@ public class MasterController : MonoBehaviour
 
     void Update()
     {
+        DisplayInventory();
         TakeInput();
     }
  
@@ -146,7 +150,6 @@ public class MasterController : MonoBehaviour
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerParent;
             staplers--;
-            staplerCountText.SetText(staplers.ToString());
         }
     }    
 
@@ -185,6 +188,12 @@ public class MasterController : MonoBehaviour
             yield return new WaitForSeconds(1f);
             text = text + ".";
         }
+    }
+
+    private void DisplayInventory()
+    {
+        staplerCountText.SetText(staplers.ToString());
+        coinCountText.SetText(coins.ToString());
     }
 }
 
