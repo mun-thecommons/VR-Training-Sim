@@ -30,6 +30,8 @@ TagManager:
   - MCButtons
   - Destination
   - MCQuestion
+  - StaplerCount
+  - CoinCount
   layers:
   - Default
   - TransparentFX

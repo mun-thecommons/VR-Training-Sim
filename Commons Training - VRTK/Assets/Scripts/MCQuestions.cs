@@ -39,7 +39,7 @@ public class MCQuestions : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         greetings.SetActive(true);
 
-        greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Hey dude I need help, Press A come on";
+        greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Hi, I need help, please press A";
 
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcQuestionsCanvas.enabled = false;
@@ -125,12 +125,12 @@ public class MCQuestions : MonoBehaviour {
 
         if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Dope, thanks";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's helpful, thank you";
             MasterController.ScoreModify(1, 0, 0, true, false);
         }
         else
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Nope";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's not really helpful";
             MasterController.ScoreModify(-1, 0, 0, false, false);
         }
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
