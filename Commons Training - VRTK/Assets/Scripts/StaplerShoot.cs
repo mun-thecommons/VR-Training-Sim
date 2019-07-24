@@ -31,7 +31,7 @@ public class StaplerShoot : MonoBehaviour
         }
         else if (other.CompareTag("Client"))
         {
-            MasterController.ScoreModify(-1,0,0,false,false);
+            MasterController.ScoreModify(-1,0,0,false,true);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Enemy"))

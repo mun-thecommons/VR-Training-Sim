@@ -19,7 +19,7 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI totalScoreText;
     public static TextMeshProUGUI staplerCountText;
     public static TextMeshProUGUI coinCountText;
-    public static TextMeshProUGUI mainFrameText;
+    [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static bool inMenu = false;
     public static int staplers = 100;
@@ -40,8 +40,9 @@ public class MasterController : MonoBehaviour
     public GameObject operationButton;
     static private GameObject[] uiMenuOptionsArray;
     private GameObject player;
+    public int numOfDots; //mainFrameText Coroutine
 
-    void Start()
+    private void Start()
     {
         //playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
@@ -90,13 +91,14 @@ public class MasterController : MonoBehaviour
                 mainCanvas.enabled = true;
                 playerController.enabled = false;
                 inMenu = true;
-                mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
+                StartCoroutine(AccessMainframe());
             }
             else if (mainCanvas.isActiveAndEnabled)
             {
                 mainCanvas.enabled = false;
                 playerController.enabled = true;
                 inMenu = false;
+                StopCoroutine(AccessMainframe());
             }
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
@@ -146,20 +148,7 @@ public class MasterController : MonoBehaviour
             staplers--;
             staplerCountText.SetText(staplers.ToString());
         }
-    }
-    /**
-    void MenuOptions()
-    {
-        foreach (GameObject menuObj in GameObject.FindGameObjectsWithTag("UIMenuOption"))
-        {
-            if (menuObj.name == "bar")
-            {
-                //Do Something
-            }
-        }
-    }
-    **/
-    
+    }    
 
     //score modifier fxn
     public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
@@ -185,6 +174,17 @@ public class MasterController : MonoBehaviour
         totalScoreText.SetText(totalScore.ToString());
 
         //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+    }
+
+    IEnumerator AccessMainframe()
+    {
+        string text = "Accessing Mainframe.";
+        for(int i=0; i<=numOfDots; i++)
+        {
+            mainFrameText.SetText(text);
+            yield return new WaitForSeconds(1f);
+            text = text + ".";
+        }
     }
 }
 
