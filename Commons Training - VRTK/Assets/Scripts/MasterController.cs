@@ -47,22 +47,17 @@ public class MasterController : MonoBehaviour
     {
         staplerCountText = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
         coinCountText = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
-
-        //playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
-        
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
         playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
-        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
         FileParse("instructions", instructions);
         exitGameButton = GameObject.Find("ExitButton");
         operationButton = GameObject.Find("OperationsManualButton");
         uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
-        //Debug.Log(uiMenuOptionsArray.Length);
         player = GameObject.Find("OVRPlayerController");
     }
 
