@@ -40,6 +40,7 @@ public class MasterController : MonoBehaviour
     public GameObject operationButton;
     static private GameObject[] uiMenuOptionsArray;
     private GameObject player;
+    private IEnumerator accessMainframe;
     public int numOfDots; //mainFrameText Coroutine
 
     private void Start()
@@ -95,14 +96,15 @@ public class MasterController : MonoBehaviour
                 mainCanvas.enabled = true;
                 playerController.enabled = false;
                 inMenu = true;
-                StartCoroutine(AccessMainframe());
+                accessMainframe = AccessMainframe();
+                StartCoroutine(accessMainframe);
             }
             else if (mainCanvas.isActiveAndEnabled)
             {
                 mainCanvas.enabled = false;
                 playerController.enabled = true;
                 inMenu = false;
-                StopCoroutine(AccessMainframe());
+                StopCoroutine(accessMainframe);
             }
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
@@ -125,6 +127,7 @@ public class MasterController : MonoBehaviour
             {
                 if (uiMenuCounter == 0)
                 {
+                    StopCoroutine(accessMainframe);
                     mainFrameText.SetText(instructionsArray[instrArrayCounter]);
                     instrArrayCounter = instrArrayCounter < instructionsArray.Count - 1 ? instrArrayCounter + 1 : 0;
                 }
