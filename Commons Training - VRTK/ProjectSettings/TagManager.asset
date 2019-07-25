@@ -38,6 +38,7 @@ TagManager:
   - MetalTrash
   - BaseTrash
   - PlasticTrash
+  - LabSatisfactionScore
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
@@ -7,8 +8,10 @@ using System.Collections.Generic;
 using OVRTouchSample;
 using System.Text.RegularExpressions;
 
+
 public class MasterController : MonoBehaviour
 {
+    public static double labSatisfaction = 1000.0;
     public GameObject staplerPrefab;
     public Transform staplerParent;
     public GameObject rightHand;
@@ -21,6 +24,8 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI baseTrashCount;
     public static TextMeshProUGUI metalTrashCount;
     public static TextMeshProUGUI plasticTrashCount;
+    public static TextMeshProUGUI labSatisfactionText;
+
     [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static bool inMenu = false;
@@ -35,6 +40,7 @@ public class MasterController : MonoBehaviour
     private static int techScore = 0;
     private static int custServScore = 0;
     private static int profScore = 0;
+    
     private static int totalScore = 0;
     private GameObject staplerShoot;
     public TextAsset instructions;
@@ -67,10 +73,12 @@ public class MasterController : MonoBehaviour
         baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
+        labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
+        labSatisfaction -= Time.deltaTime*TrashManager.numOfTrash;
         DisplayInventory();
         DisplayTrashCount();
         TakeInput();
@@ -205,6 +213,8 @@ public class MasterController : MonoBehaviour
         baseTrashCount.SetText(baseTrash.ToString());
         metalTrashCount.SetText(metalTrash.ToString());
         plasticTrashCount.SetText(plasticTrash.ToString());
+        double roundLabSat = Math.Round(labSatisfaction * 100.0) / 100;
+        labSatisfactionText.SetText(roundLabSat.ToString());
     }
 }
 

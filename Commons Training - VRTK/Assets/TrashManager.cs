@@ -9,6 +9,7 @@ public class TrashManager : MonoBehaviour
     public GameObject plasticTrashPrefab;
     public Transform trashCollectParent;
 
+    public static int numOfTrash = 0;
     private static List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
     private List<GameObject> trashType = new List<GameObject>();
@@ -48,6 +49,7 @@ public class TrashManager : MonoBehaviour
             timer = resetTimer;
             if(spawnPositions.Count > 0)
             {
+                numOfTrash++;
                 typeOfTrash = Random.Range(0, trashType.Count);
                 randPosInd = Random.Range(0, spawnPositions.Count);
                 spawnPosition = spawnPositions[randPosInd];
@@ -61,5 +63,6 @@ public class TrashManager : MonoBehaviour
     public static void CollectTrash(Vector3 position)
     {
         spawnPositions.Add(position);
+        numOfTrash--;
     }
 }
