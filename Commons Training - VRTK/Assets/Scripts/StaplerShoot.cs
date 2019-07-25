@@ -24,7 +24,7 @@ public class StaplerShoot : MonoBehaviour
     {
         if (other.CompareTag("Monitor") || other.CompareTag("Printer"))
         {
-            MasterController.ScoreModify(0,0,-1,false,false);
+            MasterController.ScoreModify(-1,0,0,false,false);
             whiteSmoke = Instantiate(whiteSmokePrefab, other.transform.position, Quaternion.identity) as GameObject;
             Destroy(other.gameObject);
             Destroy(gameObject);

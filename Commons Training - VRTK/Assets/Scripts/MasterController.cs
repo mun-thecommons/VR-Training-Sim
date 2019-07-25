@@ -14,16 +14,21 @@ public class MasterController : MonoBehaviour
     public GameObject rightHand;
     public OVRPlayerController playerController;
 
-    public static TextMeshProUGUI playerUIscore;
     public static TextMeshProUGUI scoreBreakDownText;
     public static TextMeshProUGUI totalScoreText;
     public static TextMeshProUGUI staplerCountText;
     public static TextMeshProUGUI coinCountText;
+    public static TextMeshProUGUI baseTrashCount;
+    public static TextMeshProUGUI metalTrashCount;
+    public static TextMeshProUGUI plasticTrashCount;
     [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static bool inMenu = false;
     public static int staplers = 100;
     public static int coins = 0;
+    public static int baseTrash = 0;
+    public static int metalTrash = 0;
+    public static int plasticTrash = 0;
     public static Canvas mainCanvas;    
     public static Audio audio;
 
@@ -59,11 +64,15 @@ public class MasterController : MonoBehaviour
         operationButton = GameObject.Find("OperationsManualButton");
         uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
         player = GameObject.Find("OVRPlayerController");
+        baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
+        metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
+        plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
         DisplayInventory();
+        DisplayTrashCount();
         TakeInput();
     }
  
@@ -170,11 +179,8 @@ public class MasterController : MonoBehaviour
             }
         }
 
-        //coinCountText.SetText(coins.ToString());
         scoreBreakDownText.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString());
         totalScoreText.SetText(totalScore.ToString());
-
-        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
     }
 
     IEnumerator AccessMainframe()
@@ -192,6 +198,13 @@ public class MasterController : MonoBehaviour
     {
         staplerCountText.SetText(staplers.ToString());
         coinCountText.SetText(coins.ToString());
+    }
+
+    private void DisplayTrashCount()
+    {
+        baseTrashCount.SetText(baseTrash.ToString());
+        metalTrashCount.SetText(metalTrash.ToString());
+        plasticTrashCount.SetText(plasticTrash.ToString());
     }
 }
 

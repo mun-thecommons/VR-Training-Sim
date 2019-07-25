@@ -32,6 +32,12 @@ TagManager:
   - MCQuestion
   - StaplerCount
   - CoinCount
+  - BaseTrashCount
+  - MetalTrashCount
+  - PlasticTrashCount
+  - MetalTrash
+  - BaseTrash
+  - PlasticTrash
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using OVRTouchSample;
@@ -18,6 +19,7 @@ public class MCQuestions : MonoBehaviour {
     private int randomIndex;
     private int currentlySelected;
     private bool questionAnswered = false;
+    private bool questionSetup = false;
     public float questionDelay = 10f;
     private float timer = 5f;
     private float resetTimer = 5f;
@@ -28,6 +30,7 @@ public class MCQuestions : MonoBehaviour {
     private GameObject questions;
     private Canvas mcQuestionsCanvas;
     private int currentAnswerIndex = 0;
+
     
     void Start()
     {
@@ -37,21 +40,22 @@ public class MCQuestions : MonoBehaviour {
         client = GetComponent<Client>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        greetings.SetActive(true);
-
-        greetings.GetComponentInChildren<TextMeshProUGUI>().text = "Hi, I need help, please press A";
-
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcQuestionsCanvas.enabled = false;
     }
 
     void Update()
     {
+        if(Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !questionSetup)
+        {
+            greetings.GetComponent<Canvas>().enabled = true;
+            questionSetup = true;
+        }
         if (client.askingQuestion)
         {
             ChangeAnswer();
         }
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !questionAnswered)
+        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !questionAnswered && questionSetup)
         {
             if (!client.askingQuestion && !MasterController.inMenu)
             {
