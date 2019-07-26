@@ -13,8 +13,8 @@ public class TrashManager : MonoBehaviour
     private static List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
     private List<GameObject> trashType = new List<GameObject>();
-    private float timer = 5f;
-    private float resetTimer = 5f;
+    private float timer = 10f;
+    private float resetTimer = 10f;
     private GameObject trashCollect;
     private int typeOfTrash;
     private int randPosInd;

@@ -30,6 +30,7 @@ public class MCQuestions : MonoBehaviour {
     private GameObject questions;
     private Canvas mcQuestionsCanvas;
     private int currentAnswerIndex = 0;
+    private float y;
 
     
     void Start()
@@ -42,6 +43,8 @@ public class MCQuestions : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcQuestionsCanvas.enabled = false;
+        y = transform.rotation.y;
+
     }
 
     void Update()
@@ -65,7 +68,12 @@ public class MCQuestions : MonoBehaviour {
             {
                 SelectAnswer();
             }
-        }        
+        }
+        if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
+        {
+            Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            transform.LookAt(targetPosition);
+        }
     } 
     
     private void ChangeAnswer()
