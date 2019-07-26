@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
@@ -8,30 +9,38 @@ using OVRTouchSample;
 using System.Text.RegularExpressions;
 
 
-
-
 public class MasterController : MonoBehaviour
 {
+    public static double labSatisfaction = 1000.0;
     public GameObject staplerPrefab;
     public Transform staplerParent;
     public GameObject rightHand;
     public OVRPlayerController playerController;
 
-    public static TextMeshProUGUI playerUIscore;
     public static TextMeshProUGUI scoreBreakDownText;
     public static TextMeshProUGUI totalScoreText;
     public static TextMeshProUGUI staplerCountText;
     public static TextMeshProUGUI coinCountText;
-    public static TextMeshProUGUI mainFrameText;
+    public static TextMeshProUGUI baseTrashCount;
+    public static TextMeshProUGUI metalTrashCount;
+    public static TextMeshProUGUI plasticTrashCount;
+    public static TextMeshProUGUI labSatisfactionText;
+
+    [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
+    public static bool inMenu = false;
     public static int staplers = 100;
     public static int coins = 0;
+    public static int baseTrash = 0;
+    public static int metalTrash = 0;
+    public static int plasticTrash = 0;
     public static Canvas mainCanvas;    
     public static Audio audio;
 
     private static int techScore = 0;
     private static int custServScore = 0;
     private static int profScore = 0;
+    
     private static int totalScore = 0;
     private GameObject staplerShoot;
     public TextAsset instructions;
@@ -42,100 +51,37 @@ public class MasterController : MonoBehaviour
     public GameObject operationButton;
     static private GameObject[] uiMenuOptionsArray;
     private GameObject player;
+    private IEnumerator accessMainframe;
+    public int numOfDots; //mainFrameText Coroutine
 
-    void Start()
+    private void Start()
     {
-        //playerUIscore = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        staplerCountText = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
+        coinCountText = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
-        staplerCountText = GameObject.Find("StaplerBox").GetComponentInChildren<TextMeshProUGUI>();
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
         playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
-        audio = FindObjectOfType<Audio>();
-        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+        audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
         FileParse("instructions", instructions);
         exitGameButton = GameObject.Find("ExitButton");
         operationButton = GameObject.Find("OperationsManualButton");
         uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
-        //Debug.Log(uiMenuOptionsArray.Length);
         player = GameObject.Find("OVRPlayerController");
+        baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
+        metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
+        plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
+        labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        //view/hide UI canvas
-        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
-        {
-            mainCanvas.enabled = !mainCanvas.enabled;
-            playerController.enabled = !playerController.enabled;
-            mainFrameText.SetText("Accessing Main Frame...\n Press Left Controller X to scroll through the instructions manual");
-            
-        }
-        //disables player's movements and allows to scroll through instrxns in the mainframe canvas
-        if (mainCanvas.isActiveAndEnabled)
-        {
-            player.GetComponent<OVRPlayerController>().enabled = false;
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
-            {
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
-                if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
-                {
-                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter+1 : 0;
-                }
-                else
-                {
-                    uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter-1 : uiMenuOptionsArray.Length - 1;
-                }
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
-                
-                
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.X))
-            {
-                if (uiMenuCounter == 0)
-                {
-                    mainFrameText.SetText(instructionsArray[instrArrayCounter]);
-
-                    if (instrArrayCounter < instructionsArray.Count - 1)
-                    {
-                        instrArrayCounter++;
-
-                    }
-                    else
-                    {
-                        instrArrayCounter = 0;
-                    }
-                }
-                else
-                {
-                    mainFrameText.SetText("Exiting system...");                
-                    Debug.Log("Exiting game!!");
-                    Application.Quit();
-
-                }
-
-            }
-
-
-
-        }     
-
-        else {
-            player.GetComponent<OVRPlayerController>().enabled = true;
-        }
-       
-
-       
-        if (OVRInput.GetDown(OVRInput.RawButton.B))
-        {
-            ShootStapler();
-        }
-        
-    
-        
-
+        labSatisfaction -= Time.deltaTime*TrashManager.numOfTrash;
+        DisplayInventory();
+        DisplayTrashCount();
+        TakeInput();
     }
  
     //reading instr from the file
@@ -147,11 +93,68 @@ public class MasterController : MonoBehaviour
             foreach (string line in fLines)
             {
                 instructionsArray.Add(line);
-                
+
             }
-           
         }
-       
+    }
+
+    void TakeInput()
+    {
+        //view/hide UI canvas
+        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
+        {
+            if (!inMenu)
+            {
+                mainCanvas.enabled = true;
+                playerController.enabled = false;
+                inMenu = true;
+                accessMainframe = AccessMainframe();
+                StartCoroutine(accessMainframe);
+            }
+            else if (mainCanvas.isActiveAndEnabled)
+            {
+                mainCanvas.enabled = false;
+                playerController.enabled = true;
+                inMenu = false;
+                StopCoroutine(accessMainframe);
+            }
+        }
+        //disables player's movements and allows to scroll through instrxns in the mainframe canvas
+        if (mainCanvas.isActiveAndEnabled)
+        {
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+            {
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+                {
+                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter + 1 : 0;
+                }
+                else
+                {
+                    uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter - 1 : uiMenuOptionsArray.Length - 1;
+                }
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
+            }
+            else if (OVRInput.GetDown(OVRInput.RawButton.X))
+            {
+                if (uiMenuCounter == 0)
+                {
+                    StopCoroutine(accessMainframe);
+                    mainFrameText.SetText(instructionsArray[instrArrayCounter]);
+                    instrArrayCounter = instrArrayCounter < instructionsArray.Count - 1 ? instrArrayCounter + 1 : 0;
+                }
+                else
+                {
+                    mainFrameText.SetText("Exiting system...");
+                    Debug.Log("Exiting game!!");
+                    Application.Quit();
+                }
+            }
+        }
+        else if (OVRInput.GetDown(OVRInput.RawButton.B) && !inMenu)
+        {
+            ShootStapler();
+        }
     }
 
     //shooting fxn
@@ -162,26 +165,11 @@ public class MasterController : MonoBehaviour
             staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
             staplerShoot.transform.parent = staplerParent;
             staplers--;
-            // playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
-            staplerCountText.SetText(staplers.ToString());
         }
-    }
-    /**
-    void MenuOptions()
-    {
-        foreach (GameObject menuObj in GameObject.FindGameObjectsWithTag("UIMenuOption"))
-        {
-            if (menuObj.name == "bar")
-            {
-                //Do Something
-            }
-        }
-    }
-    **/
-    
+    }    
 
-//score modifier fxn
-public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
+    //score modifier fxn
+    public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {
         profScore += prof;
         custServScore += cs;
@@ -199,11 +187,34 @@ public static void ScoreModify(int prof, int cs, int tech, bool correct, bool pl
             }
         }
 
-        //coinCountText.SetText(coins.ToString());
         scoreBreakDownText.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString());
         totalScoreText.SetText(totalScore.ToString());
+    }
 
-        //playerUIscore.SetText("Pro: " + profScore.ToString() + "\nTech: " + techScore.ToString() + "\nC-Srv: " + custServScore.ToString() + "\ntotal: " + totalScore.ToString() + "\nstaplers: " + staplers.ToString());
+    IEnumerator AccessMainframe()
+    {
+        string text = "Accessing Mainframe.";
+        for(int i=0; i<=numOfDots; i++)
+        {
+            mainFrameText.SetText(text);
+            yield return new WaitForSeconds(1f);
+            text = text + ".";
+        }
+    }
+
+    private void DisplayInventory()
+    {
+        staplerCountText.SetText(staplers.ToString());
+        coinCountText.SetText(coins.ToString());
+    }
+
+    private void DisplayTrashCount()
+    {
+        baseTrashCount.SetText(baseTrash.ToString());
+        metalTrashCount.SetText(metalTrash.ToString());
+        plasticTrashCount.SetText(plasticTrash.ToString());
+        double roundLabSat = Math.Round(labSatisfaction * 100.0) / 100;
+        labSatisfactionText.SetText(roundLabSat.ToString());
     }
 }
 

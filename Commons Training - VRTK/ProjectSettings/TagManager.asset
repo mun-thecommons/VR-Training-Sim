@@ -29,6 +29,16 @@ TagManager:
   - UIMenuOption
   - MCButtons
   - Destination
+  - MCQuestion
+  - StaplerCount
+  - CoinCount
+  - BaseTrashCount
+  - MetalTrashCount
+  - PlasticTrashCount
+  - MetalTrash
+  - BaseTrash
+  - PlasticTrash
+  - LabSatisfactionScore
   layers:
   - Default
   - TransparentFX

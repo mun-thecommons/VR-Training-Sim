@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class TestAnimatorController : MonoBehaviour
 {
     Animator animator;
+    public Vector3 goal;
 
     // Use this for initialization
     void Start()
@@ -17,17 +18,10 @@ public class TestAnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown("space"))
-        {
-            animator.SetBool("Start Walk", true);
-        }
-        if (Input.GetKeyDown("tab"))
-        {
-            animator.SetBool("Turn Right", true);
-        }
-        /* if(Vector3.Distance(transform.position, ClientManager.destinationPositions[0].transform.position) <= 0)
+        if (Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !animator.GetBool("Stop"))
         {
             animator.SetBool("Stop", true);
-        } */
+            GetComponent<NavMeshAgent>().enabled = false;
+        }
     }
 }
