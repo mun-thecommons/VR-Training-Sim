@@ -10244,6 +10244,8 @@ MonoBehaviour:
     type: 3}
   mcClient: {fileID: 9146287095119298034, guid: e7cc8481aa713f747aae8225fd818411,
     type: 3}
+  walkingClient: {fileID: 4231221206325526612, guid: b3fac2280d9c8234ba9587f584498b51,
+    type: 3}
 --- !u!4 &188899161
 Transform:
   m_ObjectHideFlags: 0

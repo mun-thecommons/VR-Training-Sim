@@ -1,26 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class ClientManager : MonoBehaviour {
    
     static private float cashBoxTimerReset = 15f;
     public GameObject cashBoxClient;
     public GameObject mcClient;
+    public GameObject walkingClient;
     static private List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
-    //static public GameObject[] destinationPositions;
+    private Vector3 spawnPositionWalk;
+    public int numOfWalkingClient = 3;
     static public List<Vector3> destinationPositions = new List<Vector3>();
     private GameObject client;
-    static private float timer = 2.5f;
+    private GameObject npcClient;
+    static private float timer = 5f;
     static private float resetTimer = 5f;
     private int randInd;
     private float yPos = 0.08f;
     static public int clientsSpawned = 0;
-    private Vector3 goal;   
+    private Vector3 goal;
+    private NavMeshAgent agent;
 
     private void Start()
-    {    
+    {
+        
+        spawnPositionWalk = new Vector3(-34.6f, yPos, 2.49f);
+
         spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));
@@ -41,7 +50,7 @@ public class ClientManager : MonoBehaviour {
 
     void SpawnClient()
     {
-        if (timer <= 0 && clientsSpawned <= destinationPositions.Count && spawnPositions.Count > 0)
+        if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
         {
             randInd = Random.Range(0, spawnPositions.Count);
             spawnPosition = spawnPositions[randInd];
@@ -53,11 +62,15 @@ public class ClientManager : MonoBehaviour {
             client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
             client.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = goal;
 
+            npcClient = Instantiate(walkingClient, spawnPositionWalk, walkingClient.transform.rotation) as GameObject;
+
             client.transform.parent = gameObject.transform;
+            npcClient.transform.parent = gameObject.transform;
             clientsSpawned++;
             timer = resetTimer;
         }
     }
+
 
     static public void RemoveClient(Vector3 clientPosition)
     {

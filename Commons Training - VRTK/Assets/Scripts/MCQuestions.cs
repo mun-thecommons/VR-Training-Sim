@@ -137,12 +137,12 @@ public class MCQuestions : MonoBehaviour {
 
         if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's helpful, thank you";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":)";
             MasterController.ScoreModify(1, 0, 0, true, false);
         }
         else
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's not really helpful";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":(";
             MasterController.ScoreModify(-1, 0, 0, false, false);
         }
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
