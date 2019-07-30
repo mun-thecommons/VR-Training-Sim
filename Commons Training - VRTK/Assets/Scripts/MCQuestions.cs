@@ -13,6 +13,7 @@ public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
 
+   
     private List<string> output = new List<string> { };
     private GameObject player;
     private string correctAnswer;
@@ -29,6 +30,7 @@ public class MCQuestions : MonoBehaviour {
     private GameObject[] buttonArray;
     private GameObject questions;
     private Canvas mcQuestionsCanvas;
+    private Canvas mcClientInteraction;
     private int currentAnswerIndex = 0;
     private float y;
 
@@ -42,9 +44,8 @@ public class MCQuestions : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
-        mcQuestionsCanvas.enabled = false;
+        mcClientInteraction = GameObject.FindGameObjectWithTag("MCClientInteraction").GetComponent<Canvas>();
         y = transform.rotation.y;
-
     }
 
     void Update()
@@ -58,17 +59,24 @@ public class MCQuestions : MonoBehaviour {
         {
             ChangeAnswer();
         }
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !questionAnswered && questionSetup)
+        if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            if (!client.askingQuestion && !MasterController.inMenu)
+            mcClientInteraction.enabled = client.askingQuestion ? false : true;
+
+            if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
-                AskQuestion();
-            }
-            else
-            {
-                SelectAnswer();
+                if (!client.askingQuestion && !MasterController.inMenu)
+                {
+                    AskQuestion();
+                }
+                else
+                {
+                    SelectAnswer();
+                }
             }
         }
+        
+        
         if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
