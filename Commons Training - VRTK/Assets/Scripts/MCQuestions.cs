@@ -50,7 +50,7 @@ public class MCQuestions : MonoBehaviour {
 
     void Update()
     {
-        if(Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !questionSetup)
+        if(Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1f && !questionSetup)
         {
             greetings.GetComponent<Canvas>().enabled = true;
             questionSetup = true;
@@ -61,7 +61,7 @@ public class MCQuestions : MonoBehaviour {
         }
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            mcClientInteraction.enabled = client.askingQuestion ? false : true;
+            mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
 
             if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
@@ -74,6 +74,10 @@ public class MCQuestions : MonoBehaviour {
                     SelectAnswer();
                 }
             }
+        }
+        else
+        {
+            mcClientInteraction.enabled = false;
         }
         
         

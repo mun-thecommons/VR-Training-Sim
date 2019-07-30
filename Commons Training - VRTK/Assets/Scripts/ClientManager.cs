@@ -60,7 +60,7 @@ public class ClientManager : MonoBehaviour {
             destinationPositions.RemoveAt(randInd);
             
             client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
-            client.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = goal;
+            client.GetComponent<NavMeshAgent>().destination = goal;
 
             npcClient = Instantiate(walkingClient, spawnPositionWalk, walkingClient.transform.rotation) as GameObject;
 
