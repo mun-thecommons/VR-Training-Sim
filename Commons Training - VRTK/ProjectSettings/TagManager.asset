@@ -40,6 +40,8 @@ TagManager:
   - PlasticTrash
   - LabSatisfactionScore
   - MCClientInteraction
+  - ScrapPaper
+  - ScrapPaperCount
   layers:
   - Default
   - TransparentFX

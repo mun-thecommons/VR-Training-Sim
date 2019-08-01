@@ -25,6 +25,7 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI metalTrashCount;
     public static TextMeshProUGUI plasticTrashCount;
     public static TextMeshProUGUI labSatisfactionText;
+    public static TextMeshProUGUI scrapPaperText;
 
     [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
@@ -34,6 +35,7 @@ public class MasterController : MonoBehaviour
     public static int baseTrash = 0;
     public static int metalTrash = 0;
     public static int plasticTrash = 0;
+    public static int scrapPaper = 0;
     public static Canvas mainCanvas;    
     public static Audio audio;
 
@@ -74,6 +76,7 @@ public class MasterController : MonoBehaviour
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
         labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
+        scrapPaperText = GameObject.FindGameObjectWithTag("ScrapPaperCount").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -213,6 +216,7 @@ public class MasterController : MonoBehaviour
     {
         staplerCountText.SetText(staplers.ToString());
         coinCountText.SetText(coins.ToString());
+        scrapPaperText.SetText(scrapPaper.ToString());
     }
 
     private void DisplayTrashCount()
