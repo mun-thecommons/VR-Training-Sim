@@ -6,18 +6,15 @@ public class ScrapPaperController : MonoBehaviour
 {
     private GameObject player;
     private bool isUSBTouched = false;
-    private OVRGrabbable grabbableScript;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        grabbableScript = gameObject.GetComponent<OVRGrabbable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        grabbableScript.enabled = true;
         if (isUSBTouched == false)
         {
             EnableRotation();
@@ -40,8 +37,7 @@ public class ScrapPaperController : MonoBehaviour
                 RobotController.isTouchingUSB = true;
                 isUSBTouched = true;
 
-                CollectibleManager.CollectScrapPaper(transform.position);
-                Destroy(gameObject);
+                MasterController.scrapPaper++;
 
             }
             if (!collider.CompareTag("Hand"))
