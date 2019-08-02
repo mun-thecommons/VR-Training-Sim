@@ -8,7 +8,7 @@ public class CoinController : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            CoinManager.CollectCoin(transform.position);
+            CollectibleManager.CollectCoin(transform.position);
             Destroy(gameObject);
         }
     }

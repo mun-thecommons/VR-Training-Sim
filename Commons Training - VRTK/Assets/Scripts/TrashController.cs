@@ -8,7 +8,7 @@ public class TrashController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hand"))
         {
-            TrashManager.CollectTrash(gameObject.transform.position);
+            CollectibleManager.CollectTrash(gameObject.transform.position);
 
             if (gameObject.CompareTag("BaseTrash"))
             {

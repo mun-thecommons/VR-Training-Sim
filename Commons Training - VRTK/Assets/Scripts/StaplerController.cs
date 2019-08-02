@@ -8,7 +8,7 @@ public class StaplerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Hand"))
         {
-            StaplerManager.CollectStapler(transform.position);
+            CollectibleManager.CollectStapler(transform.position);
             Destroy(gameObject);            
         }
     }
