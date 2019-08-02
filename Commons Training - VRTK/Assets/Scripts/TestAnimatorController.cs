@@ -18,10 +18,10 @@ public class TestAnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !animator.GetBool("Stop"))
+        if (GetComponent<NavMeshAgent>().remainingDistance <= 1 && !animator.GetBool("Stop"))
         {
             animator.SetBool("Stop", true);
-            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<NavMeshAgent>().isStopped = true;
         }
     }
 }

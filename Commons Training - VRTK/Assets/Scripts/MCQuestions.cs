@@ -50,7 +50,7 @@ public class MCQuestions : MonoBehaviour {
 
     void Update()
     {
-        if(Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1f && !questionSetup)
+        if(GetComponent<NavMeshAgent>().isStopped && !questionSetup)
         {
             greetings.GetComponent<Canvas>().enabled = true;
             questionSetup = true;
@@ -61,6 +61,7 @@ public class MCQuestions : MonoBehaviour {
         }
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
+            Debug.Log("Close to player");
             mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
 
             if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
