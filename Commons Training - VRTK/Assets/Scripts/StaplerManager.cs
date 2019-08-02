@@ -46,7 +46,7 @@ public class StaplerManager : MonoBehaviour
 
     void SpawnStapler()
     {
-        if(timer <= 0)
+        if(timer <= 0f)
         {
             timer = resetTimer;
             if (spawnPositions.Count > 0)

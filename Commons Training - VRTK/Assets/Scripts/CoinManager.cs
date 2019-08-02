@@ -36,7 +36,7 @@ public class CoinManager : MonoBehaviour
 
     void SpawnCoin()
     {
-        if(timer <= 0)
+        if(timer <= 0f)
         {
             timer = resetTimer;
             if(spawnPositions.Count > 0)
