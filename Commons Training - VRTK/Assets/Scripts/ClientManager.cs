@@ -8,8 +8,8 @@ public class ClientManager : MonoBehaviour {
    
     static private float cashBoxTimerReset = 15f;
     public GameObject cashBoxClient;
-    public GameObject mcClient;
-    public GameObject walkingClient;
+    public List<GameObject> mcClient = new List<GameObject>();
+    public List<GameObject> walkingClient = new List<GameObject>();
     static private List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
     private Vector3 spawnPositionWalk;
@@ -58,11 +58,13 @@ public class ClientManager : MonoBehaviour {
             goal = destinationPositions[randInd];
             spawnPositions.RemoveAt(randInd);
             destinationPositions.RemoveAt(randInd);
-            
-            client = Instantiate(mcClient, spawnPosition, mcClient.transform.rotation) as GameObject;
+
+            int mcClientInd = Random.Range(0, mcClient.Count);
+            client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
             client.GetComponent<NavMeshAgent>().destination = goal;
 
-            npcClient = Instantiate(walkingClient, spawnPositionWalk, walkingClient.transform.rotation) as GameObject;
+            int walkingInd = Random.Range(0, walkingClient.Count);
+            npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
 
             client.transform.parent = gameObject.transform;
             npcClient.transform.parent = gameObject.transform;
