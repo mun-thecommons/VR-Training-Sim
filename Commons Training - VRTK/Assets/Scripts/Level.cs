@@ -6,7 +6,7 @@ using TMPro;
 public class Level : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 startPosition;
+    public Transform startPosition;
 
     //Level Completion Booleans
     private bool level1Completed = false;
@@ -28,19 +28,24 @@ public class Level : MonoBehaviour
     {
         countDownText = countDown.GetComponent<TextMeshProUGUI>();
         countDownText.enabled = true;
-        startPosition = player.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-        countDownText.text = "Go to CS Desk: " + timer;
+        countDownText.text = "Go to CS Desk: " + Mathf.Round(timer*100)/100.0 ;
         if(timer <= 0f && !MasterController.vestCollected)
         {
             countDownText.text = "Out of time";
-            player.transform.position = startPosition;
-            timer = resetTimer;
+            if(timer <= -3f)
+            {
+                player.transform.position = startPosition.transform.position;
+                timer = resetTimer;
+            }
+            
         }
+       
     }
 }
