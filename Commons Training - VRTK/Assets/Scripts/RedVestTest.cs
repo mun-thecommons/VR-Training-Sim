@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class RedVestTest : MonoBehaviour
 {
-    
     OVRGrabbable[] components;
     public static Audio audio;
 
