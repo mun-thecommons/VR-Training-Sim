@@ -4,6 +4,7 @@ public class Audio : MonoBehaviour {
 
     private AudioSource source;
 
+    public AudioClip touchVest;
     public AudioClip correct;
     public AudioClip wrong;
     public AudioClip loginToLinux;
@@ -30,7 +31,6 @@ public class Audio : MonoBehaviour {
     {
         source.PlayOneShot(correct, volume);
     }
-
 
     public void loginToLinuxSound()
     {
@@ -62,5 +62,8 @@ public class Audio : MonoBehaviour {
     {
         source.PlayOneShot(noEmail, volume);
     }
-
+    public void touchVestSound()
+    {
+        source.PlayOneShot(touchVest, volume);
+    }
 }

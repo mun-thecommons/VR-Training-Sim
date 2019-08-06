@@ -25,6 +25,7 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI metalTrashCount;
     public static TextMeshProUGUI plasticTrashCount;
     public static TextMeshProUGUI labSatisfactionText;
+    public static TextMeshProUGUI scrapPaperText;
 
     [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
@@ -34,6 +35,7 @@ public class MasterController : MonoBehaviour
     public static int baseTrash = 0;
     public static int metalTrash = 0;
     public static int plasticTrash = 0;
+    public static int scrapPaper = 0;
     public static Canvas mainCanvas;    
     public static Audio audio;
 
@@ -74,11 +76,19 @@ public class MasterController : MonoBehaviour
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
         labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
+        scrapPaperText = GameObject.FindGameObjectWithTag("ScrapPaperCount").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        labSatisfaction -= Time.deltaTime*TrashManager.numOfTrash;
+        labSatisfaction -= Time.deltaTime*CollectibleManager.numOfTrash;                      //Lab satisfaction due to trash
+       
+        /* if (Rounds....)                                 // If rounds not done in certain amount of time subtract set amount of score
+        {
+            labSatisfaction -= 25;
+        }
+        */
+
         DisplayInventory();
         DisplayTrashCount();
         TakeInput();
@@ -122,10 +132,10 @@ public class MasterController : MonoBehaviour
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
         if (mainCanvas.isActiveAndEnabled)
         {
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
-                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight))
                 {
                     uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter + 1 : 0;
                 }
@@ -133,7 +143,7 @@ public class MasterController : MonoBehaviour
                 {
                     uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter - 1 : uiMenuOptionsArray.Length - 1;
                 }
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.grey;
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.white;
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
@@ -206,6 +216,7 @@ public class MasterController : MonoBehaviour
     {
         staplerCountText.SetText(staplers.ToString());
         coinCountText.SetText(coins.ToString());
+        scrapPaperText.SetText(scrapPaper.ToString());
     }
 
     private void DisplayTrashCount()

@@ -13,6 +13,7 @@ public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
 
+   
     private List<string> output = new List<string> { };
     private GameObject player;
     private string correctAnswer;
@@ -29,7 +30,9 @@ public class MCQuestions : MonoBehaviour {
     private GameObject[] buttonArray;
     private GameObject questions;
     private Canvas mcQuestionsCanvas;
+    private Canvas mcClientInteraction;
     private int currentAnswerIndex = 0;
+    private float y;
 
     
     void Start()
@@ -41,12 +44,13 @@ public class MCQuestions : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
-        mcQuestionsCanvas.enabled = false;
+        mcClientInteraction = GameObject.FindGameObjectWithTag("MCClientInteraction").GetComponent<Canvas>();
+        y = transform.rotation.y;
     }
 
     void Update()
     {
-        if(Vector3.Distance(transform.position, GetComponent<NavMeshAgent>().destination) <= 1 && !questionSetup)
+        if(GetComponent<NavMeshAgent>().isStopped && !questionSetup)
         {
             greetings.GetComponent<Canvas>().enabled = true;
             questionSetup = true;
@@ -55,17 +59,34 @@ public class MCQuestions : MonoBehaviour {
         {
             ChangeAnswer();
         }
-        if (OVRInput.GetDown(OVRInput.RawButton.A) && Vector3.Distance(transform.position, player.transform.position) < 5f && !questionAnswered && questionSetup)
+        if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            if (!client.askingQuestion && !MasterController.inMenu)
+            Debug.Log("Close to player");
+            mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
+
+            if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
-                AskQuestion();
+                if (!client.askingQuestion && !MasterController.inMenu)
+                {
+                    AskQuestion();
+                }
+                else
+                {
+                    SelectAnswer();
+                }
             }
-            else
-            {
-                SelectAnswer();
-            }
-        }        
+        }
+        else
+        {
+            mcClientInteraction.enabled = false;
+        }
+        
+        
+        if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
+        {
+            Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            transform.LookAt(targetPosition);
+        }
     } 
     
     private void ChangeAnswer()
@@ -129,12 +150,12 @@ public class MCQuestions : MonoBehaviour {
 
         if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's helpful, thank you";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":)";
             MasterController.ScoreModify(1, 0, 0, true, false);
         }
         else
         {
-            greetings.GetComponentInChildren<TextMeshProUGUI>().text = "That's not really helpful";
+            greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":(";
             MasterController.ScoreModify(-1, 0, 0, false, false);
         }
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
