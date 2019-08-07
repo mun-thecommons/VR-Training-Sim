@@ -1290,6 +1290,7 @@ GameObject:
   - component: {fileID: 19766119}
   - component: {fileID: 19766118}
   - component: {fileID: 19766117}
+  - component: {fileID: 19766121}
   m_Layer: 5
   m_Name: CountDownToDesk
   m_TagString: Untagged
@@ -1348,7 +1349,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 93230664}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1377,6 +1378,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!222 &19766121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19766116}
+  m_CullTransparentMesh: 0
 --- !u!1 &20213757
 GameObject:
   m_ObjectHideFlags: 0
@@ -33171,7 +33180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.4, y: 96.8}
+  m_AnchoredPosition: {x: 27.8, y: 151.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665401526
@@ -33203,8 +33212,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291745424
+  m_fontColor: {r: 0.5663492, g: 0.8396226, b: 0.80814505, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -45949,6 +45958,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1230675372}
   startPosition: {fileID: 860071758}
+  timer: 40
+  resetTimer: 40
   countDown: {fileID: 665401524}
 --- !u!1 &877175022
 GameObject:

@@ -26,7 +26,6 @@ public class Rounds : MonoBehaviour {
 
     IEnumerator done()
     {
-       
         roundsDoneSignal.Play();
         minutes = 0;
         seconds = 0;
@@ -87,4 +86,6 @@ public class Rounds : MonoBehaviour {
         roundsDone = true;
         MasterController.ScoreModify(1, 0, 0, true, false);
     }
+
+
 }
