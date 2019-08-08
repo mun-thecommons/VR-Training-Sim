@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UsbController : MonoBehaviour {
-
+    private static int numOfUSBCollected = 0;
     private GameObject player;
     private bool isUSBTouched= false;
 
@@ -17,6 +17,10 @@ public class UsbController : MonoBehaviour {
         if (isUSBTouched == false)
         {
             EnableRotation();
+        }
+        if(numOfUSBCollected >= 1)
+        {
+            Level.level2USB = true;
         }
     }
 
@@ -33,7 +37,7 @@ public class UsbController : MonoBehaviour {
         {
             if (collider.CompareTag("USBox"))
             {
-                Level.level2USB = true;
+                numOfUSBCollected++;
                 MasterController.ScoreModify(0, 0, 1, true, true);  //played and the player gets a score point  
                 Destroy(gameObject);
                 RobotController.isInUsbBox = true;
