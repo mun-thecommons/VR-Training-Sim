@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
-
+    public static int numOfClientsHelped = 0;
    
     private List<string> output = new List<string> { };
     private GameObject player;
@@ -81,7 +81,11 @@ public class MCQuestions : MonoBehaviour {
             mcClientInteraction.enabled = false;
         }
         
-        
+        if(numOfClientsHelped >= 2)
+        {
+            Level.level2Client = true;
+        }
+
         if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
@@ -151,6 +155,7 @@ public class MCQuestions : MonoBehaviour {
         if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
         {
             greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":)";
+            numOfClientsHelped++;
             MasterController.ScoreModify(1, 0, 0, true, false);
         }
         else

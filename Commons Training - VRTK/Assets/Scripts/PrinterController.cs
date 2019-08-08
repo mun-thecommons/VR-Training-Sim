@@ -24,6 +24,10 @@ public class PrinterController : MonoBehaviour
             full = false;
             output.text = "Empty";
         }
+        if (numOfPrintersFilled >= 2)
+        {
+            Level.level1Printer = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

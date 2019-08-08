@@ -33,6 +33,7 @@ public class UsbController : MonoBehaviour {
         {
             if (collider.CompareTag("USBox"))
             {
+                Level.level2USB = true;
                 MasterController.ScoreModify(0, 0, 1, true, true);  //played and the player gets a score point  
                 Destroy(gameObject);
                 RobotController.isInUsbBox = true;

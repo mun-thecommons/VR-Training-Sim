@@ -10,17 +10,19 @@ public class Level : MonoBehaviour
     public GameObject player;
     public Transform startPosition;
 
-    //Level Completion Booleans
-    private bool level1Completed = false;
-    private bool level2Completed = false;
-    private bool level3Completed = false;
-    private bool level4Completed = false;
-    private bool level5Completed = false;
+    //Integer 
+    private int level = 0;
 
-    //Level1 Booleans
-    //vestCollected remains true after the vest is collected
-    private bool level1Round = false;
-    private bool level1Printer = false;
+
+
+    //Boolean For Tasks in Levels
+    //Level 1
+    public static bool level1Round = false;
+    public static bool level1Printer = false;
+
+    //Level 2
+    public static bool level2USB = false;
+    public static bool level2Client = false;
 
     //Timer 
     public float timer = 30f;
@@ -28,13 +30,17 @@ public class Level : MonoBehaviour
 
     //Count Down Timer Canvas
     public GameObject countDown;
+    public GameObject levelCompleted;
     private TextMeshProUGUI countDownText;
+    private TextMeshProUGUI levelCompletedText;
 
     // Start is called before the first frame update
     void Start()
     {
         countDownText = countDown.GetComponent<TextMeshProUGUI>();
         countDownText.enabled = true;
+        levelCompletedText = levelCompleted.GetComponent<TextMeshProUGUI>();
+        levelCompletedText.enabled = false;
     }
 
     // Update is called once per frame
@@ -45,25 +51,29 @@ public class Level : MonoBehaviour
 
         //Complete Level 1
         WalkToDesk();
-        RoundAndPrinter();
-        if(MasterController.vestCollected /*&& level1Round*/ &&  level1Printer)
+        if(MasterController.vestCollected && level1Printer && /*level1Round &&*/ level == 0)
         {
-            level1Completed = true;
-            Debug.Log(level1Completed);
-            //StartCoroutine(DisplayLevelCompleted(5f));
+            level += 1;
+            StartCoroutine(DisplayLevelCompleted(5)); 
+        }
+
+        if(level2Client && level2USB && level == 1)
+        {
+            level += 1;
+            StartCoroutine(DisplayLevelCompleted(5));
         }
 
         //Complete Level 2
+
     }
 
     //Display Level Complete Message
     IEnumerator DisplayLevelCompleted(float time)
     {
-        countDownText.enabled = true;
-        countDownText.text = "Complete Level 1";
+        levelCompletedText.enabled = true;
+        levelCompletedText.text = "Level : " + level + " Complete";
         yield return new WaitForSeconds(time);
-        countDownText.enabled = false;
-        
+        levelCompletedText.enabled = false;
     }
 
     //functions for level 1
@@ -85,17 +95,7 @@ public class Level : MonoBehaviour
         }
     }
 
-    private void RoundAndPrinter()
-    {
-        if (Rounds.roundsDone)
-        {
-            level1Round = true;
-        }
-        if (PrinterController.numOfPrintersFilled >= 2)
-        {
-            level1Printer = true;
-        }
-    }
+    
 
     //functions for level 2
 }
