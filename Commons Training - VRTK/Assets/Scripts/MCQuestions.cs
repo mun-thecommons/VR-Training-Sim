@@ -59,20 +59,25 @@ public class MCQuestions : MonoBehaviour {
         {
             ChangeAnswer();
         }
+        
+
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            Debug.Log("Close to player");
+            //Debug.Log("Close to player");
             mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
 
             if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
+                
                 if (!client.askingQuestion && !MasterController.inMenu)
                 {
                     AskQuestion();
+                    MasterController.DisableMovement();
                 }
                 else
                 {
                     SelectAnswer();
+                    MasterController.EnableMovement();
                 }
             }
         }
@@ -80,8 +85,10 @@ public class MCQuestions : MonoBehaviour {
         {
             mcClientInteraction.enabled = false;
         }
+
         
-        if(numOfClientsHelped >= 2)
+
+        if (numOfClientsHelped >= 2)
         {
             Level.level2Client = true;
         }
@@ -111,7 +118,7 @@ public class MCQuestions : MonoBehaviour {
     private void AskQuestion()
     {
         client.askingQuestion = true;
-        player.GetComponent<OVRPlayerController>().enabled = false;
+        
         MasterController.inMenu = true;
         greetings.SetActive(false);
         mcQuestionsCanvas.enabled = true;

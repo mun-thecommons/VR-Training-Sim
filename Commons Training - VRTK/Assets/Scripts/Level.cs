@@ -8,7 +8,7 @@ public class Level : MonoBehaviour
 {
     //Player and Start Position
     public GameObject player;
-    public Transform startPosition;
+    private Vector3 startPosition;
 
     //Integer 
     private int level = 0;
@@ -37,6 +37,7 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = player.transform.position;
         countDownText = countDown.GetComponent<TextMeshProUGUI>();
         countDownText.enabled = true;
         levelCompletedText = levelCompleted.GetComponent<TextMeshProUGUI>();
@@ -80,12 +81,12 @@ public class Level : MonoBehaviour
     private void WalkToDesk()
     {
         countDownText.text = "Go to CS Desk: " + timer.ToString("F2");
-        if (timer <= 0f && !MasterController.vestCollected)
+        if (timer <= 0f && !MasterController.vestCollected && !MasterController.inMenu)
         {
             countDownText.text = "Out of time";
             if (timer <= -3f)
             {
-                player.transform.position = startPosition.transform.position;
+                player.transform.position = startPosition;
                 timer = resetTimer;
             }
         }
@@ -93,9 +94,8 @@ public class Level : MonoBehaviour
         {
             countDownText.enabled = false;
         }
-    }
 
-    
+    }
 
     //functions for level 2
 }

@@ -42,6 +42,8 @@ TagManager:
   - MCClientInteraction
   - ScrapPaper
   - ScrapPaperCount
+  - Supervisor
+  - Teleportation
   layers:
   - Default
   - TransparentFX

@@ -11,11 +11,12 @@ using System.Text.RegularExpressions;
 
 public class MasterController : MonoBehaviour
 {
+    public static GameObject teleportFunction;
     public static double labSatisfaction = 1000.0;
     public GameObject staplerPrefab;
     public Transform staplerParent;
     public GameObject rightHand;
-    public OVRPlayerController playerController;
+    public static OVRPlayerController playerController;
 
     public static TextMeshProUGUI scoreBreakDownText;
     public static TextMeshProUGUI totalScoreText;
@@ -58,6 +59,7 @@ public class MasterController : MonoBehaviour
 
     private void Start()
     {
+        teleportFunction = GameObject.FindGameObjectWithTag("Teleportation");
         staplerCountText = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
         coinCountText = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
@@ -93,7 +95,20 @@ public class MasterController : MonoBehaviour
         DisplayTrashCount();
         TakeInput();
     }
- 
+
+
+    public static void DisableMovement()
+    {
+        teleportFunction.SetActive(false);
+        playerController.enabled = false;
+    }
+
+    public static void EnableMovement()
+    {
+        teleportFunction.SetActive(true);
+        playerController.enabled = true;
+    }
+
     //reading instr from the file
     void FileParse(string toParse, TextAsset textFile)
     {
@@ -227,6 +242,7 @@ public class MasterController : MonoBehaviour
         double roundLabSat = Math.Round(labSatisfaction * 100.0) / 100;
         labSatisfactionText.SetText(roundLabSat.ToString());
     }
+
 }
 
 
