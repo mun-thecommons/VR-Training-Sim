@@ -90,7 +90,7 @@ public class Level : MonoBehaviour
                 timer = resetTimer;
             }
         }
-        else if (MasterController.vestCollected && timer >= 0f)
+        else if (MasterController.vestCollected && timer >= -3f)
         {
             countDownText.enabled = false;
         }

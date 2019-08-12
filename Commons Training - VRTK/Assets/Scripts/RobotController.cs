@@ -8,58 +8,64 @@ public class RobotController : MonoBehaviour
 {
     public GameObject player;
     private Vector3 offset;
-    public static bool isTouchingUSB;
-    public static bool isInUsbBox;
+    public static bool isTouchingUSB = false;
+    public static bool isInUsbBox = false;
     public GameObject robotCanvas;
    // private Image speechBubble;
-    private float timer = 5f;
+    private float timer = 10f;
+    private float resetTimer = 10f;
 
     void Start()
     {
        // speechBubble = GetComponentInChildren<Image>();
-   
-        isTouchingUSB = false;
-        isInUsbBox = false;
-
         robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Hello There! I'm Robbie, the android assigned to guide you through this complex ";
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+
         Speech();
+        DisplayMessage();
         //display robot canvas with tips about USB
-        if (isTouchingUSB==true)
-        {
-            robotCanvas.SetActive(true);
-            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Oh wow, you found a lost usb, now you gotta find the USB Box where you can store it";    
-        }
-
-        if (isInUsbBox==true)
-        {
-            robotCanvas.SetActive(true);
-            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Good Job! Continue doing rounds...";
-            isInUsbBox = false;
-        }
-
-       
+        
     }
 
     void Speech()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0 && robotCanvas.activeSelf)
+        if(timer <= 0)
         {
-            robotCanvas.SetActive(false);
-            
-        }
-        if (timer <= 0 && !robotCanvas.activeSelf)
-        {
-            if ((isTouchingUSB == true || isInUsbBox == true) && timer <= 0)
+            if (robotCanvas.activeSelf)
             {
-                timer = 5f;
+                robotCanvas.SetActive(false);
             }
-            
+            else if(isTouchingUSB || isInUsbBox)
+            {
+                timer = resetTimer;
+            }
         }
+    }
+
+    void DisplayMessage()
+    {
+        if (isTouchingUSB)
+        {
+            robotCanvas.SetActive(true);
+            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Oh wow, you found a lost usb, now you gotta find the USB Box where you can store it";
+        }
+
+        if (isInUsbBox)
+        {
+            robotCanvas.SetActive(true);
+            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Good Job! Continue doing rounds...";
+            //StartCoroutine(Wait());
+            isInUsbBox = false;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(resetTimer);
     }
 }

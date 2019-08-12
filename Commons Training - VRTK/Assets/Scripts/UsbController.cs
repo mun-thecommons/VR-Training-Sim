@@ -42,13 +42,13 @@ public class UsbController : MonoBehaviour {
                 Destroy(gameObject);
                 RobotController.isInUsbBox = true;
             }
-            if (collider.CompareTag("Hand"))
+            else if (collider.CompareTag("Hand"))
             {
                 RobotController.isTouchingUSB = true;
                 isUSBTouched = true;
                 
             }
-            if (!collider.CompareTag("Hand"))
+            else if (!collider.CompareTag("Hand"))
             {
                 RobotController.isTouchingUSB = false;
             }
