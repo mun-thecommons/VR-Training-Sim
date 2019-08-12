@@ -58543,12 +58543,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3bb179010e22743be0b39a97a69566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimButton: 67108864
-  TeleportButton: 67108864
+  AimButton: 256
+  TeleportButton: 256
   FastTeleport: 0
   Avatar: {fileID: 0}
   InputMode: 1
-  AimingController: 2
+  AimingController: 1
   CapacitiveAimAndTeleportButton: 4
   ThumbstickTeleportThreshold: 1
 --- !u!1 &1111054980
