@@ -46,13 +46,11 @@ public class UsbController : MonoBehaviour {
             {
                 RobotController.isTouchingUSB = true;
                 isUSBTouched = true;
-                
             }
             else if (!collider.CompareTag("Hand"))
             {
                 RobotController.isTouchingUSB = false;
             }
         }
-       
     }
 }

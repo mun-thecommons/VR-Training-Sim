@@ -7,65 +7,49 @@ using TMPro;
 public class RobotController : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset;
+    public float robbiePlayerDistance = 2f;
+
+    //Let Robbie Start at The MakerSpace
+    private Vector3 robbieStartPostion;
+    private bool usbTouchingMessaged = false;
+    private bool usbInBoxMessaged = false;
+
     public static bool isTouchingUSB = false;
     public static bool isInUsbBox = false;
-    public GameObject robotCanvas;
-   // private Image speechBubble;
-    private float timer = 10f;
-    private float resetTimer = 10f;
+
+    public TextMeshProUGUI robotCanvasText; 
 
     void Start()
     {
-       // speechBubble = GetComponentInChildren<Image>();
-        robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Hello There! I'm Robbie, the android assigned to guide you through this complex ";
+        robbieStartPostion = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        Speech();
         DisplayMessage();
-        //display robot canvas with tips about USB
-        
     }
 
-    void Speech()
+    void Teleport()
     {
-        if(timer <= 0)
-        {
-            if (robotCanvas.activeSelf)
-            {
-                robotCanvas.SetActive(false);
-            }
-            else if(isTouchingUSB || isInUsbBox)
-            {
-                timer = resetTimer;
-            }
-        }
+        transform.position = new Vector3(player.transform.position.x + player.transform.forward.x*robbiePlayerDistance, player.transform.position.y, player.transform.position.z + player.transform.forward.z*robbiePlayerDistance);
+        transform.LookAt(player.transform);
     }
 
     void DisplayMessage()
     {
-        if (isTouchingUSB)
+        if(isTouchingUSB && !usbTouchingMessaged)
         {
-            robotCanvas.SetActive(true);
-            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Oh wow, you found a lost usb, now you gotta find the USB Box where you can store it";
+            usbTouchingMessaged = true;
+            Teleport();
+            robotCanvasText.text = "Oh wow, you found a lost usb, now you gotta find the USB Box where you can store it";
         }
-
-        if (isInUsbBox)
+        else if (isInUsbBox && !usbInBoxMessaged)
         {
-            robotCanvas.SetActive(true);
-            robotCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Good Job! Continue doing rounds...";
-            //StartCoroutine(Wait());
-            isInUsbBox = false;
+            usbInBoxMessaged = true;
+            Teleport();
+            robotCanvasText.text = "Good Job! Continue doing rounds...";
         }
     }
 
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(resetTimer);
-    }
 }

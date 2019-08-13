@@ -32717,7 +32717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1032814876}
-  robotCanvas: {fileID: 782543823}
+  robbiePlayerDistance: 2
+  robotCanvasText: {fileID: 1021076491}
 --- !u!114 &644779739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32783,20 +32784,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1230675372}
   maxPlayerRobbieDistance: 3
---- !u!114 &644779744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644779737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507cc69b6078cd543ad0c16d4b506908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1230675372}
-  distance: 2
 --- !u!1 &646171464
 GameObject:
   m_ObjectHideFlags: 0
@@ -58419,7 +58406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1110951846
 Transform:
   m_ObjectHideFlags: 0
@@ -110008,22 +109995,22 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.15
+      value: -39.83
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.519
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.89
+      value: -17.11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
