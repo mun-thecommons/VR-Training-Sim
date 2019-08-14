@@ -13,6 +13,7 @@ public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
     public static int numOfClientsHelped = 0;
+
    
     private List<string> output = new List<string> { };
     private GameObject player;
@@ -164,11 +165,13 @@ public class MCQuestions : MonoBehaviour {
             greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":)";
             numOfClientsHelped++;
             MasterController.ScoreModify(1, 0, 0, true, false);
+            UMAMoodController.mood = 1;
         }
         else
         {
             greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":(";
             MasterController.ScoreModify(-1, 0, 0, false, false);
+            UMAMoodController.mood = 2;
         }
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
         MasterController.inMenu = false;

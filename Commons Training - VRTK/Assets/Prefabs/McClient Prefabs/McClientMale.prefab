@@ -4498,8 +4498,9 @@ GameObject:
   - component: {fileID: 6794038844633016475}
   - component: {fileID: 26059622211039358}
   - component: {fileID: 4994777356711548589}
+  - component: {fileID: 3915211733103208739}
   m_Layer: 0
-  m_Name: McClientHumanMale(Robes)
+  m_Name: McClientMale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4536,7 +4537,8 @@ MonoBehaviour:
   context: {fileID: 0}
   umaData: {fileID: 0}
   umaRecipe: {fileID: 0}
-  umaAdditionalRecipes: []
+  umaAdditionalRecipes:
+  - {fileID: 11400000, guid: 920d59ac577b2d9449aa36a4d9e86f10, type: 2}
   umaGenerator: {fileID: 0}
   animationController: {fileID: 0}
   CharacterCreated:
@@ -4941,6 +4943,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   greetings: {fileID: 5106372270464650585}
   questionDelay: 10
+--- !u!114 &3915211733103208739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892388982689932861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6403f6ff03ce2c64ca8e822993f2a8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mood: 0
 --- !u!1 &7906987169477788619
 GameObject:
   m_ObjectHideFlags: 0
