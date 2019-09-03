@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Legs
-  m_Shader: {fileID: 4800000, guid: 14350c95a16838442ac8969446ff4e69, type: 3}
+  m_Shader: {fileID: 2, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a7a3c8351a57c4d4b9d50094046f24df, type: 3}
+        m_Texture: {fileID: 2800000, guid: 31da5220248554a44980e9dc4256c77d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -40,5 +40,5 @@ Material:
     - _Shininess: 0.56466395
     - _Specular: 1.3769643
     m_Colors:
-    - _Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+    - _Color: {r: 0.764151, g: 0.111739054, b: 0.111739054, a: 0.78431374}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

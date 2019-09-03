@@ -35,10 +35,10 @@ namespace UMA.Examples
         }
 
 
-        void OnCollisionEnter(Collision collision)
+        /*void OnCollisionEnter(Collision collision)
         {
             if (Debug.isDebugBuild)
                 Debug.Log(collision.collider.name + ":" + name);
-        }
+        }*/
     }
 }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Claws
-  m_Shader: {fileID: 4800000, guid: 14350c95a16838442ac8969446ff4e69, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6ec55823d603ee4478b56d3f0d7ce6bb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,5 +40,5 @@ Material:
     - _Shininess: 0.078125
     - _Specular: 2.0633929
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.8679245, g: 0.8474546, b: 0.8474546, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
