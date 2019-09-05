@@ -32824,7 +32824,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644779737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a555f75cf062e847a91c1fe66b12a86, type: 3}
   m_Name: 
@@ -32897,6 +32897,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1230675372}
   maxPlayerRobbieDistance: 3
+--- !u!114 &644779744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644779737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750097d11a095dc43875493a8cefc1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1230675373}
+  rotationSpeed: 3
+  moveSpeed: 3
 --- !u!1 &646171464
 GameObject:
   m_ObjectHideFlags: 0
@@ -110848,7 +110863,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
