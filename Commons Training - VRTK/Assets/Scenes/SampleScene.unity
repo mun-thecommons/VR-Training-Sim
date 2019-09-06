@@ -32826,7 +32826,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644779737}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a555f75cf062e847a91c1fe66b12a86, type: 3}
   m_Name: 
@@ -32841,7 +32841,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644779737}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3da26e17c969e364391ce8e9ab87c955, type: 3}
   m_Name: 
@@ -32854,21 +32854,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2056162806}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &644779741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644779737}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b32b6439a88a9e41bbd51cb161cae10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1230675372}
-  targetDistance: 0
-  allowedDistance: 3
 --- !u!54 &644779742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32885,34 +32870,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &644779743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644779737}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dffef18b6fbf5024991b7e93ce45ed27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1230675372}
-  maxPlayerRobbieDistance: 3
---- !u!114 &644779744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644779737}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750097d11a095dc43875493a8cefc1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1230675373}
-  rotationSpeed: 3
 --- !u!1 &646171464
 GameObject:
   m_ObjectHideFlags: 0
@@ -110865,7 +110822,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}
