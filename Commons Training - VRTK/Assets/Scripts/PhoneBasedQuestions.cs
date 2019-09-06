@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 public class PhoneBasedQuestions : MonoBehaviour {
-    
+
+    public GameObject player;
     private float timer = 0f;
     private bool done = false;
     [HideInInspector]
@@ -24,7 +25,8 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        questions = gameObject.transform.Find("QuestionCanvas").gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
+        questions =gameObject.transform.Find("QuestionCanvas").gameObject;
         client = GetComponent<Client>();
         questions.SetActive(false);
         audio = FindObjectOfType<Audio>();
@@ -33,18 +35,27 @@ public class PhoneBasedQuestions : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        if(Vector3.Distance(player.transform.position , transform.position) <= 4)
+        {
+            questions.SetActive(true);
+            client.askingQuestion = true;
+        }
+        else
+        {
+            questions.SetActive(false);
+            client.askingQuestion = false;
+        }
         //CLIENT 1 - THE NON-MC
         if (done && timer <= 0f && QuestionInput.questionsArray.Count == 0)
         {
             Destroy(gameObject);
+            Level.level3ClientDesk = true;
   
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
             if (MasterController.vestCollected)
             {
-                client.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
                 answer = QuestionInput.answersArray[randomIndex];
@@ -91,35 +102,6 @@ public class PhoneBasedQuestions : MonoBehaviour {
         timer -= Time.deltaTime;
 
     }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-
-            questions.SetActive(true);
-            client.askingQuestion = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            questions.SetActive(false);
-            client.askingQuestion = false;
-
-            if (questionAnswered)
-            {
-                Vector3 move = new Vector3(100.0f, 0, 0);
-                transform.position += move;
-                questionAnswered = false;
-            }
-        }
-    }
-
-
-
+    
 
 }

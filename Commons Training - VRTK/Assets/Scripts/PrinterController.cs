@@ -24,7 +24,7 @@ public class PrinterController : MonoBehaviour
             full = false;
             output.text = "Empty";
         }
-        if (numOfPrintersFilled >= 2)
+        if (numOfPrintersFilled >= 2 && Level.level == 1)
         {
             Level.level1Printer = true;
         }

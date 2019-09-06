@@ -8,7 +8,7 @@ public class TestAnimatorController : MonoBehaviour
 {
     Animator animator;
     public Vector3 goal;
-
+    public Vector3 deskGoal;
     // Use this for initialization
     void Start()
     {

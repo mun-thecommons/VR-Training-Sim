@@ -56,6 +56,10 @@ public class MonitorController : MonoBehaviour
             {
                 errorState = false;
                 MasterController.ScoreModify(0, 1, 0, true, false);
+                if(Level.level == 3)
+                {
+                    Level.level3Monitor = true;
+                }
             }
         }
     }

@@ -86,14 +86,7 @@ public class MCQuestions : MonoBehaviour {
         {
             mcClientInteraction.enabled = false;
         }
-
         
-
-        if (numOfClientsHelped >= 2)
-        {
-            Level.level2Client = true;
-        }
-
         if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
@@ -166,6 +159,17 @@ public class MCQuestions : MonoBehaviour {
             numOfClientsHelped++;
             MasterController.ScoreModify(1, 0, 0, true, false);
             UMAMoodController.mood = 1;
+            if (Level.level == 2)
+            {
+                Level.level2Client = true;
+            }
+
+            if (numOfClientsHelped >= 2 && Level.level == 3)
+            {
+                Level.level3ClientLab = true;
+            }
+
+
         }
         else
         {

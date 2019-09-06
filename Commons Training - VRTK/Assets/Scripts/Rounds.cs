@@ -84,7 +84,10 @@ public class Rounds : MonoBehaviour {
         }
         Debug.Log("All rounds done");
         roundsDone = true;
-        Level.level1Round = true;
+        if (Level.level == 1)
+        {
+            Level.level1Round = true;
+        }
         MasterController.ScoreModify(1, 0, 0, true, false);
     }
 }

@@ -146,6 +146,10 @@ public class CollectibleManager : MonoBehaviour
     {
         spawnPositions.Add(position);
         numOfTrash--;
+        if(Level.level == 2)
+        {
+            Level.level2Trash = true;
+        }
     }
     public static void CollectCoin(Vector3 position)
     {

@@ -8241,7 +8241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0a3895610ad7ce346bf6df3b37275895, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0a3895610ad7ce346bf6df3b37275895, type: 3}
       propertyPath: m_RootOrder
@@ -10526,6 +10526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cashBoxClient: {fileID: 1445285436642950, guid: 329ec20446d841d43a13cff48ccaaf52,
     type: 3}
+  mainDeskClients:
+  - {fileID: 7892388982689932861, guid: 563512d59349ef44b86a7e2c1e0bb80e, type: 3}
   mcClient:
   - {fileID: 6535082864661352629, guid: a33d4db0de3962b4cb0e3593653efca3, type: 3}
   - {fileID: 3192309582425872823, guid: 202684046cb65dd41b70ab339eeec1e2, type: 3}
@@ -105457,6 +105459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b87ce74166cc438c446f7763c5104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   questions: {fileID: 0}
   answers: {fileID: 0}
   questionAnswered: 0

@@ -23,6 +23,10 @@ public class RedVestTest : MonoBehaviour
         {
             audio.touchVestSound();
             MasterController.vestCollected = true;
+            if(Level.level == 1)
+            {
+                Level.level1Vest = true;
+            }
             foreach(OVRGrabbable grabble in components)
             {
                 grabble.enabled = true;

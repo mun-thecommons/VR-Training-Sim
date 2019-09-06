@@ -8,6 +8,13 @@ public class ClientManager : MonoBehaviour {
    
     static private float cashBoxTimerReset = 15f;
     public GameObject cashBoxClient;
+
+    public List<GameObject> mainDeskClients = new List<GameObject>();
+    private GameObject mainDeskClient;
+    private Vector3 spawnPositionDesk;
+    private Vector3 deskGoal;
+    public static bool deskClient = false;
+
     public List<GameObject> mcClient = new List<GameObject>();
     public List<GameObject> walkingClient = new List<GameObject>();
     static private List<Vector3> spawnPositions = new List<Vector3>();
@@ -15,6 +22,7 @@ public class ClientManager : MonoBehaviour {
     private Vector3 spawnPositionWalk;
     public int numOfWalkingClient = 3;
     static public List<Vector3> destinationPositions = new List<Vector3>();
+
     private GameObject client;
     private GameObject npcClient;
     static private float timer = 5f;
@@ -29,6 +37,7 @@ public class ClientManager : MonoBehaviour {
     {
         
         spawnPositionWalk = new Vector3(-34.6f, yPos, 2.49f);
+        spawnPositionDesk = new Vector3(-27.957f, yPos, -35.9f);
 
         spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
@@ -50,6 +59,14 @@ public class ClientManager : MonoBehaviour {
 
     void SpawnClient()
     {
+        if (!deskClient)
+        {
+            int deskClientInd = Random.Range(0, mainDeskClients.Count);
+            mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
+            deskGoal = new Vector3(-3.6f, yPos, -12.0f);
+            mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
+            deskClient = true;
+        }
         if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
         {
             randInd = Random.Range(0, spawnPositions.Count);
@@ -63,6 +80,7 @@ public class ClientManager : MonoBehaviour {
             client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
             client.GetComponent<NavMeshAgent>().destination = goal;
 
+            
             int walkingInd = Random.Range(0, walkingClient.Count);
             npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
 
