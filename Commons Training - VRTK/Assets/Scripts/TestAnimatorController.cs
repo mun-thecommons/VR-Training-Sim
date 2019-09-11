@@ -23,5 +23,11 @@ public class TestAnimatorController : MonoBehaviour
             animator.SetBool("Stop", true);
             GetComponent<NavMeshAgent>().isStopped = true;
         }
+        if (Level.level3ClientDesk == true)
+        {
+            animator.SetBool("Finished", true);
+            GetComponent<NavMeshAgent>().isStopped = false;
+        }
+
     }
 }

@@ -7,22 +7,23 @@ using UnityEngine.EventSystems;
 public class PhoneGrab : MonoBehaviour {
     public Vector3 phoneOriginalPosition;
     public Quaternion phoneOriginalRotation;
-   
+    public bool isGrabbed;
+
     void Start()
     {
-
+        isGrabbed = false;
         phoneOriginalPosition = transform.position;
         phoneOriginalRotation = transform.rotation;
         
     }
 
-    public bool isGrabbed = false;
+    
    
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Hand"))
         {
-            GameObject.Find("ClientDesk").GetComponent<PhoneBasedQuestions>().questionAnswered = true;
+            // GameObject.Find("PhoneBasedMale(Clone)").GetComponent<PhoneBasedQuestions>().questionAnswered = true;
            
             isGrabbed = true;
         }
@@ -33,8 +34,6 @@ public class PhoneGrab : MonoBehaviour {
         if (other.CompareTag("Hand"))
         {
             isGrabbed = false;
-            GameObject.Find("ClientDesk").GetComponent<PhoneBasedQuestions>().questionAnswered = false;
-
             
             transform.position = phoneOriginalPosition;
             transform.rotation = phoneOriginalRotation;
