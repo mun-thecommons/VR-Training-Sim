@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.AI;
 public class PhoneBasedQuestions : MonoBehaviour {
 
     public GameObject player;
-    private float timer = 0f;
-    private bool done = false;
     [HideInInspector]
+    public static float timer = 0f;
+    public static bool done = false;
     public GameObject questions;
     [HideInInspector]
     public GameObject answers;
     private Client client;
     private bool questionAsked = false;
-    public bool questionAnswered = false;
     public float questionDelay = 5f;
     private int randomIndex;
     private string answer;
-    public GameObject ITS;
-    public GameObject Labnet;
+    public PhoneGrab ITS;
+    public PhoneGrab Labnet;
     private Audio audio;
-    
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
-        questions =gameObject.transform.Find("QuestionCanvas").gameObject;
+        questions = gameObject.transform.Find("QuestionCanvas").gameObject;
+        Labnet = GameObject.Find("Phone Labnet").GetComponentInChildren<PhoneGrab>();
+        ITS = GameObject.Find("Phone ITS").GetComponentInChildren<PhoneGrab>();
         client = GetComponent<Client>();
         questions.SetActive(false);
         audio = FindObjectOfType<Audio>();
@@ -35,7 +37,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.transform.position , transform.position) <= 4)
+        if(Vector3.Distance(player.transform.position , transform.position) <= 3)
         {
             questions.SetActive(true);
             client.askingQuestion = true;
@@ -46,11 +48,12 @@ public class PhoneBasedQuestions : MonoBehaviour {
             client.askingQuestion = false;
         }
         //CLIENT 1 - THE NON-MC
-        if (done && timer <= 0f && QuestionInput.questionsArray.Count == 0)
+        if (done && timer <= 0f)
         {
-            Destroy(gameObject);
+            done = false;
+            GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
             Level.level3ClientDesk = true;
-  
+            Destroy(gameObject, 10f);
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
@@ -76,27 +79,28 @@ public class PhoneBasedQuestions : MonoBehaviour {
             
         }
 
-        if (questionAnswered && questionAsked)
+        if ((Labnet.isGrabbed || ITS.isGrabbed) && questionAsked)
         {
-                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && ITS.GetComponent<PhoneGrab>().isGrabbed))
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    MasterController.ScoreModify(1, 1, 0, true, true);
+            Debug.Log("The answer is : " + answer);
+            Debug.Log("Labnet is grabbed: " + Labnet.isGrabbed);
+            Debug.Log("ITS is grabbed: " + ITS.isGrabbed);
+            Debug.Log(string.Equals(answer, "LabNet"));
+            Debug.Log(string.Compare(answer, "ITS"));
+            if ((answer == "LabNet" && Labnet.isGrabbed) || (answer == "ITS" && ITS.isGrabbed))
+            {
+                Debug.Log("Did we get in here?");
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
+                MasterController.ScoreModify(1, 1, 0, true, true);
             }
-
-                else
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    MasterController.ScoreModify(1, -1, 0, false, true);
+            else
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
+                MasterController.ScoreModify(1, -1, 0, false, true);
 
             }
-
-                QuestionInput.questionsArray.RemoveAt(randomIndex);
-                QuestionInput.answersArray.RemoveAt(randomIndex);
-                questionAsked = false;
-                questionAnswered = false;
-                done = true;     
-                timer = questionDelay;
+            questionAsked = false;
+            done = true;     
+            timer = questionDelay;
         }
             
         timer -= Time.deltaTime;

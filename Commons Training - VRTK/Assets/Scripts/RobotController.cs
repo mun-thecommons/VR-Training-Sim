@@ -13,6 +13,7 @@ public class RobotController : MonoBehaviour
     private Vector3 robbieStartPostion;
     private bool usbTouchingMessaged = false;
     private bool usbInBoxMessaged = false;
+    private bool level1Messaged = false;
 
     public static bool isTouchingUSB = false;
     public static bool isInUsbBox = false;
@@ -28,6 +29,7 @@ public class RobotController : MonoBehaviour
     void Update()
     {
         DisplayMessage();
+        DisplayLevelMessage();
     }
 
     void Teleport()
@@ -48,7 +50,17 @@ public class RobotController : MonoBehaviour
         {
             usbInBoxMessaged = true;
             Teleport();
-            robotCanvasText.text = "Good Job! Continue doing rounds...";
+            robotCanvasText.text = "Good Job! Continue doing the tasks to finish the level";
+        }
+    }
+
+    void DisplayLevelMessage()
+    {
+        if(Level.level1Vest && !Level.level1Printer && !Level.level1Round && !level1Messaged)
+        {
+            Teleport();
+            robotCanvasText.text = "Now do round and fill up 2 printers";
+            level1Messaged = true;
         }
     }
 

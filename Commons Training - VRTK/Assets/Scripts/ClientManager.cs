@@ -12,7 +12,7 @@ public class ClientManager : MonoBehaviour {
     public List<GameObject> mainDeskClients = new List<GameObject>();
     private GameObject mainDeskClient;
     private Vector3 spawnPositionDesk;
-    private Vector3 deskGoal;
+    static public Vector3 deskGoal;
     public static bool deskClient = false;
 
     public List<GameObject> mcClient = new List<GameObject>();
@@ -66,6 +66,10 @@ public class ClientManager : MonoBehaviour {
             deskGoal = new Vector3(-3.6f, yPos, -12.0f);
             mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
             deskClient = true;
+            if(PhoneBasedQuestions.done && PhoneBasedQuestions.timer <= 0f)
+            {
+                deskClient = false;
+            }
         }
         if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
         {
