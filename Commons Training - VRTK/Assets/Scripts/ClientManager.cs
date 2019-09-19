@@ -59,17 +59,13 @@ public class ClientManager : MonoBehaviour {
 
     void SpawnClient()
     {
-        if (!deskClient)
+        if (!deskClient && Level.level > 1)
         {
             int deskClientInd = Random.Range(0, mainDeskClients.Count);
             mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
             deskGoal = new Vector3(-3.6f, yPos, -12.0f);
             mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
-            deskClient = true;
-            if(PhoneBasedQuestions.done && PhoneBasedQuestions.timer <= 0f)
-            {
-                deskClient = false;
-            }
+            deskClient = true;            
         }
         if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
         {

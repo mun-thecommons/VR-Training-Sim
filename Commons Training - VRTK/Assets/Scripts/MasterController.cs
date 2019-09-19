@@ -99,13 +99,13 @@ public class MasterController : MonoBehaviour
 
     public static void DisableMovement()
     {
-        teleportFunction.SetActive(false);
+        //teleportFunction.SetActive(false);
         playerController.enabled = false;
     }
 
     public static void EnableMovement()
     {
-        teleportFunction.SetActive(true);
+        //teleportFunction.SetActive(true);
         playerController.enabled = true;
     }
 

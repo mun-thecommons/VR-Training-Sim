@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VideoPlayerController : MonoBehaviour
 {
     bool videoPlayed = false;
+    public Text videoText;
 
 
     // Update is called once per frame
@@ -16,6 +18,8 @@ public class VideoPlayerController : MonoBehaviour
         {
             gameObject.GetComponent<VideoPlayer>().Play();
             videoPlayed = true;
+            videoText.color = Color.red;
+            videoText.text = "Press A to skip";
         }
         else if(OVRInput.GetDown(OVRInput.RawButton.A) && videoPlayed)
         {

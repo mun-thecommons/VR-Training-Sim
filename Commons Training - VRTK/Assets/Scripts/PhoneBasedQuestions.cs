@@ -51,6 +51,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
         if (done && timer <= 0f)
         {
             done = false;
+            Debug.Log("??");
             GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
             Level.level3ClientDesk = true;
             Destroy(gameObject, 10f);
@@ -81,14 +82,8 @@ public class PhoneBasedQuestions : MonoBehaviour {
 
         if ((Labnet.isGrabbed || ITS.isGrabbed) && questionAsked)
         {
-            Debug.Log("The answer is : " + answer);
-            Debug.Log("Labnet is grabbed: " + Labnet.isGrabbed);
-            Debug.Log("ITS is grabbed: " + ITS.isGrabbed);
-            Debug.Log(string.Equals(answer, "LabNet"));
-            Debug.Log(string.Compare(answer, "ITS"));
             if ((answer == "LabNet" && Labnet.isGrabbed) || (answer == "ITS" && ITS.isGrabbed))
             {
-                Debug.Log("Did we get in here?");
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
                 MasterController.ScoreModify(1, 1, 0, true, true);
             }
@@ -106,6 +101,9 @@ public class PhoneBasedQuestions : MonoBehaviour {
         timer -= Time.deltaTime;
 
     }
-    
+    private void OnDestroy()
+    {
+        ClientManager.deskClient = false;
+    }
 
 }
