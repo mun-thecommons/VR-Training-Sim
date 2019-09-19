@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PrinterController : MonoBehaviour
 {
+    public static int numOfPrintersFilled = 0;
     private bool full = false;
     public TextMeshProUGUI output;
     private const float resetTimer = 30f;
@@ -23,6 +24,10 @@ public class PrinterController : MonoBehaviour
             full = false;
             output.text = "Empty";
         }
+        if (numOfPrintersFilled >= 2 && Level.level == 1)
+        {
+            Level.level1Printer = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +39,7 @@ public class PrinterController : MonoBehaviour
             Destroy(other.gameObject);
             timer = resetTimer;
             MasterController.ScoreModify(1, 0, 0, true, false);
+            numOfPrintersFilled++;
         }
     }
 }

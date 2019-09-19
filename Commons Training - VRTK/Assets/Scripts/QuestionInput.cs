@@ -38,14 +38,16 @@ public class QuestionInput : MonoBehaviour
         {
             foreach(string line in fLines)
             {
-                answersArray.Add(line);
+                string str= line.TrimEnd('\n', '\r');
+                answersArray.Add(str);
             }
         }
         else if (toParse.Equals("questions"))
         {
             foreach (string line in fLines)
             {
-                questionsArray.Add(line);
+                string str = line.TrimEnd('\n', '\r');
+                questionsArray.Add(str);
             }
         }
         else if (toParse.Equals("mc"))

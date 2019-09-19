@@ -8,7 +8,7 @@ public class TestAnimatorController : MonoBehaviour
 {
     Animator animator;
     public Vector3 goal;
-
+    public Vector3 deskGoal;
     // Use this for initialization
     void Start()
     {
@@ -23,5 +23,11 @@ public class TestAnimatorController : MonoBehaviour
             animator.SetBool("Stop", true);
             GetComponent<NavMeshAgent>().isStopped = true;
         }
+        if (Level.level3ClientDesk == true)
+        {
+            animator.SetBool("Finished", true);
+            GetComponent<NavMeshAgent>().isStopped = false;
+        }
+
     }
 }

@@ -4,6 +4,8 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+# Videos
+*.mpg
 
 # Visual Studio cache directory
 .vs/
@@ -35,3 +37,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Commons Training - VRTK/Assets/Video/y2mate.com - epic_space_animation_wormhole_interstellar_travel_NFNSGF2ivX0_1080p_4.mpg

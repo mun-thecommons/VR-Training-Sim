@@ -3943,8 +3943,9 @@ GameObject:
   - component: {fileID: 6535082864661352619}
   - component: {fileID: 6535082864661352618}
   - component: {fileID: 1260068023344996805}
+  - component: {fileID: -8367379311410597414}
   m_Layer: 0
-  m_Name: FemaleClient
+  m_Name: McClientFemaleClient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3982,7 +3983,7 @@ MonoBehaviour:
   umaData: {fileID: 0}
   umaRecipe: {fileID: 0}
   umaAdditionalRecipes:
-  - {fileID: 11400000, guid: 1f292487d7383514f97c491cadfb0442, type: 2}
+  - {fileID: 11400000, guid: 920d59ac577b2d9449aa36a4d9e86f10, type: 2}
   umaGenerator: {fileID: 0}
   animationController: {fileID: 0}
   CharacterCreated:
@@ -4405,6 +4406,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee12b470affd1da408f90c116ddabaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8367379311410597414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535082864661352629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6403f6ff03ce2c64ca8e822993f2a8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mood: 0
 --- !u!1 &6535082865119399484
 GameObject:
   m_ObjectHideFlags: 0

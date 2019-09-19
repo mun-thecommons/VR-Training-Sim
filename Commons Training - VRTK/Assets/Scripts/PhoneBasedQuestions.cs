@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.AI;
 public class PhoneBasedQuestions : MonoBehaviour {
-    
-    private float timer = 0f;
-    private bool done = false;
+
+    public GameObject player;
     [HideInInspector]
+    public static float timer = 0f;
+    public static bool done = false;
     public GameObject questions;
     [HideInInspector]
     public GameObject answers;
     private Client client;
     private bool questionAsked = false;
-    public bool questionAnswered = false;
     public float questionDelay = 5f;
     private int randomIndex;
     private string answer;
-    public GameObject ITS;
-    public GameObject Labnet;
+    public PhoneGrab ITS;
+    public PhoneGrab Labnet;
     private Audio audio;
-    
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
         questions = gameObject.transform.Find("QuestionCanvas").gameObject;
+        Labnet = GameObject.Find("Phone Labnet").GetComponentInChildren<PhoneGrab>();
+        ITS = GameObject.Find("Phone ITS").GetComponentInChildren<PhoneGrab>();
         client = GetComponent<Client>();
         questions.SetActive(false);
         audio = FindObjectOfType<Audio>();
@@ -33,18 +37,29 @@ public class PhoneBasedQuestions : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
-        //CLIENT 1 - THE NON-MC
-        if (done && timer <= 0f && QuestionInput.questionsArray.Count == 0)
+        if(Vector3.Distance(player.transform.position , transform.position) <= 3)
         {
-            Destroy(gameObject);
-  
+            questions.SetActive(true);
+            client.askingQuestion = true;
+        }
+        else
+        {
+            questions.SetActive(false);
+            client.askingQuestion = false;
+        }
+        //CLIENT 1 - THE NON-MC
+        if (done && timer <= 0f)
+        {
+            done = false;
+            Debug.Log("??");
+            GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
+            Level.level3ClientDesk = true;
+            Destroy(gameObject, 10f);
         }
         if (client.askingQuestion && !questionAsked && timer <= -5f)
         {
             if (MasterController.vestCollected)
             {
-                client.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 randomIndex = Random.Range(0, QuestionInput.questionsArray.Count);
                 questions.GetComponentInChildren<TextMeshProUGUI>().text = QuestionInput.questionsArray[randomIndex];
                 answer = QuestionInput.answersArray[randomIndex];
@@ -65,61 +80,30 @@ public class PhoneBasedQuestions : MonoBehaviour {
             
         }
 
-        if (questionAnswered && questionAsked)
+        if ((Labnet.isGrabbed || ITS.isGrabbed) && questionAsked)
         {
-                if ((answer == "LabNet" && Labnet.GetComponent<PhoneGrab>().isGrabbed) || (answer == "ITS" && ITS.GetComponent<PhoneGrab>().isGrabbed))
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
-                    MasterController.ScoreModify(1, 1, 0, true, true);
+            if ((answer == "LabNet" && Labnet.isGrabbed) || (answer == "ITS" && ITS.isGrabbed))
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Great, thanks";
+                MasterController.ScoreModify(1, 1, 0, true, true);
             }
-
-                else
-                {
-                    questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
-                    MasterController.ScoreModify(1, -1, 0, false, true);
+            else
+            {
+                questions.GetComponentInChildren<TextMeshProUGUI>().text = "Hmm...That doesn't really help.";
+                MasterController.ScoreModify(1, -1, 0, false, true);
 
             }
-
-                QuestionInput.questionsArray.RemoveAt(randomIndex);
-                QuestionInput.answersArray.RemoveAt(randomIndex);
-                questionAsked = false;
-                questionAnswered = false;
-                done = true;     
-                timer = questionDelay;
+            questionAsked = false;
+            done = true;     
+            timer = questionDelay;
         }
             
         timer -= Time.deltaTime;
 
     }
-
-
-    private void OnTriggerEnter(Collider other)
+    private void OnDestroy()
     {
-        if (other.CompareTag("Player"))
-        {
-
-            questions.SetActive(true);
-            client.askingQuestion = true;
-        }
+        ClientManager.deskClient = false;
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            questions.SetActive(false);
-            client.askingQuestion = false;
-
-            if (questionAnswered)
-            {
-                Vector3 move = new Vector3(100.0f, 0, 0);
-                transform.position += move;
-                questionAnswered = false;
-            }
-        }
-    }
-
-
-
 
 }

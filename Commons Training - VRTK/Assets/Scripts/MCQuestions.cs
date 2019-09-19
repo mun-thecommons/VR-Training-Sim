@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
+    public static int numOfClientsHelped = 0;
 
    
     private List<string> output = new List<string> { };
@@ -59,20 +60,25 @@ public class MCQuestions : MonoBehaviour {
         {
             ChangeAnswer();
         }
+        
+
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            Debug.Log("Close to player");
+            //Debug.Log("Close to player");
             mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
 
             if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
+                
                 if (!client.askingQuestion && !MasterController.inMenu)
                 {
                     AskQuestion();
+                    MasterController.DisableMovement();
                 }
                 else
                 {
                     SelectAnswer();
+                    MasterController.EnableMovement();
                 }
             }
         }
@@ -80,7 +86,6 @@ public class MCQuestions : MonoBehaviour {
         {
             mcClientInteraction.enabled = false;
         }
-        
         
         if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
@@ -107,7 +112,7 @@ public class MCQuestions : MonoBehaviour {
     private void AskQuestion()
     {
         client.askingQuestion = true;
-        player.GetComponent<OVRPlayerController>().enabled = false;
+        
         MasterController.inMenu = true;
         greetings.SetActive(false);
         mcQuestionsCanvas.enabled = true;
@@ -151,12 +156,26 @@ public class MCQuestions : MonoBehaviour {
         if (buttonArray[currentAnswerIndex].GetComponentInChildren<TextMeshProUGUI>().text.Equals(correctAnswer))
         {
             greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":)";
+            numOfClientsHelped++;
             MasterController.ScoreModify(1, 0, 0, true, false);
+            UMAMoodController.mood = 1;
+            if (Level.level == 2)
+            {
+                Level.level2Client = true;
+            }
+
+            if (numOfClientsHelped >= 2 && Level.level == 3)
+            {
+                Level.level3ClientLab = true;
+            }
+
+
         }
         else
         {
             greetings.GetComponentInChildren<TextMeshProUGUI>().text = ":(";
             MasterController.ScoreModify(-1, 0, 0, false, false);
+            UMAMoodController.mood = 2;
         }
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.white;
         MasterController.inMenu = false;
@@ -178,5 +197,6 @@ public class MCQuestions : MonoBehaviour {
 
         return shuffled;
     }
+
 
 }
