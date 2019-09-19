@@ -46584,6 +46584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1230675372}
+  mainFrameText: {fileID: 367054943}
   timer: 30
   resetTimer: 30
   countDown: {fileID: 665401524}

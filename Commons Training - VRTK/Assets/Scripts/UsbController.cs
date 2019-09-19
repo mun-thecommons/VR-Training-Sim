@@ -20,7 +20,7 @@ public class UsbController : MonoBehaviour {
         }
         if(numOfUSBCollected >= 1)
         {
-            Level.level2USB = true;
+            Level.level1USB = true;
         }
     }
 

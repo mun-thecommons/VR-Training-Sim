@@ -59,43 +59,32 @@ public class RobotController : MonoBehaviour
 
     void DisplayLevelMessage()
     {
-        if(Level.level == 1)
+        if (Level.level == 1 && Level.level1Vest && !Level.level1Printer && !Level.level1USB && !level1Messaged)
         {
-            if (Level.level1Vest && !Level.level1Printer && !Level.level1Round && !level1Messaged)
-            {
-                Teleport();
-                robotCanvasText.text = "Welcome! Begin by filling the printers with paper and doing the rounds!";
-                level1Messaged = true;
-            }
+            Teleport();
+            robotCanvasText.text = "Welcome! Begin by filling the printers with paper and collecting a lost USB stick!";
+            level1Messaged = true;
         }
-        else if(Level.level == 2)
+
+        else if(Level.level == 2 && Level.level1Vest && Level.level1Printer && Level.level1USB && !level1CompleteMessage)
         {
-            if(Level.level1Vest && Level.level1Printer && Level.level1Round && !level1CompleteMessage)
-            {
-                robotCanvasText.text = "Great job! Next, help a client, pick up some garbage, and find a lost USB stick.";
-                Teleport();
-                level1CompleteMessage = true;
-            }
+            robotCanvasText.text = "Great job! Next, help a client, pick up some garbage, and do the rounds!";
+            Teleport();
+            level1CompleteMessage = true;
         }
-        else if (Level.level == 3)
+        else if(Level.level == 3 && Level.level2Client && Level.level2Trash && Level.level2Round && !level2CompleteMessage)
         {
-            if (Level.level2Client && Level.level2Trash && Level.level2USB && !level2CompleteMessage)
-            {
-                robotCanvasText.text = "You're almost done! Now, fix a monitor in the lab, answer more questions, and help someone at the desk.";
-                Teleport();
-                level2CompleteMessage = true;
-            }
+            robotCanvasText.text = "You're almost done! Now, fix a monitor in the lab, answer more questions, and help someone at the desk.";
+            Teleport();
+            level2CompleteMessage = true;
         }
-        else if (Level.level == 4)
+        else if (Level.level == 4 && !level3CompleteMessage)
         {
-            if(!level3CompleteMessage)
-            {
-                robotCanvasText.text = "You saved the world and made Aaron proud, not bad!";
-                Teleport();
-                level3CompleteMessage = true;
-            }
-        }
-           
+
+            robotCanvasText.text = "You saved the world and made Aaron proud, not bad!";
+            Teleport();
+            level3CompleteMessage = true;
+        }           
     }
 
 }

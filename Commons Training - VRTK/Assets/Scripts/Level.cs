@@ -12,15 +12,16 @@ public class Level : MonoBehaviour
 
     //Integer 
     public static int level = 1;
-
+    public TextMeshProUGUI mainFrameText;
+    
     //Boolean For Tasks in Levels
     //Level 1 
     public static bool level1Vest = false;                            //Works.... Collect Vest
-    public static bool level1Round = false;                          //Works.... Fully complete Rounds
+    public static bool level1USB = false;                          //Works.... Fully complete Rounds
     public static bool level1Printer = false;                       //Works....Fill 2 Printers
 
     //Level 2
-    public static bool level2USB = false;                            //Works.... Collect 1 USB
+    public static bool level2Round = false;                            //Works.... Collect 1 USB
     public static bool level2Client = false;                        //Works.... Answer 1 MC Client
     public static bool level2Trash = false;                        //Works.... Collect 1 Trash of any kind
 
@@ -54,15 +55,6 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* Debug.Log("Level1Vest: " + level1Vest);
-        Debug.Log("Level1Round: " + level1Round);
-        Debug.Log("Level1Printer: " + level1Printer);
-        Debug.Log("Level2USB: " + level2USB);
-        Debug.Log("Level2Client: " + level2Client);
-        Debug.Log("Level2Trash: " + level2Trash);
-        Debug.Log("Level3Monitor: " + level3Monitor);
-        Debug.Log("Level3ClientDesk: " + level3ClientDesk);
-        Debug.Log("Level3ClientLab: " + level3ClientLab); */
         timer -= Time.deltaTime;
         WalkToDesk();
         CheckLevel();
@@ -99,12 +91,13 @@ public class Level : MonoBehaviour
 
     private void CheckLevel()
     {
-        if (level1Vest && level1Printer && level1Round && level == 1)
+        SetMainframeText();
+        if (level1Vest && level1Printer && level1USB && level == 1)
         {
             StartCoroutine(DisplayLevelCompleted(5));
             level += 1;
         }
-        if (level2Client && level2USB && level2Trash && level == 2)
+        if (level2Client && level2Round && level2Trash && level == 2)
         {
             StartCoroutine(DisplayLevelCompleted(5));
             level += 1;
@@ -113,6 +106,28 @@ public class Level : MonoBehaviour
         {
             StartCoroutine(DisplayLevelCompleted(5));
             level += 1;
+        }
+    }
+
+    private void SetMainframeText()
+    {
+        if(level == 1)
+        {
+            mainFrameText.text = "Get vest: " + (level1Vest ? "Complete" : "Incomplete")
+                + "\n Fill printers: " + (level1Printer ? "Complete" : "Incomplete")
+                + "\n Return USB: " + (level1USB ? "Complete" : "Incomplete");
+        }
+        else if(level == 2)
+        {
+            mainFrameText.text = "Help a client in the lab: " + (level2Client ? "Complete" : "Incomplete")
+                   + "\n Complete rounds: " + (level2Round ? "Complete" : "Incomplete")
+                   + "\n Pick up garbage: " + (level2Trash ? "Complete" : "Incomplete");
+        }
+        else if (level == 3)
+        {
+            mainFrameText.text = "Fix a monitor: " + (level3Monitor ? "Complete" : "Incomplete")
+                   + "\n Help a client at the desk: " + (level3ClientDesk ? "Complete" : "Incomplete")
+                   + "\n Help more clients in the lab: " + (level3ClientLab ? "Complete" : "Incomplete");
         }
     }
     //functions for level 2
