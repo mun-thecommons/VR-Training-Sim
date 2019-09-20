@@ -113,19 +113,19 @@ public class Level : MonoBehaviour
     {
         if(level == 1)
         {
-            mainFrameText.text = "Get vest: " + (level1Vest ? "Complete" : "Incomplete")
+            mainFrameText.text = "Level: " + Level.level + "\n Get vest: " + (level1Vest ? "Complete" : "Incomplete")
                 + "\n Fill printers: " + (level1Printer ? "Complete" : "Incomplete")
                 + "\n Return USB: " + (level1USB ? "Complete" : "Incomplete");
         }
         else if(level == 2)
         {
-            mainFrameText.text = "Help a client in the lab: " + (level2Client ? "Complete" : "Incomplete")
+            mainFrameText.text = "Level: " + Level.level + "\n Help a client in the lab: " + (level2Client ? "Complete" : "Incomplete")
                    + "\n Complete rounds: " + (level2Round ? "Complete" : "Incomplete")
                    + "\n Pick up garbage: " + (level2Trash ? "Complete" : "Incomplete");
         }
         else if (level == 3)
         {
-            mainFrameText.text = "Fix a monitor: " + (level3Monitor ? "Complete" : "Incomplete")
+            mainFrameText.text = "Level: " + Level.level + "\n Fix a monitor: " + (level3Monitor ? "Complete" : "Incomplete")
                    + "\n Help a client at the desk: " + (level3ClientDesk ? "Complete" : "Incomplete")
                    + "\n Help more clients in the lab: " + (level3ClientLab ? "Complete" : "Incomplete");
         }
