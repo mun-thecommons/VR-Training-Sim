@@ -44,6 +44,8 @@ TagManager:
   - ScrapPaperCount
   - Supervisor
   - Teleportation
+  - SF_Door
+  - RoundPillar
   layers:
   - Default
   - TransparentFX

@@ -10429,7 +10429,7 @@ GameObject:
   - component: {fileID: 183908715}
   m_Layer: 0
   m_Name: Library ClassRoom Pillar
-  m_TagString: Untagged
+  m_TagString: RoundPillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -76481,7 +76481,7 @@ GameObject:
   - component: {fileID: 1422085003}
   m_Layer: 0
   m_Name: Library Pillar Left Hall
-  m_TagString: Untagged
+  m_TagString: RoundPillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -98844,7 +98844,7 @@ GameObject:
   - component: {fileID: 1805352634}
   m_Layer: 0
   m_Name: Maproom Pillar
-  m_TagString: Untagged
+  m_TagString: RoundPillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -99938,7 +99938,7 @@ GameObject:
   - component: {fileID: 1821836215}
   m_Layer: 0
   m_Name: Library Pillar Right Hall
-  m_TagString: Untagged
+  m_TagString: RoundPillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
