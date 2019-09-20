@@ -11,8 +11,11 @@ public class PrinterController : MonoBehaviour
     private const float resetTimer = 30f;
     private float timer = 0;
 
+    private AudioSource singlePrinterFilled;
+
     private void Start()
     {
+        singlePrinterFilled = gameObject.GetComponent<AudioSource>();
         output.text = "Empty";
     }
 
@@ -35,6 +38,7 @@ public class PrinterController : MonoBehaviour
         if (other.CompareTag("Paper") && !full)
         {
             output.text = "Full";
+            singlePrinterFilled.Play();
             full = true;
             Destroy(other.gameObject);
             timer = resetTimer;
