@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoundsCard : MonoBehaviour {
 
+    private Color originalPillarColor;
     private float currentPillarDistance = Mathf.Infinity;
     private float newPillarDistance;
     private GameObject[] roundPillars;
@@ -15,6 +16,7 @@ public class RoundsCard : MonoBehaviour {
     {
         singleRoundSignal = gameObject.GetComponent<AudioSource>();
         roundPillars = GameObject.FindGameObjectsWithTag("RoundPillar");
+        originalPillarColor = roundPillars[0].GetComponent<Renderer>().material.color;
     }
 
     private void OnTriggerEnter(Collider other)
