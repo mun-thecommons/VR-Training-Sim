@@ -97982,6 +97982,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b9973a0f51b234b837271cdc1052f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundPillars:
+  - {fileID: 1422085002}
+  - {fileID: 183908713}
+  - {fileID: 1805352632}
+  - {fileID: 1821836214}
 --- !u!82 &1787007843
 AudioSource:
   m_ObjectHideFlags: 0

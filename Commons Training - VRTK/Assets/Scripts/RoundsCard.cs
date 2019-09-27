@@ -5,17 +5,13 @@ using UnityEngine;
 public class RoundsCard : MonoBehaviour {
 
     private Color originalPillarColor;
-    private float currentPillarDistance = Mathf.Infinity;
-    private float newPillarDistance;
-    private GameObject[] roundPillars;
-    private GameObject closestPillar;
+    public GameObject[] roundPillars;
     private AudioSource singleRoundSignal;
     // Use this for initialization
     
     private void Start()
     {
         singleRoundSignal = gameObject.GetComponent<AudioSource>();
-        roundPillars = GameObject.FindGameObjectsWithTag("RoundPillar");
         originalPillarColor = roundPillars[0].GetComponent<Renderer>().material.color;
     }
 
@@ -32,21 +28,23 @@ public class RoundsCard : MonoBehaviour {
                 Rounds.checkRounds();
             }
 
-            foreach(GameObject g in roundPillars)
-            {
-                newPillarDistance = Vector3.Distance(other.transform.position, g.transform.position);
-                if (newPillarDistance < currentPillarDistance)
-                {
-                    currentPillarDistance = newPillarDistance;
-                    closestPillar = g;
-                }
-            }
-
-            closestPillar.GetComponent<Renderer>().material.color = Color.green;
-            currentPillarDistance = Mathf.Infinity;
+            StartCoroutine(ChangePillarColor());
         }        
     }
 
-    
+    IEnumerator ChangePillarColor()
+    {
+        foreach(GameObject g in roundPillars)
+        {
+            g.GetComponent<Renderer>().material.color = Color.green;
+        }
+
+        yield return new WaitForSeconds(3);
+
+        foreach(GameObject g in roundPillars)
+        {
+            g.GetComponent<Renderer>().material.color = originalPillarColor;
+        }
+    }
 
 }
