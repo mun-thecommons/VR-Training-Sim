@@ -31,19 +31,28 @@ public class MasterController : MonoBehaviour
     [SerializeField] private static TextMeshProUGUI mainFrameText;
     public static bool vestCollected = false;
     public static bool inMenu = false;
+    public static bool inTracker = false;
     public static int staplers = 100;
     public static int coins = 0;
     public static int baseTrash = 0;
     public static int metalTrash = 0;
     public static int plasticTrash = 0;
     public static int scrapPaper = 0;
-    public static Canvas mainCanvas;    
+
+    //tracker variables
+    public static int trackerTaskA = 0;
+    public static int trackerTaskB = 0;
+    public static int trackerTaskC = 0;
+    public int[] trackerStats = {trackerTaskA, trackerTaskB, trackerTaskC};
+
+    public static Canvas mainCanvas;
+    public GameObject tracker;
     public static Audio audio;
 
     private static int techScore = 0;
     private static int custServScore = 0;
     private static int profScore = 0;
-    
+
     private static int totalScore = 0;
     private GameObject staplerShoot;
     public TextAsset instructions;
@@ -52,10 +61,11 @@ public class MasterController : MonoBehaviour
     private int uiMenuCounter = 0;
     public GameObject exitGameButton;
     public GameObject operationButton;
-    static private GameObject[] uiMenuOptionsArray;
+    public GameObject[] uiMenuOptionsArray;
     private GameObject player;
     private IEnumerator accessMainframe;
     public int numOfDots; //mainFrameText Coroutine
+    private Canvas trackerCanvas;
 
     private void Start()
     {
@@ -70,15 +80,18 @@ public class MasterController : MonoBehaviour
         mainCanvas.enabled = false;
         audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
         FileParse("instructions", instructions);
-        exitGameButton = GameObject.Find("ExitButton");
-        operationButton = GameObject.Find("OperationsManualButton");
-        uiMenuOptionsArray = GameObject.FindGameObjectsWithTag("UIMenuOption");
+
         player = GameObject.Find("OVRPlayerController");
         baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
         labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
         scrapPaperText = GameObject.FindGameObjectWithTag("ScrapPaperCount").GetComponent<TextMeshProUGUI>();
+
+        trackerCanvas = tracker.GetComponent<Canvas>();
+        trackerCanvas.enabled = false;
+
+        uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
     }
 
     void Update()
@@ -146,16 +159,16 @@ public class MasterController : MonoBehaviour
         {
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.white;
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight))
                 {
-                    uiMenuCounter = uiMenuCounter + 1 <= uiMenuOptionsArray.Length - 1 ? uiMenuCounter + 1 : 0;
+                    uiMenuCounter = (uiMenuCounter + 1) <= (uiMenuOptionsArray.Length - 1) ? (uiMenuCounter + 1) : 0;
                 }
                 else
                 {
                     uiMenuCounter = uiMenuCounter - 1 >= 0 ? uiMenuCounter - 1 : uiMenuOptionsArray.Length - 1;
                 }
-                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.white;
+                uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
@@ -163,6 +176,15 @@ public class MasterController : MonoBehaviour
                 {
                     //mainFrameText.SetText(instructionsArray[instrArrayCounter]);
                     instrArrayCounter = instrArrayCounter < instructionsArray.Count - 1 ? instrArrayCounter + 1 : 0;
+                }
+                else if (uiMenuOptionsArray[1].GetComponent<Image>().color == Color.red)
+                {
+                    mainCanvas.enabled = false;
+                    DisableMovement();
+                    inMenu = false;
+                    trackerCanvas.enabled = true;
+                    inTracker = true;
+                    //Turn on the Tracker Canvas
                 }
                 else
                 {
