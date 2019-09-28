@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class TrackerController : MonoBehaviour
 {
+    public TextMeshProUGUI countTaskA;
+    public TextMeshProUGUI countTaskB;
+    public TextMeshProUGUI countTaskC;
+
     public GameObject[] taskList;
     private Canvas trackerCanvas;
     private int taskListIndex = 0;
@@ -21,18 +26,16 @@ public class TrackerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MasterController.inTracker)
-        {
             ToggleTask();
-        }
+        SetTrackerStats();
     }
 
     void ToggleTask()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
         {
             taskList[taskListIndex].GetComponent<Image>().color = Color.white;
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
             {
                 taskListIndex = (taskListIndex + 1) <= (taskList.Length - 1) ? (taskListIndex + 1) : 0;
             }
@@ -42,12 +45,31 @@ public class TrackerController : MonoBehaviour
             }
             taskList[taskListIndex].GetComponent<Image>().color = Color.red;
         }
-        else if (OVRInput.GetDown(OVRInput.RawButton.X))
+        else if (OVRInput.GetDown(OVRInput.RawButton.Y))
         {
             trackerCanvas.enabled = false;
             MasterController.inTracker = false;
             HUDCanvas.enabled = true;
             MasterController.inMenu = true;
+            switch (taskListIndex)
+            {
+                case 0:
+                    MasterController.trackerTaskA++;
+                    break;
+                case 1:
+                    MasterController.trackerTaskB++;
+                    break;
+                case 2:
+                    MasterController.trackerTaskC++;
+                    break;
+            }
         }  
+    }
+
+    void SetTrackerStats()
+    {
+        countTaskA.SetText(MasterController.trackerTaskA.ToString());
+        countTaskB.SetText(MasterController.trackerTaskB.ToString());
+        countTaskC.SetText(MasterController.trackerTaskC.ToString());
     }
 }

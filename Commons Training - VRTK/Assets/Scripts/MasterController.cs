@@ -43,7 +43,7 @@ public class MasterController : MonoBehaviour
     public static int trackerTaskA = 0;
     public static int trackerTaskB = 0;
     public static int trackerTaskC = 0;
-    public int[] trackerStats = {trackerTaskA, trackerTaskB, trackerTaskC};
+
 
     public static Canvas mainCanvas;
     public GameObject tracker;
