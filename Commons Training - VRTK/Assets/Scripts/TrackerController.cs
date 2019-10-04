@@ -32,7 +32,7 @@ public class TrackerController : MonoBehaviour
 
     void ToggleTask()
     {
-        if(!MasterController.inMenu && MasterController.inTracker)
+        if (!MasterController.inMenu && MasterController.inTracker)
         {
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
             {
@@ -49,22 +49,29 @@ public class TrackerController : MonoBehaviour
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
-                switch (taskListIndex)
+                if (taskListIndex == taskList.Length - 1)
                 {
-                    case 0:
-                        MasterController.trackerTaskA++;
-                        break;
-                    case 1:
-                        MasterController.trackerTaskB++;
-                        break;
-                    case 2:
-                        MasterController.trackerTaskC++;
-                        break;
+                    ExitTracker();
                 }
-                SetTrackerStats();
-                ExitTracker();
+                else
+                {
+                    switch (taskListIndex)
+                    {
+                        case 0:
+                            MasterController.trackerTaskA++;
+                            break;
+                        case 1:
+                            MasterController.trackerTaskB++;
+                            break;
+                        case 2:
+                            MasterController.trackerTaskC++;
+                            break;
+                    }
+                    SetTrackerStats();
+                    ExitTracker();
+                }
             }
-        }   
+        }
     }
 
     void SetTrackerStats()
@@ -81,5 +88,4 @@ public class TrackerController : MonoBehaviour
         MasterController.EnableMovement();
     } 
 
-    
 }
