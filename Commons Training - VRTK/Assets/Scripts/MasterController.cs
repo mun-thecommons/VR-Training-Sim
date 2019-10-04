@@ -141,7 +141,7 @@ public class MasterController : MonoBehaviour
         //view/hide UI canvas
         if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
         {
-            if (!inMenu)
+            if (!inMenu && !inTracker)
             {
                 mainCanvas.enabled = true;
                 playerController.enabled = false;
@@ -177,7 +177,7 @@ public class MasterController : MonoBehaviour
                     //mainFrameText.SetText(instructionsArray[instrArrayCounter]);
                     instrArrayCounter = instrArrayCounter < instructionsArray.Count - 1 ? instrArrayCounter + 1 : 0;
                 }
-                else if (uiMenuOptionsArray[1].GetComponent<Image>().color == Color.red)
+                else if (uiMenuCounter == 1)
                 {
                     mainCanvas.enabled = false;
                     DisableMovement();

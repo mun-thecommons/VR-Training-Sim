@@ -18,6 +18,7 @@ public class TrackerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetTrackerStats();
         trackerCanvas = gameObject.GetComponent<Canvas>();
         HUDCanvas = HUD.GetComponent<Canvas>();
         taskList[0].GetComponent<Image>().color = Color.red;
@@ -26,8 +27,7 @@ public class TrackerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            ToggleTask();
-        SetTrackerStats();
+        ToggleTask();
     }
 
     void ToggleTask()
@@ -47,21 +47,25 @@ public class TrackerController : MonoBehaviour
         }
         else if (OVRInput.GetDown(OVRInput.RawButton.Y))
         {
-            trackerCanvas.enabled = false;
-            MasterController.inTracker = false;
-            HUDCanvas.enabled = true;
-            MasterController.inMenu = true;
-            switch (taskListIndex)
+            if(taskListIndex == taskList.Length-1 && MasterController.inTracker)
             {
-                case 0:
-                    MasterController.trackerTaskA++;
-                    break;
-                case 1:
-                    MasterController.trackerTaskB++;
-                    break;
-                case 2:
-                    MasterController.trackerTaskC++;
-                    break;
+                ExitTracker();
+            }
+            else
+            {
+                switch (taskListIndex)
+                {
+                    case 0:
+                        MasterController.trackerTaskA++;
+                        break;
+                    case 1:
+                        MasterController.trackerTaskB++;
+                        break;
+                    case 2:
+                        MasterController.trackerTaskC++;
+                        break;
+                }
+                SetTrackerStats();
             }
         }  
     }
@@ -72,4 +76,14 @@ public class TrackerController : MonoBehaviour
         countTaskB.SetText(MasterController.trackerTaskB.ToString());
         countTaskC.SetText(MasterController.trackerTaskC.ToString());
     }
+
+    void ExitTracker()
+    {
+        trackerCanvas.enabled = false;
+        MasterController.inTracker = false;
+        HUDCanvas.enabled = true;
+        MasterController.inMenu = true;
+    } 
+
+    
 }
