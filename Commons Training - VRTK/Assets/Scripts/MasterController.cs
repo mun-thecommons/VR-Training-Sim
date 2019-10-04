@@ -157,6 +157,7 @@ public class MasterController : MonoBehaviour
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
         if (mainCanvas.isActiveAndEnabled)
         {
+            Debug.Log("we are in");
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.white;
@@ -172,6 +173,7 @@ public class MasterController : MonoBehaviour
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
+               // if (uiMenuCounter == 0)
                 if (uiMenuCounter == 0)
                 {
                     //mainFrameText.SetText(instructionsArray[instrArrayCounter]);

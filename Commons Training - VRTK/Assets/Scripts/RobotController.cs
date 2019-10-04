@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class RobotController : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class RobotController : MonoBehaviour
     private bool direction;
     private bool staplerShot;
     private bool clientInteract;
-    private bool tutorialFinished;
+    public static bool tutorialFinished;
 
 
     private AudioSource source;
@@ -23,6 +24,19 @@ public class RobotController : MonoBehaviour
     public AudioClip level1CompleteAudio;
     public AudioClip level2CompleteAudio;
     public AudioClip level3CompleteAudio;
+    public AudioClip tutorialIntro;
+    public AudioClip tutorialDirection;
+    public AudioClip tutorialMainmenu;
+    public AudioClip tutorialStapler;
+    public AudioClip tutorialInteract;
+    public AudioClip tutorialGoToDesk;
+
+    private bool tutorialIntroComplete;
+    private bool tutorialDirectionComplete;
+    private bool tutorialMainmenuComplete;
+    private bool tutorialStaplerComplete;
+    private bool tutorialInteractComplete;
+    private bool goToDeskComplete;
 
     public float volume = .25f;
 
@@ -137,25 +151,39 @@ public class RobotController : MonoBehaviour
         {
             MasterController.DisableMovement();
         }
-        if (movement == false)
+        if (movement == false && !tutorialIntroComplete)
         {
             robotCanvasText.text = "Welcome to your first Tutorial. To start, use the Left Joystick to control your movement. Go ahead, try it!";
+            tutorialIntroComplete = true;
+            source.PlayOneShot(tutorialIntro, volume);
         }
-        else if ( direction == false && movement)
+        else if ( direction == false && movement && !tutorialDirectionComplete)
         {
-            robotCanvasText.text = "Good job, now use the Rigt Joystick to change your direction. Go ahead, try it!";
+            robotCanvasText.text = "Good job, now use the Right Joystick to change your direction. Go ahead, try it!";
+            tutorialDirectionComplete = true;
+            source.Stop();
+            source.PlayOneShot(tutorialDirection, volume);
         }
-        else if (mainMenu == false && movement && direction)
+        else if (mainMenu == false && movement && direction && !tutorialMainmenuComplete)
         {
-            robotCanvasText.text = "Look at you, you'll be a pro in no time. Now press in on the Left Joystick to bring up your Main Menu. To exit simply press the button again.";
+            robotCanvasText.text = "You'll be a pro in no time. Now press in on the Left Joystick to bring up your Main Menu. Press the button again to exit.";
+            tutorialMainmenuComplete = true;
+            source.Stop();
+            source.PlayOneShot(tutorialMainmenu, volume);
         }
-        else if (staplerShot == false && movement && direction && mainMenu)
+        else if (staplerShot == false && movement && direction && mainMenu && !tutorialStaplerComplete)
         {
             robotCanvasText.text = "While aboard the ship you may need to throw staplers to achieve certain goals. To do this press down on the B button on the right controller.";
+            tutorialStaplerComplete = true;
+            source.Stop();
+            source.PlayOneShot(tutorialStapler, volume);
         }
-        else if (clientInteract == false && movement && direction && mainMenu && staplerShot)
+        else if (clientInteract == false && movement && direction && mainMenu && staplerShot && !tutorialInteractComplete)
         {
-            robotCanvasText.text = "Finally, while aboard the ship you'll notice some people wil be looking for you're help. These individuals will have ! above their heads. To help these people press the A button.";
+            robotCanvasText.text = "Great job! On the ship people who need help will have ! above their heads. To help these people press the A button.";
+            tutorialInteractComplete = true;
+            source.Stop();
+            source.PlayOneShot(tutorialInteract, volume);
         }
 
     }
@@ -172,18 +200,19 @@ public class RobotController : MonoBehaviour
                 movement = true;
             }
         }
-        if (robotCanvasText.text == "Good job, now use the Rigt Joystick to change your direction. Go ahead, try it!")
+        if (robotCanvasText.text == "Good job, now use the Right Joystick to change your direction. Go ahead, try it!")
         {
             if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))           
             {
                 direction = true;
             }
         }
-        if (robotCanvasText.text == "Look at you, you'll be a pro in no time. Now press in on the Left Joystick to bring up your Main Menu. To exit simply press the button again.")
+        if (robotCanvasText.text == "You'll be a pro in no time. Now press in on the Left Joystick to bring up your Main Menu. Press the button again to exit.")
         {
             if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
             {
                 mainMenu = true;
+                
             }
         }
         if (robotCanvasText.text == "While aboard the ship you may need to throw staplers to achieve certain goals. To do this press down on the B button on the right controller.")
@@ -193,14 +222,17 @@ public class RobotController : MonoBehaviour
                 staplerShot = true;
             }
         }
-        if (robotCanvasText.text == "Finally, while aboard the ship you'll notice some people wil be looking for you're help. These individuals will have ! above their heads. To help these people press the A button.")
+        if (robotCanvasText.text == "Great job! On the ship people who need help will have ! above their heads. To help these people press the A button.")
         {
-            if (OVRInput.GetDown(OVRInput.RawButton.A))
+            if (OVRInput.GetDown(OVRInput.RawButton.A) && !goToDeskComplete)
             {
                 clientInteract = true;
                 tutorialFinished = true;
+                robotCanvasText.text = "Now that you know what you're doing, go to the desk to start your shift!";
+                goToDeskComplete = true;
+                source.Stop();
+                source.PlayOneShot(tutorialGoToDesk, volume);
             }
         }
     }
-
 }

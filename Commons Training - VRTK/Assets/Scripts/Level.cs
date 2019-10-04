@@ -47,7 +47,6 @@ public class Level : MonoBehaviour
     {
         startPosition = player.transform.position;
         countDownText = countDown.GetComponent<TextMeshProUGUI>();
-        countDownText.enabled = true;
         levelCompletedText = levelCompleted.GetComponent<TextMeshProUGUI>();
         levelCompletedText.enabled = false;
     }
@@ -55,9 +54,16 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        WalkToDesk();
-        CheckLevel();
+        if (RobotController.tutorialFinished)
+        {
+            if(MasterController.vestCollected == false)
+            {
+                countDownText.enabled = true;
+            }
+            timer -= Time.deltaTime;
+            WalkToDesk();
+            CheckLevel();
+        }
     }
 
     //Display Level Complete Message
@@ -130,5 +136,5 @@ public class Level : MonoBehaviour
                    + "\n Help more clients in the lab: " + (level3ClientLab ? "Complete" : "Incomplete");
         }
     }
-    //functions for level 2
+    
 }
