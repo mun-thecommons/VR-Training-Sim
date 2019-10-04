@@ -32,26 +32,22 @@ public class TrackerController : MonoBehaviour
 
     void ToggleTask()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+        if(!MasterController.inMenu && MasterController.inTracker)
         {
-            taskList[taskListIndex].GetComponent<Image>().color = Color.white;
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
             {
-                taskListIndex = (taskListIndex + 1) <= (taskList.Length - 1) ? (taskListIndex + 1) : 0;
+                taskList[taskListIndex].GetComponent<Image>().color = Color.white;
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+                {
+                    taskListIndex = (taskListIndex + 1) <= (taskList.Length - 1) ? (taskListIndex + 1) : 0;
+                }
+                else
+                {
+                    taskListIndex = taskListIndex - 1 >= 0 ? taskListIndex - 1 : taskList.Length - 1;
+                }
+                taskList[taskListIndex].GetComponent<Image>().color = Color.red;
             }
-            else
-            {
-                taskListIndex = taskListIndex - 1 >= 0 ? taskListIndex - 1 : taskList.Length - 1;
-            }
-            taskList[taskListIndex].GetComponent<Image>().color = Color.red;
-        }
-        else if (OVRInput.GetDown(OVRInput.RawButton.Y))
-        {
-            if(taskListIndex == taskList.Length-1 && MasterController.inTracker)
-            {
-                ExitTracker();
-            }
-            else
+            else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
                 switch (taskListIndex)
                 {
@@ -66,8 +62,9 @@ public class TrackerController : MonoBehaviour
                         break;
                 }
                 SetTrackerStats();
+                ExitTracker();
             }
-        }  
+        }   
     }
 
     void SetTrackerStats()
@@ -81,8 +78,7 @@ public class TrackerController : MonoBehaviour
     {
         trackerCanvas.enabled = false;
         MasterController.inTracker = false;
-        HUDCanvas.enabled = true;
-        MasterController.inMenu = true;
+        MasterController.EnableMovement();
     } 
 
     

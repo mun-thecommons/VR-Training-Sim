@@ -144,13 +144,13 @@ public class MasterController : MonoBehaviour
             if (!inMenu && !inTracker)
             {
                 mainCanvas.enabled = true;
-                playerController.enabled = false;
+                DisableMovement();
                 inMenu = true;
             }
             else if (mainCanvas.isActiveAndEnabled)
             {
                 mainCanvas.enabled = false;
-                playerController.enabled = true;
+                EnableMovement();
                 inMenu = false;
             }
         }
@@ -182,14 +182,15 @@ public class MasterController : MonoBehaviour
                 else if (uiMenuCounter == 1)
                 {
                     mainCanvas.enabled = false;
-                    DisableMovement();
                     inMenu = false;
                     trackerCanvas.enabled = true;
                     inTracker = true;
+                    DisableMovement();
                     //Turn on the Tracker Canvas
                 }
                 else
                 {
+                    
                     //mainFrameText.SetText("Exiting system...");
                     Debug.Log("Exiting game!!");
                     Application.Quit();
