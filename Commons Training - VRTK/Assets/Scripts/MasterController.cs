@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using OVRTouchSample;
 using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 
 public class MasterController : MonoBehaviour
@@ -187,9 +188,12 @@ public class MasterController : MonoBehaviour
                     DisableMovement();
                     //Turn on the Tracker Canvas
                 }
+                else if (uiMenuCounter == 2)
+                {
+                    SceneManager.LoadScene("SampleScene");
+                }
                 else
                 {
-                    Debug.Log("Exiting game!!");
                     UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
