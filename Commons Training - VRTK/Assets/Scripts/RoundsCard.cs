@@ -13,6 +13,10 @@ public class RoundsCard : MonoBehaviour {
     {
         singleRoundSignal = gameObject.GetComponent<AudioSource>();
         originalPillarColor = roundPillars[0].GetComponent<Renderer>().material.color;
+        foreach (GameObject g in roundPillars)
+        {
+            g.GetComponentInChildren<Light>().enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,13 +41,15 @@ public class RoundsCard : MonoBehaviour {
         foreach(GameObject g in roundPillars)
         {
             g.GetComponent<Renderer>().material.color = Color.green;
+            g.GetComponentInChildren<Light>().enabled = true;
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
 
         foreach(GameObject g in roundPillars)
         {
             g.GetComponent<Renderer>().material.color = originalPillarColor;
+            g.GetComponentInChildren<Light>().enabled = false;
         }
     }
 

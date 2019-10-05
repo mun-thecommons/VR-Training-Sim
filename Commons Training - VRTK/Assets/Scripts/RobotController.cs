@@ -212,7 +212,6 @@ public class RobotController : MonoBehaviour
             if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
             {
                 mainMenu = true;
-                
             }
         }
         if (robotCanvasText.text == "While aboard the ship you may need to throw staplers to achieve certain goals. To do this press down on the B button on the right controller.")

@@ -190,7 +190,7 @@ public class MasterController : MonoBehaviour
                 }
                 else if (uiMenuCounter == 2)
                 {
-                    SceneManager.LoadScene("SampleScene");
+                    //SceneManager.LoadScene("SampleScene");
                 }
                 else
                 {
