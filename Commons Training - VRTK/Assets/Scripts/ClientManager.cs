@@ -38,7 +38,6 @@ public class ClientManager : MonoBehaviour {
         
         spawnPositionWalk = new Vector3(-34.6f, yPos, 2.49f);
         spawnPositionDesk = new Vector3(-27.957f, yPos, -35.9f);
-
         spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
         spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));

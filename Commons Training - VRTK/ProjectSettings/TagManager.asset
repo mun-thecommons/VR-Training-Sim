@@ -46,6 +46,7 @@ TagManager:
   - Teleportation
   - SF_Door
   - RoundPillar
+  - Alien
   layers:
   - Default
   - TransparentFX

@@ -27,6 +27,7 @@ public class WalkingClientController : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
+        destPoint = Random.Range(0, walkDestPos.Count);
     }
 
     void GotoNextPoint()
