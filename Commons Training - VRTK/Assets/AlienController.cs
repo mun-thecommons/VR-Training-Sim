@@ -33,9 +33,8 @@ public class AlienController : MonoBehaviour
     {
         if (walkDestPos.Count == 0)
             return;
-
         agent.destination = walkDestPos[destPoint];
-        destPoint = (destPoint + 1) % (walkDestPos.Count);
+        destPoint = (destPoint + 1) % walkDestPos.Count;
     }
 
     void Update()
