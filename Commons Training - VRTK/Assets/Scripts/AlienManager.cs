@@ -8,7 +8,7 @@ public class AlienManager : MonoBehaviour
     public GameObject alien; 
     static public List<Vector3> spawnPositions = new List<Vector3>();   
     private Vector3 spawnPosition;  
-    private float yPos = 1.0f;
+    private float yPos = 0.3f;
     public int howManyAlien = 5;
     private int randInd;
     public Transform alientParent;
@@ -31,7 +31,7 @@ public class AlienManager : MonoBehaviour
 
     void SpawnAlien()
     {
-        if(/*MasterController.labSatisfaction < 1000 &&*/ GameObject.FindGameObjectsWithTag("Alien").Length <= 5)
+        if(/*MasterController.labSatisfaction < 1000&& */ GameObject.FindGameObjectsWithTag("Alien").Length <= 5)
         {
             randInd = Random.Range(0, spawnPositions.Count);
             spawnPosition = spawnPositions[randInd];

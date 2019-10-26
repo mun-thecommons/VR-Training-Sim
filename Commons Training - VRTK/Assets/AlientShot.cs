@@ -7,9 +7,10 @@ public class AlientShot : MonoBehaviour
 {
     private Animator alienAnimator;
     private NavMeshAgent alienNavMeshAgent;
-
+   
     private void Start()
     {
+
         alienAnimator = gameObject.GetComponent<Animator>();
         alienNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
     }
@@ -18,9 +19,9 @@ public class AlientShot : MonoBehaviour
     {
         if (other.CompareTag("StaplerThrow"))
         {
-            alienNavMeshAgent.speed = 0;
+  
             alienAnimator.SetBool("Dead", true);
-            AlienManager.ShootAlien(transform.position);
+            alienNavMeshAgent.speed = 0;
             Destroy(gameObject,3);
         }
     }

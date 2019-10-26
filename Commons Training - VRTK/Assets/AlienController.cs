@@ -9,9 +9,15 @@ public class AlienController : MonoBehaviour
     static public List<Vector3> walkDestPos = new List<Vector3>();
     private int destPoint = 0;
     private NavMeshAgent agent;
+    private GameObject[] monitors;
+    private Animator alienAnimator;
+
 
     void Start()
     {
+        monitors = GameObject.FindGameObjectsWithTag("Monitor");
+        alienAnimator = gameObject.GetComponent<Animator>();
+
         walkDestPos.Add(new Vector3(0.0f, yPos, -3.6f));
         walkDestPos.Add(new Vector3(9.7f, yPos, -12.0f));
         walkDestPos.Add(new Vector3(3.9f, yPos, -12.0f));
@@ -42,6 +48,15 @@ public class AlienController : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             GotoNextPoint();
+        }
+
+        foreach(GameObject i in monitors)
+        {
+            if(Vector3.Distance(gameObject.transform.position, i.transform.position) <= 3.0f)
+            {
+                transform.LookAt(i.transform.position);
+                alienAnimator.SetBool("Shoot", true);
+            }
         }
     }
 }

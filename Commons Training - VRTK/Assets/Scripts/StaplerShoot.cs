@@ -40,5 +40,9 @@ public class StaplerShoot : MonoBehaviour
             other.GetComponent<EnemyController>().TakeDamage();
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Alien"))
+        {
+            AlienManager.ShootAlien(transform.position);
+        }
     }
 }

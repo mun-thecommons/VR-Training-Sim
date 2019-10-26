@@ -11031,6 +11031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alien: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+  howManyAlien: 5
   alientParent: {fileID: 150261733}
 --- !u!1 &189778425
 GameObject:
@@ -35348,6 +35349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alien: {fileID: 0}
+  howManyAlien: 5
   alientParent: {fileID: 0}
 --- !u!1 &667585765
 GameObject:
@@ -50037,6 +50039,11 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5985502782080378102, guid: e5836d050fdb354479bcd0d285bf2f22,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1230675372}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
 --- !u!1 &920986815
