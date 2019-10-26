@@ -10,6 +10,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
     [HideInInspector]
     public static float timer = 0f;
     public static bool done = false;
+    public static bool animateWalk;
     public GameObject questions;
     [HideInInspector]
     public GameObject answers;
@@ -25,6 +26,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        animateWalk = false;
         player = GameObject.FindGameObjectWithTag("Player");
         questions = gameObject.transform.Find("QuestionCanvas").gameObject;
         Labnet = GameObject.Find("Phone Labnet").GetComponentInChildren<PhoneGrab>();
@@ -51,6 +53,7 @@ public class PhoneBasedQuestions : MonoBehaviour {
         if (done && timer <= 0f)
         {
             done = false;
+            animateWalk = true;
             Debug.Log("??");
             GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
             Level.level3ClientDesk = true;
