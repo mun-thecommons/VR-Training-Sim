@@ -2088,6 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd024b6cea729324d8ce55a4966c2363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteSmokePrefab: {fileID: 100000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 3}
 --- !u!114 &5985502782080378102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2100,7 +2101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb89712be5ea30498f546268ed7b944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!65 &8234070807588047710
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ public class AlienController : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject[] monitors;
     private Animator alienAnimator;
-
+    public GameObject whiteSmokePrefab;
+    private GameObject whiteSmoke;
 
     void Start()
     {
@@ -56,7 +57,14 @@ public class AlienController : MonoBehaviour
             {
                 transform.LookAt(i.transform.position);
                 alienAnimator.SetBool("Shoot", true);
+                whiteSmoke = Instantiate(whiteSmokePrefab, i.transform.position, i.transform.rotation);
+                Destroy(i);
             }
+            else
+            {
+                alienAnimator.SetBool("Shoot", false);
+            }
+            
         }
     }
 }
