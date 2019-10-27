@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AlienController : MonoBehaviour
 {
-    private float yPos = 1.0f;
+    private float yPos = 0.3f;
     static public List<Vector3> walkDestPos = new List<Vector3>();
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -53,18 +53,13 @@ public class AlienController : MonoBehaviour
 
         foreach(GameObject i in monitors)
         {
-            if(Vector3.Distance(gameObject.transform.position, i.transform.position) <= 3.0f)
+            if(Vector3.Distance(gameObject.transform.position, i.transform.position) <= 5.0f)
             {
                 transform.LookAt(i.transform.position);
-                alienAnimator.SetBool("Shoot", true);
+                alienAnimator.SetTrigger("Shoot");
                 whiteSmoke = Instantiate(whiteSmokePrefab, i.transform.position, i.transform.rotation);
                 Destroy(i);
             }
-            else
-            {
-                alienAnimator.SetBool("Shoot", false);
-            }
-            
         }
     }
 }
