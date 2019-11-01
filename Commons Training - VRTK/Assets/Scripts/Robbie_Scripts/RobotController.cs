@@ -154,7 +154,7 @@ public class RobotController : MonoBehaviour
         }
         if (movement == false && !tutorialIntroComplete)
         {
-            robotCanvasText.text = "Welcome to your first Tutorial. To start, use the Left Joystick to control your movement. Go ahead, try it!";
+            robotCanvasText.text = "Welcome to your first Tutorial. To start, use the Left Joystick to control your movement. Go ahead, try it!. Press A to skip.";
             tutorialIntroComplete = true;
             source.PlayOneShot(tutorialIntro, volume);
         }
@@ -194,11 +194,23 @@ public class RobotController : MonoBehaviour
         After detecting the correct button has been pressed, will set the apropriate bool to true and hence
         set the TutorialMessage to the next step.
          */
-        if (robotCanvasText.text == "Welcome to your first Tutorial. To start, use the Left Joystick to control your movement. Go ahead, try it!" )
+        if (robotCanvasText.text == "Welcome to your first Tutorial. To start, use the Left Joystick to control your movement. Go ahead, try it!. Press A to skip.")
         {
             if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)) 
             {
                 movement = true;
+            }
+            else if (OVRInput.GetDown(OVRInput.RawButton.A))
+            {
+                direction = true;
+                mainMenu = true;
+                staplerShot = true;
+                clientInteract = true;
+                tutorialFinished = true;
+                robotCanvasText.text = "Now that you know what you're doing, go to the desk to start your shift!";
+                goToDeskComplete = true;
+                source.Stop();
+                source.PlayOneShot(tutorialGoToDesk, volume);
             }
         }
         if (robotCanvasText.text == "Good job, now use the Right Joystick to change your direction. Go ahead, try it!")
