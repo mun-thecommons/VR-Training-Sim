@@ -47,6 +47,7 @@ TagManager:
   - SF_Door
   - RoundPillar
   - Alien
+  - Robbie
   layers:
   - Default
   - TransparentFX

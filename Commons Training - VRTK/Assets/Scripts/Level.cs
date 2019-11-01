@@ -42,6 +42,8 @@ public class Level : MonoBehaviour
     private TextMeshProUGUI countDownText;
     private TextMeshProUGUI levelCompletedText;
 
+    private GameObject robbie;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +51,13 @@ public class Level : MonoBehaviour
         countDownText = countDown.GetComponent<TextMeshProUGUI>();
         levelCompletedText = levelCompleted.GetComponent<TextMeshProUGUI>();
         levelCompletedText.enabled = false;
+        robbie = GameObject.FindGameObjectWithTag("Robbie");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (RobotController.tutorialFinished)
+        if (robbie.GetComponent<RobotController>().tutorialFinished)
         {
             if(MasterController.vestCollected == false)
             {

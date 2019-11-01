@@ -50,8 +50,8 @@ public class AlienController : MonoBehaviour
         {
             GotoNextPoint();
         }
-
-        foreach(GameObject i in monitors)
+        monitors = GameObject.FindGameObjectsWithTag("Monitor");
+        foreach (GameObject i in monitors)
         {
             if(Vector3.Distance(gameObject.transform.position, i.transform.position) <= 5.0f)
             {

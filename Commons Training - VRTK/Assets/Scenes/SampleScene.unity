@@ -33964,6 +33964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1032814876}
   robbiePlayerDistance: 2
+  tutorialFinished: 0
   welcomeAudio: {fileID: 8300000, guid: de708d9ad6e395a4d8b7135d62176d55, type: 3}
   level1CompleteAudio: {fileID: 8300000, guid: 7c0c748cbacb8a14caf795eb5f1ca838, type: 3}
   level2CompleteAudio: {fileID: 8300000, guid: 9e636986a2c974c428ab354ca88e779b, type: 3}
@@ -114214,6 +114215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 395573769c404b941bd9b1c4f84a9c33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Robbie
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 395573769c404b941bd9b1c4f84a9c33,
         type: 3}

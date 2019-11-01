@@ -16,7 +16,7 @@ public class RobotController : MonoBehaviour
     private bool direction;
     private bool staplerShot;
     private bool clientInteract;
-    public static bool tutorialFinished;
+    public bool tutorialFinished;
 
 
     private AudioSource source;
@@ -66,6 +66,7 @@ public class RobotController : MonoBehaviour
 
         robbieStartPostion = transform.position;
         source = GetComponent<AudioSource>();
+        robotCanvasText.text = "Now that you know what you're doing, go to the desk to start your shift!";
     }
 
     // Update is called once per frame
