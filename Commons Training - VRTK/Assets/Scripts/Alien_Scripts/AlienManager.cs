@@ -9,7 +9,7 @@ public class AlienManager : MonoBehaviour
     static public List<Vector3> spawnPositions = new List<Vector3>();   
     private Vector3 spawnPosition;  
     private float yPos = 0.3f;
-    public int howManyAlien = 5;
+    public static int howManyAlien = 5;
     private int randInd;
     public Transform alientParent;
 

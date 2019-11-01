@@ -68,7 +68,7 @@ public class TrackerController : MonoBehaviour
                             break;
                     }
                     SetTrackerStats();
-                    ExitTracker();
+                    //ExitTracker();
                 }
             }
         }

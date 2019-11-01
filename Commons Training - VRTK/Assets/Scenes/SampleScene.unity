@@ -10950,7 +10950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alien: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
-  howManyAlien: 5
   alientParent: {fileID: 150261733}
 --- !u!1 &189778425
 GameObject:
@@ -68741,15 +68740,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33134568, g: 0.67475957, b: 0.6886792, a: 0.6313726}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: eee045d55647138479b30e687b81c7e3, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
