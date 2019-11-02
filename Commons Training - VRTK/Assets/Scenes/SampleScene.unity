@@ -10949,7 +10949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735156523a8d19443967780b35340718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alien: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+  alienPrefab: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
   alientParent: {fileID: 150261733}
 --- !u!1 &189778425
 GameObject:

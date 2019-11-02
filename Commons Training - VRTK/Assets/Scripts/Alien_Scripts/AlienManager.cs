@@ -5,11 +5,12 @@ using UnityEngine.AI;
 
 public class AlienManager : MonoBehaviour
 {       
-    public GameObject alien; 
+    public GameObject alienPrefab;
+    private GameObject alien;
     static public List<Vector3> spawnPositions = new List<Vector3>();   
     private Vector3 spawnPosition;  
     private float yPos = 0.3f;
-    public static int howManyAlien = 5;
+    public static int howManyAlien = 3;
     private int randInd;
     public Transform alientParent;
 
@@ -31,12 +32,12 @@ public class AlienManager : MonoBehaviour
 
     void SpawnAlien()
     {
-        if(/*MasterController.labSatisfaction < 1000&& */ GameObject.FindGameObjectsWithTag("Alien").Length <= 5)
+        if(/*MasterController.labSatisfaction < 1000&& */ GameObject.FindGameObjectsWithTag("Alien").Length <= howManyAlien)
         {
-            randInd = Random.Range(0, spawnPositions.Count);
+            randInd = Random.Range(0, spawnPositions.Count-1);
             spawnPosition = spawnPositions[randInd];
             spawnPositions.RemoveAt(randInd);
-            alien = Instantiate(alien, spawnPosition, alien.transform.rotation) as GameObject;
+            alien = Instantiate(alienPrefab, spawnPosition, alienPrefab.transform.rotation) as GameObject;
             alien.transform.parent = alientParent.transform;
         }
     }

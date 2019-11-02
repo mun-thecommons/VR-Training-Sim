@@ -21,10 +21,9 @@ public class AlientShot : MonoBehaviour
         {
   
             alienAnimator.SetBool("Dead", true);
-            alienNavMeshAgent.speed = 0;
-            Destroy(gameObject,3);
+            alienNavMeshAgent.speed = 2;
+            Destroy(gameObject,1.5f);
         }
     }
-
 
 }

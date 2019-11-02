@@ -16,7 +16,6 @@ public class AlienController : MonoBehaviour
 
     void Start()
     {
-        monitors = GameObject.FindGameObjectsWithTag("Monitor");
         alienAnimator = gameObject.GetComponent<Animator>();
 
         walkDestPos.Add(new Vector3(0.0f, yPos, -3.6f));
@@ -40,7 +39,7 @@ public class AlienController : MonoBehaviour
     {
         if (walkDestPos.Count == 0)
             return;
-        agent.destination = walkDestPos[destPoint];
+        agent.SetDestination(walkDestPos[destPoint]);
         destPoint = (destPoint + 1) % walkDestPos.Count;
     }
 
@@ -50,17 +49,24 @@ public class AlienController : MonoBehaviour
         {
             GotoNextPoint();
         }
+
+        //Shoot monitors
         monitors = GameObject.FindGameObjectsWithTag("Monitor");
-        foreach (GameObject i in monitors)
+        foreach (GameObject m in monitors)
         {
-            if(Vector3.Distance(gameObject.transform.position, i.transform.position) <= 2.5f)
+            if(Vector3.Distance(gameObject.transform.position, m.transform.position) <= 3.0f)
             {
-                transform.LookAt(i.transform.position);
+                transform.LookAt(m.transform.position);
                 alienAnimator.SetTrigger("Shoot");
-                whiteSmoke = Instantiate(whiteSmokePrefab, i.transform.position, i.transform.rotation);
-                Destroy(i);
-                Object.Destroy(whiteSmoke, 4.0f);
+                whiteSmoke = Instantiate(whiteSmokePrefab, m.transform.position, m.transform.rotation);
+                Destroy(m,2);
+                Destroy(whiteSmoke, 2);
             }
+        }
+
+        if(agent.speed == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
