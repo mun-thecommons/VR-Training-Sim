@@ -9,6 +9,8 @@ public class TestAnimatorController : MonoBehaviour
     Animator animator;
     public Vector3 goal;
     public Vector3 deskGoal;
+    public Vector3 cashGoal;
+
     // Use this for initialization
     void Start()
     {
