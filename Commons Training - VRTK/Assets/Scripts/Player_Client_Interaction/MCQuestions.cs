@@ -44,7 +44,7 @@ public class MCQuestions : MonoBehaviour {
         client = GetComponent<Client>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        mcQuestionsCanvas = GameObject.FindGameObjectWithTag("MCQuestionCanvas").GetComponent<Canvas>();
+        mcQuestionsCanvas = GameObject.Find("MCQuestionsCanvas").GetComponent<Canvas>();
         mcClientInteraction = GameObject.FindGameObjectWithTag("MCClientInteraction").GetComponent<Canvas>();
         y = transform.rotation.y;
     }

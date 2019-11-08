@@ -42,7 +42,6 @@ TagManager:
   - RoundPillar
   - Alien
   - Robbie
-  - InteractCanvas
   layers:
   - Default
   - TransparentFX
