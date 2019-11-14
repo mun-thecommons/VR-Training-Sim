@@ -7,7 +7,12 @@ using UnityEngine.AI;
 public class ClientManager : MonoBehaviour {
    
     static private float cashBoxTimerReset = 15f;
-    public GameObject cashBoxClient;
+
+    public List<GameObject> cashBoxClients = new List<GameObject>();
+    private GameObject cashBoxClient;
+    private Vector3 spawnPositionCash;
+    static public Vector3 cashGoal;
+    public static bool cashClient = false;
 
     public List<GameObject> mainDeskClients = new List<GameObject>();
     private GameObject mainDeskClient;
@@ -35,7 +40,7 @@ public class ClientManager : MonoBehaviour {
 
     private void Start()
     {
-        
+        spawnPositionCash = new Vector3(-27.957f, yPos, -35.9f);    
         spawnPositionWalk = new Vector3(-34.6f, yPos, 2.49f);
         spawnPositionDesk = new Vector3(-27.957f, yPos, -35.9f);
         spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
@@ -58,6 +63,15 @@ public class ClientManager : MonoBehaviour {
 
     void SpawnClient()
     {
+        if (!cashClient && Level.level > 0)
+        {
+            int cashClientInd = Random.Range(0, cashBoxClients.Count);
+            cashBoxClient = Instantiate(cashBoxClients[cashClientInd], spawnPositionCash, cashBoxClients[cashClientInd].transform.rotation) as GameObject;
+            cashGoal = new Vector3(7.0f, yPos, -10.0f);
+            cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
+            cashClient = true;
+        }
+
         if (!deskClient && Level.level > 1)
         {
             int deskClientInd = Random.Range(0, mainDeskClients.Count);
@@ -66,6 +80,7 @@ public class ClientManager : MonoBehaviour {
             mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
             deskClient = true;            
         }
+
         if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
         {
             randInd = Random.Range(0, spawnPositions.Count);
