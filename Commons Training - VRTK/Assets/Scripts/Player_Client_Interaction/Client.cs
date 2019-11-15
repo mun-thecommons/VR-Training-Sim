@@ -2,7 +2,6 @@
 
 public class Client : MonoBehaviour
 {
-    public Transform player;
     public bool askingQuestion;
 
     void Start()

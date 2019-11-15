@@ -70,6 +70,7 @@ public class ClientManager : MonoBehaviour {
             cashGoal = new Vector3(7.0f, yPos, -10.0f);
             cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
             cashClient = true;
+            cashBoxClient.transform.parent = gameObject.transform;
         }
 
         if (!deskClient && Level.level > 1)
@@ -78,7 +79,8 @@ public class ClientManager : MonoBehaviour {
             mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
             deskGoal = new Vector3(-3.6f, yPos, -12.0f);
             mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
-            deskClient = true;            
+            deskClient = true;
+            mainDeskClient.transform.parent = gameObject.transform;
         }
 
         if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
