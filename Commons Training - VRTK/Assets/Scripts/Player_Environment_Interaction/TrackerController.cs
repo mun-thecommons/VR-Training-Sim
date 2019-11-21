@@ -52,18 +52,18 @@ public class TrackerController : MonoBehaviour
                 }
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
                 {
-                    taskListIndex = (taskListIndex >= 1) ? (taskListIndex-2) : (taskListIndex+4);
+                    taskListIndex = ((taskListIndex == 0) || (taskListIndex == 1)) ? (taskListIndex+6) : (taskListIndex-2);
                 }
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
                 {
-                    taskListIndex = (taskListIndex <= trackerUpdate.Length) ? (taskListIndex+2) : (taskListIndex-4);
+                    taskListIndex = ((taskListIndex == trackerUpdate.Length-1)|| (taskListIndex == trackerUpdate.Length - 2)) ? (taskListIndex-6) : (taskListIndex+2);
                 }
                 
                 trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.red;
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
-                if (taskListIndex == trackerUpdate.Length - 1)
+                if (taskListIndex == trackerUpdate.Length - 1 || taskListIndex == trackerUpdate.Length - 2)
                 {
                     ExitTracker();
 
