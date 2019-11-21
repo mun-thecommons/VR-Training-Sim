@@ -40,17 +40,17 @@ public class ClientManager : MonoBehaviour {
 
     private void Start()
     {
-        spawnPositionCash = new Vector3(-27.957f, yPos, -35.9f);    
-        spawnPositionWalk = new Vector3(-34.6f, yPos, 2.49f);
-        spawnPositionDesk = new Vector3(-27.957f, yPos, -35.9f);
-        spawnPositions.Add(new Vector3(-30.28f, yPos, -35.9f));
-        spawnPositions.Add(new Vector3(-27.957f, yPos, -35.9f));
-        spawnPositions.Add(new Vector3(-27.73f, yPos, -38.6f));
-        spawnPositions.Add(new Vector3(-28.957f, yPos, -35.9f));
-        destinationPositions.Add(new Vector3(2.5f, yPos, -13.68f));
-        destinationPositions.Add(new Vector3(-7.84f, yPos, -22.32f));
-        destinationPositions.Add(new Vector3(-21.5f, yPos, -12.5f));
-        destinationPositions.Add(new Vector3(11.7f, yPos, -22.32f));
+        spawnPositionCash = new Vector3(-13f, yPos, -20);    
+        spawnPositionWalk = new Vector3(-22f, yPos, -40f);
+        spawnPositionDesk = new Vector3(-15f, yPos, -4f);
+        spawnPositions.Add(new Vector3(-22f, yPos, -18f));
+        spawnPositions.Add(new Vector3(3f, yPos, 7f));
+        spawnPositions.Add(new Vector3(-2f, yPos, 20f));
+        spawnPositions.Add(new Vector3(-22f, yPos, 17f));
+        destinationPositions.Add(new Vector3(-2f, yPos, -14f));
+        destinationPositions.Add(new Vector3(-44f, yPos, -17f));
+        destinationPositions.Add(new Vector3(18f, yPos, 21f));
+        destinationPositions.Add(new Vector3(-6f, yPos, -23f));
         //destinationPositions.AddRange(GameObject.FindGameObjectsWithTag("Destination"));
         Debug.Log("number of destination points is "+destinationPositions.Count);
     }
