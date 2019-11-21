@@ -19,6 +19,7 @@ public class TrackerController : MonoBehaviour
     {
         SetTrackerStats();
         trackerCanvas = gameObject.GetComponent<Canvas>();
+        trackerCanvas.enabled = false;
         trackerUpdate[0].GetComponent<Image>().color = Color.red;
     }
 
@@ -32,9 +33,10 @@ public class TrackerController : MonoBehaviour
     {
         if (!MasterController.inMenu && MasterController.inTracker)
         {
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
                 trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.white;
+                /*
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
                 {
                     taskListIndex = (taskListIndex + 1) <= (trackerUpdate.Length - 1) ? (taskListIndex + 1) : 0;
@@ -43,6 +45,20 @@ public class TrackerController : MonoBehaviour
                 {
                     taskListIndex = taskListIndex - 1 >= 0 ? taskListIndex - 1 : trackerUpdate.Length - 1;
                 }
+                */
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)|| OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
+                {
+                    taskListIndex = (taskListIndex % 2 == 0) ? (taskListIndex + 1) : (taskListIndex-1);
+                }
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+                {
+                    taskListIndex = (taskListIndex >= 1) ? (taskListIndex-2) : (taskListIndex+4);
+                }
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+                {
+                    taskListIndex = (taskListIndex <= trackerUpdate.Length) ? (taskListIndex+2) : (taskListIndex-4);
+                }
+                
                 trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.red;
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))

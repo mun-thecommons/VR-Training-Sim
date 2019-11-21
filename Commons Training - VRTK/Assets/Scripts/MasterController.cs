@@ -63,7 +63,7 @@ public class MasterController : MonoBehaviour
     public GameObject exitGameButton;
     public GameObject operationButton;
     public GameObject[] uiMenuOptionsArray;
-    private GameObject player;
+    public GameObject player;
     private IEnumerator accessMainframe;
     public int numOfDots; //mainFrameText Coroutine
     private Canvas trackerCanvas;
@@ -76,13 +76,12 @@ public class MasterController : MonoBehaviour
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
-        playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
+        playerController = player.GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
         FileParse("instructions", instructions);
 
-        player = GameObject.Find("OVRPlayerController");
         baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
