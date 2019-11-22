@@ -109,17 +109,19 @@ public class MasterController : MonoBehaviour
         TakeInput();
     }
 
-
+    
     public static void DisableMovement()
     {
         //teleportFunction.SetActive(false);
-        playerController.enabled = false;
+        playerController.EnableLinearMovement = false;
+        playerController.EnableRotation = false;
     }
 
     public static void EnableMovement()
     {
         //teleportFunction.SetActive(true);
-        playerController.enabled = true;
+        playerController.EnableLinearMovement = true;
+        playerController.EnableRotation = true;
     }
 
     //reading instr from the file

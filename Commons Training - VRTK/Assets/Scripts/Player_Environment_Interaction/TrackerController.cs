@@ -36,16 +36,6 @@ public class TrackerController : MonoBehaviour
             if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
                 trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.white;
-                /*
-                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
-                {
-                    taskListIndex = (taskListIndex + 1) <= (trackerUpdate.Length - 1) ? (taskListIndex + 1) : 0;
-                }
-                else
-                {
-                    taskListIndex = taskListIndex - 1 >= 0 ? taskListIndex - 1 : trackerUpdate.Length - 1;
-                }
-                */
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)|| OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
                 {
                     taskListIndex = taskListIndex == trackerUpdate.Length-1 ? taskListIndex : (taskListIndex % 2 == 0) ? (taskListIndex + 1) : (taskListIndex-1);
@@ -64,7 +54,7 @@ public class TrackerController : MonoBehaviour
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
-                if (taskListIndex == trackerUpdate.Length - 1 || taskListIndex == trackerUpdate.Length - 2)
+                if (taskListIndex == trackerUpdate.Length - 1)
                 {
                     ExitTracker();
                 }
@@ -76,19 +66,19 @@ public class TrackerController : MonoBehaviour
                             MasterController.trackerTaskA++;
                             break;
                         case 1:
-                            MasterController.trackerTaskA--;
+                            MasterController.trackerTaskA = MasterController.trackerTaskA == 0 ? 0 : MasterController.trackerTaskA-1;
                             break;
                         case 2:
                             MasterController.trackerTaskB++;
                             break;
                         case 3:
-                            MasterController.trackerTaskB--;
+                            MasterController.trackerTaskB = MasterController.trackerTaskB == 0 ? 0 : MasterController.trackerTaskB-1;
                             break;
                         case 4:
                             MasterController.trackerTaskC++;
                             break;
                         case 5:
-                            MasterController.trackerTaskC--;
+                            MasterController.trackerTaskC = MasterController.trackerTaskC == 0 ? 0 : MasterController.trackerTaskC-1;
                             break;
                     }
                     SetTrackerStats();
