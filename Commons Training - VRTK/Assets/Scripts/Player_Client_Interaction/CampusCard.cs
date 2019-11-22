@@ -23,7 +23,7 @@ public class CampusCard : MonoBehaviour
         {
             cardOriginalPosition = transform.position;
         }
-        CheckDistance();
+        // CheckDistance();
     }
     void SetState()
     {
@@ -39,15 +39,12 @@ public class CampusCard : MonoBehaviour
 
     void CheckDistance()
     {
-        if (GetComponent<MeshRenderer>().enabled)
+        if (Vector3.Distance(transform.position, player.transform.position) > 3f && GetComponent<MeshRenderer>().enabled)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) > 10f)
-            {
-                Debug.Log("Let go of card");
-                transform.position = cardOriginalPosition;
-
-            }
-        }
+            Debug.Log("Let go of card");
+            transform.position = cardOriginalPosition;
+        }   
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,7 +52,7 @@ public class CampusCard : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             GetComponent<Rotator>().enabled = false;
+            transform.parent = GameObject.Find("BlackBox").transform;
         }
-        transform.parent = null;
     }
 }

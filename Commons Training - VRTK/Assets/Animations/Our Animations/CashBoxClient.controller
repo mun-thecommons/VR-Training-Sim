@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Finished
+    m_ConditionEvent: CardReturned
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4833173097885044153}
@@ -91,7 +91,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Stop
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: Finished
+    m_ConditionEvent: CardReturned
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6520926263059664126}
@@ -147,7 +147,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Finished
+  - m_Name: CardReturned
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
