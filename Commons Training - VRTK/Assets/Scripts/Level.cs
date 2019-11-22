@@ -24,6 +24,7 @@ public class Level : MonoBehaviour
     public static bool level2Round = false;                            //Works.... Collect 1 USB
     public static bool level2Client = false;                        //Works.... Answer 1 MC Client
     public static bool level2Trash = false;                        //Works.... Collect 1 Trash of any kind
+    public static bool level2Cash = false;                        //Works.... Collect 1 Trash of any kind
 
     //Level 3
     public static bool level3Monitor = false;                        //Works.... Fix 1 Monitor
@@ -106,7 +107,7 @@ public class Level : MonoBehaviour
             StartCoroutine(DisplayLevelCompleted(5));
             level += 1;
         }
-        if (level2Client && level2Round && level2Trash && level == 2)
+        if (level2Client && level2Round && level2Trash && level2Cash && level == 2)
         {
             StartCoroutine(DisplayLevelCompleted(5));
             level += 1;
@@ -130,7 +131,8 @@ public class Level : MonoBehaviour
         {
             mainFrameText.text = "Level: " + Level.level + "\n Help a client in the lab: " + (level2Client ? "Complete" : "Incomplete")
                    + "\n Complete rounds: " + (level2Round ? "Complete" : "Incomplete")
-                   + "\n Pick up garbage: " + (level2Trash ? "Complete" : "Incomplete");
+                   + "\n Pick up garbage: " + (level2Trash ? "Complete" : "Incomplete")
+                   + "\n Help a Client with their Campus Card: " + (level2Cash ? "Complete" : "Incomplete");
         }
         else if (level == 3)
         {

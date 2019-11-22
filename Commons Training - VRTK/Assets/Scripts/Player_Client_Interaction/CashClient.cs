@@ -9,19 +9,16 @@ using OVRTouchSample;
 using System.Text.RegularExpressions;
 
 public class CashClient : MonoBehaviour
-{
-    public GameObject greetings;
+{   public GameObject greetings;
     private bool questionSetup = false;
 
     public TextMeshProUGUI cashCanvasText;
-
+    public static bool cardChecked = false;
     
     private Client client;
     public GameObject player;
     [HideInInspector]
-    public static MeshRenderer campusCard;
-
-    private bool questionAsked = false;
+    public GameObject campusCard;
     public bool questionAnswered = false;
 
     private bool done = false;
@@ -30,7 +27,7 @@ public class CashClient : MonoBehaviour
     void Start()
     {
         client = GetComponent<Client>();
-        campusCard = transform.Find("CampusCard").GetComponent<MeshRenderer>();
+        campusCard = GameObject.Find("CampusCard");
         player = GameObject.FindGameObjectWithTag("Player");
 
     }
@@ -48,15 +45,25 @@ public class CashClient : MonoBehaviour
 
             if (OVRInput.GetDown(OVRInput.RawButton.A))
             {
-                
-                campusCard.enabled = true;
+                timer = 5f;
+                campusCard.GetComponent<MeshRenderer>().enabled = true;
                 cashCanvasText.fontSize = 9;
                 cashCanvasText.text = "Excuse me, can you check if there is an issue with my campus card? Please try my card at the cash box.";
-                
             }
+
+            if(timer <= 0f && !Level.level2Cash)
+            {
+                cashCanvasText.text = "";
+            }
+
+            if(cardChecked)
+            {
+                CardCheckResponse();
+            }
+
         }
 
-        if (questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)
+        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             transform.LookAt(targetPosition);
@@ -64,6 +71,41 @@ public class CashClient : MonoBehaviour
 
         timer -= Time.deltaTime;
     }
-   
-    
+
+    private void OnDestroy()
+    {
+        ClientManager.cashClient = false;
+    }
+
+
+    void CardCheckResponse()
+    {
+        if (!Level.level2Cash)
+        {
+            timer = 3f;
+        }
+        if (campusCard.GetComponent<CampusCard>().expired)
+        {
+            cashCanvasText.text = "Oh my! Thank you I never realized it was expired!";
+        }
+
+        else
+        {
+            cashCanvasText.text = "That seems like more than I remember but perfect! Thank you!";
+        }
+
+        Level.level2Cash = true;
+        if (timer <= 2f)
+        {
+            cashCanvasText.text = "";
+            GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
+            GetComponent<TestAnimatorController>().animator.SetBool("CardReturned", true);
+        }
+
+        Destroy(campusCard, 2f);
+        Destroy(gameObject, 10f);
+        Debug.Log(transform.position);
+        Debug.Log(GetComponent<NavMeshAgent>().destination);
+
+    }
 }
