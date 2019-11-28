@@ -5187,6 +5187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {x: 0, y: 0, z: 0}
+  deskGoal: {x: 0, y: 0, z: 0}
+  cashGoal: {x: 0, y: 0, z: 0}
 --- !u!95 &4980255240823464116
 Animator:
   serializedVersion: 3
@@ -5246,7 +5248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6403f6ff03ce2c64ca8e822993f2a8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mood: 0
 --- !u!1 &8570191093156187108
 GameObject:
   m_ObjectHideFlags: 0

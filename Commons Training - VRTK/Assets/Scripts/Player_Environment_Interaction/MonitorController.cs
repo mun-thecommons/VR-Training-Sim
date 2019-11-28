@@ -1,66 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonitorController : MonoBehaviour
 {
-    public Material screenMaterial;
-    public bool errorState = false;
+    public Sprite monitorWorkingSprite;
+    public Sprite monitorBrokenSprite;
 
-    private bool flashing = false;
-    private Material brokenScreenMat;
-    private Material brokenScreenRef;
-    private Material[] materialsArray;
-    private Color original;
+    public GameObject monitorCanvas;
 
-    void Start()
-    {        
-        original = screenMaterial.color;
-        brokenScreenMat = new Material(screenMaterial);
-        brokenScreenMat.CopyPropertiesFromMaterial(screenMaterial);
-        brokenScreenMat.color = Color.blue;       
+    public AudioClip breakSound;
+    public AudioClip fixSound;
+
+    public bool isBroken = false;
+
+    private Image monitorImg;
+    private AudioSource source;
+
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+
+        monitorImg = monitorCanvas.GetComponent<Image>();
+        monitorImg.sprite = monitorWorkingSprite;
     }
 
-    private void Update()
+    public void Break()
     {
-        if (errorState && !flashing)
+        source.PlayOneShot(breakSound);
+        isBroken = true;
+        monitorImg.sprite = monitorBrokenSprite;
+    }
+
+    public void Fix()
+    {
+        source.PlayOneShot(fixSound);
+        isBroken = false;
+        monitorImg.GetComponent<Image>().sprite = monitorWorkingSprite;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hand") && isBroken)
         {
-            materialsArray = new Material[GetComponent<Renderer>().materials.Length];
-            materialsArray = GetComponent<Renderer>().materials;
-            materialsArray[1] = brokenScreenMat;
-            GetComponent<Renderer>().materials = materialsArray;
-            brokenScreenRef = GetComponent<Renderer>().materials[1];
-            StartCoroutine(FlashColour());
-            flashing = true;
+            Fix();
         }
     }
 
-    IEnumerator FlashColour()
-    {
-        while (errorState)
-        {
-            brokenScreenRef.color = original;
-            yield return new WaitForSeconds(0.5f);
-            brokenScreenRef.color = Color.blue;
-            yield return new WaitForSeconds(0.5f);
-        }
-        brokenScreenRef.color = original;
-        flashing = false;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Hand"))
-        {
-            if (errorState)
-            {
-                errorState = false;
-                MasterController.ScoreModify(0, 1, 0, true, false);
-                if(Level.level == 3)
-                {
-                    Level.level3Monitor = true;
-                }
-            }
-        }
-    }
 }
