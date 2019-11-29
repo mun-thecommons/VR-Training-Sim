@@ -87,13 +87,14 @@ public class CashClient : MonoBehaviour
         if (campusCard.GetComponent<CampusCard>().expired)
         {
             cashCanvasText.text = "Oh my! Thank you I never realized it was expired!";
+
         }
 
         else
         {
-            cashCanvasText.text = "That seems like more than I remember but perfect! Thank you!";
+            cashCanvasText.text = "That seems like more than I remember, but perfect! Thank you!";
         }
-
+        MasterController.ScoreModify(1, 1, 0, true, true);
         Level.level2Cash = true;
         if (timer <= 2f)
         {

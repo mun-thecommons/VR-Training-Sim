@@ -97,13 +97,7 @@ public class MasterController : MonoBehaviour
     void Update()
     {
         labSatisfaction -= 20*Time.deltaTime*CollectibleManager.numOfTrash;                      //Lab satisfaction due to trash
-       
-        /* if (Rounds....)                                 // If rounds not done in certain amount of time subtract set amount of score
-        {
-            labSatisfaction -= 25;
-        }
-        */
-
+      
         DisplayInventory();
         DisplayTrashCount();
         TakeInput();
