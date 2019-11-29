@@ -5,17 +5,33 @@ using UnityEngine;
 public class RoundsController : MonoBehaviour
 {
 
-    public static float lastRounds = 0.0f;
+    // Static Variables for rounds timer
+    // and how many stations have been visited
+    public static float lastRounds;
+    public static int stationsVisited;
+    
+    private GameObject[] roundsStations;
+    private GameObject roundsCard;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        lastRounds = 0.0f;
+        stationsVisited = 0;
         
+        // Get all rounds stations and the rounds card
+        roundsStations = GameObject.FindGameObjectsWithTag("Rounds Station");
+        roundsCard = GameObject.FindWithTag("Rounds Card");
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         lastRounds += Time.deltaTime;
+        
+        // Reset lastRounds counter after all 4 stations are visited
+        if (stationsVisited >= 4)
+        {
+            stationsVisited = 0;
+            lastRounds = 0.0f;
+        }
     }
 }
