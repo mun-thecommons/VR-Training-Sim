@@ -9,6 +9,7 @@ public class Cashbox : MonoBehaviour
     private float textTimer = 0f;
     private string startingMessage = "Please insert your card";
     private bool startText = true;
+
     // Use this for initialization
     void Start()
     {
@@ -31,6 +32,7 @@ public class Cashbox : MonoBehaviour
     {
         if (other.CompareTag("CampusCard"))
         {
+            CashClient.cardChecked = true;
             if (other.GetComponent<CampusCard>().expired)
             {
                 displayText.text = "Expired";

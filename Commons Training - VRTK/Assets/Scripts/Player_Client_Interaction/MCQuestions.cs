@@ -31,7 +31,6 @@ public class MCQuestions : MonoBehaviour {
     private GameObject[] buttonArray;
     private GameObject questions;
     private Canvas mcQuestionsCanvas;
-    private Canvas mcClientInteraction;
     private int currentAnswerIndex = 0;
     private float y;
 
@@ -45,7 +44,6 @@ public class MCQuestions : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         mcQuestionsCanvas = GameObject.FindGameObjectWithTag("MCQuestionCanvas").GetComponent<Canvas>();
-        mcClientInteraction = GameObject.FindGameObjectWithTag("MCClientInteraction").GetComponent<Canvas>();
         y = transform.rotation.y;
     }
 
@@ -64,8 +62,6 @@ public class MCQuestions : MonoBehaviour {
 
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            //Debug.Log("Close to player");
-            mcClientInteraction.enabled = (client.askingQuestion || questionAnswered) ? false : true;
 
             if (OVRInput.GetDown(OVRInput.RawButton.A) && !questionAnswered && questionSetup)
             {
@@ -81,10 +77,6 @@ public class MCQuestions : MonoBehaviour {
                     MasterController.EnableMovement();
                 }
             }
-        }
-        else
-        {
-            mcClientInteraction.enabled = false;
         }
         
         if(questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)

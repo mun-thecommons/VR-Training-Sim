@@ -9,19 +9,18 @@ public class TrackerController : MonoBehaviour
     public TextMeshProUGUI countTaskA;
     public TextMeshProUGUI countTaskB;
     public TextMeshProUGUI countTaskC;
-
-    public GameObject[] taskList;
+    public GameObject[] trackerUpdate;
     private Canvas trackerCanvas;
     private int taskListIndex = 0;
     public GameObject HUD;
-    private Canvas HUDCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
         SetTrackerStats();
         trackerCanvas = gameObject.GetComponent<Canvas>();
-        HUDCanvas = HUD.GetComponent<Canvas>();
-        taskList[0].GetComponent<Image>().color = Color.red;
+        trackerCanvas.enabled = false;
+        trackerUpdate[0].GetComponent<Image>().color = Color.red;
     }
 
     // Update is called once per frame
@@ -34,22 +33,28 @@ public class TrackerController : MonoBehaviour
     {
         if (!MasterController.inMenu && MasterController.inTracker)
         {
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)||OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
             {
-                taskList[taskListIndex].GetComponent<Image>().color = Color.white;
+                trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.white;
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)|| OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
+                {
+                    taskListIndex = taskListIndex == trackerUpdate.Length-1 ? taskListIndex : (taskListIndex % 2 == 0) ? (taskListIndex + 1) : (taskListIndex-1);
+                }
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+                {
+                    taskListIndex = ((taskListIndex == 0) || (taskListIndex == 1)) ? (trackerUpdate.Length-1) : (taskListIndex-2);
+                }
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
                 {
-                    taskListIndex = (taskListIndex + 1) <= (taskList.Length - 1) ? (taskListIndex + 1) : 0;
+                    taskListIndex = ((taskListIndex == trackerUpdate.Length-1)) ? 0 : taskListIndex == trackerUpdate.Length-2 ? (taskListIndex+1) : taskListIndex+2;
                 }
-                else
-                {
-                    taskListIndex = taskListIndex - 1 >= 0 ? taskListIndex - 1 : taskList.Length - 1;
-                }
-                taskList[taskListIndex].GetComponent<Image>().color = Color.red;
+                
+                
+                trackerUpdate[taskListIndex].GetComponent<Image>().color = Color.red;
             }
             else if (OVRInput.GetDown(OVRInput.RawButton.X))
             {
-                if (taskListIndex == taskList.Length - 1)
+                if (taskListIndex == trackerUpdate.Length - 1)
                 {
                     ExitTracker();
                 }
@@ -61,10 +66,19 @@ public class TrackerController : MonoBehaviour
                             MasterController.trackerTaskA++;
                             break;
                         case 1:
-                            MasterController.trackerTaskB++;
+                            MasterController.trackerTaskA = MasterController.trackerTaskA == 0 ? 0 : MasterController.trackerTaskA-1;
                             break;
                         case 2:
+                            MasterController.trackerTaskB++;
+                            break;
+                        case 3:
+                            MasterController.trackerTaskB = MasterController.trackerTaskB == 0 ? 0 : MasterController.trackerTaskB-1;
+                            break;
+                        case 4:
                             MasterController.trackerTaskC++;
+                            break;
+                        case 5:
+                            MasterController.trackerTaskC = MasterController.trackerTaskC == 0 ? 0 : MasterController.trackerTaskC-1;
                             break;
                     }
                     SetTrackerStats();
@@ -83,8 +97,13 @@ public class TrackerController : MonoBehaviour
 
     void ExitTracker()
     {
+        
+        //Turn off Tracker Canvas
         trackerCanvas.enabled = false;
         MasterController.inTracker = false;
+        //turn on HUD Canvas
+        
+        //Enable movement
         MasterController.EnableMovement();
     } 
 

@@ -11,9 +11,11 @@ TagManager:
   - Client
   - QuestionCanvas
   - AnswersCanvas
+  - roundsCard
   - CampusCard
   - USB
   - USBox
+  - Station
   - Paper
   - StaplerThrow
   - Monitor
@@ -40,9 +42,7 @@ TagManager:
   - RoundPillar
   - Alien
   - Robbie
-  - InteractCanvas
-  - RoundsCard
-  - RoundsStation
+  - MCQuestionCanvas
   layers:
   - Default
   - TransparentFX
@@ -53,8 +53,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Grabbable
-  - Player
+  - 
+  - 
   - 
   - 
   - 
