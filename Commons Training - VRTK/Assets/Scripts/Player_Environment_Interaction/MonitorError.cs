@@ -3,24 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonitorError : MonoBehaviour
-{    
-    
-    public GameObject[] childMonitors;
+{
+    public GameObject[] monitors;
+    public float minWait, maxWait;
 
-    private int index;
+    private float timer;
+    private float timeToWait;
 
-    void Start()
+    private void Start()
     {
-        index = Random.Range(0, childMonitors.Length);
 
-        childMonitors[index].GetComponent<MonitorController>().errorState = true;
+        monitors = GameObject.FindGameObjectsWithTag("Monitor");
+        timer = 0.0f;
+        timeToWait = Random.Range(minWait, maxWait);
     }
 
-    public void ErrorAll()
+    private void Update()
     {
-        foreach(GameObject childMonitor in childMonitors)
+        if (timer >= timeToWait)
         {
-            childMonitors[index].GetComponent<MonitorController>().errorState = true;
+            int index = Random.Range(0, monitors.Length - 1);
+            monitors[index].GetComponent<MonitorController>().Break();
+
+            timer = 0.0f;
+            timeToWait = Random.Range(minWait, maxWait);
         }
+
+        timer += Time.deltaTime;
     }
 }
