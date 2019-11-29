@@ -19,19 +19,24 @@ public class RoundsController : MonoBehaviour
         stationsVisited = 0;
         
         // Get all rounds stations and the rounds card
-        roundsStations = GameObject.FindGameObjectsWithTag("Rounds Station");
-        roundsCard = GameObject.FindWithTag("Rounds Card");
+        roundsStations = GameObject.FindGameObjectsWithTag("RoundsStation");
+        roundsCard = GameObject.FindWithTag("RoundsCard");
     }
     
     void Update()
     {
         lastRounds += Time.deltaTime;
         
-        // Reset lastRounds counter after all 4 stations are visited
-        if (stationsVisited >= 4)
+        // Reset lastRounds counter after all stations are visited
+        if (stationsVisited >= roundsStations.Length)
         {
             stationsVisited = 0;
             lastRounds = 0.0f;
+
+            foreach (GameObject station in roundsStations)
+            {
+                station.GetComponent<RoundsStation>().stationVisited = false;
+            }
         }
     }
 }
