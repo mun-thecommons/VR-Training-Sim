@@ -9,26 +9,18 @@ TagManager:
   - Hand
   - PlayerUIScore
   - Client
-  - ButtonA
-  - ButtonB
-  - ButtonC
-  - ButtonD
   - QuestionCanvas
   - AnswersCanvas
-  - roundsCard
   - CampusCard
   - USB
   - USBox
-  - Station
   - Paper
   - StaplerThrow
   - Monitor
   - Printer
-  - Enemy
   - Coin
   - UIMenuOption
   - MCButtons
-  - Destination
   - MCQuestion
   - StaplerCount
   - CoinCount
@@ -44,6 +36,13 @@ TagManager:
   - ScrapPaperCount
   - Supervisor
   - Teleportation
+  - SF_Door
+  - RoundPillar
+  - Alien
+  - Robbie
+  - InteractCanvas
+  - RoundsCard
+  - RoundsStation
   layers:
   - Default
   - TransparentFX
@@ -54,8 +53,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Grabbable
+  - Player
   - 
   - 
   - 
