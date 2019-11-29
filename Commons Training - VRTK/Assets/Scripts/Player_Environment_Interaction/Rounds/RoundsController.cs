@@ -8,6 +8,7 @@ public class RoundsController : MonoBehaviour
     // Static Variables for rounds timer
     // and how many stations have been visited
     public static float lastRounds;
+    public static float roundsInterval;
     public static int stationsVisited;
     
     private GameObject[] roundsStations;
@@ -16,6 +17,8 @@ public class RoundsController : MonoBehaviour
     void Awake()
     {
         lastRounds = 0.0f;
+        // Rounds must be completed every 30 minutes
+        roundsInterval = 1800.0f;
         stationsVisited = 0;
         
         // Get all rounds stations and the rounds card
