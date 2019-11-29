@@ -9,7 +9,8 @@ using OVRTouchSample;
 using System.Text.RegularExpressions;
 
 public class CashClient : MonoBehaviour
-{   public GameObject greetings;
+{
+    public GameObject greetings;
     private bool questionSetup = false;
 
     public TextMeshProUGUI cashCanvasText;
@@ -51,19 +52,19 @@ public class CashClient : MonoBehaviour
                 cashCanvasText.text = "Excuse me, can you check if there is an issue with my campus card? Please try my card at the cash box.";
             }
 
-            if(timer <= 0f && !Level.level2Cash)
+            if (timer <= 0f && !Level.level2Cash)
             {
                 cashCanvasText.text = "";
             }
 
-            if(cardChecked)
+            if (cardChecked)        //Ensures card was swiped through Black box before client gives a response to player
             {
                 CardCheckResponse();
             }
 
         }
 
-        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)
+        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)       // This allows for the client to lookat at the player when it is within 3 units of it
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             transform.LookAt(targetPosition);
@@ -94,8 +95,10 @@ public class CashClient : MonoBehaviour
         {
             cashCanvasText.text = "That seems like more than I remember, but perfect! Thank you!";
         }
-        MasterController.ScoreModify(1, 1, 0, true, true);
+
+        MasterController.ScoreModify(1, 1, 0, true, true);      // +1 Professionalism and +1 Customer Service
         Level.level2Cash = true;
+
         if (timer <= 2f)
         {
             cashCanvasText.text = "";
@@ -103,8 +106,8 @@ public class CashClient : MonoBehaviour
             GetComponent<TestAnimatorController>().animator.SetBool("CardReturned", true);
         }
 
-        Destroy(campusCard, 2f);
-        Destroy(gameObject, 10f);
+        Destroy(campusCard, 4f);
+        Destroy(gameObject, 20f);
         Debug.Log(transform.position);
         Debug.Log(GetComponent<NavMeshAgent>().destination);
 
