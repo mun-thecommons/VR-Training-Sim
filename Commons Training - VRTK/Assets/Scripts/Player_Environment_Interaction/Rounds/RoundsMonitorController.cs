@@ -27,27 +27,32 @@ public class RoundsMonitorController : MonoBehaviour
 
     private void UpdateTime(float time)
     {
-        Debug.Log(monitorControllerScript.isBroken.ToString());
         if (monitorControllerScript.isBroken)
         {
             roundsTimerText.text = "";
         }
         else
         {
+            // Prettefy the last rounds timer to the format mm:ss
+            int timeSeconds = Mathf.RoundToInt(time);
+
+            int minutes = timeSeconds / 60;
+
+            string secondsStr = (timeSeconds % 60 < 10) ? ("0" + (timeSeconds % 60).ToString()) : (timeSeconds % 60).ToString();
+            string timeStr = minutes.ToString() + ":" + secondsStr;
+
             if (time <= RoundsController.roundsInterval)
             {
-                int timeSeconds = Mathf.RoundToInt(time);
-
-                int minutes = timeSeconds / 60;
-
-                string secondsStr = (timeSeconds % 60 < 10) ? ("0" + (timeSeconds % 60).ToString()) : (timeSeconds % 60).ToString();
-                string timeStr = minutes.ToString() + ":" + secondsStr;
-
                 roundsTimerText.text = "      Last\nRounds: " + timeStr;
+
+                // Green
+                roundsTimerText.color = new Color(0.14f, 0.85f, 0.15f);
             }
             else
             {
-                roundsTimerText.text = "      Rounds\nNeeded!";
+                roundsTimerText.text = "      Rounds\nNeeded! " + timeStr;
+
+                roundsTimerText.color = Color.red;
             }
 
         }

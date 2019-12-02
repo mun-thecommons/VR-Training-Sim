@@ -17,8 +17,9 @@ public class RoundsController : MonoBehaviour
     void Awake()
     {
         lastRounds = 0.0f;
+
         // Rounds must be completed every 30 minutes
-        roundsInterval = 1800.0f;
+        roundsInterval = 10.0f;
         stationsVisited = 0;
         
         // Get all rounds stations and the rounds card
@@ -28,17 +29,23 @@ public class RoundsController : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(stationsVisited);
+
         lastRounds += Time.deltaTime;
         
         // Reset lastRounds counter after all stations are visited
         if (stationsVisited >= roundsStations.Length)
         {
-            stationsVisited = 0;
             lastRounds = 0.0f;
+            stationsVisited = 0;
+        }
 
+        // Enable all rounds stations when rounds are needed again
+        if (lastRounds >= roundsInterval)
+        {
             foreach (GameObject station in roundsStations)
             {
-                station.GetComponent<RoundsStation>().stationVisited = false;
+                station.GetComponent<RoundsStation>().stationEnabled = true;
             }
         }
     }
