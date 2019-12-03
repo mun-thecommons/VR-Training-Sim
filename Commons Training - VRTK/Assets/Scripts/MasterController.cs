@@ -148,6 +148,7 @@ public class MasterController : MonoBehaviour
                 mainCanvas.enabled = false;
                 EnableMovement();
                 inMenu = false;
+               
             }
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
@@ -189,7 +190,7 @@ public class MasterController : MonoBehaviour
                 }
                 else
                 {
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    // UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
             }

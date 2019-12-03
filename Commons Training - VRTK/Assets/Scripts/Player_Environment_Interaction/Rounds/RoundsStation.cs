@@ -8,9 +8,10 @@ public class RoundsStation : MonoBehaviour
     public bool stationEnabled = true;
     public AudioClip swipeComplete;
     public GameObject roundsLight;
+    public Light roundsPointLight;
+
 
     private Renderer roundsLightRenderer;
-    private Light roundsPointLight;
 
     private AudioSource stationAudio;
 
@@ -21,7 +22,6 @@ public class RoundsStation : MonoBehaviour
     private void Start()
     {
         stationAudio = GetComponent<AudioSource>();
-        roundsPointLight = GetComponent<Light>();
         roundsLightRenderer = roundsLight.GetComponent<Renderer>();
 
 

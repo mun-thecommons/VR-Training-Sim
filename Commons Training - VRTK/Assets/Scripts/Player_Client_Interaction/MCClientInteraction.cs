@@ -10,11 +10,11 @@ public class MCClientInteraction : MonoBehaviour
     public GameObject player;
     public Canvas questionsCanvas;
 
-    private Canvas canvas;
+    public Canvas clientCanvas;
 
     private void Start()
     {
-        canvas = GetComponent<Canvas>();
+        //canvas = GetComponent<Canvas>();
     }
     void Update()
     {
@@ -32,10 +32,10 @@ public class MCClientInteraction : MonoBehaviour
             }
             if(Vector3.Distance(child.position, player.transform.position) < 3f & !questionsCanvas.enabled)
             {
-                canvas.enabled = true;
+                clientCanvas.enabled = true;
                 return;
             }
         }
-        canvas.enabled = false;
+        clientCanvas.enabled = false;
     }
 }
