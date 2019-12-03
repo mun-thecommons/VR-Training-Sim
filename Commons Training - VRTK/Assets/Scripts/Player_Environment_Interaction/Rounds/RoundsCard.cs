@@ -8,8 +8,8 @@ public class RoundsCard : MonoBehaviour
     // can be left alone before resetting.
     public float maxTime = 15.0f;
 
-    private float timeUntouched;
-    private bool beingTouched = false;
+    public float timeUntouched;
+    public bool beingTouched = false;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;

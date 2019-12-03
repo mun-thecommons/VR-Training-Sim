@@ -34,9 +34,9 @@ public class AlienManager : MonoBehaviour
     {
         if(/*MasterController.labSatisfaction < 1000&& */ GameObject.FindGameObjectsWithTag("Alien").Length <= howManyAlien)
         {
-            randInd = Random.Range(0, spawnPositions.Count-1);
+            randInd = Random.Range(0, spawnPositions.Count - 1);
             spawnPosition = spawnPositions[randInd];
-            spawnPositions.RemoveAt(randInd);
+            //spawnPositions.RemoveAt(randInd);
             alien = Instantiate(alienPrefab, spawnPosition, alienPrefab.transform.rotation) as GameObject;
             alien.transform.parent = alientParent.transform;
         }
