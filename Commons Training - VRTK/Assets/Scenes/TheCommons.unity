@@ -107,7 +107,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 3
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2afb1580d233bfb4b8f013e5f1f0691c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6a74ffcc86593ba44bbda262f3aef17f, type: 2}
 --- !u!1 &1586341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,13 +1540,13 @@ MonoBehaviour:
   m_margin: {x: 0.93088883, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 32129424}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -16274,7 +16274,7 @@ RectTransform:
   m_Children:
   - {fileID: 879900220}
   m_Father: {fileID: 1942494305}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20377,13 +20377,13 @@ MonoBehaviour:
   m_margin: {x: -264.41736, y: 0, z: -267.78928, w: -1.8805923}
   m_textInfo:
     textComponent: {fileID: 567671068}
-    characterCount: 13
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -26677,13 +26677,13 @@ MonoBehaviour:
   m_margin: {x: -0.44972387, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 707021528}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -44469,6 +44469,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3889969136904188550, guid: dce438419a6038446a0f885c8d83be70,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6773666437352650531, guid: dce438419a6038446a0f885c8d83be70,
         type: 3}
       propertyPath: m_IsActive
@@ -46599,11 +46604,11 @@ GameObject:
   - component: {fileID: 1215767167}
   m_Layer: 5
   m_Name: MCQuestionsCanvas
-  m_TagString: Untagged
+  m_TagString: MCQuestionCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1215767163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46650,7 +46655,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215767162}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 93230664}
@@ -48444,13 +48449,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.3347559, w: 0}
   m_textInfo:
     textComponent: {fileID: 1252722753}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -74510,13 +74515,13 @@ MonoBehaviour:
   m_margin: {x: -264.41736, y: 0, z: -267.78928, w: -1.8805923}
   m_textInfo:
     textComponent: {fileID: 1933714933}
-    characterCount: 66
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 11
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -74654,9 +74659,9 @@ Transform:
   - {fileID: 18728080}
   - {fileID: 1848976803}
   - {fileID: 670091664}
+  - {fileID: 423499800}
   - {fileID: 1164206835}
   - {fileID: 774275846}
-  - {fileID: 423499800}
   - {fileID: 509493829}
   - {fileID: 2110336433}
   - {fileID: 858217254}
@@ -81987,13 +81992,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 1.5198582, w: 0}
   m_textInfo:
     textComponent: {fileID: 2141219382}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

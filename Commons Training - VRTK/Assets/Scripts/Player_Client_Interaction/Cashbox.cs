@@ -21,11 +21,12 @@ public class Cashbox : MonoBehaviour
     void Update()
     {
         textTimer -= Time.deltaTime;
-        if(textTimer <= 0f && !startText)
-        {
-            displayText.text = startingMessage;
-            startText = true;
-        }
+
+        if (textTimer <= 0f && !startText)
+            {
+                displayText.text = startingMessage;
+                startText = true;
+            }
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,14 +34,16 @@ public class Cashbox : MonoBehaviour
         if (other.CompareTag("CampusCard"))
         {
             CashClient.cardChecked = true;
+
             if (other.GetComponent<CampusCard>().expired)
-            {
-                displayText.text = "Expired";
-            }
+                {
+                    displayText.text = "Expired";
+                }
             else
-            {
-                displayText.text = "Balance: $500";
-            }
+                {
+                    displayText.text = "Balance: $100";
+                }
+
             startText = false;
             textTimer = 5f;
         }
