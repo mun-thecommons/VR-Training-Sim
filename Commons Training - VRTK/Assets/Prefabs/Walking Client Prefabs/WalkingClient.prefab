@@ -852,7 +852,6 @@ GameObject:
   - component: {fileID: 4403189241673339422}
   - component: {fileID: 66644298007240135}
   - component: {fileID: 2197650145471664580}
-  - component: {fileID: 5246971375982635728}
   - component: {fileID: 6229091454972687383}
   m_Layer: 0
   m_Name: WalkingClient
@@ -1014,20 +1013,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5246971375982635728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4231221206325526612}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c68d057ca81de548bf509a897cc87ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {x: 0, y: 0, z: 0}
-  deskGoal: {x: 0, y: 0, z: 0}
 --- !u!114 &6229091454972687383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,6 +1175,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

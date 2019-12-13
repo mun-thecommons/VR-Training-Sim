@@ -58,7 +58,8 @@ public class ClientManager : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         SpawnClient();
-	}
+        Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+    }
 
     void SpawnClient()
     {
@@ -69,8 +70,10 @@ public class ClientManager : MonoBehaviour {
             cashGoal = new Vector3(-9.78f, yPos, -16.8f);
             cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
             cashClient = true;
-            Debug.Log("Cashbox client dest : " + cashBoxClient.GetComponent<NavMeshAgent>().destination);
-            Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+            /* Debug.Log("Cashbox client dest : " + cashBoxClient.GetComponent<NavMeshAgent>().destination);
+             Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+             Debug.Log("Path pending: " + cashBoxClient.GetComponent<NavMeshAgent>().pathPending);
+             */
             cashBoxClient.transform.parent = gameObject.transform;
         }
 

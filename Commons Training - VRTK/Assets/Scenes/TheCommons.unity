@@ -18569,6 +18569,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ea3b0bb89efe5ba47ab1fdbc422a3baf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ea3b0bb89efe5ba47ab1fdbc422a3baf,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea3b0bb89efe5ba47ab1fdbc422a3baf, type: 3}
 --- !u!1 &498753298
@@ -82774,6 +82784,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735762152349815118, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.3063102
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.1673086
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 5.8619523
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.1122797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -1.9665173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750317632173163647, guid: 8b8e9689f37f30b42ab45ff96160d21f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.358068
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8e9689f37f30b42ab45ff96160d21f, type: 3}
