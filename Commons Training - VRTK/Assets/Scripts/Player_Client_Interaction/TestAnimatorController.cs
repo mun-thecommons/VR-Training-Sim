@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class TestAnimatorController : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     public Vector3 goal;
     public Vector3 deskGoal;
     public Vector3 cashGoal;
@@ -25,11 +25,15 @@ public class TestAnimatorController : MonoBehaviour
             animator.SetBool("Stop", true);
             GetComponent<NavMeshAgent>().isStopped = true;
         }
-        if (Level.level3ClientDesk == true)
+        if (Level.level3ClientDesk)
         {
             animator.SetBool("Finished", true);
             GetComponent<NavMeshAgent>().isStopped = false;
         }
-
+        if (Level.level2Cash)
+        {
+           // animator.SetBool("CardReturned", true);
+            GetComponent<NavMeshAgent>().isStopped = false;
+        }
     }
 }

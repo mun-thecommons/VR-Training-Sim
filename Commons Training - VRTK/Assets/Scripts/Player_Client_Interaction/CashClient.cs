@@ -10,18 +10,16 @@ using System.Text.RegularExpressions;
 
 public class CashClient : MonoBehaviour
 {
-    private bool appear = false;
     public GameObject greetings;
     private bool questionSetup = false;
-    private Canvas mcClientInteraction;
 
     public TextMeshProUGUI cashCanvasText;
-
+    public static bool cardChecked = false;
+    
     private Client client;
     public GameObject player;
-    private MeshRenderer campusCard;
-
-    private bool questionAsked = false;
+    [HideInInspector]
+    public GameObject campusCard;
     public bool questionAnswered = false;
 
     private bool done = false;
@@ -29,48 +27,44 @@ public class CashClient : MonoBehaviour
 
     void Start()
     {
-        mcClientInteraction = GameObject.FindGameObjectWithTag("MCClientInteraction").GetComponent<Canvas>();
         client = GetComponent<Client>();
-        campusCard = GameObject.FindGameObjectWithTag("CampusCard").GetComponent<MeshRenderer>();
+        campusCard = GameObject.Find("CampusCard");
         player = GameObject.FindGameObjectWithTag("Player");
 
     }
 
     void Update()
     {
-        if (client.askingQuestion && !questionAsked && timer <= 0 && !done)
-        {
-            questionAsked = true;
-        }
-
         if (GetComponent<NavMeshAgent>().isStopped && !questionSetup)
         {
             greetings.GetComponent<Canvas>().enabled = true;
             questionSetup = true;
         }
 
-        if (Vector3.Distance(transform.position, player.transform.position) < 5f)
+        if (questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
-            mcClientInteraction.enabled = (questionAnswered) ? false : true;
-
-            if (mcClientInteraction.enabled == true && !appear)
-            {
-                Debug.Log("Should be Appearing");
-                appear = true;
-            }
 
             if (OVRInput.GetDown(OVRInput.RawButton.A))
             {
-                
-                campusCard.enabled = true;
-                Debug.Log(campusCard.enabled);
+                timer = 5f;
+                campusCard.GetComponent<MeshRenderer>().enabled = true;
                 cashCanvasText.fontSize = 9;
                 cashCanvasText.text = "Excuse me, can you check if there is an issue with my campus card? Please try my card at the cash box.";
-                
             }
+
+            if (timer <= 0f && !Level.level2Cash)
+            {
+                cashCanvasText.text = "";
+            }
+
+            if (cardChecked)        //Ensures card was swiped through Black box before client gives a response to player
+            {
+                CardCheckResponse();
+            }
+
         }
 
-        if (questionSetup && Vector3.Distance(transform.position, player.transform.position) < 5f)
+        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f)       // This allows for the client to lookat at the player when it is within 3 units of it
         {
             Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             transform.LookAt(targetPosition);
@@ -78,6 +72,44 @@ public class CashClient : MonoBehaviour
 
         timer -= Time.deltaTime;
     }
-   
-    
+
+    private void OnDestroy()
+    {
+        ClientManager.cashClient = false;
+    }
+
+
+    void CardCheckResponse()
+    {
+        if (!Level.level2Cash)
+        {
+            timer = 3f;
+        }
+        if (campusCard.GetComponent<CampusCard>().expired)
+        {
+            cashCanvasText.text = "Oh my! Thank you I never realized it was expired!";
+
+        }
+
+        else
+        {
+            cashCanvasText.text = "That seems like more than I remember, but perfect! Thank you!";
+        }
+
+        MasterController.ScoreModify(1, 1, 0, true, true);      // +1 Professionalism and +1 Customer Service
+        Level.level2Cash = true;
+
+        if (timer <= 2f)
+        {
+            cashCanvasText.text = "";
+            GetComponent<NavMeshAgent>().destination = new Vector3(-30.28f, 0.08f, -35.9f);
+            GetComponent<TestAnimatorController>().animator.SetBool("CardReturned", true);
+        }
+
+        Destroy(campusCard, 4f);
+        Destroy(gameObject, 20f);
+        Debug.Log(transform.position);
+        Debug.Log(GetComponent<NavMeshAgent>().destination);
+
+    }
 }

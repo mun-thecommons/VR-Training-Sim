@@ -63,7 +63,7 @@ public class MasterController : MonoBehaviour
     public GameObject exitGameButton;
     public GameObject operationButton;
     public GameObject[] uiMenuOptionsArray;
-    private GameObject player;
+    public GameObject player;
     private IEnumerator accessMainframe;
     public int numOfDots; //mainFrameText Coroutine
     private Canvas trackerCanvas;
@@ -76,13 +76,12 @@ public class MasterController : MonoBehaviour
         scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
         totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
         mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
-        playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
+        playerController = player.GetComponent<OVRPlayerController>();
         mainCanvas = gameObject.GetComponent<Canvas>();
         mainCanvas.enabled = false;
         audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
         FileParse("instructions", instructions);
 
-        player = GameObject.Find("OVRPlayerController");
         baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
         metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
         plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
@@ -98,29 +97,25 @@ public class MasterController : MonoBehaviour
     void Update()
     {
         labSatisfaction -= 20*Time.deltaTime*CollectibleManager.numOfTrash;                      //Lab satisfaction due to trash
-       
-        /* if (Rounds....)                                 // If rounds not done in certain amount of time subtract set amount of score
-        {
-            labSatisfaction -= 25;
-        }
-        */
-
+      
         DisplayInventory();
         DisplayTrashCount();
         TakeInput();
     }
 
-
+    
     public static void DisableMovement()
     {
         //teleportFunction.SetActive(false);
-        playerController.enabled = false;
+        playerController.EnableLinearMovement = false;
+        playerController.EnableRotation = false;
     }
 
     public static void EnableMovement()
     {
         //teleportFunction.SetActive(true);
-        playerController.enabled = true;
+        playerController.EnableLinearMovement = true;
+        playerController.EnableRotation = true;
     }
 
     //reading instr from the file
@@ -153,6 +148,7 @@ public class MasterController : MonoBehaviour
                 mainCanvas.enabled = false;
                 EnableMovement();
                 inMenu = false;
+               
             }
         }
         //disables player's movements and allows to scroll through instrxns in the mainframe canvas
@@ -194,7 +190,7 @@ public class MasterController : MonoBehaviour
                 }
                 else
                 {
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    // UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
             }
