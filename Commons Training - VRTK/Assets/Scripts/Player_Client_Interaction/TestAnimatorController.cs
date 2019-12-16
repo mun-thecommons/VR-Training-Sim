@@ -34,8 +34,7 @@ public class TestAnimatorController : MonoBehaviour
         }
         if (Level.level2Cash)
         {
-            //animator.SetBool("CardReturned", true);         //Used by CashClient... Once player has checked their balance and returned the card the client walks away
-            navAgent.isStopped = false;
+            //navAgent.isStopped = false;
         }
     }
 }

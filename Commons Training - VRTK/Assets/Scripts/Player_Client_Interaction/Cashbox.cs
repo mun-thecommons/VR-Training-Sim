@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Cashbox : MonoBehaviour
 {
     private TextMeshPro displayText;
     private float textTimer = 0f;
-    private string startingMessage = "Please insert your card";
+    private string startingMessage = "To Add Funds, Please Insert Campus card";
     private bool startText = true;
+    public Image lcdScreen;
 
     // Use this for initialization
     void Start()
@@ -24,6 +26,8 @@ public class Cashbox : MonoBehaviour
 
         if (textTimer <= 0f && !startText)
             {
+                displayText.fontSize = 108f;
+                lcdScreen.color = new Color32(155, 192, 164, 255);
                 displayText.text = startingMessage;
                 startText = true;
             }
@@ -34,14 +38,15 @@ public class Cashbox : MonoBehaviour
         if (other.CompareTag("CampusCard"))
         {
             CashClient.cardChecked = true;
-
+            displayText.fontSize = 150f;
             if (other.GetComponent<CampusCard>().expired)
                 {
-                    displayText.text = "Expired";
+                    lcdScreen.color = new Color32(219, 85, 95, 255);
+                    displayText.text = " \n Expired";
                 }
             else
                 {
-                    displayText.text = "Balance: $100";
+                    displayText.text = " \n Balance: $100";
                 }
 
             startText = false;
