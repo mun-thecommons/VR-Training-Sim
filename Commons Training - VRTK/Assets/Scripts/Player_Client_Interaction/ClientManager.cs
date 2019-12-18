@@ -25,11 +25,12 @@ public class ClientManager : MonoBehaviour {
     static private List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
     private Vector3 spawnPositionWalk;
-    public int numOfWalkingClient = 3;
+    public int numOfWalkingClient;
     static public List<Vector3> destinationPositions = new List<Vector3>();
 
     private GameObject client;
     private GameObject npcClient;
+    private int npcSpawned = 0;
     static private float timer = 5f;
     static private float resetTimer = 5f;
     private int randInd;
@@ -64,53 +65,61 @@ public class ClientManager : MonoBehaviour {
     void SpawnClient()
     {
         if (!cashClient && Level.level > 0)
-        {
-            int cashClientInd = Random.Range(0, cashBoxClients.Count - 1);
-            cashBoxClient = Instantiate(cashBoxClients[cashClientInd], spawnPositionCash, cashBoxClients[cashClientInd].transform.rotation) as GameObject;
-            cashGoal = new Vector3(-9.78f, yPos, -16.8f);
-            cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
-            cashClient = true;
-            /* Debug.Log("Cashbox client dest : " + cashBoxClient.GetComponent<NavMeshAgent>().destination);
-             Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
-             Debug.Log("Path pending: " + cashBoxClient.GetComponent<NavMeshAgent>().pathPending);
-             */
-            cashBoxClient.transform.parent = gameObject.transform;
-        }
+            {
+                int cashClientInd = Random.Range(0, cashBoxClients.Count - 1);
+                cashBoxClient = Instantiate(cashBoxClients[cashClientInd], spawnPositionCash, cashBoxClients[cashClientInd].transform.rotation) as GameObject;
+                cashGoal = new Vector3(-9.78f, yPos, -16.8f);
+                cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
+                cashClient = true;
+                /* Debug.Log("Cashbox client dest : " + cashBoxClient.GetComponent<NavMeshAgent>().destination);
+                 Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+                 Debug.Log("Path pending: " + cashBoxClient.GetComponent<NavMeshAgent>().pathPending);
+                 */
+                cashBoxClient.transform.parent = gameObject.transform;
+            }
 
         if (!deskClient && Level.level > 1)
-        {
-            int deskClientInd = Random.Range(0, mainDeskClients.Count - 1);
-            mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
-            deskGoal = new Vector3(-3.6f, yPos, -12.0f);
-            mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
-            deskClient = true;
-            mainDeskClient.transform.parent = gameObject.transform;
-        }
+            {
+                int deskClientInd = Random.Range(0, mainDeskClients.Count - 1);
+                mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
+                deskGoal = new Vector3(-3.6f, yPos, -12.0f);
+                mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
+                deskClient = true;
+                mainDeskClient.transform.parent = gameObject.transform;
+            }
 
-        if (timer <= 0 && destinationPositions.Count > 0 && spawnPositions.Count > 0)
-        {
-            randInd = Random.Range(0, spawnPositions.Count - 1);
-            spawnPosition = spawnPositions[randInd];
-            randInd = Random.Range(0, destinationPositions.Count - 1);
-            goal = destinationPositions[randInd];
-            spawnPositions.RemoveAt(randInd);
-            destinationPositions.RemoveAt(randInd);
+        if (timer <= 0)
+            {
+                if (destinationPositions.Count > 0 && spawnPositions.Count > 0)
+                    {
+                        randInd = Random.Range(0, spawnPositions.Count - 1);
+                        spawnPosition = spawnPositions[randInd];
+                        randInd = Random.Range(0, destinationPositions.Count - 1);
+                        goal = destinationPositions[randInd];
+                        spawnPositions.RemoveAt(randInd);
+                        destinationPositions.RemoveAt(randInd);
 
-            int mcClientInd = Random.Range(0, mcClient.Count - 1);
-            client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
-            client.GetComponent<NavMeshAgent>().destination = goal;
-            Debug.Log("MC client dest : " + client.GetComponent<NavMeshAgent>().destination);
-            Debug.Log("MC client remaining : " + client.GetComponent<NavMeshAgent>().remainingDistance);
+                        int mcClientInd = Random.Range(0, mcClient.Count - 1);
+                        client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
+                        client.GetComponent<NavMeshAgent>().destination = goal;
+                        Debug.Log("MC client dest : " + client.GetComponent<NavMeshAgent>().destination);
+                        Debug.Log("MC client remaining : " + client.GetComponent<NavMeshAgent>().remainingDistance);
 
 
-            int walkingInd = Random.Range(0, walkingClient.Count - 1);
-            npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
+                        client.transform.parent = gameObject.transform;
+                        clientsSpawned++;
+                }
 
-            client.transform.parent = gameObject.transform;
-            npcClient.transform.parent = gameObject.transform;
-            clientsSpawned++;
-            timer = resetTimer;
-        }
+                if (numOfWalkingClient > npcSpawned)
+                    {
+                        int walkingInd = Random.Range(0, walkingClient.Count - 1);
+                        npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
+                        npcSpawned += 1;
+                        npcClient.transform.parent = gameObject.transform;
+                    }
+
+                timer = resetTimer;
+            }
     }
 
 
