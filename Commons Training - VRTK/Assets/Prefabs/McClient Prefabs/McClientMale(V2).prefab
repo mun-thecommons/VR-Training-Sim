@@ -4863,10 +4863,6 @@ MonoBehaviour:
       _compatibleRaces:
       - HumanMale
       - HumanMaleDCS
-    - _recipeName: ClothRobeRecipe
-      _compatibleRaces:
-      - HumanMale
-      - HumanMaleDCS
     - _recipeName: MaleRobe Shoes
       _compatibleRaces:
       - HumanMale
@@ -4880,6 +4876,11 @@ MonoBehaviour:
       _compatibleRaces:
       - HumanMale
       - HumanMaleDCS
+    - _recipeName: MaleRobe
+      _compatibleRaces:
+      - HumanMale
+      - HumanMaleDCS
+      - HumanFemaleDCS
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: f8fd05f9804812045a89f2c2e449015a,
       type: 2}
