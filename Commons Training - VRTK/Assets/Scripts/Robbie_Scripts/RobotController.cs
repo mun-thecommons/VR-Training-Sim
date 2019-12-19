@@ -85,8 +85,12 @@ public class RobotController : MonoBehaviour
         else if (!movementEnabled)
         {
             MasterController.EnableMovement();
-            DisplayLevelMessage();
             movementEnabled = true;
+        }
+
+        else
+        {
+            DisplayLevelMessage();
         }
     }
     void Teleport()

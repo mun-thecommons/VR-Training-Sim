@@ -46,7 +46,7 @@ public class ClientManager : MonoBehaviour {
         spawnPositionsWalk.Add(new Vector3(-23.5f, yPos, 44.3f));
         spawnPositionsWalk.Add(new Vector3(3.7f, yPos, 34.2f));
         spawnPositionsWalk.Add(new Vector3(21.2f, yPos, -29.8f));
-        spawnPositionDesk = new Vector3(-15f, yPos, -4f);
+        spawnPositionDesk = new Vector3(-23.5f, yPos, 44.3f);
         spawnPositions.Add(new Vector3(-22f, yPos, -18f));
         spawnPositions.Add(new Vector3(3f, yPos, 7f));
         spawnPositions.Add(new Vector3(-2f, yPos, 20f));
@@ -85,7 +85,7 @@ public class ClientManager : MonoBehaviour {
             {
                 int deskClientInd = Random.Range(0, mainDeskClients.Count - 1);
                 mainDeskClient = Instantiate(mainDeskClients[deskClientInd], spawnPositionDesk, mainDeskClients[deskClientInd].transform.rotation) as GameObject;
-                deskGoal = new Vector3(-3.6f, yPos, -12.0f);
+                deskGoal = new Vector3(-18.158f, yPos, -4.131f);
                 mainDeskClient.GetComponent<NavMeshAgent>().destination = deskGoal;
                 deskClient = true;
                 mainDeskClient.transform.parent = gameObject.transform;
