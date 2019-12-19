@@ -24,7 +24,7 @@ public class ClientManager : MonoBehaviour {
     public List<GameObject> walkingClient = new List<GameObject>();
     static private List<Vector3> spawnPositions = new List<Vector3>();
     private Vector3 spawnPosition;
-    private Vector3 spawnPositionWalk;
+    static private List<Vector3> spawnPositionsWalk = new List<Vector3>();
     public int numOfWalkingClient;
     static public List<Vector3> destinationPositions = new List<Vector3>();
 
@@ -41,8 +41,11 @@ public class ClientManager : MonoBehaviour {
 
     private void Start()
     {
-        spawnPositionCash = new Vector3(-29.13f, yPos, 39.73f);      //Main entrance x,y,z Position --> -29.13f, yPos, 39.73f
-        spawnPositionWalk = new Vector3(-22f, yPos, -40f);
+        spawnPositionCash = new Vector3(-23.5f, yPos, 44.3f);      //Main entrance x,y,z Position --> -26.3f, yPos, 38.04f
+        spawnPositionsWalk.Add(new Vector3(-22f, yPos, -40f));
+        spawnPositionsWalk.Add(new Vector3(-23.5f, yPos, 44.3f));
+        spawnPositionsWalk.Add(new Vector3(3.7f, yPos, 34.2f));
+        spawnPositionsWalk.Add(new Vector3(21.2f, yPos, -29.8f));
         spawnPositionDesk = new Vector3(-15f, yPos, -4f);
         spawnPositions.Add(new Vector3(-22f, yPos, -18f));
         spawnPositions.Add(new Vector3(3f, yPos, 7f));
@@ -59,7 +62,7 @@ public class ClientManager : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         SpawnClient();
-        Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+        // Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
     }
 
     void SpawnClient()
@@ -94,14 +97,16 @@ public class ClientManager : MonoBehaviour {
                     {
                         randInd = Random.Range(0, spawnPositions.Count - 1);
                         spawnPosition = spawnPositions[randInd];
+                        spawnPositions.RemoveAt(randInd);
+
                         randInd = Random.Range(0, destinationPositions.Count - 1);
                         goal = destinationPositions[randInd];
-                        spawnPositions.RemoveAt(randInd);
                         destinationPositions.RemoveAt(randInd);
 
                         int mcClientInd = Random.Range(0, mcClient.Count - 1);
                         client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
                         client.GetComponent<NavMeshAgent>().destination = goal;
+
                         Debug.Log("MC client dest : " + client.GetComponent<NavMeshAgent>().destination);
                         Debug.Log("MC client remaining : " + client.GetComponent<NavMeshAgent>().remainingDistance);
 
@@ -113,8 +118,9 @@ public class ClientManager : MonoBehaviour {
                 if (numOfWalkingClient > npcSpawned)
                     {
                         int walkingInd = Random.Range(0, walkingClient.Count - 1);
-                        npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
-                        npcSpawned += 1;
+                        int spawnInd = Random.Range(0, spawnPositionsWalk.Count - 1);
+                        npcClient = Instantiate(walkingClient[walkingInd], spawnPositionsWalk[spawnInd], walkingClient[walkingInd].transform.rotation) as GameObject;
+                        npcSpawned++;
                         npcClient.transform.parent = gameObject.transform;
                     }
 

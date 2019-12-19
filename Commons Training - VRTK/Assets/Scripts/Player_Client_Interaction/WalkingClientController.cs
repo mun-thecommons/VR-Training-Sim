@@ -24,10 +24,17 @@ public class WalkingClientController : MonoBehaviour
         walkDestPos.Add(new Vector3(22.42f, yPos, -29.17f));
         walkDestPos.Add(new Vector3(18.45f, yPos, -23.68f));
         walkDestPos.Add(new Vector3(8.14f, yPos, -25.9f));
+        walkDestPos.Add(new Vector3(-22f, yPos, -40f));
+        walkDestPos.Add(new Vector3(24.9f, yPos, 27.6f));
+        walkDestPos.Add(new Vector3(3.7f, yPos, 34.2f));
+        walkDestPos.Add(new Vector3(21.2f, yPos, -29.8f));
+        walkDestPos.Add(new Vector3(-52.1f, yPos, -24.8f));
+        walkDestPos.Add(new Vector3(-50.3f, yPos, -41.2f));
+        walkDestPos.Add(new Vector3(-42.8f, yPos, -30.7f));
 
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-        destPoint = Random.Range(0, walkDestPos.Count);
+        destPoint = Random.Range(0, walkDestPos.Count-1);
     }
 
     void GotoNextPoint()
