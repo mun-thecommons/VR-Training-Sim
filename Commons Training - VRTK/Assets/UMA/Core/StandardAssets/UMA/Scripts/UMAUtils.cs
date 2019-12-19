@@ -142,7 +142,7 @@ namespace UMA
 #if UNITY_EDITOR
 			if (Application.isPlaying)
 			{
-				UnityEngine.Object.Destroy(obj);
+				UnityEngine.Object.DestroyImmediate(obj, true);
 			}
 			else
 			{

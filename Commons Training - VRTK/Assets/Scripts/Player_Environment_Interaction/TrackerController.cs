@@ -20,7 +20,7 @@ public class TrackerController : MonoBehaviour
         SetTrackerStats();
         trackerCanvas = gameObject.GetComponent<Canvas>();
         trackerCanvas.enabled = false;
-        trackerUpdate[0].GetComponent<Image>().color = Color.red;
+        //trackerUpdate[0].GetComponent<Image>().color = Color.red;
     }
 
     // Update is called once per frame

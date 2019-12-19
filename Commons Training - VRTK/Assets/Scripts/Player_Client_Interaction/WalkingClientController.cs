@@ -31,6 +31,7 @@ public class WalkingClientController : MonoBehaviour
         walkDestPos.Add(new Vector3(-52.1f, yPos, -24.8f));
         walkDestPos.Add(new Vector3(-50.3f, yPos, -41.2f));
         walkDestPos.Add(new Vector3(-42.8f, yPos, -30.7f));
+        walkDestPos.Add(new Vector3(-13.95f, yPos, 17.738f));
 
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
