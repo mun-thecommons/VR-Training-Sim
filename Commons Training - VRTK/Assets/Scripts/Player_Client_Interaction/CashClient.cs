@@ -24,7 +24,7 @@ public class CashClient : MonoBehaviour
     public bool questionAnswered = false;
 
     private bool done = false;
-    private float timer = 0f;
+    private float timer = 5f;
 
     void Start()
     {
@@ -33,10 +33,10 @@ public class CashClient : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
     }
-
+    
     void Update()
     {
-        if (!GetComponent<NavMeshAgent>().pathPending && GetComponent<NavMeshAgent>().isStopped)
+        if (timer <= 0 && GetComponent<NavMeshAgent>().isStopped)
             {
                 greetings.GetComponent<Canvas>().enabled = true;            //Once client reachs proper location, "!" appears above their head and they are ready to be interacted with
                 questionSetup = true;
