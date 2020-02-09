@@ -43,6 +43,10 @@ TagManager:
   - Alien
   - Robbie
   - MCQuestionCanvas
+  - InteractCanvas
+  - RoundsStation
+  - RoundsCard
+  - Button
   layers:
   - Default
   - TransparentFX
