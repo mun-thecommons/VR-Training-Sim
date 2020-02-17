@@ -5,13 +5,12 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
 
-    bool isOpen = false;
-
     private Animator doorAnim;
     private Collider[] colliders;
 
     private AudioSource doorAudio;
     public AudioClip doorOpen;
+    public AudioClip doorClose;
 
     void Start()
     {
@@ -24,10 +23,20 @@ public class DoorController : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
+            bool isOpen = !doorAnim.GetBool("IsOpen");
+
             // Toggle state of IsOpen Bool, trigger the button
-            doorAnim.SetBool("IsOpen", !doorAnim.GetBool("IsOpen"));
+            doorAnim.SetBool("IsOpen", isOpen);
             doorAnim.SetTrigger("ButtonPress");
-            doorAudio.PlayOneShot(doorOpen);
+
+            if(!isOpen)
+            {
+                doorAudio.PlayOneShot(doorClose);
+            }
+            else
+            {
+                doorAudio.PlayOneShot(doorOpen);
+            }
         }
     
     }
