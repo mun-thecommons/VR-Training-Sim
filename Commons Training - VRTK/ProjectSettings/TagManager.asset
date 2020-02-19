@@ -46,6 +46,7 @@ TagManager:
   - RoundsStation
   - RoundsCard
   - StaplerCollectible
+  - StaplerThrow
   layers:
   - Default
   - TransparentFX
