@@ -83,7 +83,7 @@ public class RobotController : MonoBehaviour
 
         else
         {
-            MasterController.EnableMovement();
+            InputHandler.EnableMovement();
             DisplayLevelMessage();
         }
     }
@@ -150,7 +150,7 @@ public class RobotController : MonoBehaviour
           */
         if (movement)
         {
-            MasterController.DisableMovement();
+            InputHandler.DisableMovement();
         }
         if (movement == false && !tutorialIntroComplete)
         {

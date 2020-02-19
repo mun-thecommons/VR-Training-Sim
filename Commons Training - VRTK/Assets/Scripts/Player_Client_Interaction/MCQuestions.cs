@@ -69,12 +69,12 @@ public class MCQuestions : MonoBehaviour {
                 if (!client.askingQuestion && !MasterController.inMenu)
                 {
                     AskQuestion();
-                    MasterController.DisableMovement();
+                    InputHandler.DisableMovement();
                 }
                 else
                 {
                     SelectAnswer();
-                    MasterController.EnableMovement();
+                    InputHandler.EnableMovement();
                 }
             }
         }

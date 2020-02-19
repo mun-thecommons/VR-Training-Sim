@@ -17,7 +17,6 @@ TagManager:
   - USBox
   - Station
   - Paper
-  - StaplerThrow
   - Monitor
   - Printer
   - Coin
@@ -43,6 +42,10 @@ TagManager:
   - Alien
   - Robbie
   - MCQuestionCanvas
+  - InteractCanvas
+  - RoundsStation
+  - RoundsCard
+  - StaplerCollectible
   layers:
   - Default
   - TransparentFX

@@ -14,8 +14,6 @@ public class MasterController : MonoBehaviour
 {
     public static GameObject teleportFunction;
     public static double labSatisfaction = 1000.0;
-    public GameObject staplerPrefab;
-    public Transform staplerParent;
     public GameObject rightHand;
     public static OVRPlayerController playerController;
 
@@ -33,7 +31,6 @@ public class MasterController : MonoBehaviour
     public static bool vestCollected = false;
     public static bool inMenu = false;
     public static bool inTracker = false;
-    public static int staplers = 100;
     public static int coins = 0;
     public static int baseTrash = 0;
     public static int metalTrash = 0;
@@ -103,21 +100,6 @@ public class MasterController : MonoBehaviour
         TakeInput();
     }
 
-    
-    public static void DisableMovement()
-    {
-        //teleportFunction.SetActive(false);
-        playerController.EnableLinearMovement = false;
-        playerController.EnableRotation = false;
-    }
-
-    public static void EnableMovement()
-    {
-        //teleportFunction.SetActive(true);
-        playerController.EnableLinearMovement = true;
-        playerController.EnableRotation = true;
-    }
-
     //reading instr from the file
     void FileParse(string toParse, TextAsset textFile)
     {
@@ -135,18 +117,18 @@ public class MasterController : MonoBehaviour
     void TakeInput()
     {
         //view/hide UI canvas
-        if (OVRInput.GetDown(OVRInput.RawButton.LThumbstick))
+        if (InputHandler.menuButton.state)
         {
             if (!inMenu && !inTracker)
             {
                 mainCanvas.enabled = true;
-                DisableMovement();
+                InputHandler.DisableMovement();
                 inMenu = true;
             }
             else if (mainCanvas.isActiveAndEnabled)
             {
                 mainCanvas.enabled = false;
-                EnableMovement();
+                InputHandler.EnableMovement();
                 inMenu = false;
                
             }
@@ -167,9 +149,8 @@ public class MasterController : MonoBehaviour
                 }
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
             }
-            else if (OVRInput.GetDown(OVRInput.RawButton.X))
+            else if (InputHandler.selectButton.isDown)
             {
-               // if (uiMenuCounter == 0)
                 if (uiMenuCounter == 0)
                 {
                     //mainFrameText.SetText(instructionsArray[instrArrayCounter]);
@@ -181,7 +162,7 @@ public class MasterController : MonoBehaviour
                     inMenu = false;
                     trackerCanvas.enabled = true;
                     inTracker = true;
-                    DisableMovement();
+                    InputHandler.DisableMovement();
                     //Turn on the Tracker Canvas
                 }
                 else if (uiMenuCounter == 2)
@@ -195,22 +176,8 @@ public class MasterController : MonoBehaviour
                 }
             }
         }
-        else if (OVRInput.GetDown(OVRInput.RawButton.B) && !inMenu)
-        {
-            ShootStapler();
-        }
     }
-
-    //shooting fxn
-    void ShootStapler()
-    {
-        if(staplers > 0)
-        {
-            staplerShoot = Instantiate(staplerPrefab, rightHand.transform.position, rightHand.transform.rotation) as GameObject;
-            staplerShoot.transform.parent = staplerParent;
-            staplers--;
-        }
-    }    
+ 
 
     //score modifier fxn
     public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
@@ -248,7 +215,7 @@ public class MasterController : MonoBehaviour
 
     private void DisplayInventory()
     {
-        staplerCountText.SetText(staplers.ToString());
+        staplerCountText.SetText(StaplerProjectile.staplers.ToString());
         coinCountText.SetText(coins.ToString());
         scrapPaperText.SetText(scrapPaper.ToString());
     }
