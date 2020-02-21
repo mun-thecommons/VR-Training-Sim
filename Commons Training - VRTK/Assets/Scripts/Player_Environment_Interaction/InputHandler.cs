@@ -6,11 +6,18 @@ public class InputHandler : MonoBehaviour
 {
 
     public static OVRPlayerController playerController;
-    public GameObject player;
+    public static GameObject player;
+
+    public static Vector3 position;
+    public static Quaternion rotation;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<OVRPlayerController>();
+
+        position = player.transform.position;
+        rotation = player.transform.rotation;
     }
 
     // Class for handling boolean inputs
@@ -155,6 +162,13 @@ public class InputHandler : MonoBehaviour
         playerController.EnableRotation = true;
     }
 
+    // Move the player to a different position
+    public static void TeleportPlayer(Vector3 position, Quaternion rotation)
+    {
+        player.transform.position = position;
+        player.transform.rotation = rotation;
+    }
+
     public static BoolInput interactButton = new BoolInput(OVRInput.RawButton.A);
     public static BoolInput staplerButton  = new BoolInput(OVRInput.RawAxis1D.RIndexTrigger);
     public static BoolInput menuButton     = new BoolInput(OVRInput.RawButton.LThumbstick);
@@ -175,5 +189,8 @@ public class InputHandler : MonoBehaviour
 
         movementAxis.GetStates();
         lookAxis.GetStates();
+
+        position = player.transform.position;
+        rotation = player.transform.rotation;
     }
 }

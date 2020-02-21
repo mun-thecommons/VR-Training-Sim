@@ -47,6 +47,9 @@ TagManager:
   - RoundsCard
   - StaplerCollectible
   - StaplerThrow
+  - Cart
+  - Paper Box
+  - Navigation Target
   layers:
   - Default
   - TransparentFX

@@ -5,15 +5,27 @@ using UnityEngine;
 public class CartController : MonoBehaviour
 {
 
-    public bool held = false;
+    public static bool held = false;
+
+    private bool created = false;
 
     public float offset;
 
     private GameObject hand;
+    private GameObject paperBoxes;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject navPrefab;
+
+    private void Start()
     {
+        paperBoxes = transform.GetChild(12).gameObject;
+    }
+
+    public static void ChangeYPos(float deltaYPos)
+    {
+        GameObject cart = GameObject.FindGameObjectWithTag("Cart");
+
+        cart.transform.position = new Vector3(cart.transform.position.x, cart.transform.position.y + deltaYPos, cart.transform.position.z);
     }
 
     // Update is called once per frame
@@ -21,6 +33,12 @@ public class CartController : MonoBehaviour
     {
         if (held)
         {
+
+            if (!created)
+            {
+                Instantiate(navPrefab, new Vector3(18.5f, 0.0f, 19f), navPrefab.transform.rotation);
+                created = true;
+            }
             Vector3 direction = transform.position - hand.transform.position;
             direction.y = 0.0f;
             transform.forward = direction.normalized;
@@ -46,6 +64,11 @@ public class CartController : MonoBehaviour
         {
             hand = other.gameObject;
             held = true;
+        }
+        else if (other.CompareTag("Paper Box"))
+        {
+            Destroy(other.gameObject);
+            paperBoxes.SetActive(true);
         }
     }
 }
