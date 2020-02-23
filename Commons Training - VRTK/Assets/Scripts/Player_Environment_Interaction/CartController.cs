@@ -7,7 +7,7 @@ public class CartController : MonoBehaviour
 
     public static bool held = false;
 
-    private bool created = false;
+    private bool navCreated = false;
 
     public float offset;
 
@@ -15,6 +15,8 @@ public class CartController : MonoBehaviour
     private GameObject paperBoxes;
 
     public GameObject navPrefab;
+
+    private GameObject navTarget;
 
     private void Start()
     {
@@ -28,25 +30,24 @@ public class CartController : MonoBehaviour
         cart.transform.position = new Vector3(cart.transform.position.x, cart.transform.position.y + deltaYPos, cart.transform.position.z);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (held)
         {
 
-            if (!created)
+            if (!navCreated)
             {
-                Instantiate(navPrefab, new Vector3(18.5f, 0.0f, 19f), navPrefab.transform.rotation);
-                created = true;
+                navTarget = Instantiate(navPrefab, new Vector3(18.5f, 0.0f, 19f), navPrefab.transform.rotation);
+                navCreated = true;
             }
+            else if (navTarget == null)
+            {
+                Debug.Log("Destroyed!");
+            }
+
             Vector3 direction = transform.position - hand.transform.position;
             direction.y = 0.0f;
             transform.forward = direction.normalized;
-
-            if (InputHandler.selectButton.isDown)
-            {
-                held = false;
-            }
 
             if (direction.magnitude > offset)
             {
@@ -55,17 +56,23 @@ public class CartController : MonoBehaviour
 
             // transform.position = new Vector3(hand.transform.position.x, transform.position.y, hand.transform.position.z + zOffset);
 
+            if (InputHandler.selectButton.isDown)
+            {
+                held = false;
+            }
         }
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Hand") && InputHandler.selectButton.isDown)
+        if (other.CompareTag("Hand") && InputHandler.selectButton.state)
         {
             hand = other.gameObject;
             held = true;
         }
-        else if (other.CompareTag("Paper Box"))
+        else if (other.CompareTag("Paper Box") && paperBoxes.activeSelf == false)
         {
             Destroy(other.gameObject);
             paperBoxes.SetActive(true);

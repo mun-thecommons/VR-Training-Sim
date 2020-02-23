@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 8928551867594642367}
   doorAudio: {fileID: 5522750745707421975}
-  doorOpen: {fileID: 0}
+  doorOpen: {fileID: 8300000, guid: c84184efc8d55074985d25126d7b5a6a, type: 3}
   doorClose: {fileID: 0}
 --- !u!65 &8601117656043016764
 BoxCollider:
@@ -277,8 +277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511c0e381891cff4ab96876ce4ef9e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inElevator: 0
   isEnabled: 1
+  yOffset: -10
   secondaryElevator: {fileID: 2986056995391559632}
+  ding: {fileID: 8300000, guid: c84184efc8d55074985d25126d7b5a6a, type: 3}
 --- !u!82 &5522750745707421975
 AudioSource:
   m_ObjectHideFlags: 0
@@ -289,9 +292,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: d723b538ef3a04340b6bf83942e33ea7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -554,9 +557,9 @@ GameObject:
   m_Component:
   - component: {fileID: 148210463441123481}
   - component: {fileID: 3774711422564791681}
-  - component: {fileID: 3742449824724763401}
   - component: {fileID: 8461891031738775451}
   - component: {fileID: 6299896586235179396}
+  - component: {fileID: 4781556587139596559}
   m_Layer: 0
   m_Name: Secondary Elevator
   m_TagString: Untagged
@@ -605,20 +608,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3742449824724763401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2986056995391559632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c9cad1a724cd074aa0269bea8f01135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnabled: 1
-  primaryElevator: {fileID: 1920398591086313119}
 --- !u!82 &8461891031738775451
 AudioSource:
   m_ObjectHideFlags: 0
@@ -629,9 +618,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: d723b538ef3a04340b6bf83942e33ea7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -728,6 +717,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6174092, y: 3.2957978, z: 0}
   m_Center: {x: -0.020136595, y: -0.11518264, z: 1}
+--- !u!114 &4781556587139596559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986056995391559632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511c0e381891cff4ab96876ce4ef9e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inElevator: 1
+  isEnabled: 1
+  yOffset: 10
+  secondaryElevator: {fileID: 1920398591086313119}
+  ding: {fileID: 8300000, guid: c84184efc8d55074985d25126d7b5a6a, type: 3}
 --- !u!1 &3305679183897874199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +1791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 3774711422564791681}
   doorAudio: {fileID: 8461891031738775451}
-  doorOpen: {fileID: 0}
+  doorOpen: {fileID: 8300000, guid: c84184efc8d55074985d25126d7b5a6a, type: 3}
   doorClose: {fileID: 0}
 --- !u!65 &3969611980745866036
 BoxCollider:

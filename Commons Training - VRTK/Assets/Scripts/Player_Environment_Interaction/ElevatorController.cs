@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class ElevatorController : MonoBehaviour
 { 
-    private Animator doorAnim;
+    
+    // Ensure the player is only teleported if they are entering the elevator, not leaving
+    public bool inElevator;
     public bool isEnabled;
+
+    public float yOffset;
+
+    private Animator doorAnim;
 
     public GameObject secondaryElevator;
     private Animator secondaryAnim;
 
-    // Ensure the player is only teleported if they are entering the elevator, not leaving
-    private bool inElevator = false;
+    private AudioSource elevatorAudio;
+    private AudioSource secondaryAudio;
+
+    public AudioClip ding;
+
 
     private void Start()
     {
+        elevatorAudio = GetComponent<AudioSource>();
+        secondaryAudio = secondaryElevator.GetComponent<AudioSource>();
+
         doorAnim = GetComponent<Animator>();
 
         secondaryAnim = secondaryElevator.GetComponent<Animator>();
@@ -53,16 +65,21 @@ public class ElevatorController : MonoBehaviour
         doorAnim.SetTrigger("CloseDoor");
         doorAnim.SetBool("IsClosed", false);
 
+        elevatorAudio.PlayDelayed(1.0f);
+
         // Wait some time for the elevator to "move"
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(Random.Range(5.0f, 10.0f));
+
+        elevatorAudio.Stop();
 
         // Teleport the player down to the secondary elevator
-        InputHandler.TeleportPlayer(InputHandler.position + new Vector3(0, -10, 0), InputHandler.rotation);
+        InputHandler.TeleportPlayer(InputHandler.position + new Vector3(0, yOffset, 0), InputHandler.rotation);
         if (CartController.held)
         {
-            CartController.ChangeYPos(-10);
+            CartController.ChangeYPos(yOffset);
         }
         // Open the doors on the secondary elevator
+        secondaryAudio.PlayOneShot(ding);
         secondaryAnim.SetTrigger("OpenDoor");
         secondaryAnim.SetBool("IsClosed", true);
     }

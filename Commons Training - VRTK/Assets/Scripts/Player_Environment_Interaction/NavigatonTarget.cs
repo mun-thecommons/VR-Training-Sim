@@ -20,6 +20,8 @@ public class NavigatonTarget : MonoBehaviour
         positions[0] -= transform.position;
         positions[1] = Vector3.zero;
         navLine.SetPositions(positions);
+        navLine.startWidth = 0.5f;
+        navLine.endWidth = 0.5f;
     }
 
     private void Update()
