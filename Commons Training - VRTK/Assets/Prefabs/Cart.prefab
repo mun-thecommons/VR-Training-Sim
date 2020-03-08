@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3634465476430643318}
+  - component: {fileID: 3625124165328177761}
   - component: {fileID: 138665851980993488}
   - component: {fileID: 1223288547635698735}
   - component: {fileID: 1757254152}
-  - component: {fileID: 3625124165328177761}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Cart
@@ -47,6 +47,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3625124165328177761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300455574695785061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1321883, y: 1.9748896, z: 8.5382595}
+  m_Center: {x: 0.0065171053, y: 0.9848365, z: 0.0773708}
 --- !u!65 &138665851980993488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,19 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.8
---- !u!65 &3625124165328177761
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300455574695785061}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.1321883, y: 1.9748896, z: 8.5382595}
-  m_Center: {x: 0.0065171053, y: 0.9848365, z: 0.0773708}
+  navPrefab: {fileID: 0}
 --- !u!1 &1199213351478112169
 GameObject:
   m_ObjectHideFlags: 0
