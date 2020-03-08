@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 7156250411318941205}
   - component: {fileID: 5522750745707421975}
   - component: {fileID: 981655061514681408}
+  - component: {fileID: 14297605123030276}
   m_Layer: 0
   m_Name: Primary Elevator
   m_TagString: Untagged
@@ -391,6 +392,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6174092, y: 3.2957978, z: 0}
   m_Center: {x: -0.020136595, y: -0.11518264, z: 1}
+--- !u!114 &14297605123030276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920398591086313119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96d76bddceb6de4c8bc2595c4b7ff9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 0}
+  doorAudio: {fileID: 0}
+  doorOpen: {fileID: 0}
+  doorClose: {fileID: 0}
 --- !u!1 &2114508383020211038
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +577,7 @@ GameObject:
   - component: {fileID: 8461891031738775451}
   - component: {fileID: 6299896586235179396}
   - component: {fileID: 4781556587139596559}
+  - component: {fileID: 2264143553881438890}
   m_Layer: 0
   m_Name: Secondary Elevator
   m_TagString: Untagged
@@ -734,6 +752,22 @@ MonoBehaviour:
   yOffset: 10
   secondaryElevator: {fileID: 1920398591086313119}
   ding: {fileID: 8300000, guid: c84184efc8d55074985d25126d7b5a6a, type: 3}
+--- !u!114 &2264143553881438890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986056995391559632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96d76bddceb6de4c8bc2595c4b7ff9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 0}
+  doorAudio: {fileID: 0}
+  doorOpen: {fileID: 0}
+  doorClose: {fileID: 0}
 --- !u!1 &3305679183897874199
 GameObject:
   m_ObjectHideFlags: 0

@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 2276207849401333222}
   - component: {fileID: 2276207849401333219}
   m_Layer: 0
-  m_Name: door
+  m_Name: Sci-fi Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,5 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96d76bddceb6de4c8bc2595c4b7ff9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorAnim: {fileID: 2276207849401333222}
+  doorAudio: {fileID: 2276207849401333218}
   doorOpen: {fileID: 8300000, guid: 2313774293e676c4485631c1b816fcf2, type: 3}
   doorClose: {fileID: 8300000, guid: ff44972122e737942abe8b979b63548a, type: 3}

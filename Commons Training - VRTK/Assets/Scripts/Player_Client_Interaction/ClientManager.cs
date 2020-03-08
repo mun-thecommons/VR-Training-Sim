@@ -58,7 +58,7 @@ public class ClientManager : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         SpawnClient();
-        Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+        //Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
     }
 
     void SpawnClient()

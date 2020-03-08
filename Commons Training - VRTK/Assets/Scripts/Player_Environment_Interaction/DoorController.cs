@@ -6,24 +6,24 @@ public class DoorController : MonoBehaviour
 {
 
 
-    private Animator doorAnim;
+    public Animator doorAnim;
     private Collider[] colliders;
 
-    private AudioSource doorAudio;
+    public AudioSource doorAudio;
     public AudioClip doorOpen;
     public AudioClip doorClose;
 
     void Start()
     {
-        doorAnim = GetComponent<Animator>();
         colliders = GetComponents<Collider>();
-        doorAudio = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Hand"))
         {
+            Debug.Log("press!");
+
             bool isOpen = !doorAnim.GetBool("IsOpen");
 
             // Toggle state of IsOpen Bool, trigger the button
