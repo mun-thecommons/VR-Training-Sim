@@ -17,7 +17,6 @@ TagManager:
   - USBox
   - Station
   - Paper
-  - StaplerThrow
   - Monitor
   - Printer
   - Coin
@@ -43,6 +42,14 @@ TagManager:
   - Alien
   - Robbie
   - MCQuestionCanvas
+  - InteractCanvas
+  - RoundsStation
+  - RoundsCard
+  - StaplerCollectible
+  - StaplerThrow
+  - Cart
+  - Paper Box
+  - Navigation Target
   layers:
   - Default
   - TransparentFX
@@ -53,8 +60,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Grabbable
+  - Player
   - 
   - 
   - 

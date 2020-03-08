@@ -104,7 +104,7 @@ public class TrackerController : MonoBehaviour
         //turn on HUD Canvas
         
         //Enable movement
-        MasterController.EnableMovement();
+        InputHandler.EnableMovement();
     } 
 
 }

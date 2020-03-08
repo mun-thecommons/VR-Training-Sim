@@ -159,7 +159,7 @@ public class CollectibleManager : MonoBehaviour
 
     public static void CollectStapler(Vector3 position)
     {
-        MasterController.staplers++;
+        StaplerProjectile.staplers++;
         spawnPositions.Add(position);
     }
 
@@ -168,6 +168,7 @@ public class CollectibleManager : MonoBehaviour
         MasterController.scrapPaper++;
         spawnPositions.Add(position);
     }
+
 
 
 }
