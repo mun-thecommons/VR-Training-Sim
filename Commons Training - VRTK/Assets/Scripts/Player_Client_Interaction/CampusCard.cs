@@ -20,10 +20,17 @@ public class CampusCard : MonoBehaviour
     void Update()
     {
         if( parent.GetComponent<NavMeshAgent>().isStopped && !GetComponent<MeshRenderer>().enabled)
-        {
-            cardOriginalPosition = transform.position;
-        }
-        // CheckDistance();
+            {
+                cardOriginalPosition = transform.position;
+            }
+
+       // CheckDistance();
+
+        if (CashClient.cardChecked && !GetComponent<MeshRenderer>().enabled)
+            {
+                transform.parent = GameObject.Find("CashBoxClientFemaleClient(Clone)").transform;
+                Debug.Log("Parent of CampusCard: " + transform.parent);
+            }
     }
     void SetState()
     {
@@ -52,7 +59,8 @@ public class CampusCard : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             GetComponent<Rotator>().enabled = false;
-            transform.parent = GameObject.Find("BlackBox").transform;
+            transform.parent = GameObject.Find("CashBox").transform;
+            Debug.Log("Parent of CampusCard: " + transform.parent);
         }
     }
 }

@@ -33,14 +33,14 @@ public class ClientManager : MonoBehaviour {
     static private float timer = 5f;
     static private float resetTimer = 5f;
     private int randInd;
-    private float yPos = 0.08f;
+    private float yPos = 0.05f;
     static public int clientsSpawned = 0;
     private Vector3 goal;
     private NavMeshAgent agent;
 
     private void Start()
     {
-        spawnPositionCash = new Vector3(-13f, yPos, -20);    
+        spawnPositionCash = new Vector3(-29.13f, yPos, 39.73f);      //Main entrance x,y,z Position --> -29.13f, yPos, 39.73f
         spawnPositionWalk = new Vector3(-22f, yPos, -40f);
         spawnPositionDesk = new Vector3(-15f, yPos, -4f);
         spawnPositions.Add(new Vector3(-22f, yPos, -18f));
@@ -58,7 +58,8 @@ public class ClientManager : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         SpawnClient();
-	}
+        Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+    }
 
     void SpawnClient()
     {
@@ -66,9 +67,13 @@ public class ClientManager : MonoBehaviour {
         {
             int cashClientInd = Random.Range(0, cashBoxClients.Count - 1);
             cashBoxClient = Instantiate(cashBoxClients[cashClientInd], spawnPositionCash, cashBoxClients[cashClientInd].transform.rotation) as GameObject;
-            cashGoal = new Vector3(7.0f, yPos, -10.0f);
+            cashGoal = new Vector3(-9.78f, yPos, -16.8f);
             cashBoxClient.GetComponent<NavMeshAgent>().destination = cashGoal;
             cashClient = true;
+            /* Debug.Log("Cashbox client dest : " + cashBoxClient.GetComponent<NavMeshAgent>().destination);
+             Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
+             Debug.Log("Path pending: " + cashBoxClient.GetComponent<NavMeshAgent>().pathPending);
+             */
             cashBoxClient.transform.parent = gameObject.transform;
         }
 
@@ -94,8 +99,10 @@ public class ClientManager : MonoBehaviour {
             int mcClientInd = Random.Range(0, mcClient.Count - 1);
             client = Instantiate(mcClient[mcClientInd], spawnPosition, mcClient[mcClientInd].transform.rotation) as GameObject;
             client.GetComponent<NavMeshAgent>().destination = goal;
+            Debug.Log("MC client dest : " + client.GetComponent<NavMeshAgent>().destination);
+            Debug.Log("MC client remaining : " + client.GetComponent<NavMeshAgent>().remainingDistance);
 
-            
+
             int walkingInd = Random.Range(0, walkingClient.Count - 1);
             npcClient = Instantiate(walkingClient[walkingInd], spawnPositionWalk, walkingClient[walkingInd].transform.rotation) as GameObject;
 

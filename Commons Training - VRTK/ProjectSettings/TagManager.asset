@@ -45,11 +45,15 @@ TagManager:
   - InteractCanvas
   - RoundsStation
   - RoundsCard
+<<<<<<< HEAD
   - StaplerCollectible
   - StaplerThrow
   - Cart
   - Paper Box
   - Navigation Target
+=======
+  - Button
+>>>>>>> a47424d2399b257c8ed0e5758a3bf1d34e856d79
   layers:
   - Default
   - TransparentFX

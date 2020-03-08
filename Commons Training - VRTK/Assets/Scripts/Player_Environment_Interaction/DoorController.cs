@@ -5,16 +5,24 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
 
-    public Animator doorAnim;
 
-    public AudioSource doorAudio;
+    private Animator doorAnim;
+    private Collider[] colliders;
+
+    private AudioSource doorAudio;
     public AudioClip doorOpen;
     public AudioClip doorClose;
 
+    void Start()
+    {
+        doorAnim = GetComponent<Animator>();
+        colliders = GetComponents<Collider>();
+        doorAudio = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hand"))
+        if(other.CompareTag("Hand"))
         {
             bool isOpen = !doorAnim.GetBool("IsOpen");
 
@@ -31,6 +39,6 @@ public class DoorController : MonoBehaviour
                 doorAudio.PlayOneShot(doorOpen);
             }
         }
-
     }
 }
+

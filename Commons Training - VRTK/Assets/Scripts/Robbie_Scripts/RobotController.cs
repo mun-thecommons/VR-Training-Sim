@@ -17,7 +17,7 @@ public class RobotController : MonoBehaviour
     private bool staplerShot;
     private bool clientInteract;
     public bool tutorialFinished;
-
+    private bool movementEnabled;
 
     private AudioSource source;
     public AudioClip welcomeAudio;
@@ -62,6 +62,7 @@ public class RobotController : MonoBehaviour
         direction = false;
         staplerShot = false;
         clientInteract = false;
+        movementEnabled = false;
         // End
 
         robbieStartPostion = transform.position;
@@ -81,10 +82,11 @@ public class RobotController : MonoBehaviour
             CheckTutorialControls();                // scripts begin to show up on the canvas
         }
 
-        else
+        else if (!movementEnabled)
         {
             InputHandler.EnableMovement();
             DisplayLevelMessage();
+            movementEnabled = true;
         }
     }
     void Teleport()
