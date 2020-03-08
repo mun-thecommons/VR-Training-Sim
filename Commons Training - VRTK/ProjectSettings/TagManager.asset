@@ -4,56 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ITS
-  - LabNet
-  - Hand
-  - PlayerUIScore
-  - Client
-  - QuestionCanvas
-  - AnswersCanvas
-  - roundsCard
-  - CampusCard
-  - USB
-  - USBox
-  - Station
   - Paper
-  - Monitor
-  - Printer
-  - Coin
-  - UIMenuOption
-  - MCButtons
-  - MCQuestion
-  - StaplerCount
-  - CoinCount
-  - BaseTrashCount
-  - MetalTrashCount
-  - PlasticTrashCount
-  - MetalTrash
-  - BaseTrash
-  - PlasticTrash
-  - LabSatisfactionScore
-  - MCClientInteraction
-  - ScrapPaper
-  - ScrapPaperCount
-  - Supervisor
-  - Teleportation
-  - SF_Door
-  - RoundPillar
-  - Alien
-  - Robbie
-  - MCQuestionCanvas
-  - InteractCanvas
-  - RoundsStation
-  - RoundsCard
-<<<<<<< HEAD
-  - StaplerCollectible
-  - StaplerThrow
   - Cart
   - Paper Box
-  - Navigation Target
-=======
-  - Button
->>>>>>> a47424d2399b257c8ed0e5758a3bf1d34e856d79
   layers:
   - Default
   - TransparentFX
@@ -63,9 +16,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Grabbable
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 
