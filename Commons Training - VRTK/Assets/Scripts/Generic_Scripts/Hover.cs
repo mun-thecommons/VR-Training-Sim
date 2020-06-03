@@ -5,27 +5,28 @@ using UnityEngine;
 public class Hover : MonoBehaviour
 {
 
-    // User Inputs
+    /// Basic Input.
+    /// Initial value has been set, but a User may change this to have a more noticable change of motion
     public float amplitude = 0.5f;
     public float frequency = 1f;
 
-    // Position Storage Variables
+    /// Position Storage Variables
     float posOffset;
     float tempPos;
 
 
-    // Start is called before the first frame update
+    /// Start is called before the first frame update
     void Start()
     {
-        // Store the starting position & rotation of the object
+        /// Store the starting position & rotation of the object
           posOffset = transform.position.y;
     }
 
-    // Update is called once per frame
+    /// Update is called once per frame
     void LateUpdate()
     {
        
-        // Float up/down with a Sin()
+        /// Float up/down with a Sin()
         tempPos = posOffset;
         tempPos += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 
