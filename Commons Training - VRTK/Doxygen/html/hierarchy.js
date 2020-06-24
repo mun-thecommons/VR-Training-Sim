@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "InputHandler.Axis2DInput", "class_input_handler_1_1_axis2_d_input.html", null ],
     [ "InputHandler.BoolInput", "class_input_handler_1_1_bool_input.html", null ],
+    [ "ExampleScript", "class_example_script.html", null ],
     [ "MonoBehaviour", null, [
       [ "AlienController", "class_alien_controller.html", null ],
       [ "AlienManager", "class_alien_manager.html", null ],

@@ -15,6 +15,7 @@ var annotated_dup =
     [ "CollectibleManager", "class_collectible_manager.html", "class_collectible_manager" ],
     [ "DoorController", "class_door_controller.html", "class_door_controller" ],
     [ "ElevatorController", "class_elevator_controller.html", "class_elevator_controller" ],
+    [ "ExampleScript", "class_example_script.html", "class_example_script" ],
     [ "ExitGame", "class_exit_game.html", "class_exit_game" ],
     [ "Glow", "class_glow.html", "class_glow" ],
     [ "Hover", "class_hover.html", "class_hover" ],
