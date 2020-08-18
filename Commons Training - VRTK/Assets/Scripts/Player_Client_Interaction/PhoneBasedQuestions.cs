@@ -4,16 +4,25 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.AI;
+/// <summary>
+/// Script houses the logic used for the PhonebasedClient. **(More then just questions)**
+/// 
+/// ##Detailed
+/// This script will interact with the QuestionInput script to find the questions that are to be asked by the PhoneBasedClient, and then dependet upon which
+/// question is chosen, the script will choose the correct audio snippet to execute. 
+/// As well, this script holds the logic used for the walking animation to leave the desk.
+/// 
+/// </summary>
 public class PhoneBasedQuestions : MonoBehaviour {
 
     public GameObject player;
     [HideInInspector]
     public static float timer = 0f;
     public static bool done = false;
-    public static bool animateWalk;
-    public GameObject questions;
+    public static bool animateWalk;     /*!< @brief Used for the Animator Controller */
+    public GameObject questions;        /*!< @brief Grabs the questions used from the QuestionInput script */
     [HideInInspector]
-    public GameObject answers;
+    public GameObject answers;          /*!< @brief Grabs the answers used from the QuestionInput script */
     private Client client;
     private bool questionAsked = false;
     public float questionDelay = 5f;
@@ -36,7 +45,19 @@ public class PhoneBasedQuestions : MonoBehaviour {
         audio = FindObjectOfType<Audio>();
     }
 
-    // Update is called once per frame
+    /**************************************************
+     * Script executes commands based upon how much distance is between the Client and player
+     * 
+     * ##Detailed
+     * Once the Client comes within a certain distance of the Player the script will run its logic.
+     * The script will select a random number between 0 and the amount of questions within the questionsArray of the QuestionInput. 
+     * Dependent on what question is chosen the script will look to see if it matches with a specific audio clip, once it verifies that it doesz it will play the correct audio clip.
+     * 
+     * If the player is not wearing their redvest the NPC will instead ask for an employee (Signalling the player is doing something incorrectly)
+     * 
+     * Similar process that occurs for the questions will occur for the answers, so that when the player chooses a phone (LabNet or ITS) the script knows whether the correct answer was chosen.
+     * 
+     * ************************************************/
     void Update()
     {
         if(Vector3.Distance(player.transform.position , transform.position) <= 3)
@@ -104,6 +125,13 @@ public class PhoneBasedQuestions : MonoBehaviour {
         timer -= Time.deltaTime;
 
     }
+    /*********************************************************************
+     * Once the client is destroyed the ClientManager is informed
+     * 
+     * ##Detailed 
+     * This is meant so that in future iterations, there can be more instances of the the PhoneBasedClient sent to the desk
+     * 
+     * *******************************************************************/
     private void OnDestroy()
     {
         ClientManager.deskClient = false;

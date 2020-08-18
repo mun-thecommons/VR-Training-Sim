@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+/// <summary>
+/// Logic used for the animations attached to the UMA Models
+/// 
+/// ##Detailed 
+/// This script interacts with the animations of the UMA models. It interacts with the regular MC Clients and the PhoneClient.
+/// 
+/// </summary>
 public class TestAnimatorController : MonoBehaviour
 {
     public Animator animator;
@@ -19,7 +25,11 @@ public class TestAnimatorController : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    /************************
+     * Changes Current animations based on if conditions are met
+     * 
+     * For a better look at what this is doing, look at the animator agents being used by the UMA Model in question.
+     * ********************/
     void Update()
     {
         if (navAgent.remainingDistance <= 1 && !animator.GetBool("Stop") && !navAgent.pathPending)

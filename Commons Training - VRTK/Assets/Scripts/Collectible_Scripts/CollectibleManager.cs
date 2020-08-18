@@ -1,7 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Manages the amount of collectibles allowed in the scene
+/// 
+/// ##Detailed
+/// Stores all the data pertaining to the collectibles within the scene. It stores the spawn locations, the different forms of collectibles as well as their prefab Gameobjects. 
+/// Each update will determine if an item needs to be spawned based upon the amount collected by the player. 
+/// 
+/// Collectibles include:
+/// - Coins
+/// - USB
+/// - Scrap Paper
+/// - Staplers
+/// - Trash (3 types: Metal, Plastic, Base)
+/// 
+/// @note The functions included here are used in different scripts
+/// 
+/// @see ScrapPaperController; TrashController; CoinController; StaplerProjectile
+/// </summary>
 public class CollectibleManager : MonoBehaviour
 {
     //STAPLERS
@@ -49,7 +66,14 @@ public class CollectibleManager : MonoBehaviour
     private static List<GameObject> collectibles = new List<GameObject>();
     private static List<GameObject> collectiblesPrefabs = new List<GameObject>();
 
-    // Start is called before the first frame update
+    /*****************************
+     * Designates what will be involved in each of the arrays
+     * 
+     * ##Detailed
+     * Adds in the neccessary Gameobjects and prefabs into the different arrays for instantiation.
+     * Also, upon start the different Spawnlocations are determined and placed within an array for when an item is to be instantiated .
+     * 
+     * ***************************/
     void Start()
     {
         trashType.Add(baseTrashPrefab);
@@ -100,15 +124,27 @@ public class CollectibleManager : MonoBehaviour
         spawnPositions.Add(new Vector3(-16.4f, yPos, 14.5f));
     }
 
-    // Update is called once per frame
+    /*****************************
+     * Based on the remaining time of the timer, the update will run the SpawnCollectibles function
+     * 
+     * ***************************/
     void Update()
     {
         timer -= Time.deltaTime;
         SpawnCOllectibles();
 
-
     }
 
+    /*****************************
+     * Spawns collectibles in random predetermined locations dependent on a timer
+     * 
+     * ##Detailed
+     * After an amount of time has passed a random collectible will spawn in one of the predetermined locations. 
+     * The type of collectible spawned will depend upon the amount currently collected by the player, therefore it will be more even distribution of items.
+     * 
+     * As items are spawned into locations those locations are removed from the location Array as to not have overlap of items
+     * 
+     * ***************************/
     void SpawnCOllectibles() {
         if (timer <= 0f)
         {
@@ -141,7 +177,11 @@ public class CollectibleManager : MonoBehaviour
         }
     }
 
-
+    /*****************************
+    * Used to increment amount of Trash collected
+    * 
+    * @note Used within the TrashController
+    * ***************************/
     public static void CollectTrash(Vector3 position)
     {
         spawnPositions.Add(position);
@@ -151,18 +191,31 @@ public class CollectibleManager : MonoBehaviour
             Level.level2Trash = true;
         }
     }
+    /*****************************
+    * Used to increment amount of Coins collected
+    * 
+    * @note Used within the CoinController
+    * ***************************/
     public static void CollectCoin(Vector3 position)
     {
         MasterController.coins++;
         spawnPositions.Add(position);
     }
-
+    /*****************************
+     * Used to increment amount of Staplers collected
+     * 
+     * @note Used within the StaplerProjectile
+     * ***************************/
     public static void CollectStapler(Vector3 position)
     {
         StaplerProjectile.staplers++;
         spawnPositions.Add(position);
     }
-
+    /*****************************
+     * Used to increment amount of Scrappaper collected
+     * 
+     * @note Used within the ScrapPaperController
+     * ***************************/
     public static void CollectScrapPaper(Vector3 position)
     {
         MasterController.scrapPaper++;

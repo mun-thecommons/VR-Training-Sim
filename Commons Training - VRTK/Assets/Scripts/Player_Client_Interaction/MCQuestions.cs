@@ -8,7 +8,14 @@ using System.Collections.Generic;
 using OVRTouchSample;
 using System.Text.RegularExpressions;
 
-
+/// <summary>
+/// Contains the logic used by the MCClient (*More then just Question*)
+/// 
+/// ##Detailed
+/// Contains the logic used with interacting with the Question boxes (How to change the player selection). 
+/// As well, the logic used for selecting the proper audio to use with each question that may be chosen. If a question does not have a Audio
+/// clip that matches it a line will show in the Command line stating "No audio clip assigned for question".
+/// </summary>
 public class MCQuestions : MonoBehaviour {
     private Client client;
     public GameObject greetings;
@@ -85,7 +92,14 @@ public class MCQuestions : MonoBehaviour {
             transform.LookAt(targetPosition);
         }
     } 
-    
+    /**************************************************************
+     * Changes the textbox that the player is highlighting for answering a question
+     * 
+     * ##Detailed
+     * he answer that the player is highlighting will be in red. Based on which box the player is currentlyu highlighting the logic
+     * will commence based on if they move the joystick up/down left/right to move ther selection box.
+     * 
+     * ************************************************************/
     private void ChangeAnswer()
     {
         buttonArray [currentAnswerIndex].GetComponent<Image>().color = Color.white;
@@ -100,7 +114,16 @@ public class MCQuestions : MonoBehaviour {
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
     }
 
-    //Set up the question to be asked and activate canvas
+    /********************************************************
+     * Sets the question canvas to active upon interacting with 'A'
+     * 
+     * ##Detailed
+     * Upon interacting with the Client the player will be given four options to choose between. These four options 
+     * will be shuffled each time using the Shuffle function below. Therefore engaging the player in the Multiple Choice question style
+     * 
+     * *See line 77 for use*
+     * 
+     * ***********************************************/
     private void AskQuestion()
     {
         client.askingQuestion = true;
@@ -137,6 +160,15 @@ public class MCQuestions : MonoBehaviour {
         buttonArray[currentAnswerIndex].GetComponent<Image>().color = Color.red;
     }
 
+    /******************************************************
+     * Determines reaction of choosing an answer
+     * 
+     * ##Detailed
+     * If the correct answer is chosen the UMAMoodController is set to the appropriate facial expression (Happy) if incorrect it will be set to Upset. There
+     * is also a textbox above the clients that will give a ':)' or ':('.
+     * It also interacts with the Level script to keep track of completed tasks. 
+     * 
+     * *****************************************************/
     private void SelectAnswer()
     {
         questionAnswered = true;
@@ -174,7 +206,14 @@ public class MCQuestions : MonoBehaviour {
         Destroy(gameObject, 5f);
     }
     
-    //Shuffle function
+    /*******************************************
+     * Used to shuffle an array as to add to randomness
+     * 
+     * ##Detailed
+     * For this script the Shuffle is changing the position that answers will be presented in the 4 
+     * choice box positions (Top left, Top right, Bottom left, Bottom right)
+     * 
+     * *****************************************/
     public static List<string> Shuffle(List<string> list)
     {
         List<string> shuffled = new List<string> { };

@@ -9,11 +9,18 @@ using OVRTouchSample;
 using System.Text.RegularExpressions;
 using UnityEngine.SceneManagement;
 
-
+/// <summary>
+/// This script contains a lot of the player housed elements (Collectibles, Main Menu, etc.)
+/// 
+/// ##Detailed
+/// This script is attached to the player character and holds functions for modifying the players score and accessing the 
+/// MainMenu. 
+/// 
+/// </summary>
 public class MasterController : MonoBehaviour
 {
-    public static GameObject teleportFunction;
-    public static double labSatisfaction = 1000.0;
+    public static GameObject teleportFunction;  /*!< @brief Associated with the Player Teleport mechanic*/
+    public static double labSatisfaction = 1000.0;  /*!< @brief Player begins with a score of 1000*/
     public GameObject rightHand;
     public static OVRPlayerController playerController;
 
@@ -62,9 +69,13 @@ public class MasterController : MonoBehaviour
     public GameObject[] uiMenuOptionsArray;
     public GameObject player;
     private IEnumerator accessMainframe;
-    public int numOfDots; //mainFrameText Coroutine
-    private Canvas trackerCanvas;
+    public int numOfDots; /*!< @brief Used as a **Loading Screen** for main Menu functionality */
+    private Canvas trackerCanvas;   /*!< @brief Used for the Tracker functionality */
 
+    /******************
+     * Upon Start the GameObject variables will find their associated Gameobjects
+     * 
+     * **************/
     private void Start()
     {
         teleportFunction = GameObject.FindGameObjectWithTag("Teleportation");
@@ -100,7 +111,11 @@ public class MasterController : MonoBehaviour
         TakeInput();
     }
 
-    //reading instr from the file
+    /*******************
+     * Parses the "Instructions" Textfile so that it can be seen from within the Main menu
+     * 
+     * @note Unsure if this works correctly, This was left from Anush's work 
+     * ****************/
     void FileParse(string toParse, TextAsset textFile)
     {
         string[] fLines = textFile.text.Split("\n"[0]);
@@ -113,7 +128,12 @@ public class MasterController : MonoBehaviour
             }
         }
     }
-
+    /*********************
+     * Takes the input from the Player for the UI options
+     * 
+     * ##Detailed
+     * 
+     * ******************/
     void TakeInput()
     {
         //view/hide UI canvas
@@ -177,9 +197,23 @@ public class MasterController : MonoBehaviour
             }
         }
     }
- 
 
-    //score modifier fxn
+
+    /**********************************
+     * Function used to increase or decrease the Player's score
+     * 
+     * ##Detailed
+     * This function is what governs the points gained/lost in 3 categories. Those categories are *Professionalism* , *Customer Service*,
+     * and *Technical Skills*.
+     * 
+     * @param prof This variable represents the points gained or lost in the "Profesionalism" category
+     * @param cs This variable represents the points gained or lost in the "Customer Service" category
+     * @param tech This variable represents the points gained or lost in the "Technical Skills" category
+     * @param correct This variable signifies whether the character completed the task correctly 
+     * @param playSound This variable signifies if there should be an audioclip played for the action
+     * 
+     * 
+     * ********************************/
     public static void ScoreModify(int prof, int cs, int tech, bool correct, bool playSound)
     {
         profScore += prof;
@@ -202,6 +236,10 @@ public class MasterController : MonoBehaviour
         totalScoreText.SetText(totalScore.ToString());
     }
 
+    /*******************
+     * **Loading Screen** for the player while waiting for Main Menu to open
+     * 
+     * ****************/
     IEnumerator AccessMainframe()
     {
         string text = "Accessing Mainframe.";
@@ -212,14 +250,26 @@ public class MasterController : MonoBehaviour
             text = text + ".";
         }
     }
-
+    /*******************************
+     * This functions displays the inventory of the player
+     * 
+     * @note This function may still need improvement??
+     * 
+     * **************************/
     private void DisplayInventory()
     {
         staplerCountText.SetText(StaplerProjectile.staplers.ToString());
         coinCountText.SetText(coins.ToString());
         scrapPaperText.SetText(scrapPaper.ToString());
     }
-
+    /***************************
+     * This function displays the amount of trash of each category the player has collected.
+     * 
+     * ##Detailed 
+     * Thgis script will display how much trash of each category has been collected by the player. It will also display 
+     * the lab satisfaction score.
+     * 
+     * ***********************/
     private void DisplayTrashCount()
     {
         baseTrashCount.SetText(baseTrash.ToString());
