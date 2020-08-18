@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+/// <summary>
+/// This script determines what type of Client will be iniatiated into the Game
+/// 
+/// ##Detailed
+/// This script contains lists of the different kinds of Clients to be instantiated into the game. It contains their movement destinations as well as the different models
+/// which can be spawned.
+/// </summary>
 public class ClientManager : MonoBehaviour {
    
     static private float cashBoxTimerReset = 15f;
@@ -34,10 +40,15 @@ public class ClientManager : MonoBehaviour {
     static private float resetTimer = 5f;
     private int randInd;
     private float yPos = 0.05f;
-    static public int clientsSpawned = 0;
+    static public int clientsSpawned = 0;                /*!< @brief Keeps track of clients spawned into game.*/     /*!< @note Currently isn't used for anything else, may be able to remove?*/
     private Vector3 goal;
     private NavMeshAgent agent;
 
+    /********************************
+     * Assigns the different Vector 3 positions Clients will move too
+     * 
+     * 
+     * ******************************/
     private void Start()
     {
         spawnPositionCash = new Vector3(-29.13f, yPos, 39.73f);      //Main entrance x,y,z Position --> -29.13f, yPos, 39.73f
@@ -61,6 +72,16 @@ public class ClientManager : MonoBehaviour {
         //Debug.Log("Cashbox client remaining : " + cashBoxClient.GetComponent<NavMeshAgent>().remainingDistance);
     }
 
+    /********************************
+     * Logic used for determining the type of client spawned
+     * 
+     * ##Detailed
+     * Based on the following conditions, clients are spawned into the Game and then have a predetermined destinations chosen for their
+     * NavMeshAgents to work toward. 
+     * Dependent on the client type there are differnt versions that can be chosen from, these differing versions function the same way but have a different look so
+     * that the clients do not have the exact same look every time.
+     * 
+     * *****************************/
     void SpawnClient()
     {
         if (!cashClient && Level.level > 0)
@@ -108,12 +129,16 @@ public class ClientManager : MonoBehaviour {
 
             client.transform.parent = gameObject.transform;
             npcClient.transform.parent = gameObject.transform;
-            clientsSpawned++;
+            clientsSpawned++;           
             timer = resetTimer;
         }
     }
 
-
+    /*************************
+     * Unsure if this is used anywhere, this may be able to get deleted?
+     * 
+     * This function doesn't appear to be used inside its home Script. It may be referenced from other Scripts but Unsure of which.
+     * ***********************/
     static public void RemoveClient(Vector3 clientPosition)
     {
         spawnPositions.Add(clientPosition);

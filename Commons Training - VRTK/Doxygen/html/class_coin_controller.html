@@ -68,21 +68,27 @@ $(document).ready(function(){initNavTree('class_coin_controller.html',''); initR
 <div class="title">CoinController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for CoinController:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_coin_controller.png" alt=""/>
- </div></div>
+
+<p>Placeholder script for <a class="el" href="class_collectible_manager.html">CollectibleManager</a>  
+ <a href="class_coin_controller.html#details">More...</a></p>
+
+<p>Inherits MonoBehaviour.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a9d8a6ae56fdfc7f629c59433a9280d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">OnTriggerEnter</a> (Collider other)</td></tr>
+<tr class="memdesc:a9d8a6ae56fdfc7f629c59433a9280d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">This script will only interact with the Hand of the Player.  <a href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">More...</a><br /></td></tr>
 <tr class="separator:a9d8a6ae56fdfc7f629c59433a9280d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_coin_controller_8cs_source.html#l00005">5</a> of file <a class="el" href="_coin_controller_8cs_source.html">CoinController.cs</a>.</p>
+<div class="textblock"><p>Placeholder script for <a class="el" href="class_collectible_manager.html">CollectibleManager</a> </p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Detailed</h2>
+<p>Informs the <a class="el" href="class_collectible_manager.html">CollectibleManager</a> script if a coin has been collected and then destroys the coin. This allows the coins to only need this smaller less complex script attached for understanding</p>
+<p>@See <a class="el" href="class_collectible_manager.html">CollectibleManager</a>; <a class="el" href="class_scrap_paper_controller.html" title="Placeholder script for CollectibleManager">ScrapPaperController</a> (virtually same script)</p>
+<dl class="section note"><dt>Note</dt><dd>At a later point both the <a class="el" href="class_coin_controller.html" title="Placeholder script for CollectibleManager">CoinController</a> and <a class="el" href="class_scrap_paper_controller.html" title="Placeholder script for CollectibleManager">ScrapPaperController</a> scripts may be replaced with one singular script, or the functions may be placed within the <a class="el" href="class_collectible_manager.html">CollectibleManager</a> script. These are ideas for future development</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_coin_controller_8cs_source.html#l00017">17</a> of file <a class="el" href="_coin_controller_8cs_source.html">CoinController.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9d8a6ae56fdfc7f629c59433a9280d09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d8a6ae56fdfc7f629c59433a9280d09">&#9670;&nbsp;</a></span>OnTriggerEnter()</h2>
@@ -108,7 +114,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coin_controller_8cs_source.html#l00007">7</a> of file <a class="el" href="_coin_controller_8cs_source.html">CoinController.cs</a>.</p>
+<p>This script will only interact with the Hand of the Player. </p>
+<p>After, it ensures that the collision is in fact with the Hand of the player (via tags) the script will inform the <a class="el" href="class_collectible_manager.html">CollectibleManager</a> script, and then be destroyed</p>
+<p>Collecting can only begin after the Redvest has been Collected (See <a class="el" href="class_master_controller.html">MasterController</a> for Red Vest) </p>
+
+<p class="definition">Definition at line <a class="el" href="_coin_controller_8cs_source.html#l00027">27</a> of file <a class="el" href="_coin_controller_8cs_source.html">CoinController.cs</a>.</p>
 
 </div>
 </div>

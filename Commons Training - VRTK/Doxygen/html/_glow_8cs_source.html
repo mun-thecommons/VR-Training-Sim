@@ -68,34 +68,33 @@ $(document).ready(function(){initNavTree('_glow_8cs_source.html',''); initResiza
 <a href="_glow_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> System.Collections;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> UnityEngine;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_glow.html">    5</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_glow.html">Glow</a> : MonoBehaviour</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">    7</a></span>&#160;    <span class="keyword">private</span> Light <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">    8</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> = 3;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// Start is called before the first frame update</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">   10</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">Start</a>()</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a> = GetComponent&lt;Light&gt;();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Update is called once per frame</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_glow.html#a484933d0dda7904d9549bdad22a37335">   16</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_glow.html#a484933d0dda7904d9549bdad22a37335">Update</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity &gt;= 1 &amp;&amp; <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> &gt; 0) || (<a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity &lt;= 0.01 &amp;&amp; <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> &lt; 0))</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> *= -1;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity += <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a>*Time.deltaTime;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_glow.html">   12</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_glow.html">Glow</a> : MonoBehaviour</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">   14</a></span>&#160;    <span class="keyword">private</span> Light <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>;             </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">   15</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> = 3;     </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Start is called before the first frame update</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">   18</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">Start</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a> = GetComponent&lt;Light&gt;();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_glow.html#a484933d0dda7904d9549bdad22a37335">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_glow.html#a484933d0dda7904d9549bdad22a37335">Update</a>()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity &gt;= 1 &amp;&amp; <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> &gt; 0) || (<a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity &lt;= 0.01 &amp;&amp; <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> &lt; 0))</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> *= -1;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a>.intensity += <a class="code" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a>*Time.deltaTime;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_glow_html"><div class="ttname"><a href="class_glow.html">Glow</a></div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00005">Glow.cs:6</a></div></div>
-<div class="ttc" id="aclass_glow_html_add783877fcf36685fffe747ca80e4d2a"><div class="ttname"><a href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">Glow.glow</a></div><div class="ttdeci">Light glow</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00007">Glow.cs:7</a></div></div>
-<div class="ttc" id="aclass_glow_html_a952c853f655a9a5cb47087a3e7905f7f"><div class="ttname"><a href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">Glow.Start</a></div><div class="ttdeci">void Start()</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00010">Glow.cs:10</a></div></div>
-<div class="ttc" id="aclass_glow_html_a977ad9c19b0c0fc43e86756d8cf89375"><div class="ttname"><a href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">Glow.multiplier</a></div><div class="ttdeci">int multiplier</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00008">Glow.cs:8</a></div></div>
-<div class="ttc" id="aclass_glow_html_a484933d0dda7904d9549bdad22a37335"><div class="ttname"><a href="class_glow.html#a484933d0dda7904d9549bdad22a37335">Glow.Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00016">Glow.cs:16</a></div></div>
+<div class="ttc" id="aclass_glow_html"><div class="ttname"><a href="class_glow.html">Glow</a></div><div class="ttdoc">Adds a varying glow to a light</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00012">Glow.cs:13</a></div></div>
+<div class="ttc" id="aclass_glow_html_add783877fcf36685fffe747ca80e4d2a"><div class="ttname"><a href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">Glow.glow</a></div><div class="ttdeci">Light glow</div><div class="ttdoc">Upon start gets the Light component and stores it here.</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00014">Glow.cs:14</a></div></div>
+<div class="ttc" id="aclass_glow_html_a952c853f655a9a5cb47087a3e7905f7f"><div class="ttname"><a href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">Glow.Start</a></div><div class="ttdeci">void Start()</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00018">Glow.cs:18</a></div></div>
+<div class="ttc" id="aclass_glow_html_a977ad9c19b0c0fc43e86756d8cf89375"><div class="ttname"><a href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">Glow.multiplier</a></div><div class="ttdeci">int multiplier</div><div class="ttdoc">Simple multiplier used within Update function.</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00015">Glow.cs:15</a></div></div>
+<div class="ttc" id="aclass_glow_html_a484933d0dda7904d9549bdad22a37335"><div class="ttname"><a href="class_glow.html#a484933d0dda7904d9549bdad22a37335">Glow.Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">The glowing effect will increase or decrease based on the state of the multiplier.</div><div class="ttdef"><b>Definition:</b> <a href="_glow_8cs_source.html#l00027">Glow.cs:27</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

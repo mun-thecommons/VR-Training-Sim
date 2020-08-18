@@ -68,24 +68,26 @@ $(document).ready(function(){initNavTree('_coin_controller_8cs_source.html','');
 <a href="_coin_controller_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> System.Collections;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> UnityEngine;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_coin_controller.html">    5</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_coin_controller.html">CoinController</a> : MonoBehaviour</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">    7</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">OnTriggerEnter</a>(Collider other)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordflow">if</span> (other.CompareTag(<span class="stringliteral">&quot;Hand&quot;</span>))</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <a class="code" href="class_collectible_manager.html">CollectibleManager</a>.<a class="code" href="class_collectible_manager.html#ad0b1622f48a3263aca9a9456614c8199">CollectCoin</a>(transform.position);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            Destroy(gameObject);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_coin_controller.html">   17</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_coin_controller.html">CoinController</a> : MonoBehaviour</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">   27</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">OnTriggerEnter</a>(Collider other)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_master_controller.html">MasterController</a>.<a class="code" href="class_master_controller.html#a85872801e1d5a1e936231f48f5b99f78">vestCollected</a> &amp;&amp; other.CompareTag(<span class="stringliteral">&quot;Hand&quot;</span>))</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="class_collectible_manager.html">CollectibleManager</a>.<a class="code" href="class_collectible_manager.html#ad0b1622f48a3263aca9a9456614c8199">CollectCoin</a>(transform.position);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            Destroy(gameObject);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_coin_controller_html_a9d8a6ae56fdfc7f629c59433a9280d09"><div class="ttname"><a href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">CoinController.OnTriggerEnter</a></div><div class="ttdeci">void OnTriggerEnter(Collider other)</div><div class="ttdef"><b>Definition:</b> <a href="_coin_controller_8cs_source.html#l00007">CoinController.cs:7</a></div></div>
+<div class="ttc" id="aclass_coin_controller_html_a9d8a6ae56fdfc7f629c59433a9280d09"><div class="ttname"><a href="class_coin_controller.html#a9d8a6ae56fdfc7f629c59433a9280d09">CoinController.OnTriggerEnter</a></div><div class="ttdeci">void OnTriggerEnter(Collider other)</div><div class="ttdoc">This script will only interact with the Hand of the Player.</div><div class="ttdef"><b>Definition:</b> <a href="_coin_controller_8cs_source.html#l00027">CoinController.cs:27</a></div></div>
 <div class="ttc" id="aclass_collectible_manager_html"><div class="ttname"><a href="class_collectible_manager.html">CollectibleManager</a></div><div class="ttdef"><b>Definition:</b> <a href="_collectible_manager_8cs_source.html#l00005">CollectibleManager.cs:6</a></div></div>
-<div class="ttc" id="aclass_coin_controller_html"><div class="ttname"><a href="class_coin_controller.html">CoinController</a></div><div class="ttdef"><b>Definition:</b> <a href="_coin_controller_8cs_source.html#l00005">CoinController.cs:6</a></div></div>
+<div class="ttc" id="aclass_coin_controller_html"><div class="ttname"><a href="class_coin_controller.html">CoinController</a></div><div class="ttdoc">Placeholder script for CollectibleManager</div><div class="ttdef"><b>Definition:</b> <a href="_coin_controller_8cs_source.html#l00017">CoinController.cs:18</a></div></div>
+<div class="ttc" id="aclass_master_controller_html_a85872801e1d5a1e936231f48f5b99f78"><div class="ttname"><a href="class_master_controller.html#a85872801e1d5a1e936231f48f5b99f78">MasterController.vestCollected</a></div><div class="ttdeci">static bool vestCollected</div><div class="ttdef"><b>Definition:</b> <a href="_master_controller_8cs_source.html#l00031">MasterController.cs:31</a></div></div>
 <div class="ttc" id="aclass_collectible_manager_html_ad0b1622f48a3263aca9a9456614c8199"><div class="ttname"><a href="class_collectible_manager.html#ad0b1622f48a3263aca9a9456614c8199">CollectibleManager.CollectCoin</a></div><div class="ttdeci">static void CollectCoin(Vector3 position)</div><div class="ttdef"><b>Definition:</b> <a href="_collectible_manager_8cs_source.html#l00154">CollectibleManager.cs:154</a></div></div>
+<div class="ttc" id="aclass_master_controller_html"><div class="ttname"><a href="class_master_controller.html">MasterController</a></div><div class="ttdef"><b>Definition:</b> <a href="_master_controller_8cs_source.html#l00013">MasterController.cs:14</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

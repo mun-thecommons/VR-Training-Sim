@@ -15,6 +15,20 @@
 /// </summary>
 public class ExampleScript
 {
+	private bool bVariable; /*!< @brief Random bool variable  */
+	public int iVar;
+	public double dEul;
+
+	void Start()
+    {
+		
+
+    }
+
+	void Update()
+    {
+		
+    }
 	/**
 	 * First line will be be a brief description of the function itself.
 	 * 
@@ -108,10 +122,10 @@ public class ExampleScript
 	 * @warning both ab and bc must be greater than 0 ( ab > 0 && bc > 0 )
 	 *************************************************/
 	public int Equation4(int ab, int bc)
-	{   
-		int alpha = 0;          // Instead of showing up in the HTML file itself like the XML comments and the like
+	{
+		int alpha = 0;  
 
-		alpha = 5+bc - ab/10;  //<! Instead of showing up in the HTML file itself like the XML comments and the like*/
+		alpha = 5+bc - ab/10;  // Instead of showing up in the HTML file itself like the XML comments and the like
 		return 0;
 	}
 }

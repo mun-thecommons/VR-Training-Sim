@@ -1,5 +1,15 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Logic used for the Phone based questions at the desk
+/// 
+/// ##Detailed
+/// This script uses four Bool variables to keep track where the player is touching or what they are grabbing. Dependent upon the 
+/// question that is asked of the player if they touch the correct phone (ITS or LabNet) they will have answered the question correctly.
+/// 
+/// If the player is grabbing a phone, this logic is used elsewhere so that if they player lets go after grabbing
+/// the phone can reset its position to be back in its correct location
+/// </summary>
 public class TouchDetection : MonoBehaviour
 {
    
@@ -45,7 +55,11 @@ public class TouchDetection : MonoBehaviour
         }
        
     }
-
+    /*******************************
+     * Checks if ITS  Phone is being held by Player
+     * 
+     * @note This may be a redundant function as the script PhoneGrab does this as well
+     * ****************************/
     public void ITSisGrabbed()
     {
         if (isTouchingITS && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
@@ -55,7 +69,11 @@ public class TouchDetection : MonoBehaviour
         else
             isGrabbingITS = false;
     }
-
+    /*******************************
+     * Checks if LabNet  Phone is being held by Player
+     * 
+     *  @note This may be a redundant function as the script PhoneGrab does this as well
+     * ****************************/
     public void LabNetisGrabbed()
     {
         if (isTouchingLabNet && (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || OVRInput.Get(OVRInput.RawButton.LIndexTrigger)))

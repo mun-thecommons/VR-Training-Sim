@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-
+/// <summary>
+/// Holds the logic involved with the Player's Level progress
+/// 
+/// ##Detailed
+/// Has a set of tasks assigned to each of 3 levels. These tasks are stored in Bool variables and as they are completed
+/// the Mainmenu UI will update. 
+/// 
+/// @note This script may change based upon the direction that the VR Project goes in terms of rewarding the Player for achievements
+/// </summary>
 public class Level : MonoBehaviour
 {
     //Player and Start Position
@@ -16,20 +24,20 @@ public class Level : MonoBehaviour
     
     //Boolean For Tasks in Levels
     //Level 1 
-    public static bool level1Vest = false;                            //Works.... Collect Vest
-    public static bool level1USB = false;                          //Works.... Fully complete Rounds
-    public static bool level1Printer = false;                       //Works....Fill 2 Printers
+    public static bool level1Vest = false;                            /*!< @briefCollect the RedVest */
+    public static bool level1USB = false;                            /*!< @brief Collect a Singular USB*/
+    public static bool level1Printer = false;                       /*!< @brief Fill the printers with paper */
 
     //Level 2
-    public static bool level2Round = false;                            //Works.... Collect 1 USB
-    public static bool level2Client = false;                        //Works.... Answer 1 MC Client
-    public static bool level2Trash = false;                        //Works.... Collect 1 Trash of any kind
-    public static bool level2Cash = false;                        //Works.... Collect 1 Trash of any kind
+    public static bool level2Round = false;                            /*!< @brief Complete the rounds */
+    public static bool level2Client = false;                          /*!< @brief Answer a Multiple Choice Client */
+    public static bool level2Trash = false;                          /*!< @brief Collect a piece of trash around the Commons */
+    public static bool level2Cash = false;                          /*!< @brief Help a client at the Cash box*/
 
     //Level 3
-    public static bool level3Monitor = false;                        //Works.... Fix 1 Monitor
-    public static bool level3ClientDesk = false;                    //Works.... Answer All questions (Don't need to be correct)
-    public static bool level3ClientLab = false;                    //Works.... Answer 2 Questions Correctly
+    public static bool level3Monitor = false;                        /*!< @brief Fix a broken Monitor*/
+    public static bool level3ClientDesk = false;                    /*!< @brief Help a Client at the Desk*/
+    public static bool level3ClientLab = false;                    /*!< @brief Help a client in the Computer lab*/
 
     //Level 4
 
@@ -43,9 +51,11 @@ public class Level : MonoBehaviour
     private TextMeshProUGUI countDownText;
     private TextMeshProUGUI levelCompletedText;
 
-    private GameObject robbie;
+    private GameObject robbie;                                     /*!< @brief Used to Interact with Robbie */
 
-    // Start is called before the first frame update
+    /************************************************
+     * Initializes required variables for the functions below
+     * *********************************************/
     void Start()
     {
         startPosition = player.transform.position;
@@ -55,7 +65,13 @@ public class Level : MonoBehaviour
         robbie = GameObject.FindGameObjectWithTag("Robbie");
     }
 
-    // Update is called once per frame
+    /************************************************
+     * Ensures the tutorial is complete before continuing with level progression
+     * 
+     * ##Detailed
+     * Checks to ensure that the tutorial was finished by the user. Once the tutorial has been finished it will continue to 
+     * monitor the players level progression and reward them for completing levels based on functions below.
+     * *********************************************/
     void Update()
     {
         if (robbie.GetComponent<RobotController>().tutorialFinished)
@@ -70,7 +86,13 @@ public class Level : MonoBehaviour
         }
     }
 
-    //Display Level Complete Message
+    /************************************************
+     * Displays the Level complete message
+     * 
+     * @note This may be tinkered with later to give more of a sense of achievement and instill the Positive reinforcement
+     * that we want the Players to feel.
+     * 
+     * *********************************************/
     IEnumerator DisplayLevelCompleted(float time)
     {
         levelCompletedText.enabled = true;
@@ -79,7 +101,10 @@ public class Level : MonoBehaviour
         levelCompletedText.enabled = false;
     }
 
-    //functions for level 1
+    /************************************************
+     * Informs player to go to desk starts a timer for it
+     * 
+     * *********************************************/
     private void WalkToDesk()
     {
         countDownText.text = "Go to CS Desk: " + timer.ToString("F2");
@@ -98,7 +123,14 @@ public class Level : MonoBehaviour
         }
 
     }
-
+    /************************************************
+     * Verifies all tasks are complete to advance in level
+     * 
+     * ##Detailed
+     * Once it is verified that all tasks are complete to advance to next level, the DisplayLevelCompleted Function will run, congratulating the player
+     * and giving some Positive reinforcement for their effort.
+     * 
+     * *********************************************/
     private void CheckLevel()
     {
         SetMainframeText();
@@ -118,7 +150,14 @@ public class Level : MonoBehaviour
             level += 1;
         }
     }
-
+    /************************************************
+     * Used within the MainMenu UI to display current Tasks to complete
+     * 
+     * ##Detailed
+     * Task list of what needs to be done to complete the current level. Once all tasks are complete for the level a new list of tasks will
+     * appear in its place for the new level.
+     *
+     * *********************************************/
     private void SetMainframeText()
     {
         if(level == 1)

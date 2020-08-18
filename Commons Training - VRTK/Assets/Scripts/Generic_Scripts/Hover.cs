@@ -1,32 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Allows objects to have a hover effect
+/// 
+/// ##Detailed 
+/// This script will give an object a hover effect based on two parameters. 
+/// The amplitude will decide how high the object will hover, and the frequency how often it will bob up and down. 
+/// 
+/// Initial values has been set, but a User may change these to have a more noticable change of motion. 
+/// This is done within Unity.
+/// </summary>
 public class Hover : MonoBehaviour
 {
 
-    /// Basic Input.
-    /// Initial value has been set, but a User may change this to have a more noticable change of motion
-    public float amplitude = 0.5f;
-    public float frequency = 1f;
+    // Basic Input.
+    public float amplitude = 0.5f;  /*!< @brief Amplitude of the Gameobjects Sin function */
+    public float frequency = 1f;    /*!< @brief Frequency of the Gameobjects Sin function */
 
-    /// Position Storage Variables
-    float posOffset;
-    float tempPos;
+    // Position Storage Variables
+    float posOffset;    /*!< @brief Position storage variable */
+    float tempPos;      /*!< @brief Position storage variable */
 
 
-    /// Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
-        /// Store the starting position & rotation of the object
-          posOffset = transform.position.y;
+        
+          posOffset = transform.position.y;     // Store the starting position & rotation of the object
     }
 
-    /// Update is called once per frame
+    // Update is called once per frame
     void LateUpdate()
     {
        
-        /// Float up/down with a Sin()
+        // Float up/down with a Sin()
         tempPos = posOffset;
         tempPos += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 

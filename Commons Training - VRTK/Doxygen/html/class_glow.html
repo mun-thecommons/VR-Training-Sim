@@ -69,30 +69,36 @@ $(document).ready(function(){initNavTree('class_glow.html',''); initResizable();
 <div class="title">Glow Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for Glow:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_glow.png" alt=""/>
- </div></div>
+
+<p>Adds a varying glow to a light  
+ <a href="class_glow.html#details">More...</a></p>
+
+<p>Inherits MonoBehaviour.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a952c853f655a9a5cb47087a3e7905f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_glow.html#a952c853f655a9a5cb47087a3e7905f7f">Start</a> ()</td></tr>
 <tr class="separator:a952c853f655a9a5cb47087a3e7905f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a484933d0dda7904d9549bdad22a37335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_glow.html#a484933d0dda7904d9549bdad22a37335">Update</a> ()</td></tr>
+<tr class="memdesc:a484933d0dda7904d9549bdad22a37335"><td class="mdescLeft">&#160;</td><td class="mdescRight">The glowing effect will increase or decrease based on the state of the multiplier.  <a href="class_glow.html#a484933d0dda7904d9549bdad22a37335">More...</a><br /></td></tr>
 <tr class="separator:a484933d0dda7904d9549bdad22a37335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:add783877fcf36685fffe747ca80e4d2a"><td class="memItemLeft" align="right" valign="top">Light&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">glow</a></td></tr>
+<tr class="memdesc:add783877fcf36685fffe747ca80e4d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upon start gets the Light component and stores it here.  <a href="class_glow.html#add783877fcf36685fffe747ca80e4d2a">More...</a><br /></td></tr>
 <tr class="separator:add783877fcf36685fffe747ca80e4d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a977ad9c19b0c0fc43e86756d8cf89375"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">multiplier</a> = 3</td></tr>
+<tr class="memdesc:a977ad9c19b0c0fc43e86756d8cf89375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple multiplier used within Update function.  <a href="class_glow.html#a977ad9c19b0c0fc43e86756d8cf89375">More...</a><br /></td></tr>
 <tr class="separator:a977ad9c19b0c0fc43e86756d8cf89375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00005">5</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
+<div class="textblock"><p>Adds a varying glow to a light </p>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Detailed</h2>
+<p>This script picks up the light component attached to a gameobject and with each called update it will change the intensity of the light, creating a glow effect.</p>
+
+<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00012">12</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a952c853f655a9a5cb47087a3e7905f7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a952c853f655a9a5cb47087a3e7905f7f">&#9670;&nbsp;</a></span>Start()</h2>
@@ -117,7 +123,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00010">10</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00018">18</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
 
 </div>
 </div>
@@ -144,7 +150,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00016">16</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
+<p>The glowing effect will increase or decrease based on the state of the multiplier. </p>
+
+<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00027">27</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
 
 </div>
 </div>
@@ -169,7 +177,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00007">7</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
+<p>Upon start gets the Light component and stores it here. </p>
+
+<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00014">14</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
 
 </div>
 </div>
@@ -193,7 +203,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00008">8</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
+<p>Simple multiplier used within Update function. </p>
+
+<p class="definition">Definition at line <a class="el" href="_glow_8cs_source.html#l00015">15</a> of file <a class="el" href="_glow_8cs_source.html">Glow.cs</a>.</p>
 
 </div>
 </div>
