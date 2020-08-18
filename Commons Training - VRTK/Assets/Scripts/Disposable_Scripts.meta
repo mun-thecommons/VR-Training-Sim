@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Commons Training - VRTK/Assets/Scripts/Disposable_Scripts.meta
 guid: 76d77ef1c1f3d594c9497f88636a97e7
 =======
 guid: c573b4e1fff89a44391bf8e594688bba
 >>>>>>> Mike_Test:Commons Training - VRTK/Assets/Editor/Doxygen/Resources.meta
+=======
+<<<<<<< HEAD:Commons Training - VRTK/Assets/Scripts/bin/Debug.meta
+guid: 2696dd1c685dc614c885dcec728d237b
+=======
+guid: 76d77ef1c1f3d594c9497f88636a97e7
+>>>>>>> master:Commons Training - VRTK/Assets/Scripts/Disposable_Scripts.meta
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
