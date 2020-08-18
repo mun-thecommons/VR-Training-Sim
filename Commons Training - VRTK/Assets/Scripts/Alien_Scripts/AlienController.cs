@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Alien Controller
+/// ##Detailed Description
+/// Aliens patrol between a set of points
+/// If an alien spots a monitor, it will shoot the monitor
+/// When a monitor is shot, the white smoke with emerge
+/// </summary>
 public class AlienController : MonoBehaviour
 {
     private float yPos = 0.3f;
@@ -34,7 +41,9 @@ public class AlienController : MonoBehaviour
         agent.autoBraking = false;
         destPoint = Random.Range(0, walkDestPos.Count);
     }
-
+    /******************************
+     *Make an Agent Patrol Between a Set of Points for Aliens
+     * ****************************/
     void GotoNextPoint()
     {
         if (walkDestPos.Count == 0)

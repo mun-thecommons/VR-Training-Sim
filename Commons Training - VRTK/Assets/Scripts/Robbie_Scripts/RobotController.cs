@@ -4,7 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
+/// <summary>
+/// Control Robbie the Robot behaviour
+/// ##Detailed Description
+/// ###Tutorial Control
+/// The player movement is disabled when completing the tutorial
+/// The tutorial is completed chronologically with Robbie the Robot instruction
+/// ###Level Control
+/// Robbie the Robot navigates the player by displaying instruction messages at the beginning of each level
+/// </summary>
 public class RobotController : MonoBehaviour
 {
     public GameObject player;
@@ -89,12 +97,20 @@ public class RobotController : MonoBehaviour
             movementEnabled = true;
         }
     }
+    /******************************
+     *  Robbie the robot teleports to the front of the player
+     *  Robbie the robot faces the player after teleportation to deliver the message
+     * ****************************/
     void Teleport()
     {
         transform.position = new Vector3(player.transform.position.x + player.transform.forward.x*robbiePlayerDistance, player.transform.position.y, player.transform.position.z + player.transform.forward.z*robbiePlayerDistance);
         transform.LookAt(player.transform);
     }
 
+    /******************************
+     *  Robbie the robot displays messages then the player found a lost USB/ put the lost USB in the Box
+     *  @note each message is displayed only once
+     * ****************************/
     void DisplayMessage()
     {
         if(isTouchingUSB && !usbTouchingMessaged)
@@ -111,6 +127,10 @@ public class RobotController : MonoBehaviour
         }
     }
 
+    /******************************
+    *  Robbie the robot teleports and displays messages at the beginning of each level
+    *  @note The level in the game need to be restructured
+    * ****************************/
     void DisplayLevelMessage()
     {
         if (Level.level == 1 && Level.level1Vest && !Level.level1Printer && !Level.level1USB && !level1Messaged)
@@ -144,7 +164,9 @@ public class RobotController : MonoBehaviour
             source.PlayOneShot(level3CompleteAudio, volume);
         }           
     }
-
+    /******************************
+     * Display the tutorial messages chronologically
+     * ****************************/
     void DisplayTutorialMessage() 
     {   
         /*Will run through what Bool's are false to determine next message to display
@@ -190,7 +212,11 @@ public class RobotController : MonoBehaviour
         }
 
     }
-
+    /******************************
+     * Detect the player interaction with the tutorial
+     * @note the tutorial is divided into many steps
+     * @note the player needs to complete one step before moving on to the following step
+     * ****************************/
     void CheckTutorialControls()
     {/* Checks what is being displayed on robbie's canvas to determine which Input.Getbuttondown to look for.
         After detecting the correct button has been pressed, will set the apropriate bool to true and hence

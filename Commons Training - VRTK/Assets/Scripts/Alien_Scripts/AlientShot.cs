@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Control the action of an alien being shot
+/// The 'Dead' animation being displayed and the alien being destroyed when being shot
+/// </summary>
 public class AlientShot : MonoBehaviour
 {
     private Animator alienAnimator;
@@ -15,6 +19,10 @@ public class AlientShot : MonoBehaviour
         alienNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
     }
 
+    /******************************
+     * When an alien collides with a shot stapler, the alien will be destroyed
+     * @note the "Dead" triggers "being shot" animation of the alien
+     * ****************************/
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("StaplerThrow"))
