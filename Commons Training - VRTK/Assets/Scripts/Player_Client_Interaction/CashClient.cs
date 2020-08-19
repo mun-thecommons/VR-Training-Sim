@@ -7,7 +7,16 @@ using System.IO;
 using UnityEngine.AI;
 using OVRTouchSample;
 using System.Text.RegularExpressions;
-
+/// <summary>
+/// Contains the logic used for the Cashbox Client, and how it interacts with the CampusCard and CashBox
+/// 
+/// ##Detailed
+/// This script will interact with both the CampusCard and CashBox scripts so that the response of the Client is done correctly. 
+/// The Renderer of the Campus Card attached to the NPC is initially set to inActive so that when the player interacts with them it has the effect
+/// of being "Dropped" by the NPC. Once the Campus Card is returned it will go back to disabling the Renderer to make it appear as if
+/// the NPC took their card back.
+/// 
+/// </summary>
 public class CashClient : MonoBehaviour
 {
     public GameObject greetings;
@@ -34,6 +43,14 @@ public class CashClient : MonoBehaviour
 
     }
     
+    /*******************************************************
+     * Ensures proper setup of Interaction upon reaching destination position
+     * 
+     * ##Detailed
+     * Upon reaching destination it will inform the Player that the NPC has a question/Interaction to complete. At this point the NPC will
+     * ask the player to check their Campus Card for money and dependent on what the Blackbox says will determine the NPC's response. 
+     * 
+     * ****************************************************/
     void Update()
     {
         if (timer <= 0 && GetComponent<NavMeshAgent>().isStopped)
@@ -69,7 +86,7 @@ public class CashClient : MonoBehaviour
 
         }
 
-        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f && GetComponent<NavMeshAgent>().isStopped)       // This allows for the client to lookat at the player when it is within 3 units of it
+        if (cardChecked && questionSetup && Vector3.Distance(transform.position, player.transform.position) < 3f && GetComponent<NavMeshAgent>().isStopped)       // This allows for the client to look at the player when it is within 3 units of it
             {
                 Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
                 transform.LookAt(targetPosition);
@@ -78,12 +95,26 @@ public class CashClient : MonoBehaviour
         timer -= Time.deltaTime;
     }
 
+    /*****************************
+     * Informs the ClientManager that this instance has been destroyed
+     * 
+     * ##Detailed
+     * The purpose of this is to allow the ClientManager to create new instances so that the Player can have the chance to interract with them again
+     * 
+     * **************************/
     private void OnDestroy()
     {
         ClientManager.cashClient = false;
     }
 
-
+    /******************************************************
+     * Determines the NPC's response to retrieval of CampusCard
+     * 
+     * ##Detailed
+     * Based on the state that the CampusCard was set too will determine the NPC's response upon return. 
+     * If this was the first time the player completed this task they are awarded points in Professionalism and Customer Service for doing so.
+     * 
+     * ****************************************************/
     void CardCheckResponse()
     {
         if (!Level.level2Cash)

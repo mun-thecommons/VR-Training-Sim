@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// Enables Clients to walk around with no questions
+/// 
+/// ##Detailed
+/// A list of vector positions have been designated as destination points and with the use of the NavMeshAgent the clients will move to said locations. 
+/// The script chooses a new destination upon arriving the original, and there are walking animations attached to the clients so the movement looks more realistic.
+/// </summary>
 public class WalkingClientController : MonoBehaviour
 {
     private float yPos = 0.08f;
     static public List<Vector3> walkDestPos = new List<Vector3>();
     private int destPoint = 0;
-    private NavMeshAgent agent;
+    private NavMeshAgent agent; /*!< @brief Used to interact with the attached GameObjects NavMeshAgent*/
 
     void Start()
     {
@@ -30,6 +36,12 @@ public class WalkingClientController : MonoBehaviour
         destPoint = Random.Range(0, walkDestPos.Count);
     }
 
+    /***************************************
+     * Function which controls the next point to go too
+     * ##Detailed
+     *  After a destination is reached a random point will be chosen afterward
+     * 
+     * ***********************************/
     void GotoNextPoint()
     {
         if (walkDestPos.Count == 0)

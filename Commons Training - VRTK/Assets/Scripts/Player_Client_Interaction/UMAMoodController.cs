@@ -4,7 +4,13 @@ using UnityEngine;
 using UMA;
 using UMA.CharacterSystem;
 using UMA.PoseTools;
-
+/// <summary>
+/// Controls facial expression of UMA Models
+/// 
+/// ##Detailed
+/// This script directly interacts with the adjustment nodes for the UMA Model facial expressions. This is used for creating Happy, Angry, Sad facial expressions
+/// which are used within other scripts when answering questions correctly
+/// </summary>
 public class UMAMoodController : MonoBehaviour
 {
 
@@ -25,7 +31,13 @@ public class UMAMoodController : MonoBehaviour
     {
         avatar.CharacterCreated.RemoveListener(OnCreated);
     }
-
+    /***********************
+     * Enables facial moving elements upon creation
+     * 
+     * ##Detailed
+     * Turns on blinking and saccades from the UMA options. Blinking will allow the models to periodically blink their eyes, while
+     * saccades will allow there eyes to move around, to give the impression they are staring at different things.
+     * **********************/
     public void OnCreated(UMAData data)
     {
         expression = GetComponent<ExpressionPlayer>();
@@ -33,7 +45,13 @@ public class UMAMoodController : MonoBehaviour
         expression.enableSaccades = true;
         connected = true;
     }
-
+    /******************************
+     * Can cycle through the expressions dependent upon other scripts
+     * 
+     * ##Detailed
+     * From the Update function the different "cases" or configurations can be seen for the facial expressions.
+     * 
+     * ***************************/
     void Update()
     {
         if (connected)

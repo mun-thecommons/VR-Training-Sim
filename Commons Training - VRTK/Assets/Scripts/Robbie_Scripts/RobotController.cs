@@ -18,7 +18,7 @@ public class RobotController : MonoBehaviour
     public GameObject player;
     public float robbiePlayerDistance = 2f;
 
-    // Tutorial Variables
+    //Tutorial Variables
     private bool movement;
     private bool mainMenu;
     private bool direction;
@@ -171,7 +171,7 @@ public class RobotController : MonoBehaviour
     {   
         /*Will run through what Bool's are false to determine next message to display
             Should run Chronilogically if i set it up correctly
-          */
+        */
         if (movement)
         {
             InputHandler.DisableMovement();
