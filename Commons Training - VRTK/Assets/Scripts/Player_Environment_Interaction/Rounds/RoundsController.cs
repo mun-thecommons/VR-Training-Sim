@@ -1,7 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using UnityEngine;
+//import libraries
 
+/// <summary>
+/// ##Script Description
+/// The script controls the action of completing rounds
+/// The player can up level by completing rounds
+/// When rounds are needed, round stations are enabled
+/// </summary>
 public class RoundsController : MonoBehaviour
 {
 
@@ -33,6 +40,10 @@ public class RoundsController : MonoBehaviour
         lastRounds += Time.deltaTime;
         
         // Reset lastRounds counter after all stations are visited
+        /*
+         * after all round stations are visitted, the counters are reset and there is no longer need to do rounds
+         * @warning: the levels of the game needs to be reprogrammed
+         */
         if (stationsVisited >= roundsStations.Length)
         {
             lastRounds = 0.0f;
@@ -47,6 +58,10 @@ public class RoundsController : MonoBehaviour
         }
 
         // Enable all rounds stations when rounds are needed again
+        /*
+         * All round stations are enabled when rounds are needed 
+         * 
+         */
         if (lastRounds >= roundsInterval && !roundsNeeded)
         {
             foreach (GameObject station in roundsStations)

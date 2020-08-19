@@ -1,13 +1,19 @@
-﻿using System.Collections;
+﻿//import libraries
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ##Script Description
+/// This script controls the display of the remaining time to complete round
+/// When the elapsed time from the previous round exceeds a preset value, the user is warned to complete rounds as needed
+/// </summary>
 public class RoundsMonitorController : MonoBehaviour
 {
-
+    //rounds Timer
     public Text roundsTimerText;
-
+    //Monitor Controller
     private MonitorController monitorControllerScript;
 
 

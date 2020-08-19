@@ -1,13 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//import libraries
+using System.Collections;
+using System.Collections.Generic; 
 using UnityEngine;
-
+/// <summary>
+/// ##Script Description
+/// This script controls the behaviour of the round stations
+/// When a round station is enabled, the round light will be blinking constantly
+/// When the player swipes card at a round station, the swipe will be recorded, and there will be indication with light and sound
+/// </summary>
 public class RoundsStation : MonoBehaviour
 {
+   //is the round station enabled
+    public bool stationEnabled = true; /
+    //audio played when swipe complete
+    public AudioClip swipeComplete; 
 
-    public bool stationEnabled = true;
-    public AudioClip swipeComplete;
     public GameObject roundsLight;
+
     public Light roundsPointLight;
 
 
@@ -59,7 +68,9 @@ public class RoundsStation : MonoBehaviour
             roundsPointLight.color = Color.green;
         }
     }
-
+    /*
+     * When the player swipes card to an enabled round station, the swipe will be registered and the round station will be disabled 
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("RoundsCard") && stationEnabled)
