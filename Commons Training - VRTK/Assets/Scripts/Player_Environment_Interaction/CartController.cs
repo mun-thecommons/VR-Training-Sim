@@ -23,6 +23,9 @@ public class CartController : MonoBehaviour
         paperBoxes = transform.GetChild(12).gameObject;
     }
 
+    /*
+     * Increment the y position of the cart by deltaY
+     */
     public static void ChangeYPos(float deltaYPos)
     {
         GameObject cart = GameObject.FindGameObjectWithTag("Cart");
@@ -65,6 +68,8 @@ public class CartController : MonoBehaviour
 
     }
 
+    /*
+     */
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Hand") && InputHandler.selectButton.state)

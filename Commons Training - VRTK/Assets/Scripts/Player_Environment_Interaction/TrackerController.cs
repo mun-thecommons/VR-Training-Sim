@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-
+/// <summary>
+/// ##Script Description
+/// The script control the entering/exitting of Tracker
+/// The script allows the player to toggle between options in the Tracker
+/// The scipt controls the display of statistics on the Tracker Canvas
+/// </summary>
 public class TrackerController : MonoBehaviour
 {
     public TextMeshProUGUI countTaskA;

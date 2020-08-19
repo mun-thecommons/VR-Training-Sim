@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//import libraries
+/// <summary>
+/// ##Script Description
+///  This script manages to break one random computer every a random preset amount of time 
+/// </summary>
 public class MonitorError : MonoBehaviour
 {
     public GameObject[] monitors;

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// #Script Description
+/// The script controls the state (full/empty) of the printer game objects and the action of loading paper into the printers
+/// </summary>
 public class PrinterController : MonoBehaviour
 {
     public static int numOfPrintersFilled = 0;
@@ -33,6 +37,10 @@ public class PrinterController : MonoBehaviour
         }
     }
 
+    /*
+     * This function enables the task of loading paper into printers
+     * Tha paper game object disappears when being triggered by an unfull printer game object
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Paper") && !full)

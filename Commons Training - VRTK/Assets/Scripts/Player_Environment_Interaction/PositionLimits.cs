@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ##Script Description
+/// The script restricts the position of a Game Object in ranges of x and z, which keeping the y coordinate constant
+/// </summary>
 public class PositionLimits : MonoBehaviour
 {
     private Quaternion startRotation;

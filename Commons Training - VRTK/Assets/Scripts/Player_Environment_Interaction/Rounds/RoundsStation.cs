@@ -1,4 +1,4 @@
-﻿//import libraries
+﻿
 using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine;
 public class RoundsStation : MonoBehaviour
 {
    //is the round station enabled
-    public bool stationEnabled = true; /
+    public bool stationEnabled = true; 
     //audio played when swipe complete
     public AudioClip swipeComplete; 
 

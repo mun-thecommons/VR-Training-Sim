@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ##Script Description
+/// This script controls the collection and shooting of staplers
+/// </summary>
 public class StaplerProjectile : MonoBehaviour
 {
     private float timer;
@@ -31,6 +34,9 @@ public class StaplerProjectile : MonoBehaviour
         }
     }
 
+    /*
+     * If there are staplers available in the inventory, the player can shoot stapler from his/her right hand
+     */
     void ShootStapler()
     {
         if (staplers > 0)
@@ -39,7 +45,9 @@ public class StaplerProjectile : MonoBehaviour
             staplers--;
         }
     }
-
+    /*
+     * The player can collect steapler inventory by triggering the stapler game objects
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("StaplerCollectible"))

@@ -5,11 +5,15 @@ using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// The script controls the Intro Video being played/skipped
+/// </summary>
+
 public class VideoPlayerController : MonoBehaviour
 {
+    
     bool videoPlayed = false;
     public Text videoText;
-
 
     // Update is called once per frame
     void Update()
