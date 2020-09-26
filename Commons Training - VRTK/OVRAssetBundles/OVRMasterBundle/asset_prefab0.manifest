@@ -1,0 +1,191 @@
+ManifestFileVersion: 0
+CRC: 3817516022
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ae1e3e94481595a245d204f34051ab9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 35722eb63d2e53a8623abe788943fcf3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 75
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ee12b470affd1da408f90c116ddabaf3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bcffb0a198605474c8a4d1c67c1515fe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1bb89712be5ea30498f546268ed7b944, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed08ea426786e0c4ea6d2ccca70edd1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac27124318cf8e84aa7350c2ac1cdb80, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9feb9a1666a345443b597b44557d83f8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3da26e17c969e364391ce8e9ab87c955, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4c68d057ca81de548bf509a897cc87ce, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 511c0e381891cff4ab96876ce4ef9e76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 68cab1192ad22574ca1ef4f039f6e025, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 02d4fc7955388924ab2b1a56d0c24507, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00f3402a2ea5bff4880c0313515240cd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 53f8374aa287b8b4faf2a154bf90ed37, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 03515c3b53054cd4bb8ede8a86afecd9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3870718b29417aa47af46e2c838b6aaa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 384b7fdb11d619c4b8d1dfda027c8f6d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bd024b6cea729324d8ce55a4966c2363, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7bec48ac03d27d142837625cddebab9c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe03322df36959e488839b1a0344585f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cf3c348d860b4bc4097ac75702212157, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a96d76bddceb6de4c8bc2595c4b7ff9d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9448878e2e40f1a4c9f8fd2b56832b13, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6e6b87ce74166cc438c446f7763c5104, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1975310f9e226ad41be662562353f030, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 341e643ffd1560148855a4fcdb5b6c28, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 03a7614f10832d041bccff167d2a460f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c907224ff87f1cb4b9b4ea79075c5ad7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a528fef2c776e940bcef6e856d04cb6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6403f6ff03ce2c64ca8e822993f2a8ac, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Oculus/Avatar/Content/Prefabs/LocalAvatar.prefab
+- Assets/Prefabs/McClient Prefabs/McClientFemaleClient.prefab
+- Assets/Prefabs/McClient Prefabs/McClientMale(V2).prefab
+- Assets/Prefabs/Walking Client Prefabs/MaleWalkingClient(Hooded).prefab
+- Assets/Prefabs/Elevator Pair.prefab
+- Assets/Prefabs/CashBoxClientFemaleClient.prefab
+- Assets/Prefabs/Desks/4-User Group.prefab
+- Assets/Prefabs/Desks/Tri-User Group.prefab
+- Assets/Prefabs/Trash & Collectibles/PaperBall.prefab
+- Assets/Prefabs/Library Pillar.prefab
+- Assets/Prefabs/Desks/DMC Group.prefab
+- Assets/Prefabs/McClient Prefabs/McClientFemaleClient(V2).prefab
+- Assets/Prefabs/Cart.prefab
+- Assets/Game Assets/Office Supplies Low Poly/Assets/Prefabs/Tape dispenser.prefab
+- Assets/Game Assets/Office Supplies Low Poly/Assets/Prefabs/Eraser.prefab
+- Assets/Prefabs/alien character.prefab
+- Assets/Prefabs/Walking Client Prefabs/FemaleWalkingClient.prefab
+- Assets/Prefabs/Rounds Station.prefab
+- Assets/Game Assets/SciFi_Door/Prefabs/Door_Prefab.prefab
+- Assets/Prefabs/PhoneBasedClient/PhoneBasedMale.prefab
+- Assets/Prefabs/chair.prefab
+- Assets/Prefabs/Paper Box.prefab
+- Assets/Prefabs/Desks/5-User Group.prefab
+- Assets/Prefabs/Trash & Collectibles/Cola Can.prefab
+- Assets/Prefabs/Trash & Collectibles/USB.prefab
+- Assets/Prefabs/Trash & Collectibles/Coin.prefab
+- Assets/Prefabs/Paper Ream.prefab
+- Assets/Prefabs/PhoneBasedClient/Phone handle 1.prefab
+- Assets/Prefabs/Walking Client Prefabs/FemaleWalkingClient(V2).prefab
+- Assets/Oculus/SampleFramework/Core/Locomotion/TeleportDestination.prefab
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_blend0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat4
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_prefab1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_asset0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_controller0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_anim0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_obj0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mp30
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_skp0

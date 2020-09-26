@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2805234394
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 07f29a2a2f411e4085ff08ae5f2917c7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 393d355a6a69432f13cf534ec4044bae
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+Assets:
+- Assets/Fonts/zero-hour.regular.ttf
+Dependencies: []

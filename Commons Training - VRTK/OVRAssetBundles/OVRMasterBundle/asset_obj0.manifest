@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 3843044930
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0d096a421b398f9fa9221459eaacccab
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 35b36f5babfbffec6f91a1d6c810571d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Game Assets/Fusion_Sketchup Imports/Red_Vest_v1.obj
+- Assets/Game Assets/Fusion_Sketchup Imports/flash drive.obj
+Dependencies: []

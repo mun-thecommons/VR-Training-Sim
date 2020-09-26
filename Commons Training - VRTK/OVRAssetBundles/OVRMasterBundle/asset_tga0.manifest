@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 1504726753
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 49b4441d114900a556191ed905391302
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 525b72fdacf3aef7d65f355ad8f17a96
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/AliensInTheCommons/texture/alien body diffuse.tga
+- Assets/Game Assets/CyberSoldier/CyberSoldier_Diff.tga
+- Assets/Game Assets/CyberSoldier/CyberSoldier_Spec.tga
+- Assets/Game Assets/Cola Can/Model/Textures/cola_can.tga
+- Assets/AliensInTheCommons/texture/alien gun normal.tga
+- Packages/com.unity.postprocessing/PostProcessing/Textures/SMAA/SearchTex.tga
+- Assets/Game Assets/CyberSoldier/CyberBody_Emissive.tga
+- Assets/AliensInTheCommons/texture/alien gun diffuse.tga
+- Packages/com.unity.postprocessing/PostProcessing/Textures/SMAA/AreaTex.tga
+- Assets/AliensInTheCommons/texture/alien body normal.tga
+- Assets/Game Assets/CyberSoldier/CyberSoldier_Normal.tga
+Dependencies: []

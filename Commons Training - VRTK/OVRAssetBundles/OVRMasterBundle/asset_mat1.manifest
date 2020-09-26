@@ -1,0 +1,53 @@
+ManifestFileVersion: 0
+CRC: 3418863955
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0101a79e0d5c10606b04c4f33fb3e7a5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Oculus/SampleFramework/Core/Locomotion/Materials/TeleportLaser.mat
+- Assets/Game Assets/Environmental Props/Materials/trafficLights.mat
+- Assets/Game Assets/Environmental Props/Materials/CrrateD.mat
+- Assets/Game Assets/Environmental Props/Materials/MidEivelTable.mat
+- Assets/Models/Target/Materials/Blue.mat
+- Assets/Game Assets/Environmental Props/Materials/SimpleScafold.mat
+- Assets/Materials/Walls.mat
+- Assets/Game Assets/Environmental Props/Materials/groundPole.mat
+- Assets/Game Assets/CyberSoldier/Materials/CyberMat.mat
+- Assets/Game Assets/Environmental Props/Materials/CrateH.mat
+- Assets/Game Assets/Environmental Props/Materials/mushroom.mat
+- Assets/Game Assets/Environmental Props/Materials/LargeCone.mat
+- Assets/Game Assets/Environmental Props/Materials/threeStipsBarrel.mat
+- Assets/Game Assets/SciFi_Door/Materials/collider.mat
+- Assets/Game Assets/Environmental Props/Materials/FireExtinguisher.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantA.mat
+- Assets/Models/Library Model/Materials/110081779-dark-metal-background-brushed-steel-texture-vector-illustration-.mat
+- Assets/Game Assets/Environmental Props/Materials/TriplePointedBanner.mat
+- Assets/Game Assets/Office Supplies Low Poly/Assets/Materials/Office Supplies Low
+  Poly Shared Material.mat
+- Assets/Game Assets/Environmental Props/Materials/CrateE.mat
+- Assets/Materials/Desk.mat
+- Assets/Game Assets/Environmental Props/Materials/NarrowDoublePointedBanner.mat
+- Assets/Game Assets/Environmental Props/Materials/Banner.mat
+- Assets/Game Assets/Environmental Props/Materials/CrateC.mat
+- Assets/Game Assets/Environmental Props/Materials/crateA.mat
+- Assets/Game Assets/Environmental Props/Materials/bigSignfancyRoad2.mat
+- Assets/Game Assets/Environmental Props/Materials/triangularFlag.mat
+- Assets/Materials/Rounds.mat
+- Assets/Game Assets/Environmental Props/Materials/cart.mat
+- Assets/Game Assets/Environmental Props/Materials/mushroom2.mat
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_tga0

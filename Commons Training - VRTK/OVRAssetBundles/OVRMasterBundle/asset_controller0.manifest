@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2436342306
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8306cf45152e7bb036be1a3002dce0cd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fdf6c57a251b9f6ec27bdd2fe01b033c
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/Elevator/Animations/Elevator.controller
+- Assets/Animations/Our Animations/Cylinder.controller
+- Assets/Animations/Our Animations/Hallway Robot.controller
+- Assets/Animations/Our Animations/CashBoxClient.controller
+- Assets/Models/Door/Animations/DoorAnimator.controller
+- Assets/Animations/Our Animations/NavMeshTest.controller
+- Assets/AliensInTheCommons/animation/alien character.controller
+- Assets/Animations/Our Animations/DeskClient.controller
+- Assets/Models/Target/Animations/Target.controller
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_anim0

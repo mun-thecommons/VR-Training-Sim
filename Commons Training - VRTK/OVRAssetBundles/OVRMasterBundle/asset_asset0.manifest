@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 3324673439
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d6f9db43a7f630c84b92be1ce4cff0d0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5f10e6c631475ee7c81ef10161b3cf61
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 72
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0c4834e6077abe64e968f9f87c9ac70a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30f4b897495c7ad40b2d47143e02aaba, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac718b8ce852d1445b8fbe5c323134ac, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9448878e2e40f1a4c9f8fd2b56832b13, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 238
+  Script: {instanceID: 0}
+- Class: 363
+  Script: {instanceID: 0}
+Assets:
+- Assets/Scenes/SampleScene/NavMesh.asset
+- Assets/UMA/Content/UMA_Core/DefaultMissingOverlays/DefaultStandardOverlayDataAsset.asset
+- Packages/com.unity.postprocessing/PostProcessing/PostProcessResources.asset
+- Assets/Scenes/SampleScene_Profiles/Main Camera Profile.asset
+- Assets/Scenes/SampleScene/OcclusionCullingData.asset
+- Assets/UMA/Content/UMA_Examples/AdditionalSlots/Expressions/ExpressionsRecipe.asset
+- Assets/UMA/Content/UMA_Core/HumanShared/Materials/Standard/UMA_Diffuse_Normal_Metallic.asset
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_compute0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_tga0

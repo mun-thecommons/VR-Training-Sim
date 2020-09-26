@@ -1,0 +1,54 @@
+ManifestFileVersion: 0
+CRC: 2069509260
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d2d1c0788b08540b8a15fee02f3bbe88
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Game Assets/SciFi_Door/Materials/No Name.mat
+- Assets/Game Assets/Environmental Props/Materials/WoodenFence2.mat
+- Assets/Materials/Coin.mat
+- Assets/Game Assets/Environmental Props/Materials/CartWheel.mat
+- Assets/Materials/Stapler_Throw.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantF.mat
+- Assets/Game Assets/Environmental Props/Materials/metalGrey.mat
+- Assets/Game Assets/Environmental Props/Materials/LargeCrate.mat
+- Assets/Game Assets/Environmental Props/Materials/roadBump.mat
+- Assets/Materials/printerTray.mat
+- Assets/Game Assets/Environmental Props/Materials/PostMetal.mat
+- Assets/Game Assets/Environmental Props/Materials/TireB.mat
+- Assets/UMA/Content/UMA_Core/HumanShared/Materials/Standard/UMA_Mat_Diffuse_Normal_Metallic.mat
+- Assets/Game Assets/Environmental Props/Materials/mailBox.mat
+- Assets/Materials/Client_5.mat
+- Assets/Game Assets/Environmental Props/Materials/CrateG.mat
+- Assets/Game Assets/Environmental Props/Materials/LampPost.mat
+- Assets/AliensInTheCommons/Materials/aliens gun diffuse.mat
+- Assets/Materials/PNG Textures/Materials/PaperReam.mat
+- Assets/Game Assets/Environmental Props/Materials/ConcreteTombstone.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantE.mat
+- Assets/Game Assets/Environmental Props/Materials/WoodenFence.mat
+- Assets/Game Assets/Environmental Props/Materials/shovel.mat
+- Assets/Game Assets/Environmental Props/Materials/Basket.mat
+- Assets/Game Assets/Environmental Props/Materials/fancyBench.mat
+- Assets/Game Assets/Environmental Props/Materials/torch.mat
+- "Assets/AliensInTheCommons/animation/Materials/\u043E\u0440\u0443\u0436\u0438\u0435
+  \u0434\u0438\u0444\u0443\u0437.mat"
+- Assets/Game Assets/Environmental Props/Materials/Chain.mat
+- Assets/Game Assets/Environmental Props/Materials/WideDoublePointedBanner.mat
+- Assets/Game Assets/Environmental Props/Materials/streetLampA.mat
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_tga0

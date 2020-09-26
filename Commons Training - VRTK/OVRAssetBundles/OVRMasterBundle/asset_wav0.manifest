@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3051434210
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c07d5887d3a008ac0cd1490404ad071a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/Door/Sounds/pneumatic_door_close.wav
+- Assets/Models/Door/Sounds/pneumatic_door.wav
+Dependencies: []

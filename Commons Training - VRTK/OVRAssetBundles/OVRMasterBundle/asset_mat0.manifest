@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 1231341685
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e635a39c60d233b0f1e5b2554f691517
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Game Assets/Environmental Props/Materials/RoadClosedSign.mat
+- Assets/Game Assets/Environmental Props/Materials/Treebark.mat
+- Assets/Game Assets/Environmental Props/Materials/BluePlasticBarrel.mat
+- Assets/Materials/Materials/Red Vest.mat
+- Assets/Game Assets/Environmental Props/Materials/CrateB.mat
+- Assets/AliensInTheCommons/Materials/aliens body diffuse.mat
+- Assets/Game Assets/Environmental Props/Materials/greenGrunge.mat
+- Assets/Materials/Campus Card.mat
+- Assets/Game Assets/Environmental Props/Materials/lights.mat
+- Assets/Game Assets/Environmental Props/Materials/Cinderblock.mat
+- Assets/Game Assets/Environmental Props/Materials/Well.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantD.mat
+- Assets/Game Assets/Environmental Props/Materials/StopSign.mat
+- Assets/Materials/Rock.mat
+- Assets/Materials/BlueLight.mat
+- Assets/Game Assets/Environmental Props/Materials/PotteryVase.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantC.mat
+- Assets/Game Assets/Environmental Props/Materials/groundFeeder.mat
+- Assets/Game Assets/Environmental Props/Materials/trashBag.mat
+- Assets/Game Assets/Environmental Props/Materials/CableWheel.mat
+- "Assets/AliensInTheCommons/Mesh/Materials/\u043E\u0440\u0443\u0436\u0438\u0435
+  \u0434\u0438\u0444\u0443\u0437.mat"
+- Assets/Game Assets/Environmental Props/Materials/OpenLinenBag.mat
+- Assets/Game Assets/Environmental Props/Materials/Dumpster.mat
+- Assets/Game Assets/Environmental Props/Materials/Hammer.mat
+- Assets/Models/Target/Materials/Clear Blue.mat
+- Assets/Game Assets/Cola Can/Model/Materials/cola_can.mat
+- Assets/Materials/NPC Dull.mat
+- Assets/Game Assets/Smoke/Smoke.mat
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/AtlasModule.mat
+- Assets/Game Assets/Environmental Props/Materials/HazardousBarrel.mat
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_tga0

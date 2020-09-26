@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2240405628
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e3262906dca5d8666169acb1ecc246d4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: af57576da81d5d3ce45807ac11234de6
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+Assets:
+- Assets/Animations/Our Animations/pillar engine.anim
+- Assets/Models/Elevator/Animations/Door Close.anim
+- Assets/Models/Elevator/Animations/IsOpen.anim
+- Assets/Models/Elevator/Animations/Door Open.anim
+- Assets/Models/Door/Animations/Is Closed.anim
+- Assets/Models/Door/Animations/Button Press.anim
+- Assets/Models/Door/Animations/Door Open.anim
+- Assets/Animations/Our Animations/Hallway Robot.anim
+- Assets/Models/Door/Animations/Door Close.anim
+- Assets/Models/Elevator/Animations/Button Press.anim
+- Assets/Game Assets/SciFi_Door/Animation/close.anim
+- Assets/Game Assets/SciFi_Door/Animation/open.anim
+- Assets/Models/Target/Animations/Idle.anim
+- Assets/Models/Door/Animations/Is Open.anim
+- Assets/Models/Elevator/Animations/IsClosed.anim
+Dependencies: []

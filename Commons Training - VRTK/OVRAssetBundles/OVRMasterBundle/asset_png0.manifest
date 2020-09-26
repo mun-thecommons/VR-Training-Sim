@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 2939156380
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a452835cf1bd02a4a768bff1a712d68b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c92feb8daf166311b3e47737bd87795
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_2.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_23.png
+- Assets/Models/Door/Textures/Door Frame.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_36.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_61.png
+- Assets/Scenes/SampleScene/Lightmap-0_comp_dir.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_55.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_30.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_8.png
+- Assets/UMA/Content/UMA_Core/HumanShared/Textures/Face/ElvenEars_Albedo.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_5.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_0.png
+- Assets/Sprites/Monitor/Console Screen.png
+- Assets/Models/Door/Textures/Button.png
+- Assets/Pictures/makerspace-logo3-720x180.png
+- Assets/UMA/Content/UMA_Core/DefaultMissingOverlays/MissingOverlay_Albedo.png
+- Assets/Game Assets/Deodorant/Textures/Deodorant_Normal.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_2.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_19.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_20.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_10.png
+- Assets/Sprites/Monitor/Monitor Broken.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_6.png
+- Assets/UMA/Content/UMA_Core/HumanShared/Textures/Face/ElvenEars_Roughness.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_44.png
+- Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
+- Assets/Materials/PNG Textures/Rounds Card.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_54.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_4.png
+- Assets/Materials/PNG Textures/RockNormal.png
+- Assets/Sprites/Monitor/Webtools.PNG
+Dependencies: []

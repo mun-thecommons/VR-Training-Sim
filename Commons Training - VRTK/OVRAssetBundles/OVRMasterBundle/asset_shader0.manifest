@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 3478476938
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b604cbec9e53bd7da47eb632857686c2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 946c7975e10b0f1edbbc05382ba4ce21
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/FinalPass.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Uber.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/CopyStd.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Bloom.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/CopyStdFromDoubleWide.shader
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/AtlasDiffuseShader.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Debug/Vectorscope.shader
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/AtlasCutoutShader.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/DepthOfField.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/DiscardAlpha.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/GrainBaker.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Debug/LightMeter.shader
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/NormalSwizzleShader.shader
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/AtlasShader.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/MultiScaleVO.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/ScalableAO.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/MotionBlur.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/SubpixelMorphologicalAntialiasing.shader
+- Assets/UMA/Core/StandardAssets/UMA/Atlas/AtlasNormalShader.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Texture2DLerp.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/DeferredFog.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/CopyStdFromTexArray.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Lut2DBaker.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Debug/Overlays.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/TemporalAntialiasing.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/ScreenSpaceReflections.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Copy.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Debug/Waveform.shader
+- Packages/com.unity.postprocessing/PostProcessing/Shaders/Debug/Histogram.shader
+Dependencies: []

@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 3586733417
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a94bcff88e1b9c664c63ffa110de780a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Game Assets/Environmental Props/Materials/OrangeStripes.mat
+- Assets/Game Assets/Environmental Props/Materials/wideStripsBarrel.mat
+- Assets/Materials/Wood.mat
+- Assets/Game Assets/Environmental Props/Materials/Burlap.mat
+- Assets/Game Assets/Environmental Props/Materials/roadSideBalcony.mat
+- Assets/Materials/Floor.mat
+- Assets/Game Assets/Environmental Props/Materials/HaiFork.mat
+- Assets/Materials/Buttons.mat
+- Assets/Oculus/SampleFramework/Core/Locomotion/Materials/lambert1.mat
+- Assets/Game Assets/Environmental Props/Materials/AlarmLamp.mat
+- Assets/Game Assets/Environmental Props/Materials/RustedMetal.mat
+- Assets/Materials/Rounds Card.mat
+- Assets/Game Assets/Environmental Props/Materials/MetalTrashCan.mat
+- Assets/Materials/CompSupport.mat
+- Assets/Game Assets/Environmental Props/Materials/Anvil.mat
+- Assets/Models/Elevator/Materials/Carpet.mat
+- Assets/Game Assets/Environmental Props/Materials/LargeCrateB.mat
+- Assets/Materials/Glow.mat
+- Assets/Materials/usb flash.mat
+- Assets/Game Assets/Environmental Props/Materials/simpleBench.mat
+- Assets/Game Assets/Environmental Props/Materials/RoadWorkSign.mat
+- Assets/Game Assets/Environmental Props/Materials/PlantB.mat
+- Assets/Materials/Pillars.mat
+- Assets/Game Assets/Environmental Props/Materials/Pillow.mat
+- Assets/Materials/Glass.mat
+- Assets/Game Assets/Environmental Props/Materials/WoodSimple.mat
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0

@@ -1,0 +1,260 @@
+ManifestFileVersion: 0
+CRC: 2213572275
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 93ff2da2907a03c128f3756b267d80e0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 396ef807c5a07e980a1514d862b6924b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 83d33591a744673429e1681df5574ac0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 56c6edb17218abd469257d07a2bc5559, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2202beb10023a0b45bdde76d479c1308, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aac157e1fa7cc19409b60b0f1b970211, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b015bbf1521b54dd3b4c75d7f0a7fc79, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 461a6e020632b416b879aa3a48c5638e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4952de3305cd7194bb51aafa1b220607, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0bb2689319b4d5a418829cf43a059e3a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c86f7fb3ea5bac04a857e5f4a0b30077, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: eb235dc3846054e388b467b624c23bae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ddb1fd334280b740a705893f5ac019c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ad074644ff568a14187a3690cfbd7534, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01b68d44e3ab744b98027a983d66b345, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d395228424b033644afbc403aecfe647, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 70c2f484f132c044097f03d65cac3b24, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c3ac2aa42c9f4de41a32fbd9228196b5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a32a7985c036ddc4ebda30571ff4c09d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d6ce19a51999011448644fc01e9cec03, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0c4834e6077abe64e968f9f87c9ac70a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9f9558e6e7404a242920748f24487bfa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 36a86667c9c2f4345b84408aca89f102, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 58219a97b7472db44a33ed48d7ec56a4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f0188188c253e0c4bb9b46e19fa7312e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 225228a85d6ce40b8a39f95282f42f5d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 37c9cb992a80d475993bf13752bcd2ed, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b79b22c90bc7dd441899ab6522cfd2b9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3d881e962d099f4a8eb492ef7e9a8c0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2705215ac5b84b70bacc50632be6e391, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 27fa8d9aba5f64596aba9f576eea8aa9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d15b594bf85dc8e4fbf81314a1fc0702, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00fb5c7be33cb104bb2a880b52b840d3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac718b8ce852d1445b8fbe5c323134ac, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 28add7ad4625f8748a81d045544985b2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab2114bdc8544297b417dfefe9f1e410, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cb10584e7eb475845b436e1cc6b6f827, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9448878e2e40f1a4c9f8fd2b56832b13, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d7148fed8e84254e8597f83852f2e34, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2323fdffbbd0f51409581a5ae1bab046, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_2048.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/Fram.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_LASHES-Female_Guide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanMaleChallenger.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Textures/guideMesh_normal.png
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_256.png
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/PlaceholderAssetsREADME.txt
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader
+- Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanFemaleDancer1.txt
+- Assets/Resources/Audio/Tutorial Interact.wav
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/bonemesh.fbx
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_PC_SingleComponent.shader
+- Assets/Oculus/VR/Resources/OVRMRUnlitTransparent.shader
+- Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_2048.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/Dynamic DNA
+  StartingPose Example/-StartingPoseHumanToToon.asset
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/RuntimeAnimatorControllerPlaceholder.controller
+- Assets/Resources/Audio/My Balance Is Negative.mp3
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanFemalePixi.txt
+- Assets/Resources/OVRPlatformToolSettings.asset
+- Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_FEET_Guide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Eyes_SlotGuide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanMale1.txt
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/Materials/unnamed.mat
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/ToonBigAndFat.txt
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/UMAWardrobeRecipePlaceholder.asset
+- Assets/Resources/Audio/Robbie Level3 Complete.wav
+- Assets/Resources/ONSPSettings.asset
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_Loader.shader
+- Assets/Resources/Audio/Windows XP Startup.mp3
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/ToonFemaleStarDancer1c.txt
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/UMATextRecipePlaceholder.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/Bob.txt
+- Assets/Resources/Audio/spaceship sounds.wav
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/BaseRecipePlaceholderAssets/Textures/placeholder_normal.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader
+- Assets/Oculus/VR/Resources/Cubemap Blit.shader
+- Assets/Resources/Audio/Crowd cheer trimmed.mp3
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/BaseRecipePlaceholderAssets/Textures/olaceholder_diffuse.png
+- Assets/Oculus/VR/Resources/OVRMRUnlit.shader
+- Assets/Resources/Audio/Robbie Level2 Complete.wav
+- Assets/Resources/Audio/Error On Linux.mp3
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+- Assets/Resources/Audio/Tutorial Stapler.wav
+- Assets/Resources/Audio/Email Is Not Showing Up.mp3
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_INNERMOUTH_Guide.asset
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/SlotDataAssetPlaceholder.asset
+- Assets/Resources/Audio/Not Displaying The Video.mp3
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderSelfOccluding.shader
+- Assets/Oculus/VR/Resources/Unlit Transparent Color.shader
+- Assets/Resources/Audio/Go to the Desk.wav
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Hands_SlotGuide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/Troll1c.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Textures/guideMesh_diffuse.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Overlays/GuideMeshOverlay.asset
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderPBS.shader
+- Assets/Resources/Audio/TestVestTouched.wav
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+- "Assets/Resources/Audio/My Files Aren\u2019t Showing On The Desktop.mp3"
+- Assets/Oculus/VR/Resources/OVRMRCameraFrameLit.shader
+- Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+- Assets/Resources/Audio/Tutorial Main menu.wav
+- Assets/Resources/Audio/Tutorial Intro.wav
+- Assets/Resources/Audio/loginToLinux.mp3
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_CombinedMesh.shader
+- Assets/Resources/OculusPlatformSettings.asset
+- "Assets/Resources/Audio/Can\u2019t Login With My Mun.mp3"
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_Mobile_CombinedMeshExpressive.shader
+- Assets/Oculus/VR/Resources/Underlay Transparent Occluder.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Legs_SlotGuide.asset
+- Assets/Oculus/VR/Resources/Texture2D Blit.shader
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_PC_SingleComponentExpressive.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Torso_SlotGuide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanMale2.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/FemaleEyelashGuide.asset
+- Assets/Resources/Audio/registerForMath1000.mp3
+- Assets/Oculus/Avatar/Resources/Materials/AvatarPBRV2Simple.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Textures/guideMesh_roughness.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_TORSO-Female_Guide.asset
+- Assets/Resources/Audio/Robbie Welcome.wav
+- Assets/UMA/InternalDataStore/InGame/Resources/AssetIndexer.asset
+- Assets/Resources/OvrAvatarSettings.asset
+- Assets/Resources/Audio/Tutorial Direction.wav
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_InnerMouth_SlotGuide.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_FACE-Female_Guide.asset
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_256.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Face_SlotGuide.asset
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/OverlayDataAssetPlaceholder.asset
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/Gobs.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_EYES_Guide.asset
+- Assets/Resources/Audio/Wrong-answer-sound-effect.mp3
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_Mobile_SingleComponentExpressive.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Overlays/GuideMeshOverlayTrans.asset
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/SlotDataAssetPlaceholder_Slot.asset
+- Assets/Resources/Audio/Course Is Not Showing Up.mp3
+- Assets/Oculus/VR/Resources/OVRMRCameraFrame.shader
+- Assets/Resources/Audio/Robbie Level1 Complete.wav
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderPBSV2.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/ToonFemaleDancer1c.txt
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_LEGS-Female_Guide.asset
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_1024.png
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HandsGuy.txt
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_SingleComponent.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/WerewolfCamp1.txt
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/AvatarEyeLens.shader
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShader.shader
+- Assets/Resources/Audio/Fantasy Game Loop.wav
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/UMA_Human_Female_Feet_SlotGuide.asset
+- Assets/Resources/Audio/BackgroundMusic.ogg
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_1024.tif
+- Assets/Resources/Audio/BackgroundMusicv2.mp3
+- Assets/Oculus/VR/Resources/Underlay Impostor.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/DynamicDNA/Resources/Slots/Toon/UMA_Toon_HANDS_Guide.asset
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+- Assets/Resources/OVRBuildConfig.asset
+- Assets/Resources/Audio/SingleRoundDone.mp3
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/WerewolfClothed1.txt
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader
+- Assets/UMA/Examples/DynamicCharacterSystem Examples/Assets/Resources/CharacterRecipes/HumanMaleRoyalChallenger.txt
+- Assets/UMA/InternalDataStore/InGame/Resources/PlaceholderAssets/RaceDataPlaceholder.asset
+- Assets/TextMesh Pro/Resources/TMP Settings.asset
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_txt0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_asset0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_controller0

@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 2855436759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b7c13d522601d319e8fd90c14d8ef577
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c92feb8daf166311b3e47737bd87795
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sprites/Monitor/Monitor Test.jpg
+- Assets/Materials/PNG Textures/Wood.jpg
+- Assets/Models/Door/Textures/Caution.jpg
+- Assets/Sprites/Monitor/Monitor Working - DMC.jpg
+- Assets/Sprites/Monitor/Monitor Working.jpg
+- Assets/Pictures/Learning Day-2018.jpg
+- Assets/Models/Elevator/Textures/ScratchedAluminum.jpg
+- Assets/Models/Library Model/christian-westin-wall.jpg
+- Assets/Models/Library Model/concrete-texture-68.jpg
+- Assets/Pictures/20449055_10158945336580062_1945722871422063458_o (1) 1.jpg
+- Assets/Models/Library Model/13504e5bb132301f01ca6079c2d6e576.jpg
+- Assets/Models/Library Model/black_iron.jpg
+- Assets/Models/Library Model/15dbf56a2a3b24d1767686fabcb43e7e.jpg
+- Assets/Models/Elevator/Textures/WroughtIron.jpg
+- Assets/Pictures/Login Screen.jpg
+- Assets/Models/Elevator/Textures/Carpet.jpg
+- Assets/Materials/PNG Textures/space.jpg
+- Assets/Models/Library Model/4524d9f39d1a7c7356f235cd65839c67.jpg
+- Assets/Game Assets/Smoke/Smoke0391_L.jpg
+- Assets/Models/Paper Cart/Textures/aluminum.jpg
+- Assets/Materials/PNG Textures/glass.jpg
+- Assets/Materials/PNG Textures/Plastic.jpg
+- Assets/Models/Library Model/110081779-dark-metal-background-brushed-steel-texture-vector-illustration-.jpg
+- Assets/Models/Paper Cart/Textures/Rubber.jpg
+Dependencies: []

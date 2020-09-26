@@ -1,0 +1,66 @@
+ManifestFileVersion: 0
+CRC: 3677805344
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9c38e5f9828a0212a7b48e7a00c3bbfa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b3ceb131f2b7a231ef23f3fa61b3e571
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Animations/Imported Animations (Raw Mocap Data)/Animations/Walking/WalkFWD.fbx
+- Assets/Models/DMC Desk.fbx
+- Assets/AliensInTheCommons/animation/Alien@flight.FBX
+- Assets/AliensInTheCommons/animation/Alien@idle.FBX
+- Assets/Game Assets/Environmental Props/PropsFBX.fbx
+- Assets/Game Assets/Office Supplies Low Poly/Assets/FBX/Stapler blue.fbx
+- Assets/Prefabs/Robbie The Robot.fbx
+- Assets/AliensInTheCommons/animation/Alien@shot.FBX
+- Assets/AliensInTheCommons/animation/Alien@dead.FBX
+- Assets/Game Assets/Office Supplies Low Poly/Assets/FBX/Tape dispenser.fbx
+- Assets/Game Assets/CyberSoldier/CyberSoldier.fbx
+- Assets/Game Assets/SciFi_Door/SF_Door.fbx
+- Assets/Game Assets/Office Supplies Low Poly/Assets/FBX/Eraser.fbx
+- Assets/Game Assets/Office Supplies Low Poly/Assets/FBX/Stapler red.fbx
+- Assets/Models/Dell 27 monitor v1.fbx
+- Assets/Game Assets/Cola Can/Model/cola_can.fbx
+- Assets/Game Assets/Fusion_Sketchup Imports/chair.fbx
+- Assets/Oculus/SampleFramework/Core/Locomotion/Models/DestinationIndicatorSimple.fbx
+- Assets/Animations/Our Animations/Idle_Neutral_2.fbx
+- Assets/Game Assets/Deodorant/Models/Deodorant.fbx
+- Assets/AliensInTheCommons/Mesh/Mesh.FBX
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_mat4
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0

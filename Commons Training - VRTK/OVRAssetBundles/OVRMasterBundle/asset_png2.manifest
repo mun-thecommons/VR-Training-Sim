@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 244163405
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 78015c48348f9a56941bfcbc16e4d587
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 525b72fdacf3aef7d65f355ad8f17a96
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Pictures/DMC-Logo-Metal1.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_1.png
+- Assets/Game Assets/Office Supplies Low Poly/Assets/Textures/Office Supplies Low
+  Poly Shared Texture.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_24.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_7.png
+- Assets/Game Assets/Cola Can/Model/Textures/cola_can_normal.png
+- Assets/Game Assets/SciFi_Door/Textures/Door_NM.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_25.png
+- Assets/Models/Elevator/Textures/Arrow Button.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_27.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_15.png
+- Assets/Game Assets/Cola Can/Model/Textures/cola_can_metallic.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_5.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_59.png
+- Assets/Game Assets/Deodorant/Textures/Deodorant_Metalness.png
+- Assets/Pictures/nebula.png
+- Assets/UMA/Content/UMA_Core/DefaultMissingOverlays/MissingOverlay_Normal.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_13.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_38.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_62.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 256px/LDR_LLL1_1.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_28.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_43.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_12.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_32.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_47.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_63.png
+- Assets/UMA/Content/UMA_Core/DefaultMissingOverlays/MissingOverlay_Metallic.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_41.png
+- Packages/com.unity.postprocessing/PostProcessing/Textures/Blue Noise 64px/LDR_LLL1_58.png
+Dependencies: []

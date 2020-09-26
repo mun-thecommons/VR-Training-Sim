@@ -1,0 +1,55 @@
+ManifestFileVersion: 0
+CRC: 494177881
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f0b4f843edabacc4ea372459061f46c1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Game Assets/Environmental Props/Materials/CrateF.mat
+- Assets/Game Assets/Environmental Props/Materials/TireA.mat
+- Assets/Game Assets/Environmental Props/Materials/TreeStump.mat
+- Assets/Game Assets/Environmental Props/Materials/Bolders.mat
+- Assets/Game Assets/Environmental Props/Materials/OpenOldBucket.mat
+- Assets/Game Assets/Environmental Props/Materials/LargeBarrel.mat
+- Assets/Materials/Rock2.mat
+- Assets/AliensInTheCommons/animation/Materials/03 - Default.mat
+- Assets/Game Assets/Environmental Props/Materials/Concrete.mat
+- Assets/Game Assets/Environmental Props/Materials/MetalCase.mat
+- Assets/Game Assets/Environmental Props/Materials/WoodenChair.mat
+- Assets/Game Assets/Office Supplies Low Poly/Assets/FBX/Materials/No Name.mat
+- Assets/Game Assets/Fusion_Sketchup Imports/shelf material.mat
+- Assets/Game Assets/Environmental Props/Materials/simpleBenchB.mat
+- Assets/Game Assets/Environmental Props/Materials/streetCone.mat
+- Assets/Materials/Skybox.mat
+- Assets/Materials/Materials/Login Screen.mat
+- Assets/Game Assets/Environmental Props/Materials/DoNotEnter.mat
+- Assets/Game Assets/Deodorant/Models/Materials/Deodorant-DeodorantMat.mat
+- Assets/Game Assets/Environmental Props/Materials/brick.mat
+- Assets/Game Assets/Environmental Props/Materials/concretePillar.mat
+- Assets/Game Assets/Environmental Props/Materials/BarrelHolder.mat
+- Assets/Game Assets/Environmental Props/Materials/ExplosiveBarrel.mat
+- Assets/Game Assets/Environmental Props/Materials/MetalAndWoodTable.mat
+- Assets/Game Assets/Environmental Props/Materials/SInglePointedBanner.mat
+- Assets/Game Assets/Environmental Props/Materials/FireHydrant.mat
+- Assets/Game Assets/Environmental Props/Materials/linenBagClosed.mat
+- Assets/Game Assets/Environmental Props/Materials/multisignPole.mat
+- Assets/Game Assets/Environmental Props/Materials/GiveWay.mat
+- Assets/Game Assets/SciFi_Door/Materials/Door_DF.mat
+Dependencies:
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png1
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png2
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_png3
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_jpg0
+- C:/Users/Jonathan/Documents/GitHub/VR-Training-Sim/Commons Training - VRTK/OVRAssetBundles/OVRMasterBundle/asset_psd0
