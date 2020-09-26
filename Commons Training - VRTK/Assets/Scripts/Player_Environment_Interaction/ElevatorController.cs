@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Teleport a player in an elevator to the secondary elevator
+/// 
+/// ##Script Description
+/// Control a pair of elevators. Script references other elevator to 
+/// perform actions involving both elevators. The script only works 
+/// with elevators that move the player to one of two levels
+/// </summary>
 public class ElevatorController : MonoBehaviour
 { 
-    
-    // Ensure the player is only teleported if they are entering the elevator, not leaving
-    public bool inElevator;
+    public bool inElevator; /*!< @brief Make sure that the player is in the elevator  */
     public bool isEnabled;
 
-    public float yOffset;
-
-    private Animator doorAnim;
-
-    public GameObject secondaryElevator;
-    private Animator secondaryAnim;
-
-    private AudioSource elevatorAudio;
-    private AudioSource secondaryAudio;
+    public float yOffset; /*!< @brief offset to the secondary elevator  */
 
     public AudioClip ding;
 
+    // Variables referencing the primary elevator
+    private Animator doorAnim;
+    private AudioSource elevatorAudio;
+
+    // Variables referencing the secondary elevator
+    public GameObject secondaryElevator;
+    private Animator secondaryAnim;
+    private AudioSource secondaryAudio;
 
     private void Start()
     {
-        elevatorAudio = GetComponent<AudioSource>();
+        elevatorAudio  = GetComponent<AudioSource>();
         secondaryAudio = secondaryElevator.GetComponent<AudioSource>();
 
-        doorAnim = GetComponent<Animator>();
-
+        doorAnim      = GetComponent<Animator>();
         secondaryAnim = secondaryElevator.GetComponent<Animator>();
     }
 
@@ -36,48 +41,51 @@ public class ElevatorController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Toggle the state of inElevator
-            inElevator = !inElevator;
-            if (isEnabled && inElevator)
+            
+            inElevator = !inElevator; // Toggle the state of inElevator
+
+            if (isEnabled && inElevator) // Player is in the elevator and the elevator is enabled
             {
                 // If the player is entering the elevator,
                 // start the elevator coroutine
                 StartCoroutine(ElevatorCoroutine());
             }
-            else if (isEnabled)
+            else if (isEnabled) // Player is leaving the elevator and the elevator is enabled
             {
-                // if the player is leaving the elevator,
-                // close the doors behind them
+                // Play door close animation
                 doorAnim.SetTrigger("CloseDoor");
                 doorAnim.SetBool("IsClosed", true);
             }
         }
     }
 
-    // Elevator coroutine. Needed to use 
-    // WaitForSeconds()
+
+    /*****************************************************************************************************
+     * Handle the elevator's "movement"
+     * 
+     * This script needs to be a coroutine because it waits for some time to pass 
+     * for the elevator to move to the next floor
+     * 
+    ***********************************************************/
     IEnumerator ElevatorCoroutine()
     {
-        // Give the player a few seconds to get into the elevator
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2); // Give the player a few seconds to get into the elevator
 
         // Close the elevator doors
         doorAnim.SetTrigger("CloseDoor");
         doorAnim.SetBool("IsClosed", false);
 
-        elevatorAudio.PlayDelayed(1.0f);
-
-        // Wait some time for the elevator to "move"
-        yield return new WaitForSeconds(Random.Range(5.0f, 10.0f));
+        elevatorAudio.PlayDelayed(1.0f); // Play elevator music
+        
+        yield return new WaitForSeconds(Random.Range(5.0f, 10.0f)); // Wait some time for the elevator to "move" 
 
         elevatorAudio.Stop();
 
         // Teleport the player down to the secondary elevator
         InputHandler.TeleportPlayer(InputHandler.position + new Vector3(0, yOffset, 0), InputHandler.rotation);
-        if (CartController.held)
-        {
-            CartController.ChangeYPos(yOffset);
-        }
+
+        if (CartController.held) { CartController.ChangeYPos(yOffset); } // Teleport the cart too if the player is carrying it
+
         // Open the doors on the secondary elevator
         secondaryAudio.PlayOneShot(ding);
         secondaryAnim.SetTrigger("OpenDoor");

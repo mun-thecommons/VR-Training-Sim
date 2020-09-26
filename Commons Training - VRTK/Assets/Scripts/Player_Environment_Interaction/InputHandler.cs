@@ -2,6 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handle the player's inputs
+/// 
+/// ##Script Description
+/// The script contains classes for different input types: BoolInput (i.e. button)
+/// and Axis2DInput (i.e. joystick). The script controls everything to do with inputs
+/// such as enabling and disabling inputs, setting controls, and updating the states of the inputs
+/// 
+/// ## Using and checking inputs
+/// To check the status of the inputs in any function, call InputHandler.{control_name}.{desired_state_to_check}
+/// e.g. to check if a BooleanInput named interactButton has been pressed: InputHandler.interactButton.isDown
+/// e.g. to check an Axis2DInput named movementAxis' X value: InputHandler.movementAxis.x
+/// </summary>
 public class InputHandler : MonoBehaviour
 {
 
@@ -20,7 +33,14 @@ public class InputHandler : MonoBehaviour
         rotation = player.transform.rotation;
     }
 
-    // Class for handling boolean inputs
+    /**********************************************************
+     * Class for handling boolean (button) inputs
+     * 
+     * Possible parameters to check:
+     * isDown: has the button been pressed?
+     * isUp  : has the button been released?
+     * state : the current state of the button (true=pressed, false=unpressed)
+    ***********************************************************/
     public class BoolInput
     {
         private OVRInput.RawButton button = OVRInput.RawButton.None;
@@ -105,7 +125,14 @@ public class InputHandler : MonoBehaviour
             
         }
     }
-
+    /**********************************************************
+     * Class for handling 2D axis (joystick) inputs
+     * 
+     * Possible parameters to check:
+     * x: the x position of the axis
+     * y: the y position of the axis
+     * 
+    ***********************************************************/
     public class Axis2DInput
     {
         private OVRInput.RawAxis2D axis2d = OVRInput.RawAxis2D.None;
@@ -132,6 +159,7 @@ public class InputHandler : MonoBehaviour
             isEnabled = false;
         }
 
+        // Update the values of the control
         public void GetStates()
         {
             if (isEnabled)
@@ -169,7 +197,8 @@ public class InputHandler : MonoBehaviour
         player.transform.rotation = rotation;
     }
 
-    public static BoolInput interactButton = new BoolInput(OVRInput.RawButton.A);
+    // Definition of all inputs
+    public static BoolInput interactButton = new BoolInput(OVRInput.RawButton.A);             
     public static BoolInput staplerButton  = new BoolInput(OVRInput.RawAxis1D.RIndexTrigger);
     public static BoolInput menuButton     = new BoolInput(OVRInput.RawButton.LThumbstick);
 
