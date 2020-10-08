@@ -15,6 +15,8 @@ public class DoorController : MonoBehaviour
     public AudioClip doorOpen;
     public AudioClip doorClose;
 
+    public bool isEnabled = true;
+
     void Start()
     {
     }
@@ -30,22 +32,26 @@ public class DoorController : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
-            Debug.Log("press!");
+            OpenDoor();
+        }
+    }
 
-            bool isOpen = !doorAnim.GetBool("IsOpen"); // Toggle the current door state
+    public void OpenDoor()
+    {
+        if (!isEnabled) { return; }
+        bool isOpen = !doorAnim.GetBool("IsOpen"); // Toggle the current door state
 
-            // Toggle state of IsOpen Bool, trigger the button
-            doorAnim.SetBool("IsOpen", isOpen);
-            doorAnim.SetTrigger("ButtonPress");
+        // Toggle state of IsOpen Bool, trigger the button
+        doorAnim.SetBool("IsOpen", isOpen);
+        doorAnim.SetTrigger("ButtonPress");
 
-            if (!isOpen) // Play the right sound depending on if the door is opening or closing
-            {
-                doorAudio.PlayOneShot(doorClose);
-            }
-            else
-            {
-                doorAudio.PlayOneShot(doorOpen);
-            }
+        if (!isOpen) // Play the right sound depending on if the door is opening or closing
+        {
+            doorAudio.PlayOneShot(doorClose);
+        }
+        else
+        {
+            doorAudio.PlayOneShot(doorOpen);
         }
     }
 }

@@ -20,10 +20,22 @@ using UnityEngine.SceneManagement;
 public class MasterController : MonoBehaviour
 {
     public static GameObject teleportFunction;  /*!< @brief Associated with the Player Teleport mechanic*/
-    public static double labSatisfaction = 1000.0;  /*!< @brief Player begins with a score of 1000*/
-    public GameObject rightHand;
     public static OVRPlayerController playerController;
 
+
+    // GameObjects
+    public GameObject rightHand;
+    public GameObject exitGameButton;
+    public GameObject operationButton;
+    public GameObject[] uiMenuOptionsArray;
+    public GameObject player;
+    public GameObject tracker;
+    private GameObject staplerShoot;
+
+    public static Canvas mainCanvas;
+    public static Audio audio;
+
+    // Text elements
     public static TextMeshProUGUI scoreBreakDownText;
     public static TextMeshProUGUI totalScoreText;
     public static TextMeshProUGUI staplerCountText;
@@ -34,15 +46,18 @@ public class MasterController : MonoBehaviour
     public static TextMeshProUGUI labSatisfactionText;
     public static TextMeshProUGUI scrapPaperText;
 
-    [SerializeField] private static TextMeshProUGUI mainFrameText;
+    // Player states
     public static bool vestCollected = false;
-    public static bool inMenu = false;
-    public static bool inTracker = false;
-    public static int coins = 0;
-    public static int baseTrash = 0;
-    public static int metalTrash = 0;
+    public static bool inMenu        = false;
+    public static bool inTracker     = false;
+
+    [SerializeField] private static TextMeshProUGUI mainFrameText;
+
+    public static int coins        = 0;
+    public static int baseTrash    = 0;
+    public static int metalTrash   = 0;
     public static int plasticTrash = 0;
-    public static int scrapPaper = 0;
+    public static int scrapPaper   = 0;
 
     //tracker variables
     public static int trackerTaskA = 0;
@@ -50,24 +65,18 @@ public class MasterController : MonoBehaviour
     public static int trackerTaskC = 0;
 
 
-    public static Canvas mainCanvas;
-    public GameObject tracker;
-    public static Audio audio;
-
-    private static int techScore = 0;
+    // Scores (TODO: getting rid of scores in the future)
+    public static double labSatisfaction = 1000.0;  /*!< @brief Player begins with a score of 1000*/
+    private static int techScore     = 0;
     private static int custServScore = 0;
-    private static int profScore = 0;
-
-    private static int totalScore = 0;
-    private GameObject staplerShoot;
+    private static int profScore     = 0;
+    private static int totalScore    = 0;
+    
     public TextAsset instructions;
     public static List<string> instructionsArray = new List<string> { };
     private int instrArrayCounter = 0;
     private int uiMenuCounter = 0;
-    public GameObject exitGameButton;
-    public GameObject operationButton;
-    public GameObject[] uiMenuOptionsArray;
-    public GameObject player;
+ 
     private IEnumerator accessMainframe;
     public int numOfDots; /*!< @brief Used as a **Loading Screen** for main Menu functionality */
     private Canvas trackerCanvas;   /*!< @brief Used for the Tracker functionality */
@@ -78,33 +87,34 @@ public class MasterController : MonoBehaviour
      * **************/
     private void Start()
     {
-        teleportFunction = GameObject.FindGameObjectWithTag("Teleportation");
-        staplerCountText = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
-        coinCountText = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
-        scoreBreakDownText = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
-        totalScoreText = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
-        mainFrameText = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
-        playerController = player.GetComponent<OVRPlayerController>();
-        mainCanvas = gameObject.GetComponent<Canvas>();
-        mainCanvas.enabled = false;
-        audio = GameObject.Find("LocalAvatar").GetComponent<Audio>();
-        FileParse("instructions", instructions);
 
-        baseTrashCount = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
-        metalTrashCount = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
-        plasticTrashCount = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
+        // Assign gameobjects to variables
+        teleportFunction    = GameObject.FindGameObjectWithTag("Teleportation");
+        staplerCountText    = GameObject.FindGameObjectWithTag("StaplerCount").GetComponent<TextMeshProUGUI>();
+        coinCountText       = GameObject.FindGameObjectWithTag("CoinCount").GetComponent<TextMeshProUGUI>();
+        scoreBreakDownText  = GameObject.Find("ScoreDetailedBox").GetComponentInChildren<TextMeshProUGUI>();
+        totalScoreText      = GameObject.Find("XPointsBox").GetComponentInChildren<TextMeshProUGUI>();
+        mainFrameText       = GameObject.Find("MainFrameBox").GetComponentInChildren<TextMeshProUGUI>();
+        playerController    = player.GetComponent<OVRPlayerController>();
+        mainCanvas          = gameObject.GetComponent<Canvas>();
+        audio               = GameObject.Find("LocalAvatar").GetComponent<Audio>();
+        baseTrashCount      = GameObject.FindGameObjectWithTag("BaseTrashCount").GetComponent<TextMeshProUGUI>();
+        metalTrashCount     = GameObject.FindGameObjectWithTag("MetalTrashCount").GetComponent<TextMeshProUGUI>();
+        plasticTrashCount   = GameObject.FindGameObjectWithTag("PlasticTrashCount").GetComponent<TextMeshProUGUI>();
         labSatisfactionText = GameObject.FindGameObjectWithTag("LabSatisfactionScore").GetComponent<TextMeshProUGUI>();
-        scrapPaperText = GameObject.FindGameObjectWithTag("ScrapPaperCount").GetComponent<TextMeshProUGUI>();
+        scrapPaperText      = GameObject.FindGameObjectWithTag("ScrapPaperCount").GetComponent<TextMeshProUGUI>();
+        trackerCanvas       = tracker.GetComponent<Canvas>();
 
-        trackerCanvas = tracker.GetComponent<Canvas>();
+
+        mainCanvas.enabled = false;
         trackerCanvas.enabled = false;
-
+        FileParse("instructions", instructions);
         uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
     }
 
     void Update()
     {
-        labSatisfaction -= 20*Time.deltaTime*CollectibleManager.numOfTrash;                      //Lab satisfaction due to trash
+        labSatisfaction -= 20*Time.deltaTime*CollectibleManager.numOfTrash; //Lab satisfation decreases over time based on the amound of trash (TODO: scores will be deprecated)
       
         DisplayInventory();
         DisplayTrashCount();
@@ -137,7 +147,7 @@ public class MasterController : MonoBehaviour
     void TakeInput()
     {
         //view/hide UI canvas
-        if (InputHandler.menuButton.state)
+        if (InputHandler.GetButtonDown(InputHandler.ButtonControl.MenuButton))
         {
             if (!inMenu && !inTracker)
             {
@@ -169,7 +179,7 @@ public class MasterController : MonoBehaviour
                 }
                 uiMenuOptionsArray[uiMenuCounter].GetComponent<Image>().color = Color.red;
             }
-            else if (InputHandler.selectButton.isDown)
+            else if (InputHandler.GetButtonDown(InputHandler.ButtonControl.SelectButton))
             {
                 if (uiMenuCounter == 0)
                 {

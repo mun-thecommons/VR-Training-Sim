@@ -19,7 +19,7 @@ public class RedVestTest : MonoBehaviour
         components = FindObjectsOfType<OVRGrabbable>();
         foreach (OVRGrabbable grabble in components)
         {
-            grabble.enabled = false;
+            //grabble.enabled = false;
         }
     }
     /*

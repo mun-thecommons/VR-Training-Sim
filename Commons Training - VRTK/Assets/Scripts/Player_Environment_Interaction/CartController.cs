@@ -56,7 +56,7 @@ public class CartController : MonoBehaviour
             if (direction.magnitude > offset) { transform.position -= (direction.magnitude - 0.8f) * transform.forward; }
             
             // Let go of the cart if we press the select button
-            if (InputHandler.selectButton.isDown) { held = false; }
+            if (InputHandler.GetButtonDown(InputHandler.ButtonControl.SelectButton)) { held = false; }
         }
 
 
@@ -71,7 +71,7 @@ public class CartController : MonoBehaviour
      */
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Hand") && InputHandler.selectButton.state)
+        if (other.CompareTag("Hand") && InputHandler.GetButton(InputHandler.ButtonControl.SelectButton))
         {
             hand = other.gameObject;
             held = true;

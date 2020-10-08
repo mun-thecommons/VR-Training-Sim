@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 /// <summary>
@@ -24,6 +26,8 @@ public class InputHandler : MonoBehaviour
     public static Vector3 position;
     public static Quaternion rotation;
 
+    private static bool isEnabled = true;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -33,152 +37,10 @@ public class InputHandler : MonoBehaviour
         rotation = player.transform.rotation;
     }
 
-    /**********************************************************
-     * Class for handling boolean (button) inputs
-     * 
-     * Possible parameters to check:
-     * isDown: has the button been pressed?
-     * isUp  : has the button been released?
-     * state : the current state of the button (true=pressed, false=unpressed)
-    ***********************************************************/
-    public class BoolInput
-    {
-        private OVRInput.RawButton button = OVRInput.RawButton.None;
-        private OVRInput.RawAxis1D axis1d = OVRInput.RawAxis1D.None;
-
-        private float axisDeadzone = 0.03f;
-
-        public bool isDown;
-        public bool isUp;
-        public bool state;
-
-        public bool isEnabled = true;
-
-        // Constructor for button input
-        public BoolInput(OVRInput.RawButton b)
-        {
-            isDown = false;
-            isUp = false;
-            state = false;
-
-            button = b;
-        }
-
-        // Constructor for float input
-        public BoolInput(OVRInput.RawAxis1D a1d)
-        {
-            isDown = false;
-            isUp = false;
-            state = false;
-
-            axis1d = a1d;
-        }
-
-        // Change button (button)
-        public void ChangeButton(OVRInput.RawButton b)
-        {
-            axis1d = OVRInput.RawAxis1D.None;
-            button = b;
-        }
-
-        // Change button (axis)
-        public void ChangeButton(OVRInput.RawAxis1D a1d)
-        {
-            axis1d = a1d;
-            button = OVRInput.RawButton.None;
-        }
-
-        // Enable or disable the input
-        public void Enable()
-        {
-            isEnabled = true;
-        }
-        public void Disable()
-        {
-            isEnabled = false;
-        }
-
-        // Get all control states
-        public void GetStates()
-        {
-            if (isEnabled)
-            {
-                if (button != OVRInput.RawButton.None)
-                {
-                    isDown = OVRInput.GetDown(this.button);
-                    isUp = OVRInput.GetUp(this.button);
-                    state = OVRInput.Get(this.button);
-                }
-                else
-                {
-                    isDown = false;
-                    isUp = false;
-                    state = OVRInput.Get(this.axis1d) >= axisDeadzone;
-                }
-            }
-            else
-            {
-                isDown = false;
-                isUp = false;
-                state = false;
-            }
-            
-        }
-    }
-    /**********************************************************
-     * Class for handling 2D axis (joystick) inputs
-     * 
-     * Possible parameters to check:
-     * x: the x position of the axis
-     * y: the y position of the axis
-     * 
-    ***********************************************************/
-    public class Axis2DInput
-    {
-        private OVRInput.RawAxis2D axis2d = OVRInput.RawAxis2D.None;
-
-        public float x;
-        public float y;
-
-        public bool isEnabled = true;
-
-        public Axis2DInput(OVRInput.RawAxis2D a2d)
-        {
-            x = 0.0f;
-            y = 0.0f;
-            axis2d = a2d;
-        }
-
-        // Enable or disable the input
-        public void Enable()
-        {
-            isEnabled = true;
-        }
-        public void Disable()
-        {
-            isEnabled = false;
-        }
-
-        // Update the values of the control
-        public void GetStates()
-        {
-            if (isEnabled)
-            {
-                x = OVRInput.Get(axis2d).x;
-                y = OVRInput.Get(axis2d).y;
-            }
-            else
-            {
-                x = 0.0f;
-                y = 0.0f;
-            }
-        }
-
-    }
-
     public static void DisableMovement()
     {
         //teleportFunction.SetActive(false);
+        isEnabled = false;
         playerController.EnableLinearMovement = false;
         playerController.EnableRotation = false;
     }
@@ -186,6 +48,7 @@ public class InputHandler : MonoBehaviour
     public static void EnableMovement()
     {
         //teleportFunction.SetActive(true);
+        isEnabled = true;
         playerController.EnableLinearMovement = true;
         playerController.EnableRotation = true;
     }
@@ -197,27 +60,51 @@ public class InputHandler : MonoBehaviour
         player.transform.rotation = rotation;
     }
 
-    // Definition of all inputs
-    public static BoolInput interactButton = new BoolInput(OVRInput.RawButton.A);             
-    public static BoolInput staplerButton  = new BoolInput(OVRInput.RawAxis1D.RIndexTrigger);
-    public static BoolInput menuButton     = new BoolInput(OVRInput.RawButton.LThumbstick);
+    public enum ButtonControl
+    {
+        InteractButton = OVRInput.RawButton.A,
+        StaplerButton  = OVRInput.RawAxis1D.RIndexTrigger,
+        MenuButton     = OVRInput.RawButton.LThumbstick,
+        SelectButton   = OVRInput.RawButton.Y,
+    }
 
-    public static BoolInput selectButton   = new BoolInput(OVRInput.RawButton.Y);
+    public enum AxisControl
+    {
+        MoveAxis = OVRInput.RawAxis2D.LThumbstick,
+        LookAxis = OVRInput.RawAxis2D.RThumbstick
+    }
 
-    public static Axis2DInput movementAxis = new Axis2DInput(OVRInput.RawAxis2D.LThumbstick);
-    public static Axis2DInput lookAxis     = new Axis2DInput(OVRInput.RawAxis2D.RThumbstick);
+
+
+    public static Vector2 GetAxis(AxisControl? axis)
+    {
+        if (!isEnabled) { return (new Vector2(0, 0)); }
+        if (axis == null) { return (new Vector2(0,0)); }
+        return (OVRInput.Get((OVRInput.RawAxis2D)axis));
+    }
+
+    public static bool GetButton(ButtonControl? button)
+    {
+        if (!isEnabled) { return (false); }
+        if (button == null) { return(false); }
+        return (OVRInput.Get((OVRInput.RawButton)button));
+    }
+
+    public static bool GetButtonDown(ButtonControl? button)
+    {
+        if (button == null) { return (false); }
+        return (OVRInput.GetDown((OVRInput.RawButton)button));
+    }
+
+    public static bool GetButtonUp(ButtonControl? button)
+    {
+        if (button == null) { return (false); }
+        return (OVRInput.GetUp((OVRInput.RawButton)button));
+    }
 
     // Update is called once per frame
     void Update()
-    {
-        interactButton.GetStates();
-        staplerButton.GetStates();
-        menuButton.GetStates();
-
-        selectButton.GetStates();
-
-        movementAxis.GetStates();
-        lookAxis.GetStates();
+    { 
 
         position = player.transform.position;
         rotation = player.transform.rotation;

@@ -27,7 +27,7 @@ public class StaplerProjectile : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (InputHandler.staplerButton.state && timer >= staplerInterval)
+        if (InputHandler.GetButton(InputHandler.ButtonControl.StaplerButton) && timer >= staplerInterval)
         {
             ShootStapler();
             timer = 0.0f;
