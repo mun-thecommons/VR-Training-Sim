@@ -69,6 +69,9 @@ public class RobbieController : MonoBehaviour
         // Load in all of Robbie's Level 1 Dialog
         robbieLevel1Dialog.Add(new RobbieDialog("This is the Computing Support Desk. Touch the Red Vest to pick it up and start your shift!", Resources.Load<AudioClip>("RobbieAudio/lv1_1")));
         robbieLevel1Dialog.Add(new RobbieDialog("You are ready to start! Your first task is to set up the desk for the day", Resources.Load<AudioClip>("RobbieAudio/lv1_2")));
+        robbieLevel1Dialog.Add(new RobbieDialog("Start by plugging in the two phones at the front of the desk", Resources.Load<AudioClip>("RobbieAudio/lv1_3")));
+        robbieLevel1Dialog.Add(new RobbieDialog("Next you need to put out the keyboards and mice for the desk computers", Resources.Load<AudioClip>("RobbieAudio/lv1_4")));
+
 
         if (GameManager.GetGameState() == GameManager.GameState.Tutorial) { makerspaceDoor.isEnabled = false; } // Lock the player in the makerspace if they haven't completed the tutorial
         player = GameObject.FindGameObjectWithTag("Player");
@@ -257,6 +260,9 @@ public class RobbieController : MonoBehaviour
             case 2: // Just dialog...
                 break;
             case 3: // Plug in the phones
+                if(!GameManager.phonesPluggedIn) { return; } // Wait until all phones are plugged in
+                break;
+            case 4: // Put out mice and keyboards
                 break;
         }
 

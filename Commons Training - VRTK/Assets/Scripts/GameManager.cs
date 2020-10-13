@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     public static GameState gameState;
     public static int Level = 1;
 
+    // Level one state variables
+    public static bool phonesPluggedIn = false;
+
 
 
     // Use awake instead of start to set all game parameters before starting anything else
@@ -99,7 +102,23 @@ public class GameManager : MonoBehaviour
 
     void ActiveHandler()
     {
-        // TODO
+        switch(Level) // Only check variables about the level we are currently on
+        {
+            case 1:
+            {
+                    // START: Get the state of all phones
+                    bool phoneState = true;
+                    GameObject[] phones = GameObject.FindGameObjectsWithTag("Phone");
+                    foreach (GameObject phone in phones)
+                    {
+                        phoneState &= phone.GetComponent<PhoneController>().pluggedIn;
+                    }
+                    phonesPluggedIn = phoneState;
+                    // END: Get the stae of all phones
+            }
+            break; // LEVEL 1
+
+        }
     }
 
     void PauseHandler()

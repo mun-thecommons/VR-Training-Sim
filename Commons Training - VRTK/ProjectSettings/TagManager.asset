@@ -42,6 +42,7 @@ TagManager:
   - Robbie
   - GameManager
   - EthernetConnector
+  - Phone
   layers:
   - Default
   - TransparentFX

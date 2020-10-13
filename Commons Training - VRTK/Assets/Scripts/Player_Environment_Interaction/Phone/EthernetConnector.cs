@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ##Script Description
+/// This script is one of three that control the desk phones
+/// It simply resets the connector back to its inital position if the player lets go of it
+/// </summary>
 public class EthernetConnector : MonoBehaviour
 {
 
@@ -16,14 +20,9 @@ public class EthernetConnector : MonoBehaviour
         initialRotation = transform.rotation;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Hand"))
+        if (other.CompareTag("Hand")) // Has the player moved their hand away from the connector? If so reset its position
         {
             transform.position = initialLocation;
             transform.rotation = initialRotation;
