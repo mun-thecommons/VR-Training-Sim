@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public bool skipTutorial = false; // Skip the game tutorial
     public static bool hasVest = false;
 
+    public GameObject libraryRoof;
+
     public AudioSource playerAudio;
     public static AudioSource playerAudioSource; // Map audio source to a static variable to make it easier to play audio focused on player
 
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour
 /*        if (skipTutorial) { gameState = GameState.Active; }
         else { gameState = GameState.Tutorial; }*/
         gameState = GameState.Tutorial;
+
+        libraryRoof.SetActive(true); // Enable the roof. It's disabled usually so that the developer can see into the library while working on it
 
         robbie = GameObject.FindGameObjectWithTag("Robbie");
         robbieController = robbie.GetComponent<RobbieController>();

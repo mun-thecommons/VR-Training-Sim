@@ -7,6 +7,41 @@ TagManager:
   - Paper
   - Cart
   - Paper Box
+  - UIMenuOption
+  - USBox
+  - PlayerUIScore
+  - RoundPillar
+  - Printer
+  - MCQuestion
+  - Client
+  - StaplerCount
+  - Monitor
+  - MCButtons
+  - QuestionCanvas
+  - Teleportation
+  - BaseTrashCount
+  - LabSatisfactionScore
+  - InteractCanvas
+  - ScrapPaperCount
+  - PlasticTrashCount
+  - CoinCount
+  - MetalTrashCount
+  - Alien
+  - Coin
+  - StaplerCollectible
+  - StaplerThrow
+  - USB
+  - CampusCard
+  - RoundsStation
+  - RoundsCard
+  - SF_Door
+  - LabNet
+  - ITS
+  - Supervisor
+  - Hand
+  - Robbie
+  - GameManager
+  - EthernetConnector
   layers:
   - Default
   - TransparentFX

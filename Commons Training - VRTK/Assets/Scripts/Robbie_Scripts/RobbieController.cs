@@ -67,7 +67,8 @@ public class RobbieController : MonoBehaviour
         robbieTutorialDialog.Add(new RobbieDialog("Great job! Now follow me to the Computing Support desk to collect your vest and get started!", Resources.Load<AudioClip>("RobbieAudio/tut_99")));
 
         // Load in all of Robbie's Level 1 Dialog
-        robbieLevel1Dialog.Add(new RobbieDialog("This is the Computing Support Desk. Touch the Red Vest to pick it up and start your shift!", Resources.Load<AudioClip>("lv1_1")));
+        robbieLevel1Dialog.Add(new RobbieDialog("This is the Computing Support Desk. Touch the Red Vest to pick it up and start your shift!", Resources.Load<AudioClip>("RobbieAudio/lv1_1")));
+        robbieLevel1Dialog.Add(new RobbieDialog("You are ready to start! Your first task is to set up the desk for the day", Resources.Load<AudioClip>("RobbieAudio/lv1_2")));
 
         if (GameManager.GetGameState() == GameManager.GameState.Tutorial) { makerspaceDoor.isEnabled = false; } // Lock the player in the makerspace if they haven't completed the tutorial
         player = GameObject.FindGameObjectWithTag("Player");
@@ -248,6 +249,17 @@ public class RobbieController : MonoBehaviour
     int level1Location = 0;
     void Level1Handler()
     {
+        switch (level1Location)
+        {
+            case 1: // Waiting for red vest
+                if(!GameManager.hasVest) { return; } // Wait until player gets the vest
+                break;
+            case 2: // Just dialog...
+                break;
+            case 3: // Plug in the phones
+                break;
+        }
+
         if (audioRobbie.isPlaying) { return; } // Don't progress until the audio is done playing
 
         if (level1Location >= robbieLevel1Dialog.Count) // This is where level 1 ends
