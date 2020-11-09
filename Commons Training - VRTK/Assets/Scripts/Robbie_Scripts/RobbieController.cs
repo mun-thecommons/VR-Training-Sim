@@ -70,7 +70,10 @@ public class RobbieController : MonoBehaviour
         robbieLevel1Dialog.Add(new RobbieDialog("This is the Computing Support Desk. Touch the Red Vest to pick it up and start your shift!", Resources.Load<AudioClip>("RobbieAudio/lv1_1")));
         robbieLevel1Dialog.Add(new RobbieDialog("You are ready to start! Your first task is to set up the desk for the day", Resources.Load<AudioClip>("RobbieAudio/lv1_2")));
         robbieLevel1Dialog.Add(new RobbieDialog("Start by plugging in the two phones at the front of the desk", Resources.Load<AudioClip>("RobbieAudio/lv1_3")));
-        robbieLevel1Dialog.Add(new RobbieDialog("Next you need to put out the keyboards and mice for the desk computers", Resources.Load<AudioClip>("RobbieAudio/lv1_4")));
+        robbieLevel1Dialog.Add(new RobbieDialog("Next you need to turn on all the computers. Press the flashing red button next to the Rounds Monitor.", Resources.Load<AudioClip>("RobbieAudio/lv1_4")));
+        robbieLevel1Dialog.Add(new RobbieDialog("The last step is to unlock the safe. Touch it to open it up.", Resources.Load<AudioClip>("RobbieAudio/lv1_5")));
+
+        robbieLevel1Dialog.Add(new RobbieDialog("You've finished Level one, great job!", Resources.Load<AudioClip>("RobbieAudio/lv1_99")));
 
 
         if (GameManager.GetGameState() == GameManager.GameState.Tutorial) { makerspaceDoor.isEnabled = false; } // Lock the player in the makerspace if they haven't completed the tutorial
@@ -262,11 +265,16 @@ public class RobbieController : MonoBehaviour
             case 3: // Plug in the phones
                 if(!GameManager.phonesPluggedIn) { return; } // Wait until all phones are plugged in
                 break;
-            case 4: // Put out mice and keyboards
+            case 4: // Turn on computers
+                if (!GameManager.monitorsOn) { return; }
+                break;
+            case 5: // Unlock safe
+                if (!GameManager.safeOpen) { return; }
                 break;
         }
 
         if (audioRobbie.isPlaying) { return; } // Don't progress until the audio is done playing
+        if (GameManager.playerAudioSource.isPlaying) { return; } // Wait for any player audio to stop playing
 
         if (level1Location >= robbieLevel1Dialog.Count) // This is where level 1 ends
         {

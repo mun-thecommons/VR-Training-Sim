@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public bool skipTutorial = false; // Skip the game tutorial
     public static bool hasVest = false;
+    public static bool monitorsOn = false;
+    public static bool safeOpen = false;
 
     public GameObject libraryRoof;
 
@@ -66,7 +68,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
         // Game state machine
         switch (gameState)
         {

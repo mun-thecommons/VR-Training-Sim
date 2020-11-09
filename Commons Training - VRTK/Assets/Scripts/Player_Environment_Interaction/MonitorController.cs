@@ -19,9 +19,8 @@ public class MonitorController : MonoBehaviour
 
     public bool isBroken = false;
 
-    private Image monitorImg;
+    public Image monitorImg;
     private AudioSource source;
-
 
     private void Start()
     {
@@ -29,6 +28,7 @@ public class MonitorController : MonoBehaviour
 
         monitorImg = monitorCanvas.GetComponent<Image>();
         monitorImg.sprite = monitorWorkingSprite;
+
     }
 
     /*
