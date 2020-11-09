@@ -35,6 +35,7 @@ public class RobbieController : MonoBehaviour
 
     List<RobbieDialog> robbieTutorialDialog = new List<RobbieDialog>(); // List of dialog robbie will say during the tutorial
     List<RobbieDialog> robbieLevel1Dialog   = new List<RobbieDialog>(); // List of dialog for level 1
+    List<RobbieDialog> robbieLevel2Dialog   = new List<RobbieDialog>(); // List of dialog for level 2
 
     // Robbie things
     public GameObject robbieCanvas;
@@ -72,8 +73,12 @@ public class RobbieController : MonoBehaviour
         robbieLevel1Dialog.Add(new RobbieDialog("Start by plugging in the two phones at the front of the desk", Resources.Load<AudioClip>("RobbieAudio/lv1_3")));
         robbieLevel1Dialog.Add(new RobbieDialog("Next you need to turn on all the computers. Press the flashing red button next to the Rounds Monitor.", Resources.Load<AudioClip>("RobbieAudio/lv1_4")));
         robbieLevel1Dialog.Add(new RobbieDialog("The last step is to unlock the safe. Touch it to open it up.", Resources.Load<AudioClip>("RobbieAudio/lv1_5")));
+        robbieLevel1Dialog.Add(new RobbieDialog("You've finished Level One, great job!", Resources.Load<AudioClip>("RobbieAudio/lv1_99")));
 
-        robbieLevel1Dialog.Add(new RobbieDialog("You've finished Level one, great job!", Resources.Load<AudioClip>("RobbieAudio/lv1_99")));
+        // Load in all of Robbie's Level 2 Dialog
+        robbieLevel2Dialog.Add(new RobbieDialog("It's time to start Level Two, in this level we will be performing printer maintenance", Resources.Load<AudioClip>("RobbieAudio/lv2_1")));
+
+        robbieLevel2Dialog.Add(new RobbieDialog("You've finished Level Two, great job!", Resources.Load<AudioClip>("RobbieAudio/lv2_99")));
 
 
         if (GameManager.GetGameState() == GameManager.GameState.Tutorial) { makerspaceDoor.isEnabled = false; } // Lock the player in the makerspace if they haven't completed the tutorial
@@ -249,13 +254,16 @@ public class RobbieController : MonoBehaviour
             case 1:
                 Level1Handler();
                 break;
+            case 2:
+                Level2Handler();
+                break;
         }
     }
 
-    int level1Location = 0;
+    int levelLocation = 0;
     void Level1Handler()
     {
-        switch (level1Location)
+        switch (levelLocation)
         {
             case 1: // Waiting for red vest
                 if(!GameManager.hasVest) { return; } // Wait until player gets the vest
@@ -276,11 +284,34 @@ public class RobbieController : MonoBehaviour
         if (audioRobbie.isPlaying) { return; } // Don't progress until the audio is done playing
         if (GameManager.playerAudioSource.isPlaying) { return; } // Wait for any player audio to stop playing
 
-        if (level1Location >= robbieLevel1Dialog.Count) // This is where level 1 ends
+        if (levelLocation >= robbieLevel1Dialog.Count) // This is where level 1 ends
         {
+            GameManager.LevelComplete();
+            levelLocation = 0; // Reset the levelLocation index for level 2
             return;
         }    
 
-        Say(robbieLevel1Dialog[level1Location++]);
+        Say(robbieLevel1Dialog[levelLocation++]);
     }
+    void Level2Handler()
+    { 
+        switch (levelLocation)
+        {
+            case 1:     // Dialog
+                break;
+        }
+
+        if (audioRobbie.isPlaying) { return; } // Don't progress until the audio is done playing
+        if (GameManager.playerAudioSource.isPlaying) { return; } // Wait for any player audio to stop playing
+
+        if (levelLocation >= robbieLevel2Dialog.Count) // This is where level 2 ends
+        {
+            GameManager.LevelComplete();
+            levelLocation = 0; // Reset the levelLocation index for next level
+            return;
+        }
+
+        Say(robbieLevel2Dialog[levelLocation++]);
+    }
+
 }

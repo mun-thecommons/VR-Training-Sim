@@ -34,18 +34,24 @@ public class GameManager : MonoBehaviour
 
     public AudioSource playerAudio;
     public static AudioSource playerAudioSource; // Map audio source to a static variable to make it easier to play audio focused on player
+    
+    public AudioClip luAudio;
+    public static AudioClip levelUpAudio;
 
     private GameObject robbie;
     private RobbieController robbieController;
 
     private GameObject player;
+    private static ConfettiController confettiController;
 
     public static GameState gameState;
-    public static int Level = 1;
+    public static int Level;
 
     // Level one state variables
     public static bool phonesPluggedIn = false;
 
+    public int startingLevel = 1;
+    public float vol = 0.5f;
 
 
     // Use awake instead of start to set all game parameters before starting anything else
@@ -64,6 +70,10 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         playerAudioSource = playerAudio;
+        levelUpAudio = luAudio;
+        Level = startingLevel;
+
+        confettiController = FindObjectOfType<ConfettiController>();
     }
 
     void Update()
@@ -115,11 +125,18 @@ public class GameManager : MonoBehaviour
                         phoneState &= phone.GetComponent<PhoneController>().pluggedIn;
                     }
                     phonesPluggedIn = phoneState;
-                    // END: Get the stae of all phones
+                    // END: Get the state of all phones
             }
             break; // LEVEL 1
 
         }
+    }
+
+    public static void LevelComplete() // Handle Level end things and increment level counter
+    {
+        GameManager.playerAudioSource.PlayOneShot(levelUpAudio, 0.5f);
+        confettiController.throwConfetti();
+        Level++;
     }
 
     void PauseHandler()
