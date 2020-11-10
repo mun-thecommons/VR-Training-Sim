@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Control the button that turns all of the computers on
+/// 
+/// ##Detailed
+/// This script turns all computers on by updating the monitorsOn variable in the GameManager
+/// 
+/// </summary>
 public class ComputerButtonController : MonoBehaviour
 {
 
@@ -31,6 +38,7 @@ public class ComputerButtonController : MonoBehaviour
     {
         blinkTimer += Time.deltaTime;
 
+        // Code to blink red light on and off
         if (!pressed && blinkTimer >= blinkInterval)
         {
             if (buttonRenderer.material.color == Color.red)
