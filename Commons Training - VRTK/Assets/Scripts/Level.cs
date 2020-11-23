@@ -74,16 +74,7 @@ public class Level : MonoBehaviour
      * *********************************************/
     void Update()
     {
-        if (robbie.GetComponent<RobotController>().tutorialFinished)
-        {
-            if(MasterController.vestCollected == false)
-            {
-                countDownText.enabled = true;
-            }
-            timer -= Time.deltaTime;
-            WalkToDesk();
-            CheckLevel();
-        }
+
     }
 
     /************************************************

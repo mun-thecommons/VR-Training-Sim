@@ -64,13 +64,21 @@ public class PortController : MonoBehaviour
     {
         if (other.CompareTag("EthernetConnector")) // Did the player "plug in" the connector (i.e. bring the plug close to the port)
         {
-            foreach (GameObject light in statusLights)
+            if (GameManager.hasVest)
             {
-                light.GetComponent<Renderer>().material.SetColor("_Color", Color.green); // Make both the lights turn green
+                foreach (GameObject light in statusLights)
+                {
+                    light.GetComponent<Renderer>().material.SetColor("_Color", Color.green); // Make both the lights turn green
+                }
+                statusPointLight.color = Color.green; // Turn the actual illumination green
+                attachedPhone.pluggedIn = true; // Set the phone's state
+                portConnector.SetActive(true); // Turn on the port's connector so the player sees that it's plugged in
             }
-            statusPointLight.color = Color.green; // Turn the actual illumination green
-            attachedPhone.pluggedIn = true; // Set the phone's state
-            portConnector.SetActive(true); // Turn on the port's connector so the player sees that it's plugged in
+            else
+            {
+                GameManager.playerAudioSource.PlayOneShot(GameManager.deniedAudioClip);
+            }
+
         }
     }
 }

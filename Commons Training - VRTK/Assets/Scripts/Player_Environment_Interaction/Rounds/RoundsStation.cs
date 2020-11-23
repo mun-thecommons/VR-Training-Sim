@@ -12,8 +12,7 @@ public class RoundsStation : MonoBehaviour
 {
    //is the round station enabled
     public bool stationEnabled = true; 
-    //audio played when swipe complete
-    public AudioClip swipeComplete; 
+    //audio played when swipe complete 
 
     public GameObject roundsLight;
 
@@ -75,10 +74,18 @@ public class RoundsStation : MonoBehaviour
     {
         if (other.CompareTag("RoundsCard") && stationEnabled)
         {
-            RoundsController.stationsVisited++;
-            stationEnabled = false;
+            if (GameManager.hasVest)
+            {
+                RoundsController.stationsVisited++;
+                stationEnabled = false;
 
-            stationAudio.PlayOneShot(swipeComplete);
+                stationAudio.PlayOneShot(GameManager.successAudioClip);
+            }
+            else
+            {
+                GameManager.playerAudioSource.PlayOneShot(GameManager.deniedAudioClip);
+            }
+
         }
     }
 }

@@ -64,13 +64,21 @@ public class ComputerButtonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!pressed && other.CompareTag("Hand"))
+        if (!pressed && other.CompareTag("Hand")) // Make sure the player has the vest before doing anything
         {
-            GameManager.playerAudioSource.PlayOneShot(startupSound);
-            GameManager.monitorsOn = true;
+            if (GameManager.hasVest)
+            {
+                GameManager.playerAudioSource.PlayOneShot(startupSound);
+                GameManager.monitorsOn = true;
 
-            buttonAnim.SetTrigger("Press");
-            pressed = true;
+                buttonAnim.SetTrigger("Press");
+                pressed = true;
+            }
+            else
+            {
+                GameManager.playerAudioSource.PlayOneShot(GameManager.deniedAudioClip);
+            }
         }
+            
     }
 }

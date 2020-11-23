@@ -6,7 +6,7 @@ public class SafeController : MonoBehaviour
 {
 
     private Animator safeAnim;
-    public AudioClip successAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +17,17 @@ public class SafeController : MonoBehaviour
     {
         if (other.CompareTag("Hand") && !GameManager.safeOpen)
         {
-            GameManager.safeOpen = true;
-            GameManager.playerAudioSource.PlayOneShot(successAudio);
-            safeAnim.SetTrigger("Open");
+            if (GameManager.hasVest)
+            {
+                GameManager.safeOpen = true;
+                GameManager.playerAudioSource.PlayOneShot(GameManager.successAudioClip);
+                safeAnim.SetTrigger("Open");
+            }
+            else
+            {
+                GameManager.playerAudioSource.PlayOneShot(GameManager.deniedAudioClip);
+            }
+
         }
     }
 }

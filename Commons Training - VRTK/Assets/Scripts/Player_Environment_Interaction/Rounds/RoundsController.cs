@@ -18,10 +18,8 @@ public class RoundsController : MonoBehaviour
     public static float roundsInterval;
     public static int stationsVisited;
 
-    public bool roundsNeeded = false;
     
     private GameObject[] roundsStations;
-
 
     void Awake()
     {
@@ -48,13 +46,7 @@ public class RoundsController : MonoBehaviour
         {
             lastRounds = 0.0f;
             stationsVisited = 0;
-            roundsNeeded = false;
-
-            if (Level.level == 2)
-            {
-                Level.level2Round = true;
-            }
-            MasterController.ScoreModify(1, 0, 0, true, false);
+            GameManager.roundsNeeded = false;
         }
 
         // Enable all rounds stations when rounds are needed again
@@ -62,13 +54,13 @@ public class RoundsController : MonoBehaviour
          * All round stations are enabled when rounds are needed 
          * 
          */
-        if (lastRounds >= roundsInterval && !roundsNeeded)
+        if (lastRounds >= roundsInterval && !GameManager.roundsNeeded)
         {
             foreach (GameObject station in roundsStations)
             {
                 station.GetComponent<RoundsStation>().stationEnabled = true;
             }
-            roundsNeeded = true;
+            GameManager.roundsNeeded = true;
         }
     }
 }

@@ -26,15 +26,19 @@ public class GameManager : MonoBehaviour
     }
 
     public bool skipTutorial = false; // Skip the game tutorial
-    public static bool hasVest = false;
-    public static bool monitorsOn = false;
-    public static bool safeOpen = false;
+
 
     public GameObject libraryRoof;
 
     public AudioSource playerAudio;
     public static AudioSource playerAudioSource; // Map audio source to a static variable to make it easier to play audio focused on player
-    
+
+    public AudioClip successAudio;
+    public static AudioClip successAudioClip;
+
+    public AudioClip deniedAudio;
+    public static AudioClip deniedAudioClip;
+
     public AudioClip luAudio;
     public static AudioClip levelUpAudio;
 
@@ -47,11 +51,25 @@ public class GameManager : MonoBehaviour
     public static GameState gameState;
     public static int Level;
 
-    // Level one state variables
-    public static bool phonesPluggedIn = false;
-
-    public int startingLevel = 1;
+    public int startingLevel = 2;
     public float vol = 0.5f;
+
+
+    public static List<string> watchedVideos = new List<string>();
+    public static bool gameOver = false;
+
+    // Level one state variables
+    public static bool hasVest = false;
+    public static bool phonesPluggedIn = false;
+    public static bool monitorsOn = false;
+    public static bool safeOpen = false;
+
+    // Level two state variables
+    public static bool printersFilled = false;
+
+    // Level three state variables
+    public static bool roundsNeeded = true;
+
 
 
     // Use awake instead of start to set all game parameters before starting anything else
@@ -70,6 +88,8 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         playerAudioSource = playerAudio;
+        successAudioClip  = successAudio;
+        deniedAudioClip   = deniedAudio;
         levelUpAudio = luAudio;
         Level = startingLevel;
 
@@ -128,7 +148,22 @@ public class GameManager : MonoBehaviour
                     // END: Get the state of all phones
             }
             break; // LEVEL 1
-
+            case 2:
+            {
+                    bool filled = true;
+                    GameObject[] printers = GameObject.FindGameObjectsWithTag("Printer");
+                    Debug.Log(printers.Length);
+                    foreach (GameObject printer in printers)
+                    {
+                        filled &= printer.GetComponentInChildren<PrinterController>().isFilled;
+                    }
+                    printersFilled = filled;
+            }
+            break; // LEVEL 2
+            case 3:
+            {
+            }
+            break; // LEVEL 3
         }
     }
 
