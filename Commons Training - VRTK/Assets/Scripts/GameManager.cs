@@ -69,6 +69,11 @@ public class GameManager : MonoBehaviour
 
     // Level three state variables
     public static bool roundsNeeded = true;
+    public static bool monitorsBroken = false;
+    public static int monitorsFixed = 0;
+    public static int trashCollected = 0;
+    public static int scrapPaperCollected = 0;
+    public static int coinsCollected = 0;
 
 
 
@@ -162,6 +167,11 @@ public class GameManager : MonoBehaviour
             break; // LEVEL 2
             case 3:
             {
+                    if (watchedVideos.Contains("rounds") && !monitorsBroken) // Break some monitors after the rounds video has been watched TODO: scatter some trash
+                    {
+                        MonitorError.breakMonitors(10);
+                        monitorsBroken = true;
+                    }
             }
             break; // LEVEL 3
         }

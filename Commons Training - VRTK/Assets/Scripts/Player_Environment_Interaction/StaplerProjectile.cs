@@ -52,7 +52,7 @@ public class StaplerProjectile : MonoBehaviour
     {
         if (other.CompareTag("StaplerCollectible"))
         {
-            CollectibleManager.CollectStapler(other.gameObject.transform.position);
+            //CollectibleManager.CollectStapler(other.gameObject.transform.position);
             Destroy(other.gameObject);
         }
     }

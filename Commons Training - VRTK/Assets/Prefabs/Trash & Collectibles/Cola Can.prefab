@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2049107127006234668}
   - component: {fileID: 2038804603153400044}
   - component: {fileID: 2085283710707105340}
-  - component: {fileID: 3177562903523257783}
   - component: {fileID: -2954358954391876381}
   - component: {fileID: 2450029024614867916}
+  - component: {fileID: 3722777461322455187}
   m_Layer: 0
   m_Name: Cola Can
   m_TagString: PlasticTrashCount
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026084805095176322}
-  m_LocalRotation: {x: 0.29902184, y: 0.049276177, z: -0.33519655, w: 0.89207685}
+  m_LocalRotation: {x: 0.2990223, y: 0.049275894, z: -0.3351974, w: 0.89207643}
   m_LocalPosition: {x: 4.2222, y: 1.0673, z: -4.7952}
   m_LocalScale: {x: 1.7082028, y: 1.7082028, z: 1.7082028}
   m_Children: []
@@ -58,6 +58,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -69,6 +71,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -81,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2085283710707105340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94,18 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09494366, y: 0.15346396, z: 0.09029679}
   m_Center: {x: 0.000000007450581, y: 0.07673198, z: -0.000000007450581}
---- !u!114 &3177562903523257783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026084805095176322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c907224ff87f1cb4b9b4ea79075c5ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-2954358954391876381
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,3 +127,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &3722777461322455187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026084805095176322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eab5fce579f6489fc35778c0b8f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 1
+  collectAudio: {fileID: 8300000, guid: cf88ba0d12193d1448457be7598faf66, type: 3}

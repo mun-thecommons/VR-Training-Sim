@@ -105,10 +105,15 @@ public class RobbieController : MonoBehaviour
         robbieLevel3Dialog.Add(new RobbieDialog("The Card is on the desk between the paper and the staplers. If you lose the card it will reappear there.", Resources.Load<AudioClip>("RobbieAudio/lv3_3")));
         robbieLevel3Dialog.Add(new RobbieDialog("Grab the card and follow me to the first Rounds Station!", Resources.Load<AudioClip>("RobbieAudio/lv3_4")));
         robbieLevel3Dialog.Add(new RobbieDialog("This is a Rounds Station. Bring the card close to the blinking red light to turn it green.", Resources.Load<AudioClip>("RobbieAudio/lv3_5")));
-        robbieLevel3Dialog.Add(new RobbieDialog("Well done! There are three more rounds stations around The Commons: the Left Hall, the Classroom, and the Map Room.", Resources.Load<AudioClip>("RobbieAudio/lv3_6")));
-        robbieLevel3Dialog.Add(new RobbieDialog("I will follow you around as you find and scan your card on them all.", Resources.Load<AudioClip>("RobbieAudio/lv3_7")));
+        robbieLevel3Dialog.Add(new RobbieDialog("Well done! Now touch the big monitor to watch a short video on how to complete the rounds", Resources.Load<AudioClip>("RobbieAudio/lv3_6")));
+        robbieLevel3Dialog.Add(new RobbieDialog("As you're completing the rounds, touch monitors that have blue screens to fix them, and touch trash to clean it up.", Resources.Load<AudioClip>("RobbieAudio/lv3_7")));
         robbieLevel3Dialog.Add(new RobbieDialog("By the way, you can open a door by touching the red button on the left side of it. Let's go!", Resources.Load<AudioClip>("RobbieAudio/lv3_8")));
+
         robbieLevel3Dialog.Add(new RobbieDialog("That's the last station, well done! The monitor at the Computing support desk will tell you when you need to do the rounds again.", Resources.Load<AudioClip>("RobbieAudio/lv3_9")));
+
+        robbieLevel3Dialog.Add(new RobbieDialog("You finished the rounds, but you didn't fix enough broken computers. Remember to touch monitors that have blue screens to fix them.", Resources.Load<AudioClip>("RobbieAudio/lv3_10")));
+        robbieLevel3Dialog.Add(new RobbieDialog("You finished the rounds, but you didn't collect enough trash. Remember to touch trash to clean it up.", Resources.Load<AudioClip>("RobbieAudio/lv3_11")));
+
         robbieLevel3Dialog.Add(new RobbieDialog("You've finished Level Three, great job!", Resources.Load<AudioClip>("RobbieAudio/lv3_99")));
 
         // Load in all of Robbie's ending Dialog
@@ -441,17 +446,33 @@ public class RobbieController : MonoBehaviour
             case 5:     // Player needs to tap the rounds station with the card
                 if (RoundsController.stationsVisited == 0) { return; } // Wait until a station has been visited
                 break;
-            case 6:     // Robbie tells players about the other rounds stations
+            case 6:     // Watching rounds video
+                if (!GameManager.watchedVideos.Contains("rounds")) { return; } // Wait for player to finish watching the video
                 break;
             case 7:     // Rounds info
                 break;
             case 8:     // Door info and robbie follows player
                 if (audioRobbie.isPlaying) { return; }
-                if (GameManager.roundsNeeded) // When we get here after printers are filled, don't follow player again
+                if (GameManager.roundsNeeded) // When we get here after rounds, don't follow player again
                 {
                     FollowPlayer(FollowReason.DoingRounds);
                     return;
                 }
+                break;
+            case 9: // Congratulations and split dialog
+                if (GameManager.monitorsFixed < 5)
+                {
+                    //levelLocation = 10;
+                }
+                else if ((GameManager.trashCollected + GameManager.coinsCollected + GameManager.scrapPaperCollected) < 10)
+                {
+                    levelLocation = 11;
+                }
+                break;
+            case 10:    // Player didnt fix enough monitors
+                if ((GameManager.trashCollected + GameManager.coinsCollected + GameManager.scrapPaperCollected) >= 10) { levelLocation++; }
+                break;
+            case 11: // Player didnt collect enough trash
                 break;
 
 

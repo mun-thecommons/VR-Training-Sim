@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8159187638187493909}
   - component: {fileID: 5632791840213721480}
   - component: {fileID: 4629670221204387221}
-  - component: {fileID: 5079901864675919229}
   - component: {fileID: -4574785895526208948}
+  - component: {fileID: 3901933629256246936}
   m_Layer: 0
   m_Name: StaplerShoot
   m_TagString: StaplerThrow
@@ -58,6 +58,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -69,6 +71,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -81,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &5632791840213721480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -107,25 +111,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: 4300000, guid: 2c2a53f9e92bf4669b5594d6a962585f, type: 3}
---- !u!114 &5079901864675919229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8172754604093288383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23c12ae227cf304b8b178c1cdfdd2e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whiteSmokePrefab: {fileID: 100000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 3}
-  timeDestroy: 2
-  speed: 4
 --- !u!114 &-4574785895526208948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +128,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &3901933629256246936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172754604093288383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eab5fce579f6489fc35778c0b8f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 6
+  collectAudio: {fileID: 8300000, guid: 9a5877c3d2bd723439a1dffca780aff7, type: 3}

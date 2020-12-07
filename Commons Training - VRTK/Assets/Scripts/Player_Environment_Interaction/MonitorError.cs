@@ -11,6 +11,8 @@ public class MonitorError : MonoBehaviour
     public Sprite monitorOffSprite;
 
     public GameObject[] monitors;
+    public static GameObject[] monitorArr;
+
     public float minWait, maxWait;
 
     private float timer;
@@ -21,6 +23,8 @@ public class MonitorError : MonoBehaviour
     private void Start()
     {
         monitors = GameObject.FindGameObjectsWithTag("Monitor");
+        monitorArr = monitors;
+
         timer = 0.0f;
         timeToWait = Random.Range(minWait, maxWait);
 
@@ -48,5 +52,14 @@ public class MonitorError : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+    }
+    
+    public static void breakMonitors(int number) // Break some random number of monitors
+    {
+        for (int i = 0; i < number; i++)
+        {
+            int index = Random.Range(0, MonitorError.monitorArr.Length - 1);
+            MonitorError.monitorArr[index].GetComponent<MonitorController>().Break();
+        }
     }
 }

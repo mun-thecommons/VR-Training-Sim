@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3453225355478356951}
   - component: {fileID: 8191396339072366147}
-  - component: {fileID: 1447332977710051332}
   - component: {fileID: -6375516233537755448}
   - component: {fileID: -146514092836679674}
+  - component: {fileID: 813740541501995663}
   m_Layer: 0
   m_Name: Deodorant
   m_TagString: MetalTrashCount
@@ -49,18 +49,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05255575, y: 0.102979034, z: 0.051419668}
   m_Center: {x: 0.002181359, y: 0.054448582, z: -0.00046951638}
---- !u!114 &1447332977710051332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3453225355478634757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c907224ff87f1cb4b9b4ea79075c5ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-6375516233537755448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90,6 +78,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &813740541501995663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453225355478634757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eab5fce579f6489fc35778c0b8f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAudio: {fileID: 8300000, guid: cf88ba0d12193d1448457be7598faf66, type: 3}
 --- !u!1 &3453225355478642003
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +146,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -155,6 +159,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -167,6 +172,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3453225355478692177
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +227,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -232,6 +240,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -244,3 +253,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}

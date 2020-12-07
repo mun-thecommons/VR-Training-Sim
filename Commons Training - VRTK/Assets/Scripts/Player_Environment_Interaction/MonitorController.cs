@@ -49,6 +49,7 @@ public class MonitorController : MonoBehaviour
         source.PlayOneShot(fixSound);
         isBroken = false;
         monitorImg.GetComponent<Image>().sprite = monitorWorkingSprite;
+        GameManager.monitorsFixed++;
     }
 
     /*

@@ -43,6 +43,7 @@ TagManager:
   - GameManager
   - EthernetConnector
   - Phone
+  - SpawnPos
   layers:
   - Default
   - TransparentFX
