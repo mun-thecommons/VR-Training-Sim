@@ -314,7 +314,7 @@ namespace UMA.CharacterSystem
 #if UNITY_2018_3_OR_NEWER
 			var prefabStage = UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetPrefabStage(this.gameObject);
 			if (prefabStage != null)
-				DCBPath = prefabStage.prefabAssetPath;
+				DCBPath = prefabStage.assetPath;
 #endif
 			if (string.IsNullOrEmpty(DCBPath))
 			{

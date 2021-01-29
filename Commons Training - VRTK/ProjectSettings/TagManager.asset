@@ -44,6 +44,7 @@ TagManager:
   - EthernetConnector
   - Phone
   - SpawnPos
+  - UMA_Model
   layers:
   - Default
   - TransparentFX

@@ -30,9 +30,10 @@ public class DoorController : MonoBehaviour
     ***********************************************************/
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Hand"))
+        if(other.CompareTag("Hand"))   // '|| other.CompareTag("UMA_Model")' Added change did not affect anything
         {
             OpenDoor();
+            Debug.Log(other.tag);
         }
     }
 
